@@ -23,7 +23,7 @@ namespace Cakebox_Archive
 			InitializeComponent();
 			app = form;
 			_id = id;
-			discCakebox.DataSource = app.selectCakeboxToStore.DataSource;
+			discCakebox.DataSource = app.newDiscCakebox.DataSource;
 			discLabel.Text = label;
 			discCakebox.SelectedValue = cid;
 		}
