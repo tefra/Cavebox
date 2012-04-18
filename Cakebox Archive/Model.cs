@@ -18,7 +18,6 @@ namespace Cakebox_Archive
 	/// </summary>
 	public class Model
 	{
-
 		private static Model instance = new Model();
 		
 		public static Model Instance
@@ -37,7 +36,6 @@ namespace Cakebox_Archive
 				db = new SQLiteConnection(dbConnection);
 				db.Open();
 				Console.WriteLine("Starting up SQLite " + db.ServerVersion);
-				
 			}
 			catch(SQLiteException e)
 			{
@@ -93,7 +91,6 @@ namespace Cakebox_Archive
 			{
 				Console.WriteLine(e.Message);
 			}
-			
 		}
 		
 		public List<Index> fetchCakeboxes(String filter = null)

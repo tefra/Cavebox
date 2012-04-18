@@ -34,7 +34,7 @@ namespace Cakebox_Archive
 			Console.WriteLine("Application started...");
 			model = Model.Instance;
 			showCakeboxes(0, true);
-			scanDrive.DataSource = DriveInfo.GetDrives().Where(d => /*d.DriveType == DriveType.CDRom &&*/ d.IsReady == true).ToArray();
+			scanDrive.DataSource = DriveInfo.GetDrives().Where(d => d.DriveType == DriveType.CDRom && d.IsReady == true).ToArray();
 
 		}
 
@@ -547,7 +547,6 @@ namespace Cakebox_Archive
 			}
 		}
 
-		
 		private void CopyToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			Clipboard.SetDataObject(filesList, true);
