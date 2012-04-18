@@ -35,8 +35,8 @@ namespace Cakebox_Archive
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MassMove));
 			this.selectDiscs = new System.Windows.Forms.GroupBox();
-			this.selectCakebox = new System.Windows.Forms.ComboBox();
 			this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+			this.selectCakebox = new System.Windows.Forms.ComboBox();
 			this.toggleButton = new System.Windows.Forms.Button();
 			this.moveButton = new System.Windows.Forms.Button();
 			this.cancelButton = new System.Windows.Forms.Button();
@@ -50,18 +50,18 @@ namespace Cakebox_Archive
 			this.selectDiscs.Name = "selectDiscs";
 			this.selectDiscs.TabStop = false;
 			// 
+			// checkedListBox1
+			// 
+			resources.ApplyResources(this.checkedListBox1, "checkedListBox1");
+			this.checkedListBox1.FormattingEnabled = true;
+			this.checkedListBox1.Name = "checkedListBox1";
+			// 
 			// selectCakebox
 			// 
 			this.selectCakebox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.selectCakebox.FormattingEnabled = true;
 			resources.ApplyResources(this.selectCakebox, "selectCakebox");
 			this.selectCakebox.Name = "selectCakebox";
-			// 
-			// checkedListBox1
-			// 
-			resources.ApplyResources(this.checkedListBox1, "checkedListBox1");
-			this.checkedListBox1.FormattingEnabled = true;
-			this.checkedListBox1.Name = "checkedListBox1";
 			// 
 			// toggleButton
 			// 
@@ -92,6 +92,7 @@ namespace Cakebox_Archive
 			this.Controls.Add(this.selectDiscs);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
 			this.Name = "MassMove";
+			this.ShowInTaskbar = false;
 			this.selectDiscs.ResumeLayout(false);
 			this.ResumeLayout(false);
 		}

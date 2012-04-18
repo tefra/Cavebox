@@ -35,17 +35,11 @@ namespace Cakebox_Archive
 		{
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-			this.boxDiscSplitContainer = new System.Windows.Forms.SplitContainer();
-			this.cakeboxesGroupBox = new System.Windows.Forms.GroupBox();
-			this.cakeboxesListBox = new System.Windows.Forms.ListBox();
 			this.cakeboxesActionsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.editCakeboxMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.deleteCakeboxMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.massMoveDiscsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.discsGroupBox = new System.Windows.Forms.GroupBox();
-			this.discsListBox = new System.Windows.Forms.ListBox();
 			this.discsActionsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.editDiscMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.deleteDiscMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,11 +51,6 @@ namespace Cakebox_Archive
 			this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
 			this.sortDiscsAscendingMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.sortDiscsDescendingMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.filterGroupBox = new System.Windows.Forms.GroupBox();
-			this.clearFilterButton = new System.Windows.Forms.Button();
-			this.filterTextBox = new System.Windows.Forms.TextBox();
-			this.discFilesGroupBox = new System.Windows.Forms.GroupBox();
-			this.filesList = new System.Windows.Forms.RichTextBox();
 			this.filesListActionMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
@@ -88,8 +77,19 @@ namespace Cakebox_Archive
 			this.cakeboxStatsLabel = new System.Windows.Forms.ToolStripStatusLabel();
 			this.discStatsLabel = new System.Windows.Forms.ToolStripStatusLabel();
 			this.fileStatsLabel = new System.Windows.Forms.ToolStripStatusLabel();
-			this.tabControl1 = new System.Windows.Forms.TabControl();
-			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.discAddedLabel = new System.Windows.Forms.ToolStripStatusLabel();
+			this.discAddedValueLabel = new System.Windows.Forms.ToolStripStatusLabel();
+			this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+			this.scanLogActionsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.consoleActionsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.scanWorker = new System.ComponentModel.BackgroundWorker();
+			this.tabPage5 = new System.Windows.Forms.TabPage();
+			this.tabPage4 = new System.Windows.Forms.TabPage();
+			this.tabPage3 = new System.Windows.Forms.TabPage();
+			this.groupBox4 = new System.Windows.Forms.GroupBox();
+			this.console = new System.Windows.Forms.RichTextBox();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
 			this.selectCakeboxToStore = new System.Windows.Forms.ComboBox();
@@ -99,17 +99,36 @@ namespace Cakebox_Archive
 			this.label1 = new System.Windows.Forms.Label();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.scanLog = new System.Windows.Forms.RichTextBox();
-			this.scanLogActionsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.scanDriveGroupBox = new System.Windows.Forms.GroupBox();
 			this.scanDrive = new System.Windows.Forms.ComboBox();
+			this.discsListBox = new System.Windows.Forms.ListBox();
 			this.scanDriveButton = new System.Windows.Forms.Button();
-			this.tabPage3 = new System.Windows.Forms.TabPage();
-			this.groupBox4 = new System.Windows.Forms.GroupBox();
-			this.console = new System.Windows.Forms.RichTextBox();
-			this.consoleActionsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.scanWorker = new System.ComponentModel.BackgroundWorker();
+			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+			this.boxDiscSplitContainer = new System.Windows.Forms.SplitContainer();
+			this.cakeboxesGroupBox = new System.Windows.Forms.GroupBox();
+			this.cakeboxesListBox = new System.Windows.Forms.ListBox();
+			this.discsGroupBox = new System.Windows.Forms.GroupBox();
+			this.filterGroupBox = new System.Windows.Forms.GroupBox();
+			this.clearFilterButton = new System.Windows.Forms.Button();
+			this.filterTextBox = new System.Windows.Forms.TextBox();
+			this.discFilesGroupBox = new System.Windows.Forms.GroupBox();
+			this.filesList = new System.Windows.Forms.RichTextBox();
+			this.tabControl1 = new System.Windows.Forms.TabControl();
+			this.cakeboxesActionsMenu.SuspendLayout();
+			this.discsActionsMenu.SuspendLayout();
+			this.filesListActionMenu.SuspendLayout();
+			this.menuStrip.SuspendLayout();
+			this.statusStrip.SuspendLayout();
+			this.scanLogActionsMenu.SuspendLayout();
+			this.consoleActionsMenu.SuspendLayout();
+			this.tabPage3.SuspendLayout();
+			this.groupBox4.SuspendLayout();
+			this.tabPage2.SuspendLayout();
+			this.groupBox3.SuspendLayout();
+			this.groupBox2.SuspendLayout();
+			this.scanDriveGroupBox.SuspendLayout();
+			this.tabPage1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
@@ -119,73 +138,11 @@ namespace Cakebox_Archive
 			this.boxDiscSplitContainer.Panel2.SuspendLayout();
 			this.boxDiscSplitContainer.SuspendLayout();
 			this.cakeboxesGroupBox.SuspendLayout();
-			this.cakeboxesActionsMenu.SuspendLayout();
 			this.discsGroupBox.SuspendLayout();
-			this.discsActionsMenu.SuspendLayout();
 			this.filterGroupBox.SuspendLayout();
 			this.discFilesGroupBox.SuspendLayout();
-			this.filesListActionMenu.SuspendLayout();
-			this.menuStrip.SuspendLayout();
-			this.statusStrip.SuspendLayout();
 			this.tabControl1.SuspendLayout();
-			this.tabPage1.SuspendLayout();
-			this.tabPage2.SuspendLayout();
-			this.groupBox3.SuspendLayout();
-			this.groupBox2.SuspendLayout();
-			this.scanLogActionsMenu.SuspendLayout();
-			this.scanDriveGroupBox.SuspendLayout();
-			this.tabPage3.SuspendLayout();
-			this.groupBox4.SuspendLayout();
-			this.consoleActionsMenu.SuspendLayout();
 			this.SuspendLayout();
-			// 
-			// splitContainer1
-			// 
-			resources.ApplyResources(this.splitContainer1, "splitContainer1");
-			this.splitContainer1.Name = "splitContainer1";
-			// 
-			// splitContainer1.Panel1
-			// 
-			this.splitContainer1.Panel1.Controls.Add(this.boxDiscSplitContainer);
-			this.splitContainer1.Panel1.Controls.Add(this.filterGroupBox);
-			// 
-			// splitContainer1.Panel2
-			// 
-			this.splitContainer1.Panel2.Controls.Add(this.discFilesGroupBox);
-			// 
-			// boxDiscSplitContainer
-			// 
-			resources.ApplyResources(this.boxDiscSplitContainer, "boxDiscSplitContainer");
-			this.boxDiscSplitContainer.Name = "boxDiscSplitContainer";
-			// 
-			// boxDiscSplitContainer.Panel1
-			// 
-			this.boxDiscSplitContainer.Panel1.Controls.Add(this.cakeboxesGroupBox);
-			// 
-			// boxDiscSplitContainer.Panel2
-			// 
-			this.boxDiscSplitContainer.Panel2.Controls.Add(this.discsGroupBox);
-			// 
-			// cakeboxesGroupBox
-			// 
-			this.cakeboxesGroupBox.Controls.Add(this.cakeboxesListBox);
-			resources.ApplyResources(this.cakeboxesGroupBox, "cakeboxesGroupBox");
-			this.cakeboxesGroupBox.Name = "cakeboxesGroupBox";
-			this.cakeboxesGroupBox.TabStop = false;
-			// 
-			// cakeboxesListBox
-			// 
-			this.cakeboxesListBox.ContextMenuStrip = this.cakeboxesActionsMenu;
-			this.cakeboxesListBox.DisplayMember = "Value";
-			resources.ApplyResources(this.cakeboxesListBox, "cakeboxesListBox");
-			this.cakeboxesListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-			this.cakeboxesListBox.FormattingEnabled = true;
-			this.cakeboxesListBox.Name = "cakeboxesListBox";
-			this.cakeboxesListBox.ValueMember = "Id";
-			this.cakeboxesListBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBoxDrawItem);
-			this.cakeboxesListBox.SelectedValueChanged += new System.EventHandler(this.showDiscs);
-			this.cakeboxesListBox.DoubleClick += new System.EventHandler(this.openEditCakeboxForm);
-			this.cakeboxesListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CakeboxesListBoxMouseDown);
 			// 
 			// cakeboxesActionsMenu
 			// 
@@ -220,27 +177,6 @@ namespace Cakebox_Archive
 			resources.ApplyResources(this.massMoveDiscsMenuItem, "massMoveDiscsMenuItem");
 			this.massMoveDiscsMenuItem.Name = "massMoveDiscsMenuItem";
 			// 
-			// discsGroupBox
-			// 
-			this.discsGroupBox.Controls.Add(this.discsListBox);
-			resources.ApplyResources(this.discsGroupBox, "discsGroupBox");
-			this.discsGroupBox.Name = "discsGroupBox";
-			this.discsGroupBox.TabStop = false;
-			// 
-			// discsListBox
-			// 
-			this.discsListBox.ContextMenuStrip = this.discsActionsMenu;
-			this.discsListBox.DisplayMember = "Value";
-			resources.ApplyResources(this.discsListBox, "discsListBox");
-			this.discsListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-			this.discsListBox.FormattingEnabled = true;
-			this.discsListBox.Name = "discsListBox";
-			this.discsListBox.ValueMember = "Id";
-			this.discsListBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBoxDrawItem);
-			this.discsListBox.SelectedValueChanged += new System.EventHandler(this.showFiles);
-			this.discsListBox.DoubleClick += new System.EventHandler(this.openEditDiscForm);
-			this.discsListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DiscsListBoxMouseDown);
-			// 
 			// discsActionsMenu
 			// 
 			this.discsActionsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -250,6 +186,7 @@ namespace Cakebox_Archive
 									this.sortDiscsMenuItem});
 			this.discsActionsMenu.Name = "discsActionsMenu";
 			resources.ApplyResources(this.discsActionsMenu, "discsActionsMenu");
+			this.discsActionsMenu.Opening += new System.ComponentModel.CancelEventHandler(this.DiscsActionsMenuOpening);
 			// 
 			// editDiscMenuItem
 			// 
@@ -318,42 +255,6 @@ namespace Cakebox_Archive
 			this.sortDiscsDescendingMenuItem.Name = "sortDiscsDescendingMenuItem";
 			resources.ApplyResources(this.sortDiscsDescendingMenuItem, "sortDiscsDescendingMenuItem");
 			this.sortDiscsDescendingMenuItem.Click += new System.EventHandler(this.sortDiscs);
-			// 
-			// filterGroupBox
-			// 
-			resources.ApplyResources(this.filterGroupBox, "filterGroupBox");
-			this.filterGroupBox.Controls.Add(this.clearFilterButton);
-			this.filterGroupBox.Controls.Add(this.filterTextBox);
-			this.filterGroupBox.Name = "filterGroupBox";
-			this.filterGroupBox.TabStop = false;
-			// 
-			// clearFilterButton
-			// 
-			resources.ApplyResources(this.clearFilterButton, "clearFilterButton");
-			this.clearFilterButton.Name = "clearFilterButton";
-			this.clearFilterButton.UseVisualStyleBackColor = true;
-			this.clearFilterButton.Click += new System.EventHandler(this.filterOff);
-			// 
-			// filterTextBox
-			// 
-			resources.ApplyResources(this.filterTextBox, "filterTextBox");
-			this.filterTextBox.Name = "filterTextBox";
-			this.filterTextBox.TextChanged += new System.EventHandler(this.filter);
-			// 
-			// discFilesGroupBox
-			// 
-			this.discFilesGroupBox.Controls.Add(this.filesList);
-			resources.ApplyResources(this.discFilesGroupBox, "discFilesGroupBox");
-			this.discFilesGroupBox.Name = "discFilesGroupBox";
-			this.discFilesGroupBox.TabStop = false;
-			// 
-			// filesList
-			// 
-			this.filesList.BackColor = System.Drawing.SystemColors.Window;
-			this.filesList.ContextMenuStrip = this.filesListActionMenu;
-			resources.ApplyResources(this.filesList, "filesList");
-			this.filesList.Name = "filesList";
-			this.filesList.ReadOnly = true;
 			// 
 			// filesListActionMenu
 			// 
@@ -507,7 +408,9 @@ namespace Cakebox_Archive
 			this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
 									this.cakeboxStatsLabel,
 									this.discStatsLabel,
-									this.fileStatsLabel});
+									this.fileStatsLabel,
+									this.discAddedLabel,
+									this.discAddedValueLabel});
 			resources.ApplyResources(this.statusStrip, "statusStrip");
 			this.statusStrip.Name = "statusStrip";
 			// 
@@ -528,21 +431,88 @@ namespace Cakebox_Archive
 			this.fileStatsLabel.Name = "fileStatsLabel";
 			resources.ApplyResources(this.fileStatsLabel, "fileStatsLabel");
 			// 
-			// tabControl1
+			// discAddedLabel
 			// 
-			this.tabControl1.Controls.Add(this.tabPage1);
-			this.tabControl1.Controls.Add(this.tabPage2);
-			this.tabControl1.Controls.Add(this.tabPage3);
-			resources.ApplyResources(this.tabControl1, "tabControl1");
-			this.tabControl1.Name = "tabControl1";
-			this.tabControl1.SelectedIndex = 0;
+			this.discAddedLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
+			this.discAddedLabel.Margin = new System.Windows.Forms.Padding(0, 3, -5, 2);
+			this.discAddedLabel.Name = "discAddedLabel";
+			resources.ApplyResources(this.discAddedLabel, "discAddedLabel");
 			// 
-			// tabPage1
+			// discAddedValueLabel
 			// 
-			this.tabPage1.Controls.Add(this.splitContainer1);
-			resources.ApplyResources(this.tabPage1, "tabPage1");
-			this.tabPage1.Name = "tabPage1";
-			this.tabPage1.UseVisualStyleBackColor = true;
+			this.discAddedValueLabel.Name = "discAddedValueLabel";
+			resources.ApplyResources(this.discAddedValueLabel, "discAddedValueLabel");
+			// 
+			// toolStripStatusLabel2
+			// 
+			this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+			resources.ApplyResources(this.toolStripStatusLabel2, "toolStripStatusLabel2");
+			// 
+			// scanLogActionsMenu
+			// 
+			this.scanLogActionsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.resetToolStripMenuItem});
+			this.scanLogActionsMenu.Name = "scanLogActionsMenu";
+			resources.ApplyResources(this.scanLogActionsMenu, "scanLogActionsMenu");
+			// 
+			// resetToolStripMenuItem
+			// 
+			this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
+			resources.ApplyResources(this.resetToolStripMenuItem, "resetToolStripMenuItem");
+			this.resetToolStripMenuItem.Click += new System.EventHandler(this.scanWorkerReset);
+			// 
+			// consoleActionsMenu
+			// 
+			this.consoleActionsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.clearToolStripMenuItem});
+			this.consoleActionsMenu.Name = "consoleActionsMenu";
+			resources.ApplyResources(this.consoleActionsMenu, "consoleActionsMenu");
+			// 
+			// clearToolStripMenuItem
+			// 
+			this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
+			resources.ApplyResources(this.clearToolStripMenuItem, "clearToolStripMenuItem");
+			this.clearToolStripMenuItem.Click += new System.EventHandler(this.clearConsole);
+			// 
+			// scanWorker
+			// 
+			this.scanWorker.WorkerSupportsCancellation = true;
+			this.scanWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.scanWorkerDoWork);
+			this.scanWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.scanWorkerCompleted);
+			// 
+			// tabPage5
+			// 
+			resources.ApplyResources(this.tabPage5, "tabPage5");
+			this.tabPage5.Name = "tabPage5";
+			this.tabPage5.UseVisualStyleBackColor = true;
+			// 
+			// tabPage4
+			// 
+			resources.ApplyResources(this.tabPage4, "tabPage4");
+			this.tabPage4.Name = "tabPage4";
+			this.tabPage4.UseVisualStyleBackColor = true;
+			// 
+			// tabPage3
+			// 
+			this.tabPage3.Controls.Add(this.groupBox4);
+			resources.ApplyResources(this.tabPage3, "tabPage3");
+			this.tabPage3.Name = "tabPage3";
+			this.tabPage3.UseVisualStyleBackColor = true;
+			// 
+			// groupBox4
+			// 
+			resources.ApplyResources(this.groupBox4, "groupBox4");
+			this.groupBox4.Controls.Add(this.console);
+			this.groupBox4.Name = "groupBox4";
+			this.groupBox4.TabStop = false;
+			// 
+			// console
+			// 
+			this.console.BackColor = System.Drawing.SystemColors.Window;
+			this.console.ContextMenuStrip = this.consoleActionsMenu;
+			resources.ApplyResources(this.console, "console");
+			this.console.Name = "console";
+			this.console.ReadOnly = true;
 			// 
 			// tabPage2
 			// 
@@ -611,19 +581,6 @@ namespace Cakebox_Archive
 			this.scanLog.Name = "scanLog";
 			this.scanLog.ReadOnly = true;
 			// 
-			// scanLogActionsMenu
-			// 
-			this.scanLogActionsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-									this.resetToolStripMenuItem});
-			this.scanLogActionsMenu.Name = "scanLogActionsMenu";
-			resources.ApplyResources(this.scanLogActionsMenu, "scanLogActionsMenu");
-			// 
-			// resetToolStripMenuItem
-			// 
-			this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
-			resources.ApplyResources(this.resetToolStripMenuItem, "resetToolStripMenuItem");
-			this.resetToolStripMenuItem.Click += new System.EventHandler(this.scanWorkerReset);
-			// 
 			// scanDriveGroupBox
 			// 
 			resources.ApplyResources(this.scanDriveGroupBox, "scanDriveGroupBox");
@@ -640,6 +597,20 @@ namespace Cakebox_Archive
 			this.scanDrive.FormattingEnabled = true;
 			this.scanDrive.Name = "scanDrive";
 			// 
+			// discsListBox
+			// 
+			this.discsListBox.ContextMenuStrip = this.discsActionsMenu;
+			this.discsListBox.DisplayMember = "Value";
+			resources.ApplyResources(this.discsListBox, "discsListBox");
+			this.discsListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+			this.discsListBox.FormattingEnabled = true;
+			this.discsListBox.Name = "discsListBox";
+			this.discsListBox.ValueMember = "Id";
+			this.discsListBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBoxDrawItem);
+			this.discsListBox.SelectedValueChanged += new System.EventHandler(this.showFiles);
+			this.discsListBox.DoubleClick += new System.EventHandler(this.openEditDiscForm);
+			this.discsListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DiscsListBoxMouseDown);
+			// 
 			// scanDriveButton
 			// 
 			resources.ApplyResources(this.scanDriveButton, "scanDriveButton");
@@ -647,46 +618,114 @@ namespace Cakebox_Archive
 			this.scanDriveButton.UseVisualStyleBackColor = true;
 			this.scanDriveButton.Click += new System.EventHandler(this.scanWorkerToggle);
 			// 
-			// tabPage3
+			// tabPage1
 			// 
-			this.tabPage3.Controls.Add(this.groupBox4);
-			resources.ApplyResources(this.tabPage3, "tabPage3");
-			this.tabPage3.Name = "tabPage3";
-			this.tabPage3.UseVisualStyleBackColor = true;
+			this.tabPage1.BackColor = System.Drawing.SystemColors.Window;
+			this.tabPage1.Controls.Add(this.splitContainer1);
+			resources.ApplyResources(this.tabPage1, "tabPage1");
+			this.tabPage1.Name = "tabPage1";
 			// 
-			// groupBox4
+			// splitContainer1
 			// 
-			resources.ApplyResources(this.groupBox4, "groupBox4");
-			this.groupBox4.Controls.Add(this.console);
-			this.groupBox4.Name = "groupBox4";
-			this.groupBox4.TabStop = false;
+			resources.ApplyResources(this.splitContainer1, "splitContainer1");
+			this.splitContainer1.Name = "splitContainer1";
 			// 
-			// console
+			// splitContainer1.Panel1
 			// 
-			this.console.BackColor = System.Drawing.SystemColors.Window;
-			this.console.ContextMenuStrip = this.consoleActionsMenu;
-			resources.ApplyResources(this.console, "console");
-			this.console.Name = "console";
-			this.console.ReadOnly = true;
+			this.splitContainer1.Panel1.Controls.Add(this.boxDiscSplitContainer);
+			this.splitContainer1.Panel1.Controls.Add(this.filterGroupBox);
 			// 
-			// consoleActionsMenu
+			// splitContainer1.Panel2
 			// 
-			this.consoleActionsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-									this.clearToolStripMenuItem});
-			this.consoleActionsMenu.Name = "consoleActionsMenu";
-			resources.ApplyResources(this.consoleActionsMenu, "consoleActionsMenu");
+			this.splitContainer1.Panel2.Controls.Add(this.discFilesGroupBox);
 			// 
-			// clearToolStripMenuItem
+			// boxDiscSplitContainer
 			// 
-			this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-			resources.ApplyResources(this.clearToolStripMenuItem, "clearToolStripMenuItem");
-			this.clearToolStripMenuItem.Click += new System.EventHandler(this.clearConsole);
+			resources.ApplyResources(this.boxDiscSplitContainer, "boxDiscSplitContainer");
+			this.boxDiscSplitContainer.Name = "boxDiscSplitContainer";
 			// 
-			// scanWorker
+			// boxDiscSplitContainer.Panel1
 			// 
-			this.scanWorker.WorkerSupportsCancellation = true;
-			this.scanWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.scanWorkerDoWork);
-			this.scanWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.scanWorkerCompleted);
+			this.boxDiscSplitContainer.Panel1.Controls.Add(this.cakeboxesGroupBox);
+			// 
+			// boxDiscSplitContainer.Panel2
+			// 
+			this.boxDiscSplitContainer.Panel2.Controls.Add(this.discsGroupBox);
+			// 
+			// cakeboxesGroupBox
+			// 
+			this.cakeboxesGroupBox.Controls.Add(this.cakeboxesListBox);
+			resources.ApplyResources(this.cakeboxesGroupBox, "cakeboxesGroupBox");
+			this.cakeboxesGroupBox.Name = "cakeboxesGroupBox";
+			this.cakeboxesGroupBox.TabStop = false;
+			// 
+			// cakeboxesListBox
+			// 
+			this.cakeboxesListBox.ContextMenuStrip = this.cakeboxesActionsMenu;
+			this.cakeboxesListBox.DisplayMember = "Value";
+			resources.ApplyResources(this.cakeboxesListBox, "cakeboxesListBox");
+			this.cakeboxesListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+			this.cakeboxesListBox.FormattingEnabled = true;
+			this.cakeboxesListBox.Name = "cakeboxesListBox";
+			this.cakeboxesListBox.ValueMember = "Id";
+			this.cakeboxesListBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBoxDrawItem);
+			this.cakeboxesListBox.SelectedValueChanged += new System.EventHandler(this.showDiscs);
+			this.cakeboxesListBox.DoubleClick += new System.EventHandler(this.openEditCakeboxForm);
+			this.cakeboxesListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CakeboxesListBoxMouseDown);
+			// 
+			// discsGroupBox
+			// 
+			this.discsGroupBox.Controls.Add(this.discsListBox);
+			resources.ApplyResources(this.discsGroupBox, "discsGroupBox");
+			this.discsGroupBox.Name = "discsGroupBox";
+			this.discsGroupBox.TabStop = false;
+			// 
+			// filterGroupBox
+			// 
+			resources.ApplyResources(this.filterGroupBox, "filterGroupBox");
+			this.filterGroupBox.Controls.Add(this.clearFilterButton);
+			this.filterGroupBox.Controls.Add(this.filterTextBox);
+			this.filterGroupBox.Name = "filterGroupBox";
+			this.filterGroupBox.TabStop = false;
+			// 
+			// clearFilterButton
+			// 
+			resources.ApplyResources(this.clearFilterButton, "clearFilterButton");
+			this.clearFilterButton.Name = "clearFilterButton";
+			this.clearFilterButton.UseVisualStyleBackColor = true;
+			this.clearFilterButton.Click += new System.EventHandler(this.filterOff);
+			// 
+			// filterTextBox
+			// 
+			resources.ApplyResources(this.filterTextBox, "filterTextBox");
+			this.filterTextBox.Name = "filterTextBox";
+			this.filterTextBox.TextChanged += new System.EventHandler(this.filter);
+			// 
+			// discFilesGroupBox
+			// 
+			this.discFilesGroupBox.Controls.Add(this.filesList);
+			resources.ApplyResources(this.discFilesGroupBox, "discFilesGroupBox");
+			this.discFilesGroupBox.Name = "discFilesGroupBox";
+			this.discFilesGroupBox.TabStop = false;
+			// 
+			// filesList
+			// 
+			this.filesList.BackColor = System.Drawing.SystemColors.Window;
+			this.filesList.ContextMenuStrip = this.filesListActionMenu;
+			resources.ApplyResources(this.filesList, "filesList");
+			this.filesList.Name = "filesList";
+			this.filesList.ReadOnly = true;
+			// 
+			// tabControl1
+			// 
+			this.tabControl1.Controls.Add(this.tabPage1);
+			this.tabControl1.Controls.Add(this.tabPage2);
+			this.tabControl1.Controls.Add(this.tabPage3);
+			this.tabControl1.Controls.Add(this.tabPage4);
+			this.tabControl1.Controls.Add(this.tabPage5);
+			resources.ApplyResources(this.tabControl1, "tabControl1");
+			this.tabControl1.Name = "tabControl1";
+			this.tabControl1.SelectedIndex = 0;
 			// 
 			// MainForm
 			// 
@@ -696,6 +735,24 @@ namespace Cakebox_Archive
 			this.Controls.Add(this.statusStrip);
 			this.Controls.Add(this.menuStrip);
 			this.Name = "MainForm";
+			this.Load += new System.EventHandler(this.MainFormLoad);
+			this.cakeboxesActionsMenu.ResumeLayout(false);
+			this.discsActionsMenu.ResumeLayout(false);
+			this.filesListActionMenu.ResumeLayout(false);
+			this.menuStrip.ResumeLayout(false);
+			this.menuStrip.PerformLayout();
+			this.statusStrip.ResumeLayout(false);
+			this.statusStrip.PerformLayout();
+			this.scanLogActionsMenu.ResumeLayout(false);
+			this.consoleActionsMenu.ResumeLayout(false);
+			this.tabPage3.ResumeLayout(false);
+			this.groupBox4.ResumeLayout(false);
+			this.tabPage2.ResumeLayout(false);
+			this.groupBox3.ResumeLayout(false);
+			this.groupBox3.PerformLayout();
+			this.groupBox2.ResumeLayout(false);
+			this.scanDriveGroupBox.ResumeLayout(false);
+			this.tabPage1.ResumeLayout(false);
 			this.splitContainer1.Panel1.ResumeLayout(false);
 			this.splitContainer1.Panel2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -705,31 +762,20 @@ namespace Cakebox_Archive
 			((System.ComponentModel.ISupportInitialize)(this.boxDiscSplitContainer)).EndInit();
 			this.boxDiscSplitContainer.ResumeLayout(false);
 			this.cakeboxesGroupBox.ResumeLayout(false);
-			this.cakeboxesActionsMenu.ResumeLayout(false);
 			this.discsGroupBox.ResumeLayout(false);
-			this.discsActionsMenu.ResumeLayout(false);
 			this.filterGroupBox.ResumeLayout(false);
 			this.filterGroupBox.PerformLayout();
 			this.discFilesGroupBox.ResumeLayout(false);
-			this.filesListActionMenu.ResumeLayout(false);
-			this.menuStrip.ResumeLayout(false);
-			this.menuStrip.PerformLayout();
-			this.statusStrip.ResumeLayout(false);
-			this.statusStrip.PerformLayout();
 			this.tabControl1.ResumeLayout(false);
-			this.tabPage1.ResumeLayout(false);
-			this.tabPage2.ResumeLayout(false);
-			this.groupBox3.ResumeLayout(false);
-			this.groupBox3.PerformLayout();
-			this.groupBox2.ResumeLayout(false);
-			this.scanLogActionsMenu.ResumeLayout(false);
-			this.scanDriveGroupBox.ResumeLayout(false);
-			this.tabPage3.ResumeLayout(false);
-			this.groupBox4.ResumeLayout(false);
-			this.consoleActionsMenu.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.TabPage tabPage5;
+		private System.ComponentModel.BackgroundWorker scanWorker;
+		private System.Windows.Forms.TabPage tabPage4;
+		private System.Windows.Forms.ToolStripStatusLabel discAddedValueLabel;
+		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+		private System.Windows.Forms.ToolStripStatusLabel discAddedLabel;
 		private System.Windows.Forms.ToolStripMenuItem resetToolStripMenuItem;
 		private System.Windows.Forms.ContextMenuStrip scanLogActionsMenu;
 		private System.Windows.Forms.ToolStripMenuItem youtubeToolStripMenuItem;
@@ -760,7 +806,6 @@ namespace Cakebox_Archive
 		private System.Windows.Forms.ToolStripMenuItem deleteCakeboxMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem editCakeboxMenuItem;
 		private System.Windows.Forms.ContextMenuStrip cakeboxesActionsMenu;
-		private System.ComponentModel.BackgroundWorker scanWorker;
 		private System.Windows.Forms.ToolStripStatusLabel fileStatsLabel;
 		private System.Windows.Forms.ToolStripStatusLabel discStatsLabel;
 		private System.Windows.Forms.ToolStripStatusLabel cakeboxStatsLabel;

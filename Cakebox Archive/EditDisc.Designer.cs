@@ -96,6 +96,7 @@ namespace Cakebox_Archive
 			this.Controls.Add(this.label1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Name = "EditDisc";
+			this.ShowInTaskbar = false;
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}

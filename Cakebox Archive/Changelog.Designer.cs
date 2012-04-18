@@ -52,6 +52,7 @@ namespace Cakebox_Archive
 			this.Controls.Add(this.changelogTextBox);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
 			this.Name = "Changelog";
+			this.ShowInTaskbar = false;
 			this.ResumeLayout(false);
 		}
 		private System.Windows.Forms.RichTextBox changelogTextBox;

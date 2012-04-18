@@ -71,6 +71,7 @@ namespace Cakebox_Archive
 			this.Controls.Add(this.cakeboxLabel);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Name = "EditCakebox";
+			this.ShowInTaskbar = false;
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
