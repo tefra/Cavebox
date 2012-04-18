@@ -276,9 +276,9 @@ namespace Cakebox_Archive
 				DateTime Jan1st1970 = new DateTime (1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 				int added =  (int) (DateTime.UtcNow - Jan1st1970).TotalSeconds;
 				string clabel = newDiscCakebox.Text;
-				int cid = Convert.ToInt32(newDiscCakebox.SelectedValue.ToString());
+				string cid = newDiscCakebox.SelectedValue.ToString();
 				
-				model.addNewDisc(label, files, scanTotalFiles, cid, added);
+				model.addDisc(label, files, scanTotalFiles.ToString(), cid, added.ToString());
 				showCakeboxes();
 				refreshStatusBar(false, true);
 				scanLog.AppendText(String.Format("\nDisc '{0}' was added in cakebox '{1}'", label, clabel));
@@ -333,7 +333,16 @@ namespace Cakebox_Archive
 				refreshStatusBar(true, false);
 			}
 		}
+		
+		void openMassMoveForm(object sender, EventArgs e)
+		{
+			if(cakeboxesListBox.SelectedIndex > -1)
+			{
+				int id = Convert.ToInt32(cakeboxesListBox.SelectedValue.ToString());
 
+				new MassMove(this, id).Show();
+			}
+		}
 		private void openEditDiscForm(object sender, EventArgs e)
 		{
 			if(discsListBox.SelectedIndex > -1 && cakeboxesListBox.SelectedIndex > -1)

@@ -34,7 +34,7 @@ namespace Cakebox_Archive
 			int cid = Convert.ToInt32(discCakebox.SelectedValue.ToString());
 			if(label.Length > 0)
 			{
-				Model.Instance.saveDisc(_id, cid, label);
+				Model.Instance.updateDisc(_id, cid, label);
 				app.showDiscs(sender, e);
 				closeForm(sender, e);
 			}
@@ -43,7 +43,6 @@ namespace Cakebox_Archive
 		void closeForm(object sender, EventArgs e)
 		{
 			Dispose();
-			
 		}
 	}
 }

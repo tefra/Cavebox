@@ -221,6 +221,7 @@ namespace Cakebox_Archive
 			// 
 			resources.ApplyResources(this.massMoveDiscsMenuItem, "massMoveDiscsMenuItem");
 			this.massMoveDiscsMenuItem.Name = "massMoveDiscsMenuItem";
+			this.massMoveDiscsMenuItem.Click += new System.EventHandler(this.openMassMoveForm);
 			// 
 			// discsGroupBox
 			// 
@@ -536,6 +537,7 @@ namespace Cakebox_Archive
 			// discAddedLabel
 			// 
 			this.discAddedLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
+			this.discAddedLabel.Margin = new System.Windows.Forms.Padding(0, 3, -5, 2);
 			this.discAddedLabel.Name = "discAddedLabel";
 			resources.ApplyResources(this.discAddedLabel, "discAddedLabel");
 			// 

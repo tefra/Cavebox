@@ -35,7 +35,7 @@ namespace Cakebox_Archive
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MassMove));
 			this.selectDiscs = new System.Windows.Forms.GroupBox();
-			this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+			this.selectDiscsToMove = new System.Windows.Forms.CheckedListBox();
 			this.selectCakebox = new System.Windows.Forms.ComboBox();
 			this.toggleButton = new System.Windows.Forms.Button();
 			this.moveButton = new System.Windows.Forms.Button();
@@ -45,46 +45,55 @@ namespace Cakebox_Archive
 			// 
 			// selectDiscs
 			// 
-			this.selectDiscs.Controls.Add(this.checkedListBox1);
+			this.selectDiscs.Controls.Add(this.selectDiscsToMove);
 			resources.ApplyResources(this.selectDiscs, "selectDiscs");
 			this.selectDiscs.Name = "selectDiscs";
 			this.selectDiscs.TabStop = false;
 			// 
-			// checkedListBox1
+			// selectDiscsToMove
 			// 
-			resources.ApplyResources(this.checkedListBox1, "checkedListBox1");
-			this.checkedListBox1.FormattingEnabled = true;
-			this.checkedListBox1.Name = "checkedListBox1";
+			this.selectDiscsToMove.CheckOnClick = true;
+			resources.ApplyResources(this.selectDiscsToMove, "selectDiscsToMove");
+			this.selectDiscsToMove.FormattingEnabled = true;
+			this.selectDiscsToMove.Name = "selectDiscsToMove";
+			this.selectDiscsToMove.SelectedIndexChanged += new System.EventHandler(this.enableMoveButton);
 			// 
 			// selectCakebox
 			// 
+			this.selectCakebox.DisplayMember = "Value";
 			this.selectCakebox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.selectCakebox.FormattingEnabled = true;
 			resources.ApplyResources(this.selectCakebox, "selectCakebox");
 			this.selectCakebox.Name = "selectCakebox";
+			this.selectCakebox.ValueMember = "Id";
+			this.selectCakebox.SelectedIndexChanged += new System.EventHandler(this.enableMoveButton);
 			// 
 			// toggleButton
 			// 
 			resources.ApplyResources(this.toggleButton, "toggleButton");
 			this.toggleButton.Name = "toggleButton";
 			this.toggleButton.UseVisualStyleBackColor = true;
+			this.toggleButton.Click += new System.EventHandler(this.ToggleButtonClick);
 			// 
 			// moveButton
 			// 
 			resources.ApplyResources(this.moveButton, "moveButton");
 			this.moveButton.Name = "moveButton";
 			this.moveButton.UseVisualStyleBackColor = true;
+			this.moveButton.Click += new System.EventHandler(this.MoveButtonClick);
 			// 
 			// cancelButton
 			// 
 			resources.ApplyResources(this.cancelButton, "cancelButton");
 			this.cancelButton.Name = "cancelButton";
 			this.cancelButton.UseVisualStyleBackColor = true;
+			this.cancelButton.Click += new System.EventHandler(this.closeForm);
 			// 
 			// MassMove
 			// 
 			resources.ApplyResources(this, "$this");
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.SystemColors.Window;
 			this.Controls.Add(this.cancelButton);
 			this.Controls.Add(this.moveButton);
 			this.Controls.Add(this.toggleButton);
@@ -100,7 +109,7 @@ namespace Cakebox_Archive
 		private System.Windows.Forms.Button moveButton;
 		private System.Windows.Forms.Button toggleButton;
 		private System.Windows.Forms.ComboBox selectCakebox;
-		private System.Windows.Forms.CheckedListBox checkedListBox1;
+		private System.Windows.Forms.CheckedListBox selectDiscsToMove;
 		private System.Windows.Forms.GroupBox selectDiscs;
 	}
 }

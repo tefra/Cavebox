@@ -147,7 +147,7 @@
 </value>
   </data>
   <data name="editCakeboxMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="editCakeboxMenuItem.Text" xml:space="preserve">
     <value>Edit</value>
@@ -161,13 +161,13 @@
 </value>
   </data>
   <data name="deleteCakeboxMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="deleteCakeboxMenuItem.Text" xml:space="preserve">
     <value>Delete</value>
   </data>
   <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 6</value>
+    <value>149, 6</value>
   </data>
   <data name="massMoveDiscsMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -178,13 +178,13 @@
 </value>
   </data>
   <data name="massMoveDiscsMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="massMoveDiscsMenuItem.Text" xml:space="preserve">
     <value>Mass Move</value>
   </data>
   <data name="cakeboxesActionsMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 76</value>
+    <value>153, 98</value>
   </data>
   <data name="&gt;&gt;cakeboxesActionsMenu.Name" xml:space="preserve">
     <value>cakeboxesActionsMenu</value>

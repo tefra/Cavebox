@@ -216,25 +216,16 @@ namespace Cakebox_Archive
 		
 		public void saveCakebox(String label, int id = 0)
 		{
-			try
+			Dictionary<string, string> data = new Dictionary<string, string>();
+			data.Add("label", label);
+			if(id > 0)
 			{
-				SQLiteCommand cm = db.CreateCommand();
-				if(id > 0)
-				{
-					cm.CommandText = "UPDATE cakebox SET label = @label WHERE id = @id";
-					cm.Parameters.Add(new SQLiteParameter("@id", id));
-				}
-				else
-				{
-					cm.CommandText = "INSERT INTO cakebox (label) VALUES (@label)";
-				}
-				cm.Parameters.Add(new SQLiteParameter("@label", label));
-				cm.ExecuteNonQuery();
-				cm.Dispose();
+				update("cakebox", data, "id = " + id);
 			}
-			catch(SQLiteException e)
+			else
 			{
-				Console.WriteLine(e.Message);
+				insert("cakebox", data);
+				
 			}
 		}
 		
@@ -246,46 +237,23 @@ namespace Cakebox_Archive
 			}
 		}
 		
-		public void saveDisc(int id, int cid, string label)
+		public void updateDisc(int id, int cid, string label)
 		{
-			try
-			{
-				SQLiteCommand cm = db.CreateCommand();
-				cm.CommandText = "UPDATE disc SET label = @label, cid = @cid WHERE id = @id";
-				cm.Parameters.Add(new SQLiteParameter("@id", id));
-				cm.Parameters.Add(new SQLiteParameter("@cid", cid));
-				cm.Parameters.Add(new SQLiteParameter("@label", label));
-				cm.ExecuteNonQuery();
-				cm.Dispose();
-			}
-			catch(SQLiteException e)
-			{
-				Console.WriteLine(e.Message);
-			}
+			Dictionary<string, string> data = new Dictionary<string, string>();
+			data.Add("cid", cid.ToString());
+			data.Add("label", label);
+			update("disc", data, "id = " + id);
 		}
 		
-		public void addNewDisc(String label, String files, int filesno, int cid, int added)
+		public void addDisc(string label, string files, string filesno, string cid, string added)
 		{
-
-			
-			try
-			{
-				SQLiteCommand cm = db.CreateCommand();
-				cm.CommandText = "INSERT INTO disc (cid, label, files, filesno, added) VALUES (@cid, @label, @files, @filesno, @added)";
-				cm.Parameters.Add(new SQLiteParameter("@cid", cid));
-				cm.Parameters.Add(new SQLiteParameter("@label", label));
-				cm.Parameters.Add(new SQLiteParameter("@files", files));
-				cm.Parameters.Add(new SQLiteParameter("@filesno", filesno));
-				cm.Parameters.Add(new SQLiteParameter("@added", added));
-				cm.ExecuteNonQuery();
-				
-				Console.Write(cm.CommandText);
-				cm.Dispose();
-			}
-			catch(SQLiteException e)
-			{
-				Console.WriteLine(e.Message);
-			}
+			Dictionary<string, string> data = new Dictionary<string, string>();
+			data.Add("cid", cid);
+			data.Add("label", label);
+			data.Add("files", files);
+			data.Add("filesno", filesno);
+			data.Add("added", added);
+			insert("disc", data);
 		}
 		
 		public void deleteDisc(int id)
@@ -294,6 +262,13 @@ namespace Cakebox_Archive
 			{
 				query("Delete FROM disc WHERE id = " + id);
 			}
+		}
+		
+		public void moveDiscs(int target, List<int> discs)
+		{
+			Dictionary<string, string> data = new Dictionary<string, string>();
+			data.Add("cid", target.ToString());
+			update("disc", data, "id IN (" + String.Join(", ", discs) + ")");
 		}
 
 		public int getTotalCakeboxes()
@@ -311,11 +286,36 @@ namespace Cakebox_Archive
 			return Convert.ToInt32(fetchOne("SELECT COALESCE(SUM(filesno), 0) AS total FROM disc"));
 		}
 		
+		public void update(string table, Dictionary<string, string> data, string where)
+		{
+			try
+			{
+				List<string> sets = new List<string>();
+				SQLiteCommand cm = db.CreateCommand();
+				foreach (KeyValuePair<string, string> pair in data)
+				{
+					sets.Add(String.Format("{0} = @{0}", pair.Key));
+					cm.Parameters.Add(new SQLiteParameter("@"+pair.Key, pair.Value));
+				}
+				cm.CommandText = String.Format("UPDATE {0} SET {1} WHERE {2}", table, String.Join(", ", sets), where);
+				cm.ExecuteNonQuery();
+				cm.Dispose();
+			}
+			catch(SQLiteException e)
+			{
+				Console.WriteLine(e.Message);
+			}
+		}
+		
+		public void insert(string table, Dictionary<string, string> data)
+		{
+			insert(table, new List<string>(data.Keys), new List<string>(data.Values));
+		}
+		
 		public void insert(String table, List<string> columns, List<string> values)
 		{
 			SQLiteCommand cm = db.CreateCommand();
 			cm.CommandText = String.Format("INSERT INTO {0} ({1}) VALUES (@{2})", table, String.Join(", ", columns), String.Join(", @", columns));
-
 			for(int i = 0; i < columns.Count; i++)
 			{
 				cm.Parameters.Add(new SQLiteParameter("@"+columns[i], values[i]));

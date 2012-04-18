@@ -23,7 +23,9 @@ namespace Cakebox_Archive
 				List<string> columns = null;
 				List<string> values = null;
 				
-				SQLiteConnection db = Model.Instance.db;
+				Model model = Model.Instance;
+				SQLiteConnection db = model.db;
+				
 				SQLiteTransaction transaction = db.BeginTransaction();
 				using (XmlReader reader = new XmlTextReader(file))
 				{
@@ -47,15 +49,7 @@ namespace Cakebox_Archive
 						{
 							if(reader.Name == "table")
 							{
-								SQLiteCommand cm = db.CreateCommand();
-								cm.CommandText = String.Format("INSERT INTO {0} ({1}) VALUES (@{2})", table, String.Join(", ", columns), String.Join(", @", columns));
-								
-								for(int i = 0; i < columns.Count; i++)
-								{
-									cm.Parameters.Add(new SQLiteParameter("@"+columns[i], values[i]));
-								}
-								cm.ExecuteNonQuery();
-								cm.Dispose();
+								model.insert(table, columns, values);
 							}
 						}
 					}

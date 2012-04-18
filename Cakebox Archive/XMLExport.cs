@@ -32,23 +32,28 @@ namespace Cakebox_Archive
 		
 		public void writeTable(string table, XmlWriter writer)
 		{
-			SQLiteCommand cm = Model.Instance.db.CreateCommand();
-			cm.CommandText = "SELECT * FROM "+table+" WHERE 1";
-			SQLiteDataReader row = cm.ExecuteReader();
-			
-			while(row.Read())
+			try
 			{
-				writer.WriteStartElement("table");
-				writer.WriteAttributeString("name", table);
-				for(int i = 0; i < row.FieldCount; i++)
+				SQLiteCommand cm = Model.Instance.db.CreateCommand();
+				cm.CommandText = "SELECT * FROM "+table+" WHERE 1";
+				SQLiteDataReader row = cm.ExecuteReader();
+				while(row.Read())
 				{
-					
-					writer.WriteStartElement("column");
-					writer.WriteAttributeString("name", row.GetName(i));
-					writer.WriteString(row.GetValue(i).ToString());
+					writer.WriteStartElement("table");
+					writer.WriteAttributeString("name", table);
+					for(int i = 0; i < row.FieldCount; i++)
+					{
+						writer.WriteStartElement("column");
+						writer.WriteAttributeString("name", row.GetName(i));
+						writer.WriteString(row.GetValue(i).ToString());
+						writer.WriteEndElement();
+					}
 					writer.WriteEndElement();
 				}
-				writer.WriteEndElement();
+			}
+			catch(SQLiteException e)
+			{
+				Console.WriteLine(e.Message);
 			}
 		}
 	}
