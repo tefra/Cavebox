@@ -34,14 +34,21 @@ namespace Cakebox_Archive
 			Console.WriteLine("Application started...");
 			model = Model.Instance;
 			showCakeboxes(0, true);
-			scanDrive.DataSource = DriveInfo.GetDrives().Where(d => d.DriveType == DriveType.CDRom && d.IsReady == true).ToArray();
+			scanDrive.DataSource = DriveInfo.GetDrives().Where(d => /*d.DriveType == DriveType.CDRom &&*/ d.IsReady == true).ToArray();
 
 		}
 
-		public void MainFormLoad(object sender, EventArgs e)
+		private void MainFormLoad(object sender, EventArgs e)
 		{
 
 		}
+		
+		
+		private void mainFormClosed(object sender, FormClosedEventArgs e)
+		{
+			model.vacuum();
+		}
+		
 		
 		public Boolean isFilterOn()
 		{
@@ -49,7 +56,7 @@ namespace Cakebox_Archive
 		}
 		
 		
-		public void buildCakeboxesCache()
+		private void buildCakeboxesCache()
 		{
 			cakeboxes = model.fetchCakeboxes();
 			newDiscCakebox.DataSource = cakeboxes;
@@ -85,7 +92,7 @@ namespace Cakebox_Archive
 			updateNumTitle(discsGroupBox, newDataSource.Count);
 		}
 
-		public void showFiles(object sender, EventArgs e)
+		private void showFiles(object sender, EventArgs e)
 		{
 			Console.WriteLine("showFiles");
 			filesList.Clear();
@@ -130,7 +137,7 @@ namespace Cakebox_Archive
 			filterTextChangedTimer.Start();
 		}
 
-		public void filter(object sender, EventArgs e)
+		private void filter(object sender, EventArgs e)
 		{
 			filterTextChangedTimer.Stop();
 			Console.WriteLine("filter");
@@ -154,7 +161,7 @@ namespace Cakebox_Archive
 			showCakeboxes();
 		}
 		
-		public void filterOff(object sender, EventArgs e)
+		private void filterOff(object sender, EventArgs e)
 		{
 			filterTextBox.TextChanged -= filterTextBoxTextChanged;
 			filterTextBox.Text = null;
@@ -178,7 +185,7 @@ namespace Cakebox_Archive
 			}
 		}
 
-		public void updateNumTitle(ToolStripLabel label, int num)
+		private void updateNumTitle(ToolStripLabel label, int num)
 		{
 			string title = label.Text.Split(':')[0].Trim();
 			title += (num > 0) ? ": " + String.Format("{0:n0}", num) : null;
@@ -192,7 +199,7 @@ namespace Cakebox_Archive
 			groupBox.Text = title;
 		}
 
-		public void scanWorkerToggle(object sender, EventArgs e)
+		private void scanWorkerToggle(object sender, EventArgs e)
 		{
 			saveNewDiscButton.Enabled = false;
 			if(scanWorker.IsBusy)
@@ -218,7 +225,7 @@ namespace Cakebox_Archive
 			}
 		}
 
-		public void scanWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+		private void scanWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
 		{
 			scanLog.ScrollToCaret();
 			scanDrive.Enabled = true;
@@ -237,7 +244,7 @@ namespace Cakebox_Archive
 			}
 		}
 
-		public void scanWorkerReset(object sender, EventArgs e)
+		private void scanWorkerReset(object sender, EventArgs e)
 		{
 			saveNewDiscButton.Enabled = false;
 			if(scanWorker.IsBusy)
@@ -251,7 +258,7 @@ namespace Cakebox_Archive
 			scanLog.Clear();
 		}
 		
-		public void scanWorkerDoWork(object sender, System.ComponentModel.DoWorkEventArgs evt)
+		private void scanWorkerDoWork(object sender, System.ComponentModel.DoWorkEventArgs evt)
 		{
 			scanTotalFiles = 0;
 			string drive = evt.Argument as string;
@@ -272,7 +279,7 @@ namespace Cakebox_Archive
 			}
 		}
 
-		public void saveNewDisc(object sender, EventArgs e)
+		private void saveNewDisc(object sender, EventArgs e)
 		{
 			string label = newDiscLabelTextBox.Text.Trim();
 			string files = scanLog.Text.Trim();
@@ -303,7 +310,7 @@ namespace Cakebox_Archive
 
 		}
 
-		public void ChangelogToolStripMenuItemClick(object sender, EventArgs e)
+		private void ChangelogToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			new Changelog().ShowDialog();
 		}
@@ -348,7 +355,7 @@ namespace Cakebox_Archive
 			}
 		}
 		
-		void openMassMoveForm(object sender, EventArgs e)
+		private void openMassMoveForm(object sender, EventArgs e)
 		{
 			if(cakeboxesListBox.SelectedIndex > -1)
 			{
@@ -357,6 +364,7 @@ namespace Cakebox_Archive
 				new MassMove(this, id).ShowDialog();
 			}
 		}
+		
 		private void openEditDiscForm(object sender, EventArgs e)
 		{
 			if(discsListBox.SelectedIndex > -1 && cakeboxesListBox.SelectedIndex > -1)
@@ -547,9 +555,10 @@ namespace Cakebox_Archive
 			}
 		}
 
-		private void CopyToolStripMenuItemClick(object sender, EventArgs e)
+		private void copyFilesListClick(object sender, EventArgs e)
 		{
 			Clipboard.SetDataObject(filesList, true);
 		}
+
 	}
 }

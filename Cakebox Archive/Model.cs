@@ -35,7 +35,7 @@ namespace Cakebox_Archive
 				String dbConnection = "Data Source=data.db";
 				db = new SQLiteConnection(dbConnection);
 				db.Open();
-				Console.WriteLine("Starting up SQLite " + db.ServerVersion);
+				Console.WriteLine("Starting up SQLite " + db.ServerVersion + ": " + fetchOne("PRAGMA integrity_check"));
 			}
 			catch(SQLiteException e)
 			{
@@ -321,7 +321,7 @@ namespace Cakebox_Archive
 			cm.Dispose();
 		}
 		
-		public void query(string sql)
+		private void query(string sql)
 		{
 			try
 			{
@@ -351,6 +351,11 @@ namespace Cakebox_Archive
 				Console.WriteLine(e.Message);
 				return null;
 			}
+		}
+		
+		public void vacuum()
+		{
+			query("VACUUM");
 		}
 	}
 }

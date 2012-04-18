@@ -28,7 +28,7 @@ namespace Cakebox_Archive
 			discCakebox.SelectedValue = cid;
 		}
 		
-		void saveDisc(object sender, EventArgs e)
+		private void saveDisc(object sender, EventArgs e)
 		{
 			String label = discLabel.Text.Trim();
 			int cid = Convert.ToInt32(discCakebox.SelectedValue.ToString());
@@ -47,7 +47,7 @@ namespace Cakebox_Archive
 			}
 		}
 		
-		void closeForm(object sender, EventArgs e)
+		private void closeForm(object sender, EventArgs e)
 		{
 			Dispose();
 		}

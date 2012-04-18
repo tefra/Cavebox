@@ -55,6 +55,7 @@
     </Reference>
     <Reference Include="System.Data.SQLite">
       <HintPath>C:\Users\Tefra\Desktop\System.Data.SQLite.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />

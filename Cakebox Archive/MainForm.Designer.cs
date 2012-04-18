@@ -379,7 +379,7 @@ namespace Cakebox_Archive
 			// 
 			this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
 			resources.ApplyResources(this.copyToolStripMenuItem, "copyToolStripMenuItem");
-			this.copyToolStripMenuItem.Click += new System.EventHandler(this.CopyToolStripMenuItemClick);
+			this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyFilesListClick);
 			// 
 			// toolStripSeparator5
 			// 
@@ -721,6 +721,7 @@ namespace Cakebox_Archive
 			this.Controls.Add(this.statusStrip);
 			this.Controls.Add(this.menuStrip);
 			this.Name = "MainForm";
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.mainFormClosed);
 			this.cakeboxDiscFileSplitContainer.Panel1.ResumeLayout(false);
 			this.cakeboxDiscFileSplitContainer.Panel2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.cakeboxDiscFileSplitContainer)).EndInit();
