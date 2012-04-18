@@ -112,6 +112,7 @@ namespace Cakebox_Archive
 			this.consoleActionsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.scanWorker = new System.ComponentModel.BackgroundWorker();
+			this.filterTextChangedTimer = new System.Windows.Forms.Timer(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.cakeboxDiscFileSplitContainer)).BeginInit();
 			this.cakeboxDiscFileSplitContainer.Panel1.SuspendLayout();
 			this.cakeboxDiscFileSplitContainer.Panel2.SuspendLayout();
@@ -342,7 +343,7 @@ namespace Cakebox_Archive
 			// 
 			resources.ApplyResources(this.filterTextBox, "filterTextBox");
 			this.filterTextBox.Name = "filterTextBox";
-			this.filterTextBox.TextChanged += new System.EventHandler(this.filter);
+			this.filterTextBox.TextChanged += new System.EventHandler(this.filterTextBoxTextChanged);
 			// 
 			// discFilesGroupBox
 			// 
@@ -378,6 +379,7 @@ namespace Cakebox_Archive
 			// 
 			this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
 			resources.ApplyResources(this.copyToolStripMenuItem, "copyToolStripMenuItem");
+			this.copyToolStripMenuItem.Click += new System.EventHandler(this.CopyToolStripMenuItemClick);
 			// 
 			// toolStripSeparator5
 			// 
@@ -674,8 +676,8 @@ namespace Cakebox_Archive
 			// 
 			// consoleGroupBox
 			// 
-			resources.ApplyResources(this.consoleGroupBox, "consoleGroupBox");
 			this.consoleGroupBox.Controls.Add(this.console);
+			resources.ApplyResources(this.consoleGroupBox, "consoleGroupBox");
 			this.consoleGroupBox.Name = "consoleGroupBox";
 			this.consoleGroupBox.TabStop = false;
 			// 
@@ -705,6 +707,11 @@ namespace Cakebox_Archive
 			this.scanWorker.WorkerSupportsCancellation = true;
 			this.scanWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.scanWorkerDoWork);
 			this.scanWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.scanWorkerCompleted);
+			// 
+			// filterTextChangedTimer
+			// 
+			this.filterTextChangedTimer.Interval = 175;
+			this.filterTextChangedTimer.Tick += new System.EventHandler(this.filter);
 			// 
 			// MainForm
 			// 
@@ -748,6 +755,8 @@ namespace Cakebox_Archive
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Timer filterTextChangedTimer;
+		private System.Windows.Forms.RichTextBox console;
 		private System.ComponentModel.BackgroundWorker scanWorker;
 		private System.Windows.Forms.ToolStripStatusLabel discAddedValueLabel;
 		private System.Windows.Forms.ToolStripStatusLabel discAddedLabel;
@@ -797,7 +806,6 @@ namespace Cakebox_Archive
 		private System.Windows.Forms.ToolStripMenuItem newCakeboxToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
 		private System.Windows.Forms.MenuStrip menuStrip;
-		private System.Windows.Forms.RichTextBox console;
 		private System.Windows.Forms.GroupBox consoleGroupBox;
 		private System.Windows.Forms.TabPage consoleTabPage;
 		private System.Windows.Forms.Button scanDriveButton;

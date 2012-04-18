@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="selectDiscs.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
   <data name="selectDiscsToMove.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -168,6 +171,9 @@
   <data name="&gt;&gt;selectDiscs.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="selectCakebox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
+  </data>
   <data name="selectCakebox.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 284</value>
   </data>
@@ -188,6 +194,9 @@
   </data>
   <data name="&gt;&gt;selectCakebox.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="toggleButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
   </data>
   <data name="toggleButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>62, 311</value>
@@ -213,6 +222,9 @@
   <data name="&gt;&gt;toggleButton.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="moveButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
   <data name="moveButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>143, 311</value>
   </data>
@@ -236,6 +248,9 @@
   </data>
   <data name="&gt;&gt;moveButton.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="cancelButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
   </data>
   <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>224, 311</value>

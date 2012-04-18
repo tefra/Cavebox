@@ -542,13 +542,13 @@
     <value>805, 21</value>
   </metadata>
   <data name="copyToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="copyToolStripMenuItem.Text" xml:space="preserve">
     <value>Copy</value>
   </data>
   <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 6</value>
+    <value>149, 6</value>
   </data>
   <data name="googleToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -571,7 +571,7 @@
 </value>
   </data>
   <data name="googleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="googleToolStripMenuItem.Text" xml:space="preserve">
     <value>Google</value>
@@ -587,7 +587,7 @@
 </value>
   </data>
   <data name="wikipediaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="wikipediaToolStripMenuItem.Text" xml:space="preserve">
     <value>Wikipedia</value>
@@ -614,7 +614,7 @@
 </value>
   </data>
   <data name="anidbToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="anidbToolStripMenuItem.Text" xml:space="preserve">
     <value>Anidb</value>
@@ -635,7 +635,7 @@
 </value>
   </data>
   <data name="imdbToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="imdbToolStripMenuItem.Text" xml:space="preserve">
     <value>Imdb</value>
@@ -658,7 +658,7 @@
 </value>
   </data>
   <data name="lastfmToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="lastfmToolStripMenuItem.Text" xml:space="preserve">
     <value>Last.fm</value>
@@ -676,13 +676,13 @@
 </value>
   </data>
   <data name="youtubeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="youtubeToolStripMenuItem.Text" xml:space="preserve">
     <value>Youtube</value>
   </data>
   <data name="filesListActionMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 164</value>
+    <value>153, 186</value>
   </data>
   <data name="&gt;&gt;filesListActionMenu.Name" xml:space="preserve">
     <value>filesListActionMenu</value>
@@ -1398,9 +1398,6 @@
   <data name="&gt;&gt;scanTabPage.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="consoleGroupBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
   <metadata name="consoleActionsMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>649, 21</value>
   </metadata>
@@ -1426,7 +1423,7 @@
     <value>3, 16</value>
   </data>
   <data name="console.Size" type="System.Drawing.Size, System.Drawing">
-    <value>514, 460</value>
+    <value>514, 463</value>
   </data>
   <data name="console.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1449,11 +1446,14 @@
   <data name="&gt;&gt;console.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="consoleGroupBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
   <data name="consoleGroupBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
   <data name="consoleGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>520, 479</value>
+    <value>520, 482</value>
   </data>
   <data name="consoleGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1526,6 +1526,9 @@
   </data>
   <metadata name="scanWorker.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 58</value>
+  </metadata>
+  <metadata name="filterTextChangedTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>289, 58</value>
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -1796,6 +1799,12 @@
   </data>
   <data name="&gt;&gt;scanWorker.Type" xml:space="preserve">
     <value>System.ComponentModel.BackgroundWorker, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;filterTextChangedTimer.Name" xml:space="preserve">
+    <value>filterTextChangedTimer</value>
+  </data>
+  <data name="&gt;&gt;filterTextChangedTimer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>

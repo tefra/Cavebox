@@ -45,8 +45,8 @@ namespace Cakebox_Archive
 			// 
 			// selectDiscs
 			// 
-			this.selectDiscs.Controls.Add(this.selectDiscsToMove);
 			resources.ApplyResources(this.selectDiscs, "selectDiscs");
+			this.selectDiscs.Controls.Add(this.selectDiscsToMove);
 			this.selectDiscs.Name = "selectDiscs";
 			this.selectDiscs.TabStop = false;
 			// 
@@ -60,10 +60,10 @@ namespace Cakebox_Archive
 			// 
 			// selectCakebox
 			// 
+			resources.ApplyResources(this.selectCakebox, "selectCakebox");
 			this.selectCakebox.DisplayMember = "Value";
 			this.selectCakebox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.selectCakebox.FormattingEnabled = true;
-			resources.ApplyResources(this.selectCakebox, "selectCakebox");
 			this.selectCakebox.Name = "selectCakebox";
 			this.selectCakebox.ValueMember = "Id";
 			this.selectCakebox.SelectedIndexChanged += new System.EventHandler(this.enableMoveButton);

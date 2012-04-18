@@ -35,7 +35,14 @@ namespace Cakebox_Archive
 			if(label.Length > 0)
 			{
 				Model.Instance.updateDisc(_id, cid, label);
-				app.showDiscs(sender, e);
+				if(app.isFilterOn())
+				{
+					app.showCakeboxes();
+				}
+				else
+				{
+					app.showDiscs(sender, e);
+				}
 				closeForm(sender, e);
 			}
 		}

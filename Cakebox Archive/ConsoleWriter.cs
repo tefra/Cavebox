@@ -4,6 +4,7 @@
  * @link	http://www.t3-design.com
  */
 using System;
+using System.Drawing;
 using System.IO;
 
 namespace Cakebox_Archive
@@ -23,7 +24,7 @@ namespace Cakebox_Archive
 		
 		public override void Write(string str)
 		{
-			WriteLine(str);
+			console.AppendText(str + "\n");
 		}
 
 		public override void WriteLine(string str)

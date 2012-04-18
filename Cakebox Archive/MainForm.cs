@@ -33,7 +33,7 @@ namespace Cakebox_Archive
 			Console.SetOut(new ConsoleWriter(console));
 			Console.WriteLine("Application started...");
 			model = Model.Instance;
-			showCakeboxes(-1, true);
+			showCakeboxes(0, true);
 			scanDrive.DataSource = DriveInfo.GetDrives().Where(d => /*d.DriveType == DriveType.CDRom &&*/ d.IsReady == true).ToArray();
 
 		}
@@ -42,6 +42,12 @@ namespace Cakebox_Archive
 		{
 
 		}
+		
+		public Boolean isFilterOn()
+		{
+			return _filter != null;
+		}
+		
 		
 		public void buildCakeboxesCache()
 		{
@@ -86,7 +92,7 @@ namespace Cakebox_Archive
 			if(discsListBox.SelectedIndex > -1)
 			{
 				Tuple<string, int, int> result = model.fetchFilesListByDiscId(discsListBox.SelectedValue.ToString());
-								filesList.Text = result.Item1;
+				filesList.Text = result.Item1;
 				int start, pos, keyLength;
 				int end = result.Item1.Length;
 				foreach(string key in filterTextBox.Text.Split(' '))
@@ -101,29 +107,33 @@ namespace Cakebox_Archive
 					}
 				}
 				
-				
 				string added = (result.Item3 > 0) ? new DateTime(1970, 1, 1).AddSeconds(result.Item3).ToLocalTime().ToString("dd/MM/yyyy HH:mm:ss") : "N/A";
-
 				discAddedLabel.Visible = true;
 				discAddedValueLabel.Visible = true;
 				discAddedValueLabel.Text = added;
-				
-
-				
 				updateNumTitle(discFilesGroupBox, result.Item2);
 			}
 			else
 			{
 				discAddedLabel.Visible = false;
 				discAddedValueLabel.Visible = false;
-				//discAddedValueLabel.Text = added;
-				
 				updateNumTitle(discFilesGroupBox, 0);
 			}
 		}
 
+		private void filterTextBoxTextChanged(object sender, EventArgs e)
+		{
+			if(filterTextChangedTimer.Enabled)
+			{
+				filterTextChangedTimer.Stop();
+			}
+			filterTextChangedTimer.Start();
+		}
+
 		public void filter(object sender, EventArgs e)
 		{
+			filterTextChangedTimer.Stop();
+			Console.WriteLine("filter");
 			string filter = filterTextBox.Text.Trim();
 			if(filter.Length > 0)
 			{
@@ -141,13 +151,17 @@ namespace Cakebox_Archive
 				clearFilterButton.Enabled = false;
 				_filter = _filterLike = null;
 			}
-
-			showCakeboxes(0, false);
+			showCakeboxes();
 		}
 		
 		public void filterOff(object sender, EventArgs e)
 		{
+			filterTextBox.TextChanged -= filterTextBoxTextChanged;
 			filterTextBox.Text = null;
+			clearFilterButton.Enabled = false;
+			_filter = _filterLike = null;
+			showCakeboxes();
+			filterTextBox.TextChanged += filterTextBoxTextChanged;
 		}
 		
 		public void refreshStatusBar(Boolean cakebox = false, Boolean disc = false)
@@ -329,7 +343,7 @@ namespace Cakebox_Archive
 			else if(MessageBox.Show("Are you sure you want to delete cakebox: "+cakeboxesListBox.Text,"Confirm delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
 			{
 				model.deleteCakebox(Convert.ToInt32(cakeboxesListBox.SelectedValue.ToString()));
-				showCakeboxes(-1, true);
+				showCakeboxes(0, true);
 				refreshStatusBar(true, false);
 			}
 		}
@@ -340,7 +354,7 @@ namespace Cakebox_Archive
 			{
 				int id = Convert.ToInt32(cakeboxesListBox.SelectedValue.ToString());
 
-				new MassMove(this, id).Show();
+				new MassMove(this, id).ShowDialog();
 			}
 		}
 		private void openEditDiscForm(object sender, EventArgs e)
@@ -531,6 +545,12 @@ namespace Cakebox_Archive
 				new XMLImport(openFileDialog.FileName);
 				showCakeboxes(0, true);
 			}
+		}
+
+		
+		private void CopyToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			Clipboard.SetDataObject(filesList, true);
 		}
 	}
 }

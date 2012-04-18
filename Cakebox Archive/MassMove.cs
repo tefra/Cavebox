@@ -43,6 +43,7 @@ namespace Cakebox_Archive
 			{
 				selectDiscsToMove.SetItemChecked(i, checkFlag);
 			}
+			enableMoveButton(sender, e);
 		}
 		
 		private void closeForm(object sender, EventArgs e)
@@ -59,13 +60,12 @@ namespace Cakebox_Archive
 				List<int> discs = new List<int>();
 				foreach(object itemChecked in selectDiscsToMove.CheckedItems)
 				{
-					
 					Index item = (Index) itemChecked;
 					discs.Add(item.Id);
 					Console.WriteLine(item.Value);
 				}
 				Model.Instance.moveDiscs(target, discs);
-				app.showDiscs(sender, e);
+				app.showCakeboxes();
 				closeForm(sender, e);
 			}
 		}
