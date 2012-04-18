@@ -5,6 +5,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Xml;
 
 namespace Cakebox_Archive
@@ -14,46 +15,63 @@ namespace Cakebox_Archive
 	/// </summary>
 	public class XMLImport
 	{
-		string _table = null;
-		List<string> _columns = null;
-		List<string> _values = null;
-		
-		private void insert()
-		{
-			Model model = Model.Instance;
-			model.insert(_table, _columns, _values);
-		}
+
 		
 		public XMLImport(string file)
 		{
-			using (XmlReader reader = new XmlTextReader(file))
+			try
 			{
-				while (reader.Read())
+				string table = null;
+				List<string> columns = null;
+				List<string> values = null;
+				
+				SQLiteConnection db = Model.Instance.db;
+				SQLiteTransaction transaction = db.BeginTransaction();
+				using (XmlReader reader = new XmlTextReader(file))
 				{
-					switch(reader.NodeType)
+					while (reader.Read())
 					{
-						case XmlNodeType.Element:
-							if(reader.Name == "table")
-							{
-								_table = reader.GetAttribute("name");
-								_columns = new List<string>();
-								_values = new List<string>();
-							}
-							else if(reader.Name == "column")
-							{
-								_columns.Add(reader.GetAttribute("name"));
-								_values.Add(reader.ReadString());
-							}
-						break;
-							
-						case XmlNodeType.EndElement:
-							if(reader.Name == "table")
-							{
-								insert();
-							}
-						break;
+						switch(reader.NodeType)
+						{
+							case XmlNodeType.Element:
+								if(reader.Name == "table")
+								{
+									table = reader.GetAttribute("name");
+									columns = new List<string>();
+									values = new List<string>();
+								}
+								else if(reader.Name == "column")
+								{
+									columns.Add(reader.GetAttribute("name"));
+									values.Add(reader.ReadString());
+								}
+								break;
+								
+							case XmlNodeType.EndElement:
+								if(reader.Name == "table")
+								{
+									SQLiteCommand cm = db.CreateCommand();
+									cm.CommandText = String.Format("INSERT INTO {0} ({1}) VALUES (@{2})", table, String.Join(", ", columns), String.Join(", @", columns));
+									
+									for(int i = 0; i < columns.Count; i++)
+									{
+										cm.Parameters.Add(new SQLiteParameter("@"+columns[i], values[i]));
+									}
+									cm.ExecuteNonQuery();
+									cm.Dispose();
+									
+
+								}
+								break;
+						}
 					}
 				}
+				
+				transaction.Commit();
+			}
+			catch(SQLiteException e)
+			{
+				Console.WriteLine(e.Message);
 			}
 		}
 	}

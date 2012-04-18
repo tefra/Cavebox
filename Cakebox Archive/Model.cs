@@ -264,8 +264,10 @@ namespace Cakebox_Archive
 			}
 		}
 		
-		public void addNewDisc(String label, String files, int filesno, int cid, long added)
+		public void addNewDisc(String label, String files, int filesno, int cid, int added)
 		{
+
+			
 			try
 			{
 				SQLiteCommand cm = db.CreateCommand();
@@ -276,6 +278,8 @@ namespace Cakebox_Archive
 				cm.Parameters.Add(new SQLiteParameter("@filesno", filesno));
 				cm.Parameters.Add(new SQLiteParameter("@added", added));
 				cm.ExecuteNonQuery();
+				
+				Console.Write(cm.CommandText);
 				cm.Dispose();
 			}
 			catch(SQLiteException e)
@@ -294,17 +298,17 @@ namespace Cakebox_Archive
 
 		public int getTotalCakeboxes()
 		{
-			return int.Parse(fetchOne("SELECT COUNT(*) AS total FROM cakebox"));
+			return Convert.ToInt32(fetchOne("SELECT COUNT(*) AS total FROM cakebox"));
 		}
 		
 		public int getTotalDiscs()
 		{
-			return int.Parse(fetchOne("SELECT COUNT(*) AS total FROM disc"));
+			return Convert.ToInt32(fetchOne("SELECT COUNT(*) AS total FROM disc"));
 		}
 		
 		public int getTotalFiles()
 		{
-			return int.Parse(fetchOne("SELECT COALESCE(SUM(filesno), 0) AS total FROM disc"));
+			return Convert.ToInt32(fetchOne("SELECT COALESCE(SUM(filesno), 0) AS total FROM disc"));
 		}
 		
 		public void insert(String table, List<string> columns, List<string> values)
@@ -337,7 +341,6 @@ namespace Cakebox_Archive
 		
 		private String fetchOne(String sql)
 		{
-			
 			try
 			{
 				SQLiteCommand cm = new SQLiteCommand(db);

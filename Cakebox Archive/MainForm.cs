@@ -86,7 +86,7 @@ namespace Cakebox_Archive
 			if(discsListBox.SelectedIndex > -1)
 			{
 				Tuple<string, int, int> result = model.fetchFilesListByDiscId(discsListBox.SelectedValue.ToString());
-				string added = (result.Item3 > 0) ? new DateTime(1970, 1, 1, 0, 0, 0, 0).AddSeconds(result.Item3).ToString("dd/MM/yyyy HH:mm:ss") : "N/A";
+				string added = (result.Item3 > 0) ? new DateTime(1970, 1, 1, 0, 0, 0, 0).AddSeconds(result.Item3).ToLocalTime().ToString("dd/MM/yyyy HH:mm:ss") : "N/A";
 				filesList.Text = result.Item1;
 				
 				int start, pos, keyLength;
@@ -251,16 +251,20 @@ namespace Cakebox_Archive
 
 		public void saveNewDisc(object sender, EventArgs e)
 		{
-			int cid = int.Parse(selectCakeboxToStore.SelectedValue.ToString());
+			
+			Console.Write(" edod " + selectCakeboxToStore.SelectedValue);
+			
+			int cid = Convert.ToInt32(selectCakeboxToStore.SelectedValue.ToString());
 			string label = newDiscLabelTextBox.Text.Trim();
 			string files = scanLog.Text.Trim();
 
 			if(label.Length > 0 && files.Length > 0 && scanTotalFiles > 0 && cid > 0)
 			{
 				DateTime Jan1st1970 = new DateTime (1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-				long added =  (long) (DateTime.UtcNow - Jan1st1970).TotalMilliseconds;
+				int added =  (int) (DateTime.UtcNow - Jan1st1970).TotalSeconds;
 				string clabel = selectCakeboxToStore.Text;
 
+				
 				model.addNewDisc(label, files, scanTotalFiles, cid, added);
 				showCakeboxes();
 				refreshStatusBar(false, true);
@@ -297,7 +301,7 @@ namespace Cakebox_Archive
 
 		private void openEditCakeboxForm(object sender, EventArgs e)
 		{
-			int id = int.Parse(cakeboxesListBox.SelectedValue.ToString());
+			int id = Convert.ToInt32(cakeboxesListBox.SelectedValue.ToString());
 			string label = cakeboxesListBox.Text;
 			new EditCakebox(this, id, label).ShowDialog();
 		}
@@ -311,7 +315,7 @@ namespace Cakebox_Archive
 			}
 			else if(MessageBox.Show("Are you sure you want to delete cakebox: "+cakeboxesListBox.Text,"Confirm delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
 			{
-				model.deleteCakebox(int.Parse(cakeboxesListBox.SelectedValue.ToString()));
+				model.deleteCakebox(Convert.ToInt32(cakeboxesListBox.SelectedValue.ToString()));
 				showCakeboxes(-1, true);
 				refreshStatusBar(true, false);
 			}
@@ -320,8 +324,8 @@ namespace Cakebox_Archive
 		private void openEditDiscForm(object sender, EventArgs e)
 		{
 
-			int id = int.Parse(discsListBox.SelectedValue.ToString());
-			int cid = int.Parse(cakeboxesListBox.SelectedValue.ToString());
+			int id = Convert.ToInt32(discsListBox.SelectedValue.ToString());
+			int cid = Convert.ToInt32(cakeboxesListBox.SelectedValue.ToString());
 			//string label = discsListBox.Text;
 			string label = model.fetchDiscLabelById(id);
 			new EditDisc(this, id, cid, label).ShowDialog();
@@ -331,7 +335,7 @@ namespace Cakebox_Archive
 		{
 			if(MessageBox.Show("Are you sure you want to delete disc: "+discsListBox.Text,"Confirm delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
 			{
-				model.deleteDisc(int.Parse(discsListBox.SelectedValue.ToString()));
+				model.deleteDisc(Convert.ToInt32(discsListBox.SelectedValue.ToString()));
 				showDiscs(sender, e);
 				refreshStatusBar(false, true);
 			}

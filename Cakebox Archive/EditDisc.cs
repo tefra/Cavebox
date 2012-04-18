@@ -31,7 +31,7 @@ namespace Cakebox_Archive
 		void saveDisc(object sender, EventArgs e)
 		{
 			String label = discLabel.Text.Trim();
-			int cid = int.Parse(discCakebox.SelectedValue.ToString());
+			int cid = Convert.ToInt32(discCakebox.SelectedValue.ToString());
 			if(label.Length > 0)
 			{
 				Model.Instance.saveDisc(_id, cid, label);
