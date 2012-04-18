@@ -15,8 +15,6 @@ namespace Cakebox_Archive
 	/// </summary>
 	public class XMLImport
 	{
-
-		
 		public XMLImport(string file)
 		{
 			try
