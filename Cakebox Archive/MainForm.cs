@@ -46,7 +46,7 @@ namespace Cakebox_Archive
 		public void buildCakeboxesCache()
 		{
 			cakeboxes = model.fetchCakeboxes();
-			selectCakeboxToStore.DataSource = cakeboxes;
+			newDiscCakebox.DataSource = cakeboxes;
 		}
 
 		public void showCakeboxes(int selectValue = 0, Boolean refreshCakeboxesCache = false)
@@ -263,7 +263,7 @@ namespace Cakebox_Archive
 			string label = newDiscLabelTextBox.Text.Trim();
 			string files = scanLog.Text.Trim();
 			
-			if(selectCakeboxToStore.SelectedIndex == -1)
+			if(newDiscCakebox.SelectedIndex == -1)
 			{
 				MessageBox.Show("You must select/create a cakebox before saving a new disc.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
 			}
@@ -275,8 +275,8 @@ namespace Cakebox_Archive
 			{
 				DateTime Jan1st1970 = new DateTime (1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 				int added =  (int) (DateTime.UtcNow - Jan1st1970).TotalSeconds;
-				string clabel = selectCakeboxToStore.Text;
-				int cid = Convert.ToInt32(selectCakeboxToStore.SelectedValue.ToString());
+				string clabel = newDiscCakebox.Text;
+				int cid = Convert.ToInt32(newDiscCakebox.SelectedValue.ToString());
 				
 				model.addNewDisc(label, files, scanTotalFiles, cid, added);
 				showCakeboxes();
