@@ -83,7 +83,6 @@ namespace Cakebox_Archive
 			this.resetWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.changelogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.sQLiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.statusStrip = new System.Windows.Forms.StatusStrip();
 			this.cakeboxStatsLabel = new System.Windows.Forms.ToolStripStatusLabel();
 			this.discStatsLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -104,8 +103,9 @@ namespace Cakebox_Archive
 			this.scanLogActionsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.scanDriveGroupBox = new System.Windows.Forms.GroupBox();
+			this.stopScanButton = new System.Windows.Forms.Button();
 			this.scanDrive = new System.Windows.Forms.ComboBox();
-			this.scanDriveButton = new System.Windows.Forms.Button();
+			this.startScanButton = new System.Windows.Forms.Button();
 			this.consoleTabPage = new System.Windows.Forms.TabPage();
 			this.consoleGroupBox = new System.Windows.Forms.GroupBox();
 			this.console = new System.Windows.Forms.RichTextBox();
@@ -483,17 +483,18 @@ namespace Cakebox_Archive
 			// 
 			this.alwaysOnTopToolStripMenuItem.Name = "alwaysOnTopToolStripMenuItem";
 			resources.ApplyResources(this.alwaysOnTopToolStripMenuItem, "alwaysOnTopToolStripMenuItem");
+			this.alwaysOnTopToolStripMenuItem.Click += new System.EventHandler(this.alwaysOnTopMenuItemClick);
 			// 
 			// resetWindowToolStripMenuItem
 			// 
 			this.resetWindowToolStripMenuItem.Name = "resetWindowToolStripMenuItem";
 			resources.ApplyResources(this.resetWindowToolStripMenuItem, "resetWindowToolStripMenuItem");
+			this.resetWindowToolStripMenuItem.Click += new System.EventHandler(this.ResetWindowToolStripMenuItemClick);
 			// 
 			// helpToolStripMenuItem
 			// 
 			this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-									this.changelogToolStripMenuItem,
-									this.sQLiteToolStripMenuItem});
+									this.changelogToolStripMenuItem});
 			this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
 			resources.ApplyResources(this.helpToolStripMenuItem, "helpToolStripMenuItem");
 			// 
@@ -502,11 +503,6 @@ namespace Cakebox_Archive
 			this.changelogToolStripMenuItem.Name = "changelogToolStripMenuItem";
 			resources.ApplyResources(this.changelogToolStripMenuItem, "changelogToolStripMenuItem");
 			this.changelogToolStripMenuItem.Click += new System.EventHandler(this.ChangelogToolStripMenuItemClick);
-			// 
-			// sQLiteToolStripMenuItem
-			// 
-			this.sQLiteToolStripMenuItem.Name = "sQLiteToolStripMenuItem";
-			resources.ApplyResources(this.sQLiteToolStripMenuItem, "sQLiteToolStripMenuItem");
 			// 
 			// statusStrip
 			// 
@@ -647,10 +643,18 @@ namespace Cakebox_Archive
 			// scanDriveGroupBox
 			// 
 			resources.ApplyResources(this.scanDriveGroupBox, "scanDriveGroupBox");
+			this.scanDriveGroupBox.Controls.Add(this.stopScanButton);
 			this.scanDriveGroupBox.Controls.Add(this.scanDrive);
-			this.scanDriveGroupBox.Controls.Add(this.scanDriveButton);
+			this.scanDriveGroupBox.Controls.Add(this.startScanButton);
 			this.scanDriveGroupBox.Name = "scanDriveGroupBox";
 			this.scanDriveGroupBox.TabStop = false;
+			// 
+			// stopScanButton
+			// 
+			resources.ApplyResources(this.stopScanButton, "stopScanButton");
+			this.stopScanButton.Name = "stopScanButton";
+			this.stopScanButton.UseVisualStyleBackColor = true;
+			this.stopScanButton.Click += new System.EventHandler(this.scanWorkerStop);
 			// 
 			// scanDrive
 			// 
@@ -660,12 +664,12 @@ namespace Cakebox_Archive
 			this.scanDrive.FormattingEnabled = true;
 			this.scanDrive.Name = "scanDrive";
 			// 
-			// scanDriveButton
+			// startScanButton
 			// 
-			resources.ApplyResources(this.scanDriveButton, "scanDriveButton");
-			this.scanDriveButton.Name = "scanDriveButton";
-			this.scanDriveButton.UseVisualStyleBackColor = true;
-			this.scanDriveButton.Click += new System.EventHandler(this.scanWorkerToggle);
+			resources.ApplyResources(this.startScanButton, "startScanButton");
+			this.startScanButton.Name = "startScanButton";
+			this.startScanButton.UseVisualStyleBackColor = true;
+			this.startScanButton.Click += new System.EventHandler(this.scanWorkerStart);
 			// 
 			// consoleTabPage
 			// 
@@ -721,7 +725,9 @@ namespace Cakebox_Archive
 			this.Controls.Add(this.statusStrip);
 			this.Controls.Add(this.menuStrip);
 			this.Name = "MainForm";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainFormFormClosing);
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.mainFormClosed);
+			this.Load += new System.EventHandler(this.MainFormLoad);
 			this.cakeboxDiscFileSplitContainer.Panel1.ResumeLayout(false);
 			this.cakeboxDiscFileSplitContainer.Panel2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.cakeboxDiscFileSplitContainer)).EndInit();
@@ -756,6 +762,7 @@ namespace Cakebox_Archive
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Button stopScanButton;
 		private System.Windows.Forms.Timer filterTextChangedTimer;
 		private System.Windows.Forms.RichTextBox console;
 		private System.ComponentModel.BackgroundWorker scanWorker;
@@ -795,7 +802,6 @@ namespace Cakebox_Archive
 		private System.Windows.Forms.ToolStripStatusLabel discStatsLabel;
 		private System.Windows.Forms.ToolStripStatusLabel cakeboxStatsLabel;
 		private System.Windows.Forms.StatusStrip statusStrip;
-		private System.Windows.Forms.ToolStripMenuItem sQLiteToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem changelogToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem alwaysOnTopToolStripMenuItem;
@@ -809,7 +815,7 @@ namespace Cakebox_Archive
 		private System.Windows.Forms.MenuStrip menuStrip;
 		private System.Windows.Forms.GroupBox consoleGroupBox;
 		private System.Windows.Forms.TabPage consoleTabPage;
-		private System.Windows.Forms.Button scanDriveButton;
+		private System.Windows.Forms.Button startScanButton;
 		private System.Windows.Forms.ComboBox scanDrive;
 		private System.Windows.Forms.GroupBox scanDriveGroupBox;
 		private System.Windows.Forms.RichTextBox scanLog;

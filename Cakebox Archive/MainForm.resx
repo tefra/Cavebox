@@ -907,12 +907,6 @@
   <data name="changelogToolStripMenuItem.Text" xml:space="preserve">
     <value>Changelog</value>
   </data>
-  <data name="sQLiteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 22</value>
-  </data>
-  <data name="sQLiteToolStripMenuItem.Text" xml:space="preserve">
-    <value>SQLite</value>
-  </data>
   <data name="helpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>44, 20</value>
   </data>
@@ -1286,6 +1280,40 @@
   <data name="scanDriveGroupBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
+  <data name="stopScanButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="stopScanButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="stopScanButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAAJ0lEQVQ4T2NgGAXYQuA/UBAf
+        JhhqowbgD0BQ+BAEAx+IBJ04zBQAACn/P8Gl4/yQAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="stopScanButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>464, 20</value>
+  </data>
+  <data name="stopScanButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 21</value>
+  </data>
+  <data name="stopScanButton.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;stopScanButton.Name" xml:space="preserve">
+    <value>stopScanButton</value>
+  </data>
+  <data name="&gt;&gt;stopScanButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;stopScanButton.Parent" xml:space="preserve">
+    <value>scanDriveGroupBox</value>
+  </data>
+  <data name="&gt;&gt;stopScanButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="scanDrive.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
@@ -1296,7 +1324,7 @@
     <value>7, 20</value>
   </data>
   <data name="scanDrive.Size" type="System.Drawing.Size, System.Drawing">
-    <value>451, 21</value>
+    <value>395, 21</value>
   </data>
   <data name="scanDrive.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1311,41 +1339,41 @@
     <value>scanDriveGroupBox</value>
   </data>
   <data name="&gt;&gt;scanDrive.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
-  <data name="scanDriveButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="startScanButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
-  <data name="scanDriveButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="startScanButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAAOElEQVQ4T2NgGAW4QuA8UMKA
         kuD5D9QMwg3kGgIzAEST5RpkA8hyDVUNoMgLZAciWbaSG2NDXR8A3BgZ6TN87/wAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="scanDriveButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="startScanButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="scanDriveButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>464, 20</value>
+  <data name="startScanButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>408, 20</value>
   </data>
-  <data name="scanDriveButton.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="startScanButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>50, 21</value>
   </data>
-  <data name="scanDriveButton.TabIndex" type="System.Int32, mscorlib">
+  <data name="startScanButton.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;scanDriveButton.Name" xml:space="preserve">
-    <value>scanDriveButton</value>
+  <data name="&gt;&gt;startScanButton.Name" xml:space="preserve">
+    <value>startScanButton</value>
   </data>
-  <data name="&gt;&gt;scanDriveButton.Type" xml:space="preserve">
+  <data name="&gt;&gt;startScanButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;scanDriveButton.Parent" xml:space="preserve">
+  <data name="&gt;&gt;startScanButton.Parent" xml:space="preserve">
     <value>scanDriveGroupBox</value>
   </data>
-  <data name="&gt;&gt;scanDriveButton.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;startScanButton.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="scanDriveGroupBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
@@ -1744,12 +1772,6 @@
     <value>changelogToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;changelogToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;sQLiteToolStripMenuItem.Name" xml:space="preserve">
-    <value>sQLiteToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;sQLiteToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cakeboxStatsLabel.Name" xml:space="preserve">

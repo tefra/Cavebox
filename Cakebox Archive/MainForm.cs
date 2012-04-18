@@ -40,9 +40,14 @@ namespace Cakebox_Archive
 
 		private void MainFormLoad(object sender, EventArgs e)
 		{
-
+			
 		}
 		
+		
+		void MainFormFormClosing(object sender, FormClosingEventArgs e)
+		{
+			
+		}
 		
 		private void mainFormClosed(object sender, FormClosedEventArgs e)
 		{
@@ -199,14 +204,10 @@ namespace Cakebox_Archive
 			groupBox.Text = title;
 		}
 
-		private void scanWorkerToggle(object sender, EventArgs e)
+		private void scanWorkerStart(object sender, EventArgs e)
 		{
 			saveNewDiscButton.Enabled = false;
-			if(scanWorker.IsBusy)
-			{
-				scanWorker.CancelAsync();
-			}
-			else
+			if(!scanWorker.IsBusy)
 			{
 				string drive = scanDrive.SelectedItem.ToString();
 				if(new DriveInfo(drive).IsReady)
@@ -217,6 +218,8 @@ namespace Cakebox_Archive
 					scanLog.Text = null;
 					newDiscLabelTextBox.Text = null;
 					newDiscLabelTextBox.Enabled = false;
+					startScanButton.Enabled = false;
+					stopScanButton.Enabled = true;
 				}
 				else
 				{
@@ -224,11 +227,27 @@ namespace Cakebox_Archive
 				}
 			}
 		}
+		
+
+		private void scanWorkerStop(object sender, EventArgs e)
+		{
+			saveNewDiscButton.Enabled = false;
+			if(scanWorker.IsBusy)
+			{
+				scanWorker.CancelAsync();
+				startScanButton.Enabled = true;
+				stopScanButton.Enabled = false;
+			}
+		}
+		
+		
 
 		private void scanWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
 		{
 			scanLog.ScrollToCaret();
 			scanDrive.Enabled = true;
+			startScanButton.Enabled = true;
+			stopScanButton.Enabled = false;
 			if(e.Cancelled)
 			{
 				newDiscLabelTextBox.Text = null;
@@ -559,6 +578,17 @@ namespace Cakebox_Archive
 		{
 			Clipboard.SetDataObject(filesList, true);
 		}
-
+		
+		void ResetWindowToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			
+		}
+		
+		void alwaysOnTopMenuItemClick(object sender, EventArgs e)
+		{
+			Boolean check = !alwaysOnTopToolStripMenuItem.Checked;
+			this.TopMost = check;
+			alwaysOnTopToolStripMenuItem.Checked = check;
+		}
 	}
 }
