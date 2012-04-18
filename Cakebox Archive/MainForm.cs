@@ -86,9 +86,7 @@ namespace Cakebox_Archive
 			if(discsListBox.SelectedIndex > -1)
 			{
 				Tuple<string, int, int> result = model.fetchFilesListByDiscId(discsListBox.SelectedValue.ToString());
-				string added = (result.Item3 > 0) ? new DateTime(1970, 1, 1, 0, 0, 0, 0).AddSeconds(result.Item3).ToLocalTime().ToString("dd/MM/yyyy HH:mm:ss") : "N/A";
-				filesList.Text = result.Item1;
-				
+								filesList.Text = result.Item1;
 				int start, pos, keyLength;
 				int end = result.Item1.Length;
 				foreach(string key in filterTextBox.Text.Split(' '))
@@ -102,13 +100,24 @@ namespace Cakebox_Archive
 						start = pos+keyLength;
 					}
 				}
-				filesList.AppendText("\n------------------------------------\n");
-				filesList.AppendText("Added: " + added);
-				filesList.ScrollToCaret();
+				
+				
+				string added = (result.Item3 > 0) ? new DateTime(1970, 1, 1).AddSeconds(result.Item3).ToLocalTime().ToString("dd/MM/yyyy HH:mm:ss") : "N/A";
+
+				discAddedLabel.Visible = true;
+				discAddedValueLabel.Visible = true;
+				discAddedValueLabel.Text = added;
+				
+
+				
 				updateNumTitle(discFilesGroupBox, result.Item2);
 			}
 			else
 			{
+				discAddedLabel.Visible = false;
+				discAddedValueLabel.Visible = false;
+				//discAddedValueLabel.Text = added;
+				
 				updateNumTitle(discFilesGroupBox, 0);
 			}
 		}
@@ -251,19 +260,23 @@ namespace Cakebox_Archive
 
 		public void saveNewDisc(object sender, EventArgs e)
 		{
-			
-			Console.Write(" edod " + selectCakeboxToStore.SelectedValue);
-			
-			int cid = Convert.ToInt32(selectCakeboxToStore.SelectedValue.ToString());
 			string label = newDiscLabelTextBox.Text.Trim();
 			string files = scanLog.Text.Trim();
-
-			if(label.Length > 0 && files.Length > 0 && scanTotalFiles > 0 && cid > 0)
+			
+			if(selectCakeboxToStore.SelectedIndex == -1)
+			{
+				MessageBox.Show("You must select/create a cakebox before saving a new disc.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+			}
+			else if(label.Length == 0)
+			{
+				MessageBox.Show("This disc label is empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+			}
+			else
 			{
 				DateTime Jan1st1970 = new DateTime (1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 				int added =  (int) (DateTime.UtcNow - Jan1st1970).TotalSeconds;
 				string clabel = selectCakeboxToStore.Text;
-
+				int cid = Convert.ToInt32(selectCakeboxToStore.SelectedValue.ToString());
 				
 				model.addNewDisc(label, files, scanTotalFiles, cid, added);
 				showCakeboxes();
@@ -273,10 +286,7 @@ namespace Cakebox_Archive
 				newDiscLabelTextBox.Text = null;
 				saveNewDiscButton.Enabled = false;
 			}
-			else
-			{
-				MessageBox.Show("Enter a proper disc label!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
-			}
+
 		}
 
 		public void ChangelogToolStripMenuItemClick(object sender, EventArgs e)
@@ -301,9 +311,12 @@ namespace Cakebox_Archive
 
 		private void openEditCakeboxForm(object sender, EventArgs e)
 		{
-			int id = Convert.ToInt32(cakeboxesListBox.SelectedValue.ToString());
-			string label = cakeboxesListBox.Text;
-			new EditCakebox(this, id, label).ShowDialog();
+			if(cakeboxesListBox.SelectedIndex > -1)
+			{
+				int id = Convert.ToInt32(cakeboxesListBox.SelectedValue.ToString());
+				string label = cakeboxesListBox.Text;
+				new EditCakebox(this, id, label).ShowDialog();
+			}
 		}
 
 		private void deleteCakebox(object sender, EventArgs e)
@@ -323,12 +336,14 @@ namespace Cakebox_Archive
 
 		private void openEditDiscForm(object sender, EventArgs e)
 		{
-
-			int id = Convert.ToInt32(discsListBox.SelectedValue.ToString());
-			int cid = Convert.ToInt32(cakeboxesListBox.SelectedValue.ToString());
-			//string label = discsListBox.Text;
-			string label = model.fetchDiscLabelById(id);
-			new EditDisc(this, id, cid, label).ShowDialog();
+			if(discsListBox.SelectedIndex > -1 && cakeboxesListBox.SelectedIndex > -1)
+			{
+				int id = Convert.ToInt32(discsListBox.SelectedValue.ToString());
+				int cid = Convert.ToInt32(cakeboxesListBox.SelectedValue.ToString());
+				//string label = discsListBox.Text;
+				string label = model.fetchDiscLabelById(id);
+				new EditDisc(this, id, cid, label).ShowDialog();
+			}
 		}
 
 		private void deleteDisc(object sender, EventArgs e)
@@ -454,12 +469,30 @@ namespace Cakebox_Archive
 		
 		private void CakeboxesActionsMenuOpening(object sender, CancelEventArgs e)
 		{
-			deleteCakeboxMenuItem.Enabled = (discsListBox.Items.Count == 0);
+			if(cakeboxesListBox.SelectedIndex > -1)
+			{
+				deleteCakeboxMenuItem.Enabled = (discsListBox.Items.Count == 0);
+			}
+			else
+			{
+				e.Cancel = true;
+			}
 		}
 		
 		private void FilesListActionMenuOpening(object sender, CancelEventArgs e)
 		{
-			filesListActionMenu.Enabled = (filesList.SelectedText.Trim().Length > 0);
+			if(filesList.SelectedText.Trim().Length == 0)
+			{
+				e.Cancel = true;
+			}
+		}
+		
+		void DiscsActionsMenuOpening(object sender, CancelEventArgs e)
+		{
+			if(discsListBox.SelectedIndex == -1)
+			{
+				e.Cancel = true;
+			}
 		}
 		
 		private void rebuildFileCounters(object sender, EventArgs e)
