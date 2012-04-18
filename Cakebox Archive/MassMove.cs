@@ -1,10 +1,7 @@
-﻿/*
- * Created by SharpDevelop.
- * User: Tefra
- * Date: 18/4/2012
- * Time: 2:51 πμ
- * 
- * To change this template use Tools | Options | Coding | Edit Standard Headers.
+﻿/**
+ * @version	$Id$
+ * @author	Christodoulos Tsoulloftas
+ * @link	http://www.t3-design.com
  */
 using System;
 using System.Drawing;
