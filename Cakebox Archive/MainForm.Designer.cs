@@ -80,7 +80,6 @@ namespace Cakebox_Archive
 			this.rebuildFileCountersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.alwaysOnTopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.resetWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.changelogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.statusStrip = new System.Windows.Forms.StatusStrip();
@@ -474,8 +473,7 @@ namespace Cakebox_Archive
 			// viewToolStripMenuItem
 			// 
 			this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-									this.alwaysOnTopToolStripMenuItem,
-									this.resetWindowToolStripMenuItem});
+									this.alwaysOnTopToolStripMenuItem});
 			this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
 			resources.ApplyResources(this.viewToolStripMenuItem, "viewToolStripMenuItem");
 			// 
@@ -484,12 +482,6 @@ namespace Cakebox_Archive
 			this.alwaysOnTopToolStripMenuItem.Name = "alwaysOnTopToolStripMenuItem";
 			resources.ApplyResources(this.alwaysOnTopToolStripMenuItem, "alwaysOnTopToolStripMenuItem");
 			this.alwaysOnTopToolStripMenuItem.Click += new System.EventHandler(this.alwaysOnTopMenuItemClick);
-			// 
-			// resetWindowToolStripMenuItem
-			// 
-			this.resetWindowToolStripMenuItem.Name = "resetWindowToolStripMenuItem";
-			resources.ApplyResources(this.resetWindowToolStripMenuItem, "resetWindowToolStripMenuItem");
-			this.resetWindowToolStripMenuItem.Click += new System.EventHandler(this.ResetWindowToolStripMenuItemClick);
 			// 
 			// helpToolStripMenuItem
 			// 
@@ -725,9 +717,7 @@ namespace Cakebox_Archive
 			this.Controls.Add(this.statusStrip);
 			this.Controls.Add(this.menuStrip);
 			this.Name = "MainForm";
-			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainFormFormClosing);
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.mainFormClosed);
-			this.Load += new System.EventHandler(this.MainFormLoad);
 			this.cakeboxDiscFileSplitContainer.Panel1.ResumeLayout(false);
 			this.cakeboxDiscFileSplitContainer.Panel2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.cakeboxDiscFileSplitContainer)).EndInit();
@@ -781,7 +771,6 @@ namespace Cakebox_Archive
 		private System.Windows.Forms.ContextMenuStrip filesListActionMenu;
 		private System.Windows.Forms.ToolStripMenuItem clearToolStripMenuItem;
 		private System.Windows.Forms.ContextMenuStrip consoleActionsMenu;
-		private System.Windows.Forms.ToolStripMenuItem resetWindowToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem sortDiscsDescendingMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem sortDiscsAscendingMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;

@@ -35,25 +35,12 @@ namespace Cakebox_Archive
 			model = Model.Instance;
 			showCakeboxes(0, true);
 			scanDrive.DataSource = DriveInfo.GetDrives().Where(d => /*d.DriveType == DriveType.CDRom &&*/ d.IsReady == true).ToArray();
-
-		}
-
-		private void MainFormLoad(object sender, EventArgs e)
-		{
-			
-		}
-		
-		
-		void MainFormFormClosing(object sender, FormClosingEventArgs e)
-		{
-			
 		}
 		
 		private void mainFormClosed(object sender, FormClosedEventArgs e)
 		{
 			model.vacuum();
 		}
-		
 		
 		public Boolean isFilterOn()
 		{
@@ -579,12 +566,7 @@ namespace Cakebox_Archive
 			Clipboard.SetDataObject(filesList, true);
 		}
 		
-		void ResetWindowToolStripMenuItemClick(object sender, EventArgs e)
-		{
-			
-		}
-		
-		void alwaysOnTopMenuItemClick(object sender, EventArgs e)
+		private void alwaysOnTopMenuItemClick(object sender, EventArgs e)
 		{
 			Boolean check = !alwaysOnTopToolStripMenuItem.Checked;
 			this.TopMost = check;
