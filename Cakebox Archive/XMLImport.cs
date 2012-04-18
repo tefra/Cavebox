@@ -31,42 +31,37 @@ namespace Cakebox_Archive
 				{
 					while (reader.Read())
 					{
-						switch(reader.NodeType)
+						if(reader.NodeType == XmlNodeType.Element)
 						{
-							case XmlNodeType.Element:
-								if(reader.Name == "table")
-								{
-									table = reader.GetAttribute("name");
-									columns = new List<string>();
-									values = new List<string>();
-								}
-								else if(reader.Name == "column")
-								{
-									columns.Add(reader.GetAttribute("name"));
-									values.Add(reader.ReadString());
-								}
-								break;
+							if(reader.Name == "table")
+							{
+								table = reader.GetAttribute("name");
+								columns = new List<string>();
+								values = new List<string>();
+							}
+							else if(reader.Name == "column")
+							{
+								columns.Add(reader.GetAttribute("name"));
+								values.Add(reader.ReadString());
+							}
+						}
+						else if(reader.NodeType == XmlNodeType.EndElement)
+						{
+							if(reader.Name == "table")
+							{
+								SQLiteCommand cm = db.CreateCommand();
+								cm.CommandText = String.Format("INSERT INTO {0} ({1}) VALUES (@{2})", table, String.Join(", ", columns), String.Join(", @", columns));
 								
-							case XmlNodeType.EndElement:
-								if(reader.Name == "table")
+								for(int i = 0; i < columns.Count; i++)
 								{
-									SQLiteCommand cm = db.CreateCommand();
-									cm.CommandText = String.Format("INSERT INTO {0} ({1}) VALUES (@{2})", table, String.Join(", ", columns), String.Join(", @", columns));
-									
-									for(int i = 0; i < columns.Count; i++)
-									{
-										cm.Parameters.Add(new SQLiteParameter("@"+columns[i], values[i]));
-									}
-									cm.ExecuteNonQuery();
-									cm.Dispose();
-									
-
+									cm.Parameters.Add(new SQLiteParameter("@"+columns[i], values[i]));
 								}
-								break;
+								cm.ExecuteNonQuery();
+								cm.Dispose();
+							}
 						}
 					}
 				}
-				
 				transaction.Commit();
 			}
 			catch(SQLiteException e)
