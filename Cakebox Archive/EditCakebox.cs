@@ -25,7 +25,7 @@ namespace Cakebox_Archive
 			cakeboxLabel.Text = label;
 		}
 		
-		void saveCakebox(object sender, EventArgs e)
+		private void saveCakebox(object sender, EventArgs e)
 		{
 			String label = cakeboxLabel.Text.Trim();
 			if(label.Length > 0)
@@ -37,7 +37,7 @@ namespace Cakebox_Archive
 			}
 		}
 		
-		void closeForm(object sender, EventArgs e)
+		private void closeForm(object sender, EventArgs e)
 		{
 			Dispose();
 		}
