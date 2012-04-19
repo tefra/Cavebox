@@ -7,7 +7,7 @@ using System;
 using System.Data.SQLite;
 using System.Xml;
 
-namespace Cakebox_Archive
+namespace Cavebox
 {
 	/// <summary>
 	/// Description of XMLExport.

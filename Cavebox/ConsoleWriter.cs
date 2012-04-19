@@ -7,7 +7,7 @@ using System;
 using System.Drawing;
 using System.IO;
 
-namespace Cakebox_Archive
+namespace Cavebox
 {
 	/// <summary>
 	/// Description of ConcoleWriter.

@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Cakebox_Archive
+namespace Cavebox
 {
 	/// <summary>
 	/// Description of MassMove.

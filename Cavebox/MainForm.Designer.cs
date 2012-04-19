@@ -3,7 +3,7 @@
  * @author	Christodoulos Tsoulloftas
  * @link	http://www.t3-design.com
  */
-namespace Cakebox_Archive
+namespace Cavebox
 {
 	partial class MainForm
 	{

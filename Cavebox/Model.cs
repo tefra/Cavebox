@@ -11,7 +11,7 @@ using System.Data.SQLite;
 using System.Linq.Expressions;
 using System.Windows.Forms;
 
-namespace Cakebox_Archive
+namespace Cavebox
 {
 	/// <summary>
 	/// Description of Model.
@@ -37,9 +37,10 @@ namespace Cakebox_Archive
 				db.Open();
 				Console.WriteLine("Starting up SQLite " + db.ServerVersion + ": " + fetchOne("PRAGMA integrity_check"));
 			}
-			catch(SQLiteException e)
+			catch
 			{
-				Console.Write(e.Message);
+				MessageBox.Show("Database connection failed!", "Cavebox", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+				Application.Exit();
 			}
 			
 			try

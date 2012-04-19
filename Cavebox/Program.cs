@@ -7,7 +7,7 @@ using System;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace Cakebox_Archive
+namespace Cavebox
 {
 	/// <summary>
 	/// Class with program entry point.

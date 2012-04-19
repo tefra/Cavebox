@@ -5,7 +5,7 @@
  */
 using System;
 
-namespace Cakebox_Archive
+namespace Cavebox
 {
 	/// <summary>
 	/// Description of Index.
