@@ -62,6 +62,7 @@ namespace Cavebox
 			// 
 			resources.ApplyResources(this.selectCakebox, "selectCakebox");
 			this.selectCakebox.DisplayMember = "Value";
+			this.selectCakebox.DropDownHeight = 150;
 			this.selectCakebox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.selectCakebox.FormattingEnabled = true;
 			this.selectCakebox.Name = "selectCakebox";

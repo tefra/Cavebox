@@ -188,6 +188,9 @@
   <data name="&gt;&gt;discLabel.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="discCakebox.IntegralHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="discCakebox.Location" type="System.Drawing.Point, System.Drawing">
     <value>70, 37</value>
   </data>

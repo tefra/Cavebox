@@ -60,6 +60,7 @@ namespace Cavebox
 			// discCakebox
 			// 
 			this.discCakebox.DisplayMember = "Value";
+			this.discCakebox.DropDownHeight = 150;
 			this.discCakebox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.discCakebox.FormattingEnabled = true;
 			resources.ApplyResources(this.discCakebox, "discCakebox");

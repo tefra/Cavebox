@@ -56,8 +56,6 @@ namespace Cavebox
 
 		public void showCakeboxes(int selectValue = 0, Boolean refreshCakeboxesCache = false)
 		{
-			Console.WriteLine("showCakeboxes");
-
 			if(refreshCakeboxesCache)
 			{
 				buildCakeboxesCache();
@@ -74,7 +72,6 @@ namespace Cavebox
 
 		public void showDiscs(object sender, EventArgs e)
 		{
-			Console.WriteLine("showDiscs");
 			List<Index> newDataSource = (cakeboxesListBox.SelectedIndex > -1) ? model.fetchDiscsByCakeboxId(cakeboxesListBox.SelectedValue.ToString(), _filterLike, discsOrderBy, discsOrderWay) : new List<Index>();
 			discsListBox.SelectedValueChanged -= showFiles;
 			discsListBox.DataSource = newDataSource;
@@ -86,7 +83,6 @@ namespace Cavebox
 
 		private void showFiles(object sender, EventArgs e)
 		{
-			Console.WriteLine("showFiles");
 			filesList.Clear();
 			if(discsListBox.SelectedIndex > -1)
 			{
@@ -132,7 +128,6 @@ namespace Cavebox
 		private void filter(object sender, EventArgs e)
 		{
 			filterTextChangedTimer.Stop();
-			Console.WriteLine("filter");
 			string filter = filterTextBox.Text.Trim();
 			if(filter.Length > 0)
 			{
@@ -165,7 +160,6 @@ namespace Cavebox
 		
 		public void refreshStatusBar(Boolean cakebox = false, Boolean disc = false)
 		{
-			Console.WriteLine("refreshStatusBar");
 			if(cakebox)
 			{
 				updateNumTitle(cakeboxStatsLabel, model.getTotalCakeboxes());
@@ -214,7 +208,6 @@ namespace Cavebox
 				}
 			}
 		}
-		
 
 		private void scanWorkerStop(object sender, EventArgs e)
 		{
@@ -227,8 +220,6 @@ namespace Cavebox
 			}
 		}
 		
-		
-
 		private void scanWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
 		{
 			scanLog.ScrollToCaret();
