@@ -117,6 +117,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Images.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Strings.resx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources" />

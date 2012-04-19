@@ -32,7 +32,7 @@ namespace Cavebox
 		{
 			InitializeComponent();
 			
-
+			//global::Cavebox.Properties
 			
 			System.ComponentModel.ComponentResourceManager r = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			Console.SetOut(new ConsoleWriter(console));
