@@ -153,7 +153,7 @@
     <value>0, 0</value>
   </data>
   <data name="cakeboxesGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 265</value>
+    <value>258, 264</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="cakeboxesGroupBox.TabIndex" type="System.Int32, mscorlib">
@@ -173,6 +173,9 @@
   </data>
   <data name="&gt;&gt;cakeboxesGroupBox.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="cakeboxDiscSplitContainer.Panel1.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>No</value>
   </data>
   <data name="&gt;&gt;cakeboxDiscSplitContainer.Panel1.Name" xml:space="preserve">
     <value>cakeboxDiscSplitContainer.Panel1</value>
@@ -205,7 +208,7 @@
     <value>0, 0</value>
   </data>
   <data name="discsGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 265</value>
+    <value>258, 264</value>
   </data>
   <data name="discsGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -225,6 +228,9 @@
   <data name="&gt;&gt;discsGroupBox.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="cakeboxDiscSplitContainer.Panel2.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>No</value>
+  </data>
   <data name="&gt;&gt;cakeboxDiscSplitContainer.Panel2.Name" xml:space="preserve">
     <value>cakeboxDiscSplitContainer.Panel2</value>
   </data>
@@ -238,7 +244,7 @@
     <value>1</value>
   </data>
   <data name="cakeboxDiscSplitContainer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>520, 265</value>
+    <value>520, 264</value>
   </data>
   <data name="cakeboxDiscSplitContainer.SplitterDistance" type="System.Int32, mscorlib">
     <value>258</value>
@@ -309,6 +315,9 @@
   <data name="&gt;&gt;filterGroupBox.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="cakeboxDiscFileSplitContainer.Panel1.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>No</value>
+  </data>
   <data name="&gt;&gt;cakeboxDiscFileSplitContainer.Panel1.Name" xml:space="preserve">
     <value>cakeboxDiscFileSplitContainer.Panel1</value>
   </data>
@@ -340,7 +349,7 @@
     <value>0, 0</value>
   </data>
   <data name="discFilesGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>520, 149</value>
+    <value>520, 150</value>
   </data>
   <data name="discFilesGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -360,6 +369,9 @@
   <data name="&gt;&gt;discFilesGroupBox.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="cakeboxDiscFileSplitContainer.Panel2.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>No</value>
+  </data>
   <data name="&gt;&gt;cakeboxDiscFileSplitContainer.Panel2.Name" xml:space="preserve">
     <value>cakeboxDiscFileSplitContainer.Panel2</value>
   </data>
@@ -376,7 +388,7 @@
     <value>520, 482</value>
   </data>
   <data name="cakeboxDiscFileSplitContainer.SplitterDistance" type="System.Int32, mscorlib">
-    <value>329</value>
+    <value>328</value>
   </data>
   <data name="cakeboxDiscFileSplitContainer.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -397,7 +409,7 @@
     <value>335, 21</value>
   </metadata>
   <data name="cakeboxesActionsMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 98</value>
+    <value>135, 76</value>
   </data>
   <data name="&gt;&gt;cakeboxesActionsMenu.Name" xml:space="preserve">
     <value>cakeboxesActionsMenu</value>
@@ -415,7 +427,7 @@
     <value>3, 16</value>
   </data>
   <data name="cakeboxesListBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>252, 246</value>
+    <value>252, 245</value>
   </data>
   <data name="cakeboxesListBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -442,7 +454,7 @@
 </value>
   </data>
   <data name="editCakeboxMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>134, 22</value>
   </data>
   <data name="editCakeboxMenuItem.Text" xml:space="preserve">
     <value>Edit</value>
@@ -456,13 +468,13 @@
 </value>
   </data>
   <data name="deleteCakeboxMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>134, 22</value>
   </data>
   <data name="deleteCakeboxMenuItem.Text" xml:space="preserve">
     <value>Delete</value>
   </data>
   <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 6</value>
+    <value>131, 6</value>
   </data>
   <data name="massMoveDiscsMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -473,7 +485,7 @@
 </value>
   </data>
   <data name="massMoveDiscsMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>134, 22</value>
   </data>
   <data name="massMoveDiscsMenuItem.Text" xml:space="preserve">
     <value>Mass Move</value>
@@ -500,7 +512,7 @@
     <value>3, 16</value>
   </data>
   <data name="discsListBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>252, 246</value>
+    <value>252, 245</value>
   </data>
   <data name="discsListBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -662,7 +674,7 @@
     <value>805, 21</value>
   </metadata>
   <data name="filesListActionMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 186</value>
+    <value>127, 164</value>
   </data>
   <data name="&gt;&gt;filesListActionMenu.Name" xml:space="preserve">
     <value>filesListActionMenu</value>
@@ -677,7 +689,7 @@
     <value>3, 16</value>
   </data>
   <data name="filesList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>514, 130</value>
+    <value>514, 131</value>
   </data>
   <data name="filesList.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -701,13 +713,13 @@
     <value>0</value>
   </data>
   <data name="copyToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>126, 22</value>
   </data>
   <data name="copyToolStripMenuItem.Text" xml:space="preserve">
     <value>Copy</value>
   </data>
   <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 6</value>
+    <value>123, 6</value>
   </data>
   <data name="googleToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -730,7 +742,7 @@
 </value>
   </data>
   <data name="googleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>126, 22</value>
   </data>
   <data name="googleToolStripMenuItem.Text" xml:space="preserve">
     <value>Google</value>
@@ -746,7 +758,7 @@
 </value>
   </data>
   <data name="wikipediaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>126, 22</value>
   </data>
   <data name="wikipediaToolStripMenuItem.Text" xml:space="preserve">
     <value>Wikipedia</value>
@@ -773,7 +785,7 @@
 </value>
   </data>
   <data name="anidbToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>126, 22</value>
   </data>
   <data name="anidbToolStripMenuItem.Text" xml:space="preserve">
     <value>Anidb</value>
@@ -794,7 +806,7 @@
 </value>
   </data>
   <data name="imdbToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>126, 22</value>
   </data>
   <data name="imdbToolStripMenuItem.Text" xml:space="preserve">
     <value>Imdb</value>
@@ -817,7 +829,7 @@
 </value>
   </data>
   <data name="lastfmToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>126, 22</value>
   </data>
   <data name="lastfmToolStripMenuItem.Text" xml:space="preserve">
     <value>Last.fm</value>
@@ -835,7 +847,7 @@
 </value>
   </data>
   <data name="youtubeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>126, 22</value>
   </data>
   <data name="youtubeToolStripMenuItem.Text" xml:space="preserve">
     <value>Youtube</value>
@@ -853,7 +865,7 @@
     <value>2</value>
   </data>
   <data name="menuStrip.Text" xml:space="preserve">
-    <value>menuStrip1</value>
+    <value>menuStrip</value>
   </data>
   <data name="&gt;&gt;menuStrip.Name" xml:space="preserve">
     <value>menuStrip</value>
@@ -1054,6 +1066,66 @@
   <data name="discAddedValueLabel.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
+  <data name="&gt;&gt;mainTabPage.Name" xml:space="preserve">
+    <value>mainTabPage</value>
+  </data>
+  <data name="&gt;&gt;mainTabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mainTabPage.Parent" xml:space="preserve">
+    <value>tabControl</value>
+  </data>
+  <data name="&gt;&gt;mainTabPage.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;scanTabPage.Name" xml:space="preserve">
+    <value>scanTabPage</value>
+  </data>
+  <data name="&gt;&gt;scanTabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;scanTabPage.Parent" xml:space="preserve">
+    <value>tabControl</value>
+  </data>
+  <data name="&gt;&gt;scanTabPage.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;consoleTabPage.Name" xml:space="preserve">
+    <value>consoleTabPage</value>
+  </data>
+  <data name="&gt;&gt;consoleTabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;consoleTabPage.Parent" xml:space="preserve">
+    <value>tabControl</value>
+  </data>
+  <data name="&gt;&gt;consoleTabPage.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tabControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tabControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 24</value>
+  </data>
+  <data name="tabControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>534, 514</value>
+  </data>
+  <data name="tabControl.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;tabControl.Name" xml:space="preserve">
+    <value>tabControl</value>
+  </data>
+  <data name="&gt;&gt;tabControl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabControl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tabControl.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
   <data name="mainTabPage.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
   </data>
@@ -1081,8 +1153,155 @@
   <data name="&gt;&gt;mainTabPage.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="&gt;&gt;saveNewDiscGroupBox.Name" xml:space="preserve">
+    <value>saveNewDiscGroupBox</value>
+  </data>
+  <data name="&gt;&gt;saveNewDiscGroupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;saveNewDiscGroupBox.Parent" xml:space="preserve">
+    <value>scanTabPage</value>
+  </data>
+  <data name="&gt;&gt;saveNewDiscGroupBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;scanLogGroupBox.Name" xml:space="preserve">
+    <value>scanLogGroupBox</value>
+  </data>
+  <data name="&gt;&gt;scanLogGroupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;scanLogGroupBox.Parent" xml:space="preserve">
+    <value>scanTabPage</value>
+  </data>
+  <data name="&gt;&gt;scanLogGroupBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;scanDriveGroupBox.Name" xml:space="preserve">
+    <value>scanDriveGroupBox</value>
+  </data>
+  <data name="&gt;&gt;scanDriveGroupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;scanDriveGroupBox.Parent" xml:space="preserve">
+    <value>scanTabPage</value>
+  </data>
+  <data name="&gt;&gt;scanDriveGroupBox.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="scanTabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="scanTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="scanTabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>526, 488</value>
+  </data>
+  <data name="scanTabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="scanTabPage.Text" xml:space="preserve">
+    <value>Scan</value>
+  </data>
+  <data name="&gt;&gt;scanTabPage.Name" xml:space="preserve">
+    <value>scanTabPage</value>
+  </data>
+  <data name="&gt;&gt;scanTabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;scanTabPage.Parent" xml:space="preserve">
+    <value>tabControl</value>
+  </data>
+  <data name="&gt;&gt;scanTabPage.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="saveNewDiscGroupBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;newDiscCakebox.Name" xml:space="preserve">
+    <value>newDiscCakebox</value>
+  </data>
+  <data name="&gt;&gt;newDiscCakebox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;newDiscCakebox.Parent" xml:space="preserve">
+    <value>saveNewDiscGroupBox</value>
+  </data>
+  <data name="&gt;&gt;newDiscCakebox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;saveNewDiscButton.Name" xml:space="preserve">
+    <value>saveNewDiscButton</value>
+  </data>
+  <data name="&gt;&gt;saveNewDiscButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;saveNewDiscButton.Parent" xml:space="preserve">
+    <value>saveNewDiscGroupBox</value>
+  </data>
+  <data name="&gt;&gt;saveNewDiscButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;newDiscLabelTextBox.Name" xml:space="preserve">
+    <value>newDiscLabelTextBox</value>
+  </data>
+  <data name="&gt;&gt;newDiscLabelTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;newDiscLabelTextBox.Parent" xml:space="preserve">
+    <value>saveNewDiscGroupBox</value>
+  </data>
+  <data name="&gt;&gt;newDiscLabelTextBox.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;newDiscCakeboxLabel.Name" xml:space="preserve">
+    <value>newDiscCakeboxLabel</value>
+  </data>
+  <data name="&gt;&gt;newDiscCakeboxLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;newDiscCakeboxLabel.Parent" xml:space="preserve">
+    <value>saveNewDiscGroupBox</value>
+  </data>
+  <data name="&gt;&gt;newDiscCakeboxLabel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;newDiscLabelLabel.Name" xml:space="preserve">
+    <value>newDiscLabelLabel</value>
+  </data>
+  <data name="&gt;&gt;newDiscLabelLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;newDiscLabelLabel.Parent" xml:space="preserve">
+    <value>saveNewDiscGroupBox</value>
+  </data>
+  <data name="&gt;&gt;newDiscLabelLabel.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="saveNewDiscGroupBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 409</value>
+  </data>
+  <data name="saveNewDiscGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>520, 76</value>
+  </data>
+  <data name="saveNewDiscGroupBox.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="saveNewDiscGroupBox.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="&gt;&gt;saveNewDiscGroupBox.Name" xml:space="preserve">
+    <value>saveNewDiscGroupBox</value>
+  </data>
+  <data name="&gt;&gt;saveNewDiscGroupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;saveNewDiscGroupBox.Parent" xml:space="preserve">
+    <value>scanTabPage</value>
+  </data>
+  <data name="&gt;&gt;saveNewDiscGroupBox.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="newDiscCakebox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -1232,30 +1451,6 @@
   <data name="&gt;&gt;newDiscLabelLabel.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="saveNewDiscGroupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 409</value>
-  </data>
-  <data name="saveNewDiscGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>520, 76</value>
-  </data>
-  <data name="saveNewDiscGroupBox.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="saveNewDiscGroupBox.Text" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="&gt;&gt;saveNewDiscGroupBox.Name" xml:space="preserve">
-    <value>saveNewDiscGroupBox</value>
-  </data>
-  <data name="&gt;&gt;saveNewDiscGroupBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;saveNewDiscGroupBox.Parent" xml:space="preserve">
-    <value>scanTabPage</value>
-  </data>
-  <data name="&gt;&gt;saveNewDiscGroupBox.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="scanLogGroupBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
@@ -1294,6 +1489,54 @@
   </data>
   <data name="&gt;&gt;scanLogGroupBox.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <metadata name="scanLogActionsMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>129, 58</value>
+  </metadata>
+  <data name="scanLogActionsMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 26</value>
+  </data>
+  <data name="&gt;&gt;scanLogActionsMenu.Name" xml:space="preserve">
+    <value>scanLogActionsMenu</value>
+  </data>
+  <data name="&gt;&gt;scanLogActionsMenu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="scanLog.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="scanLog.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 16</value>
+  </data>
+  <data name="scanLog.Size" type="System.Drawing.Size, System.Drawing">
+    <value>514, 317</value>
+  </data>
+  <data name="scanLog.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="scanLog.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="scanLog.WordWrap" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;scanLog.Name" xml:space="preserve">
+    <value>scanLog</value>
+  </data>
+  <data name="&gt;&gt;scanLog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;scanLog.Parent" xml:space="preserve">
+    <value>scanLogGroupBox</value>
+  </data>
+  <data name="&gt;&gt;scanLog.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="resetToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>102, 22</value>
+  </data>
+  <data name="resetToolStripMenuItem.Text" xml:space="preserve">
+    <value>Reset</value>
   </data>
   <data name="scanDriveGroupBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -1357,144 +1600,6 @@
   </data>
   <data name="&gt;&gt;scanDriveGroupBox.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="scanTabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="scanTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="scanTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>526, 488</value>
-  </data>
-  <data name="scanTabPage.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="scanTabPage.Text" xml:space="preserve">
-    <value>Scan</value>
-  </data>
-  <data name="&gt;&gt;scanTabPage.Name" xml:space="preserve">
-    <value>scanTabPage</value>
-  </data>
-  <data name="&gt;&gt;scanTabPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;scanTabPage.Parent" xml:space="preserve">
-    <value>tabControl</value>
-  </data>
-  <data name="&gt;&gt;scanTabPage.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;consoleGroupBox.Name" xml:space="preserve">
-    <value>consoleGroupBox</value>
-  </data>
-  <data name="&gt;&gt;consoleGroupBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;consoleGroupBox.Parent" xml:space="preserve">
-    <value>consoleTabPage</value>
-  </data>
-  <data name="&gt;&gt;consoleGroupBox.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="consoleTabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="consoleTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="consoleTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>526, 488</value>
-  </data>
-  <data name="consoleTabPage.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="consoleTabPage.Text" xml:space="preserve">
-    <value>Console</value>
-  </data>
-  <data name="&gt;&gt;consoleTabPage.Name" xml:space="preserve">
-    <value>consoleTabPage</value>
-  </data>
-  <data name="&gt;&gt;consoleTabPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;consoleTabPage.Parent" xml:space="preserve">
-    <value>tabControl</value>
-  </data>
-  <data name="&gt;&gt;consoleTabPage.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="tabControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="tabControl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 24</value>
-  </data>
-  <data name="tabControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>534, 514</value>
-  </data>
-  <data name="tabControl.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;tabControl.Name" xml:space="preserve">
-    <value>tabControl</value>
-  </data>
-  <data name="&gt;&gt;tabControl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabControl.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tabControl.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <metadata name="scanLogActionsMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>129, 58</value>
-  </metadata>
-  <data name="scanLogActionsMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 26</value>
-  </data>
-  <data name="&gt;&gt;scanLogActionsMenu.Name" xml:space="preserve">
-    <value>scanLogActionsMenu</value>
-  </data>
-  <data name="&gt;&gt;scanLogActionsMenu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="scanLog.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="scanLog.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 16</value>
-  </data>
-  <data name="scanLog.Size" type="System.Drawing.Size, System.Drawing">
-    <value>514, 317</value>
-  </data>
-  <data name="scanLog.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="scanLog.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="scanLog.WordWrap" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;scanLog.Name" xml:space="preserve">
-    <value>scanLog</value>
-  </data>
-  <data name="&gt;&gt;scanLog.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;scanLog.Parent" xml:space="preserve">
-    <value>scanLogGroupBox</value>
-  </data>
-  <data name="&gt;&gt;scanLog.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="resetToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>102, 22</value>
-  </data>
-  <data name="resetToolStripMenuItem.Text" xml:space="preserve">
-    <value>Reset</value>
   </data>
   <data name="stopScanButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -1589,6 +1694,45 @@
     <value>scanDriveGroupBox</value>
   </data>
   <data name="&gt;&gt;startScanButton.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;consoleGroupBox.Name" xml:space="preserve">
+    <value>consoleGroupBox</value>
+  </data>
+  <data name="&gt;&gt;consoleGroupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;consoleGroupBox.Parent" xml:space="preserve">
+    <value>consoleTabPage</value>
+  </data>
+  <data name="&gt;&gt;consoleGroupBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="consoleTabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="consoleTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="consoleTabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>526, 488</value>
+  </data>
+  <data name="consoleTabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="consoleTabPage.Text" xml:space="preserve">
+    <value>Console</value>
+  </data>
+  <data name="&gt;&gt;consoleTabPage.Name" xml:space="preserve">
+    <value>consoleTabPage</value>
+  </data>
+  <data name="&gt;&gt;consoleTabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;consoleTabPage.Parent" xml:space="preserve">
+    <value>tabControl</value>
+  </data>
+  <data name="&gt;&gt;consoleTabPage.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="&gt;&gt;console.Name" xml:space="preserve">

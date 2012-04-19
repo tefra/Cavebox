@@ -150,10 +150,12 @@ namespace Cakebox_Archive
 			// 
 			this.cakeboxDiscFileSplitContainer.Panel1.Controls.Add(this.cakeboxDiscSplitContainer);
 			this.cakeboxDiscFileSplitContainer.Panel1.Controls.Add(this.filterGroupBox);
+			resources.ApplyResources(this.cakeboxDiscFileSplitContainer.Panel1, "cakeboxDiscFileSplitContainer.Panel1");
 			// 
 			// cakeboxDiscFileSplitContainer.Panel2
 			// 
 			this.cakeboxDiscFileSplitContainer.Panel2.Controls.Add(this.discFilesGroupBox);
+			resources.ApplyResources(this.cakeboxDiscFileSplitContainer.Panel2, "cakeboxDiscFileSplitContainer.Panel2");
 			// 
 			// cakeboxDiscSplitContainer
 			// 
@@ -163,10 +165,12 @@ namespace Cakebox_Archive
 			// cakeboxDiscSplitContainer.Panel1
 			// 
 			this.cakeboxDiscSplitContainer.Panel1.Controls.Add(this.cakeboxesGroupBox);
+			resources.ApplyResources(this.cakeboxDiscSplitContainer.Panel1, "cakeboxDiscSplitContainer.Panel1");
 			// 
 			// cakeboxDiscSplitContainer.Panel2
 			// 
 			this.cakeboxDiscSplitContainer.Panel2.Controls.Add(this.discsGroupBox);
+			resources.ApplyResources(this.cakeboxDiscSplitContainer.Panel2, "cakeboxDiscSplitContainer.Panel2");
 			// 
 			// cakeboxesGroupBox
 			// 
@@ -177,6 +181,7 @@ namespace Cakebox_Archive
 			// 
 			// cakeboxesListBox
 			// 
+			this.cakeboxesListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.cakeboxesListBox.ContextMenuStrip = this.cakeboxesActionsMenu;
 			this.cakeboxesListBox.DisplayMember = "Value";
 			resources.ApplyResources(this.cakeboxesListBox, "cakeboxesListBox");
@@ -232,6 +237,7 @@ namespace Cakebox_Archive
 			// 
 			// discsListBox
 			// 
+			this.discsListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.discsListBox.ContextMenuStrip = this.discsActionsMenu;
 			this.discsListBox.DisplayMember = "Value";
 			resources.ApplyResources(this.discsListBox, "discsListBox");
@@ -354,6 +360,7 @@ namespace Cakebox_Archive
 			// filesList
 			// 
 			this.filesList.BackColor = System.Drawing.SystemColors.Window;
+			this.filesList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.filesList.ContextMenuStrip = this.filesListActionMenu;
 			resources.ApplyResources(this.filesList, "filesList");
 			this.filesList.Name = "filesList";
@@ -547,6 +554,7 @@ namespace Cakebox_Archive
 			// 
 			// mainTabPage
 			// 
+			this.mainTabPage.BackColor = System.Drawing.Color.Transparent;
 			this.mainTabPage.Controls.Add(this.cakeboxDiscFileSplitContainer);
 			resources.ApplyResources(this.mainTabPage, "mainTabPage");
 			this.mainTabPage.Name = "mainTabPage";
