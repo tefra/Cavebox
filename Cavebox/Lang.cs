@@ -15,6 +15,11 @@ namespace Cavebox
 	{
 		public static ResourceManager Rm { get; set;}
 		
+		static Lang()
+		{
+			Rm = new ResourceManager("Cavebox.Properties.Strings", System.Reflection.Assembly.GetExecutingAssembly());
+		}
+		
 		public static string GetString(string str)
 		{
 			return Rm.GetString(str);

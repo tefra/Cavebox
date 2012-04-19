@@ -9,7 +9,6 @@ using System.IO;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Resources;
 using System.Windows.Forms;
 
 namespace Cavebox
@@ -29,17 +28,11 @@ namespace Cavebox
 		int discsOrderWay = 0;
 		DateTime stopWatch;
 
-		public ResourceManager lang { get; set; }
+
 				
 		public MainForm()
 		{
 			InitializeComponent();
-			Lang.Rm = new ResourceManager("Cavebox.Properties.Strings", System.Reflection.Assembly.GetExecutingAssembly());
-			
-			
-			
-			
-			
 			Console.SetOut(new ConsoleWriter(console));
 			Console.WriteLine(Lang.GetString("_applicationStartingUp"));
 			model = Model.Instance;
