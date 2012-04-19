@@ -35,11 +35,11 @@ namespace Cavebox
 				String dbConnection = "Data Source=data.db";
 				db = new SQLiteConnection(dbConnection);
 				db.Open();
-				Console.WriteLine("Starting up SQLite " + db.ServerVersion + ": " + fetchOne("PRAGMA integrity_check"));
+				Console.WriteLine(Lang.GetString("_sqliteStartinUp", db.ServerVersion, fetchOne("PRAGMA integrity_check")));
 			}
 			catch
 			{
-				MessageBox.Show("Database connection failed!", "Cavebox", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+				MessageBox.Show(Lang.GetString("_dbConnectionFailed"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
 				Application.Exit();
 			}
 			
@@ -51,11 +51,12 @@ namespace Cavebox
 				cm.CommandText = "CREATE TABLE disc (id INTEGER PRIMARY KEY, cid INTEGER DEFAULT 0, label TEXT NOT NULL, files TEXT NOT NULL, filesno INTEGER DEFAULT 0, added INTEGER NOT NULL DEFAULT 0);";
 				cm.ExecuteNonQuery();
 				cm.Dispose();
-				Console.WriteLine("DB Schema Was Created");
+				
+				Console.WriteLine(Lang.GetString("_installing"));
 			}
 			catch
 			{
-				Console.WriteLine("Valid DB Schema Found");
+				Console.WriteLine(Lang.GetString("_installed"));
 			}
 		}
 
@@ -80,7 +81,6 @@ namespace Cavebox
 				{
 					id.Value = row.GetInt32(0);
 					filesno.Value = row.GetString(1).Split('\n').Length;
-					Console.WriteLine("Disc #" + id.Value + " = " + filesno.Value);
 					up.ExecuteNonQuery();
 				}
 				transaction.Commit();

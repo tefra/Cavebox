@@ -1339,7 +1339,7 @@
     <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Cavebox</value>
+    <value>Cavebox 2.0.0</value>
   </data>
   <data name="&gt;&gt;editCakeboxMenuItem.Name" xml:space="preserve">
     <value>editCakeboxMenuItem</value>

@@ -168,4 +168,16 @@
   <data name="_discDeleted" xml:space="preserve">
     <value>Disk "{0}" was deleted</value>
   </data>
+  <data name="_sqliteStartinUp" xml:space="preserve">
+    <value>Starting up SQLite {0}: {1}</value>
+  </data>
+  <data name="_dbConnectionFailed" xml:space="preserve">
+    <value>Databased connection failed...</value>
+  </data>
+  <data name="_installing" xml:space="preserve">
+    <value>Creating DB Schema...</value>
+  </data>
+  <data name="_installed" xml:space="preserve">
+    <value>Valid DB Schema Found</value>
+  </data>
 </root>

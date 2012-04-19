@@ -50,7 +50,6 @@ namespace Cavebox
 			return _filter != null;
 		}
 		
-		
 		private void buildCakeboxesCache()
 		{
 			cakeboxes = model.fetchCakeboxes();
