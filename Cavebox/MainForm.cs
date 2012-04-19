@@ -9,6 +9,7 @@ using System.IO;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Resources;
 using System.Windows.Forms;
 
 namespace Cavebox
@@ -30,8 +31,12 @@ namespace Cavebox
 		public MainForm()
 		{
 			InitializeComponent();
+			
+
+			
+			System.ComponentModel.ComponentResourceManager r = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			Console.SetOut(new ConsoleWriter(console));
-			Console.WriteLine("Application started...");
+			Console.WriteLine(r.GetString("_applicationStartingUp"));
 			model = Model.Instance;
 			showCakeboxes(0, true);
 			scanDrive.DataSource = DriveInfo.GetDrives().Where(d => /*d.DriveType == DriveType.CDRom &&*/ d.IsReady == true).ToArray();
