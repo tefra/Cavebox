@@ -118,6 +118,54 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="_applicationStartingUp" xml:space="preserve">
-    <value>Cavebox is starting up...</value>
+    <value>Cavebox starting up...</value>
+  </data>
+  <data name="_driveXnotReady" xml:space="preserve">
+    <value>Dive {0} is not ready...</value>
+  </data>
+  <data name="_scanStarting" xml:space="preserve">
+    <value>Scanning drive {0}</value>
+  </data>
+  <data name="_scanWasCanceled" xml:space="preserve">
+    <value>Scan was canceled...</value>
+  </data>
+  <data name="_scanWasCompleted" xml:space="preserve">
+    <value>Scan found {0:n0} files in {1:0.000} seconds</value>
+  </data>
+  <data name="_newDiscMissingCakebox" xml:space="preserve">
+    <value>You must select/create a cakebox before saving a new disc.</value>
+  </data>
+  <data name="_error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="_discLabelMissing" xml:space="preserve">
+    <value>The disc label is empty</value>
+  </data>
+  <data name="_newDiscAdded" xml:space="preserve">
+    <value>Disc "{0}" was added in cakebox "{1}"</value>
+  </data>
+  <data name="_cakeboxNotEmpty" xml:space="preserve">
+    <value>You can't delete a cakebox which isn't empty!</value>
+  </data>
+  <data name="_confirmDeleteDisc" xml:space="preserve">
+    <value>Are you sure you want to delete disc: {0}</value>
+  </data>
+  <data name="_confirmDelete" xml:space="preserve">
+    <value>Confirm delete</value>
+  </data>
+  <data name="_confirmDeleteCakebox" xml:space="preserve">
+    <value>Are you sure you want to delete cakebox: {0}</value>
+  </data>
+  <data name="_selectBackupFile" xml:space="preserve">
+    <value>Select a backup File</value>
+  </data>
+  <data name="_xmlFilesDesc" xml:space="preserve">
+    <value>XML Files|*.xml</value>
+  </data>
+  <data name="_cakeboxDeleted" xml:space="preserve">
+    <value>Cakebox "{0}" was deleted</value>
+  </data>
+  <data name="_discDeleted" xml:space="preserve">
+    <value>Disk "{0}" was deleted</value>
   </data>
 </root>

@@ -119,31 +119,5 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Strings.resx" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\alt.png" />
-    <None Include="Resources\anidb.png" />
-    <None Include="Resources\cancel.png" />
-    <None Include="Resources\database.ico" />
-    <None Include="Resources\database.png" />
-    <None Include="Resources\database_gear.png" />
-    <None Include="Resources\database_go.png" />
-    <None Include="Resources\database_save.png" />
-    <None Include="Resources\db-16.png" />
-    <None Include="Resources\document-new.png" />
-    <None Include="Resources\edit-document.png" />
-    <None Include="Resources\folder-open.png" />
-    <None Include="Resources\google.png" />
-    <None Include="Resources\imdb.png" />
-    <None Include="Resources\lastFM.png" />
-    <None Include="Resources\MD-play.png" />
-    <None Include="Resources\MD-stop.png" />
-    <None Include="Resources\shapes-move-front.png" />
-    <None Include="Resources\table_sort.png" />
-    <None Include="Resources\wikipedia.png" />
-    <None Include="Resources\youtube.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
 </Project>
