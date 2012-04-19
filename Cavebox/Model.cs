@@ -32,7 +32,7 @@ namespace Cakebox_Archive
 			db = null;
 			try
 			{
-				String dbConnection = "Data Source=data.db";
+				String dbConnection = "Data Source=data/database";
 				db = new SQLiteConnection(dbConnection);
 				db.Open();
 				Console.WriteLine("Starting up SQLite " + db.ServerVersion + ": " + fetchOne("PRAGMA integrity_check"));

@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 # SharpDevelop 4.2.0.8649-Beta 2
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cakebox Archive", "Cakebox Archive\Cakebox Archive.csproj", "{04801716-9E1A-48FD-BE72-1C745EEBFDD0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cavebox", "Cakebox Archive\Cavebox.csproj", "{04801716-9E1A-48FD-BE72-1C745EEBFDD0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

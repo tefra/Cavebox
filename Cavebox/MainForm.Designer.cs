@@ -517,18 +517,24 @@ namespace Cakebox_Archive
 			// cakeboxStatsLabel
 			// 
 			this.cakeboxStatsLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
+			this.cakeboxStatsLabel.Margin = new System.Windows.Forms.Padding(0, 3, 5, 2);
 			this.cakeboxStatsLabel.Name = "cakeboxStatsLabel";
+			this.cakeboxStatsLabel.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
 			resources.ApplyResources(this.cakeboxStatsLabel, "cakeboxStatsLabel");
 			// 
 			// discStatsLabel
 			// 
 			this.discStatsLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
+			this.discStatsLabel.Margin = new System.Windows.Forms.Padding(0, 3, 5, 2);
 			this.discStatsLabel.Name = "discStatsLabel";
+			this.discStatsLabel.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
 			resources.ApplyResources(this.discStatsLabel, "discStatsLabel");
 			// 
 			// fileStatsLabel
 			// 
+			this.fileStatsLabel.Margin = new System.Windows.Forms.Padding(0, 3, 5, 2);
 			this.fileStatsLabel.Name = "fileStatsLabel";
+			this.fileStatsLabel.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
 			resources.ApplyResources(this.fileStatsLabel, "fileStatsLabel");
 			// 
 			// discAddedLabel
@@ -622,6 +628,7 @@ namespace Cakebox_Archive
 			// scanLog
 			// 
 			this.scanLog.BackColor = System.Drawing.SystemColors.Window;
+			this.scanLog.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.scanLog.ContextMenuStrip = this.scanLogActionsMenu;
 			resources.ApplyResources(this.scanLog, "scanLog");
 			this.scanLog.Name = "scanLog";
@@ -688,6 +695,7 @@ namespace Cakebox_Archive
 			// console
 			// 
 			this.console.BackColor = System.Drawing.SystemColors.Window;
+			this.console.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.console.ContextMenuStrip = this.consoleActionsMenu;
 			resources.ApplyResources(this.console, "console");
 			this.console.Name = "console";
