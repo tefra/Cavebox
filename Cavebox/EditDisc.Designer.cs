@@ -34,23 +34,23 @@ namespace Cavebox
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditDisc));
-			this.label1 = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
+			this.discLabelLabel = new System.Windows.Forms.Label();
+			this.discCakeboxLabel = new System.Windows.Forms.Label();
 			this.discLabel = new System.Windows.Forms.TextBox();
 			this.discCakebox = new System.Windows.Forms.ComboBox();
 			this.saveButton = new System.Windows.Forms.Button();
 			this.cancelButton = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
-			// label1
+			// discLabelLabel
 			// 
-			resources.ApplyResources(this.label1, "label1");
-			this.label1.Name = "label1";
+			resources.ApplyResources(this.discLabelLabel, "discLabelLabel");
+			this.discLabelLabel.Name = "discLabelLabel";
 			// 
-			// label2
+			// discCakeboxLabel
 			// 
-			resources.ApplyResources(this.label2, "label2");
-			this.label2.Name = "label2";
+			resources.ApplyResources(this.discCakeboxLabel, "discCakeboxLabel");
+			this.discCakeboxLabel.Name = "discCakeboxLabel";
 			// 
 			// discLabel
 			// 
@@ -91,8 +91,8 @@ namespace Cavebox
 			this.Controls.Add(this.saveButton);
 			this.Controls.Add(this.discCakebox);
 			this.Controls.Add(this.discLabel);
-			this.Controls.Add(this.label2);
-			this.Controls.Add(this.label1);
+			this.Controls.Add(this.discCakeboxLabel);
+			this.Controls.Add(this.discLabelLabel);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Name = "EditDisc";
 			this.ShowInTaskbar = false;
@@ -103,7 +103,7 @@ namespace Cavebox
 		private System.Windows.Forms.Button saveButton;
 		private System.Windows.Forms.ComboBox discCakebox;
 		private System.Windows.Forms.TextBox discLabel;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label discCakeboxLabel;
+		private System.Windows.Forms.Label discLabelLabel;
 	}
 }
