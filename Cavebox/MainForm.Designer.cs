@@ -207,14 +207,16 @@ namespace Cavebox
 			// 
 			// editCakeboxMenuItem
 			// 
-			resources.ApplyResources(this.editCakeboxMenuItem, "editCakeboxMenuItem");
+			this.editCakeboxMenuItem.Image = global::Cavebox.Properties.Images.edit_document;
 			this.editCakeboxMenuItem.Name = "editCakeboxMenuItem";
+			resources.ApplyResources(this.editCakeboxMenuItem, "editCakeboxMenuItem");
 			this.editCakeboxMenuItem.Click += new System.EventHandler(this.openEditCakeboxForm);
 			// 
 			// deleteCakeboxMenuItem
 			// 
-			resources.ApplyResources(this.deleteCakeboxMenuItem, "deleteCakeboxMenuItem");
+			this.deleteCakeboxMenuItem.Image = global::Cavebox.Properties.Images.delete;
 			this.deleteCakeboxMenuItem.Name = "deleteCakeboxMenuItem";
+			resources.ApplyResources(this.deleteCakeboxMenuItem, "deleteCakeboxMenuItem");
 			this.deleteCakeboxMenuItem.Click += new System.EventHandler(this.deleteCakebox);
 			// 
 			// toolStripSeparator2
@@ -224,8 +226,9 @@ namespace Cavebox
 			// 
 			// massMoveDiscsMenuItem
 			// 
-			resources.ApplyResources(this.massMoveDiscsMenuItem, "massMoveDiscsMenuItem");
+			this.massMoveDiscsMenuItem.Image = global::Cavebox.Properties.Images.shapes_move_front;
 			this.massMoveDiscsMenuItem.Name = "massMoveDiscsMenuItem";
+			resources.ApplyResources(this.massMoveDiscsMenuItem, "massMoveDiscsMenuItem");
 			this.massMoveDiscsMenuItem.Click += new System.EventHandler(this.openMassMoveForm);
 			// 
 			// discsGroupBox
@@ -263,14 +266,16 @@ namespace Cavebox
 			// 
 			// editDiscMenuItem
 			// 
-			resources.ApplyResources(this.editDiscMenuItem, "editDiscMenuItem");
+			this.editDiscMenuItem.Image = global::Cavebox.Properties.Images.edit_document;
 			this.editDiscMenuItem.Name = "editDiscMenuItem";
+			resources.ApplyResources(this.editDiscMenuItem, "editDiscMenuItem");
 			this.editDiscMenuItem.Click += new System.EventHandler(this.openEditDiscForm);
 			// 
 			// deleteDiscMenuItem
 			// 
-			resources.ApplyResources(this.deleteDiscMenuItem, "deleteDiscMenuItem");
+			this.deleteDiscMenuItem.Image = global::Cavebox.Properties.Images.delete;
 			this.deleteDiscMenuItem.Name = "deleteDiscMenuItem";
+			resources.ApplyResources(this.deleteDiscMenuItem, "deleteDiscMenuItem");
 			this.deleteDiscMenuItem.Click += new System.EventHandler(this.deleteDisc);
 			// 
 			// toolStripSeparator3
@@ -287,8 +292,9 @@ namespace Cavebox
 									this.toolStripSeparator4,
 									this.sortDiscsAscendingMenuItem,
 									this.sortDiscsDescendingMenuItem});
-			resources.ApplyResources(this.sortDiscsMenuItem, "sortDiscsMenuItem");
+			this.sortDiscsMenuItem.Image = global::Cavebox.Properties.Images.alt;
 			this.sortDiscsMenuItem.Name = "sortDiscsMenuItem";
+			resources.ApplyResources(this.sortDiscsMenuItem, "sortDiscsMenuItem");
 			// 
 			// sortDiscsByIdMenuItem
 			// 
@@ -340,6 +346,7 @@ namespace Cavebox
 			// clearFilterButton
 			// 
 			resources.ApplyResources(this.clearFilterButton, "clearFilterButton");
+			this.clearFilterButton.Image = global::Cavebox.Properties.Images.cancel;
 			this.clearFilterButton.Name = "clearFilterButton";
 			this.clearFilterButton.UseVisualStyleBackColor = true;
 			this.clearFilterButton.Click += new System.EventHandler(this.filterOff);
@@ -394,38 +401,44 @@ namespace Cavebox
 			// 
 			// googleToolStripMenuItem
 			// 
-			resources.ApplyResources(this.googleToolStripMenuItem, "googleToolStripMenuItem");
+			this.googleToolStripMenuItem.Image = global::Cavebox.Properties.Images.google;
 			this.googleToolStripMenuItem.Name = "googleToolStripMenuItem";
+			resources.ApplyResources(this.googleToolStripMenuItem, "googleToolStripMenuItem");
 			this.googleToolStripMenuItem.Click += new System.EventHandler(this.openSearchUrl);
 			// 
 			// wikipediaToolStripMenuItem
 			// 
-			resources.ApplyResources(this.wikipediaToolStripMenuItem, "wikipediaToolStripMenuItem");
+			this.wikipediaToolStripMenuItem.Image = global::Cavebox.Properties.Images.wikipedia;
 			this.wikipediaToolStripMenuItem.Name = "wikipediaToolStripMenuItem";
+			resources.ApplyResources(this.wikipediaToolStripMenuItem, "wikipediaToolStripMenuItem");
 			this.wikipediaToolStripMenuItem.Click += new System.EventHandler(this.openSearchUrl);
 			// 
 			// anidbToolStripMenuItem
 			// 
-			resources.ApplyResources(this.anidbToolStripMenuItem, "anidbToolStripMenuItem");
+			this.anidbToolStripMenuItem.Image = global::Cavebox.Properties.Images.anidb;
 			this.anidbToolStripMenuItem.Name = "anidbToolStripMenuItem";
+			resources.ApplyResources(this.anidbToolStripMenuItem, "anidbToolStripMenuItem");
 			this.anidbToolStripMenuItem.Click += new System.EventHandler(this.openSearchUrl);
 			// 
 			// imdbToolStripMenuItem
 			// 
-			resources.ApplyResources(this.imdbToolStripMenuItem, "imdbToolStripMenuItem");
+			this.imdbToolStripMenuItem.Image = global::Cavebox.Properties.Images.imdb;
 			this.imdbToolStripMenuItem.Name = "imdbToolStripMenuItem";
+			resources.ApplyResources(this.imdbToolStripMenuItem, "imdbToolStripMenuItem");
 			this.imdbToolStripMenuItem.Click += new System.EventHandler(this.openSearchUrl);
 			// 
 			// lastfmToolStripMenuItem
 			// 
-			resources.ApplyResources(this.lastfmToolStripMenuItem, "lastfmToolStripMenuItem");
+			this.lastfmToolStripMenuItem.Image = global::Cavebox.Properties.Images.lastFM;
 			this.lastfmToolStripMenuItem.Name = "lastfmToolStripMenuItem";
+			resources.ApplyResources(this.lastfmToolStripMenuItem, "lastfmToolStripMenuItem");
 			this.lastfmToolStripMenuItem.Click += new System.EventHandler(this.openSearchUrl);
 			// 
 			// youtubeToolStripMenuItem
 			// 
-			resources.ApplyResources(this.youtubeToolStripMenuItem, "youtubeToolStripMenuItem");
+			this.youtubeToolStripMenuItem.Image = global::Cavebox.Properties.Images.youtube;
 			this.youtubeToolStripMenuItem.Name = "youtubeToolStripMenuItem";
+			resources.ApplyResources(this.youtubeToolStripMenuItem, "youtubeToolStripMenuItem");
 			this.youtubeToolStripMenuItem.Click += new System.EventHandler(this.openSearchUrl);
 			// 
 			// menuStrip
@@ -450,20 +463,23 @@ namespace Cavebox
 			// 
 			// newCakeboxToolStripMenuItem
 			// 
-			resources.ApplyResources(this.newCakeboxToolStripMenuItem, "newCakeboxToolStripMenuItem");
+			this.newCakeboxToolStripMenuItem.Image = global::Cavebox.Properties.Images.database_1;
 			this.newCakeboxToolStripMenuItem.Name = "newCakeboxToolStripMenuItem";
+			resources.ApplyResources(this.newCakeboxToolStripMenuItem, "newCakeboxToolStripMenuItem");
 			this.newCakeboxToolStripMenuItem.Click += new System.EventHandler(this.openNewCakeboxForm);
 			// 
 			// importToolStripMenuItem
 			// 
-			resources.ApplyResources(this.importToolStripMenuItem, "importToolStripMenuItem");
+			this.importToolStripMenuItem.Image = global::Cavebox.Properties.Images.database_go;
 			this.importToolStripMenuItem.Name = "importToolStripMenuItem";
+			resources.ApplyResources(this.importToolStripMenuItem, "importToolStripMenuItem");
 			this.importToolStripMenuItem.Click += new System.EventHandler(this.importXml);
 			// 
 			// exportToolStripMenuItem
 			// 
-			resources.ApplyResources(this.exportToolStripMenuItem, "exportToolStripMenuItem");
+			this.exportToolStripMenuItem.Image = global::Cavebox.Properties.Images.database_save;
 			this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
+			resources.ApplyResources(this.exportToolStripMenuItem, "exportToolStripMenuItem");
 			this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportXml);
 			// 
 			// toolStripSeparator1
@@ -473,8 +489,9 @@ namespace Cavebox
 			// 
 			// rebuildFileCountersToolStripMenuItem
 			// 
-			resources.ApplyResources(this.rebuildFileCountersToolStripMenuItem, "rebuildFileCountersToolStripMenuItem");
+			this.rebuildFileCountersToolStripMenuItem.Image = global::Cavebox.Properties.Images.database_gear;
 			this.rebuildFileCountersToolStripMenuItem.Name = "rebuildFileCountersToolStripMenuItem";
+			resources.ApplyResources(this.rebuildFileCountersToolStripMenuItem, "rebuildFileCountersToolStripMenuItem");
 			this.rebuildFileCountersToolStripMenuItem.Click += new System.EventHandler(this.rebuildFileCounters);
 			// 
 			// viewToolStripMenuItem
@@ -597,6 +614,7 @@ namespace Cavebox
 			// saveNewDiscButton
 			// 
 			resources.ApplyResources(this.saveNewDiscButton, "saveNewDiscButton");
+			this.saveNewDiscButton.Image = global::Cavebox.Properties.Images.document_new;
 			this.saveNewDiscButton.Name = "saveNewDiscButton";
 			this.saveNewDiscButton.UseVisualStyleBackColor = true;
 			this.saveNewDiscButton.Click += new System.EventHandler(this.saveNewDisc);
@@ -657,6 +675,7 @@ namespace Cavebox
 			// stopScanButton
 			// 
 			resources.ApplyResources(this.stopScanButton, "stopScanButton");
+			this.stopScanButton.Image = global::Cavebox.Properties.Images.MD_stop;
 			this.stopScanButton.Name = "stopScanButton";
 			this.stopScanButton.UseVisualStyleBackColor = true;
 			this.stopScanButton.Click += new System.EventHandler(this.scanWorkerStop);
@@ -672,6 +691,7 @@ namespace Cavebox
 			// startScanButton
 			// 
 			resources.ApplyResources(this.startScanButton, "startScanButton");
+			this.startScanButton.Image = global::Cavebox.Properties.Images.MD_play;
 			this.startScanButton.Name = "startScanButton";
 			this.startScanButton.UseVisualStyleBackColor = true;
 			this.startScanButton.Click += new System.EventHandler(this.scanWorkerStart);
@@ -729,6 +749,7 @@ namespace Cavebox
 			this.Controls.Add(this.tabControl);
 			this.Controls.Add(this.statusStrip);
 			this.Controls.Add(this.menuStrip);
+			this.Icon = global::Cavebox.Properties.Images.database;
 			this.Name = "MainForm";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.mainFormClosed);
 			this.cakeboxDiscFileSplitContainer.Panel1.ResumeLayout(false);
