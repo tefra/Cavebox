@@ -134,6 +134,9 @@
   <data name="cakeboxDiscSplitContainer.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 64</value>
   </data>
+  <metadata name="cakeboxesActionsMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>222, 21</value>
+  </metadata>
   <data name="editCakeboxMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -259,6 +262,9 @@
   <data name="&gt;&gt;cakeboxDiscSplitContainer.Panel1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <metadata name="discsActionsMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>380, 21</value>
+  </metadata>
   <data name="editDiscMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -541,6 +547,9 @@
   <data name="&gt;&gt;cakeboxDiscFileSplitContainer.Panel1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <metadata name="filesListActionMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>805, 21</value>
+  </metadata>
   <data name="copyToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>126, 22</value>
   </data>
@@ -783,6 +792,9 @@
   <data name="&gt;&gt;cakeboxDiscFileSplitContainer.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <metadata name="menuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="newCakeboxToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29m
@@ -931,6 +943,9 @@
   <data name="&gt;&gt;menuStrip.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
+  <metadata name="statusStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>126, 17</value>
+  </metadata>
   <data name="cakeboxStatsLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 19</value>
   </data>
@@ -1057,11 +1072,11 @@
   <data name="saveNewDiscButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAA1klEQVRYR+1WAQ6DIAzkCXuS
-        T9iT/Mme5JPUW0KGlULXdkyTkpgoae+OawFTivFxYN5f1+Lx8iZjvlqAD0KOJK9RLooV4SGgJCoXQOdZ
-        ERyA1AmpAMRVRYwUUC1xCAgHLufAJN1/jThg0IXl71MaDVz2CK0IHGzIBYZaAJfoNd91wIsoHDA7gEZ6
-        GnYEcmvNKO4BC3kmAUb3nBFbpXBD9L/xSwHQbHZAuy2zYfcXoCj9IcXswDABtGZcDaU98XUP/F1At1bK
-        WnRxZ+buVvI1T1pwxXg7sAEup68habmywQAAAABJRU5ErkJggg==
+        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAA20lEQVRYR+2WgQkDIQxFb4SO
+        0BG66Y3QkTrKjdDzgSlBEJN4Im0NyElikv9jIrdtS66vwDuFZE2TKQBuie49U9YA0GEbKiR4pXWk9cjl
+        BwR7dNhcIIRB7VuygSWJOL8rI3t02KQ6pkp4ARAUtjq5JEKHzSXWJiqB1pJYz338vwaAZjzlCgTAsCZs
+        NQ5X9cwjNmQMLQA0CBm17oco0oRUQsTqXyVoDVAbL6t/N4DWFYXt3QzCmbPjVQDCccKOBfNwnLDjArAq
+        sCrwcxVo/Zxa7e6X2RrYes4N4L8cTu0HtWhk0iWPAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="saveNewDiscButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
@@ -1196,6 +1211,9 @@
   <data name="scanLogGroupBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
+  <metadata name="scanLogActionsMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>129, 58</value>
+  </metadata>
   <data name="resetToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>102, 22</value>
   </data>
@@ -1414,6 +1432,9 @@
   <data name="&gt;&gt;scanTabPage.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <metadata name="consoleActionsMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>649, 21</value>
+  </metadata>
   <data name="clearToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>101, 22</value>
   </data>
@@ -1537,6 +1558,15 @@
   <data name="&gt;&gt;tabControl.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
+  <metadata name="scanWorker.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 58</value>
+  </metadata>
+  <metadata name="filterTextChangedTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>289, 58</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
@@ -1828,34 +1858,4 @@
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <metadata name="cakeboxesActionsMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>222, 21</value>
-  </metadata>
-  <metadata name="discsActionsMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>380, 21</value>
-  </metadata>
-  <metadata name="filesListActionMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>805, 21</value>
-  </metadata>
-  <metadata name="menuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="statusStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>126, 17</value>
-  </metadata>
-  <metadata name="scanLogActionsMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>129, 58</value>
-  </metadata>
-  <metadata name="consoleActionsMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>649, 21</value>
-  </metadata>
-  <metadata name="scanWorker.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 58</value>
-  </metadata>
-  <metadata name="filterTextChangedTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>289, 58</value>
-  </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
 </root>

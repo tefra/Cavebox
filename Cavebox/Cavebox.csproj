@@ -123,6 +123,7 @@
     <None Include="Resources\database_go.png" />
     <None Include="Resources\database_save.png" />
     <None Include="Resources\db-16.png" />
+    <None Include="Resources\document-new.png" />
     <None Include="Resources\edit-document.png" />
     <None Include="Resources\folder-open.png" />
     <None Include="Resources\google.png" />
