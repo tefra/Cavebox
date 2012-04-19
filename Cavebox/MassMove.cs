@@ -24,9 +24,9 @@ namespace Cavebox
 			InitializeComponent();
 			app = form;
 			source = cid;
-			selectDiscsToMove.DisplayMember = "Value";
-			selectDiscsToMove.ValueMember = "Id";
-			selectDiscsToMove.DataSource = app.discsListBox.DataSource;
+			selectDiscs.DisplayMember = "Value";
+			selectDiscs.ValueMember = "Id";
+			selectDiscs.DataSource = app.discsListBox.DataSource;
 			selectCakebox.DataSource = app.newDiscCakebox.DataSource;
 			selectCakebox.SelectedValue = source;
 		}
@@ -39,9 +39,9 @@ namespace Cavebox
 		private void ToggleButtonClick(object sender, EventArgs e)
 		{
 			checkFlag = !checkFlag;
-			for(int i = 0; i < selectDiscsToMove.Items.Count; i++)
+			for(int i = 0; i < selectDiscs.Items.Count; i++)
 			{
-				selectDiscsToMove.SetItemChecked(i, checkFlag);
+				selectDiscs.SetItemChecked(i, checkFlag);
 			}
 			enableMoveButton(sender, e);
 		}
@@ -54,11 +54,11 @@ namespace Cavebox
 		private void MoveButtonClick(object sender, EventArgs e)
 		{
 			int target = getTargetCakeboxId();
-			if(target != source && selectDiscsToMove.CheckedItems.Count > 0)
+			if(target != source && selectDiscs.CheckedItems.Count > 0)
 			{
 				Console.WriteLine("Moving discs to: " + selectCakebox.SelectedText);
 				List<int> discs = new List<int>();
-				foreach(object itemChecked in selectDiscsToMove.CheckedItems)
+				foreach(object itemChecked in selectDiscs.CheckedItems)
 				{
 					Index item = (Index) itemChecked;
 					discs.Add(item.Id);
@@ -72,7 +72,7 @@ namespace Cavebox
 		
 		private void enableMoveButton(object sender, EventArgs e)
 		{
-			moveButton.Enabled = (selectDiscsToMove.CheckedItems.Count > 0 && getTargetCakeboxId() != source);
+			moveButton.Enabled = (selectDiscs.CheckedItems.Count > 0 && getTargetCakeboxId() != source);
 		}
 	}
 }

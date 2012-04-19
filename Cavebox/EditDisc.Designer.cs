@@ -86,7 +86,6 @@ namespace Cavebox
 			this.AcceptButton = this.saveButton;
 			resources.ApplyResources(this, "$this");
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.SystemColors.Window;
 			this.CancelButton = this.cancelButton;
 			this.Controls.Add(this.cancelButton);
 			this.Controls.Add(this.saveButton);

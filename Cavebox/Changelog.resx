@@ -126,7 +126,7 @@
     <value>0, 0</value>
   </data>
   <data name="changelogTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>384, 266</value>
+    <value>394, 276</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="changelogTextBox.TabIndex" type="System.Int32, mscorlib">
@@ -134,8 +134,9 @@
   </data>
   <data name="changelogTextBox.Text" xml:space="preserve">
     <value>v2.0.0
+- Renamed application to Cavebox
 - Ported application to C# - SQLite
-- Renamed application to Cakebox Archive
+- Isn't the above good enough ?
 -------------------------------------------------------------
 v1.5.0
 - Redesigned from scratch to get rid of the Swing Application Framework
@@ -223,7 +224,10 @@ v1.3.2
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>384, 266</value>
+    <value>394, 276</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>400, 300</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterParent</value>

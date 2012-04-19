@@ -560,11 +560,10 @@ namespace Cavebox
 			// 
 			// mainTabPage
 			// 
-			this.mainTabPage.BackColor = System.Drawing.Color.Transparent;
+			this.mainTabPage.BackColor = System.Drawing.SystemColors.Control;
 			this.mainTabPage.Controls.Add(this.cakeboxDiscFileSplitContainer);
 			resources.ApplyResources(this.mainTabPage, "mainTabPage");
 			this.mainTabPage.Name = "mainTabPage";
-			this.mainTabPage.UseVisualStyleBackColor = true;
 			// 
 			// scanTabPage
 			// 
@@ -573,7 +572,6 @@ namespace Cavebox
 			this.scanTabPage.Controls.Add(this.scanDriveGroupBox);
 			resources.ApplyResources(this.scanTabPage, "scanTabPage");
 			this.scanTabPage.Name = "scanTabPage";
-			this.scanTabPage.UseVisualStyleBackColor = true;
 			// 
 			// saveNewDiscGroupBox
 			// 
@@ -683,7 +681,6 @@ namespace Cavebox
 			this.consoleTabPage.Controls.Add(this.consoleGroupBox);
 			resources.ApplyResources(this.consoleTabPage, "consoleTabPage");
 			this.consoleTabPage.Name = "consoleTabPage";
-			this.consoleTabPage.UseVisualStyleBackColor = true;
 			// 
 			// consoleGroupBox
 			// 

@@ -118,57 +118,57 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="selectDiscs.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="selectDiscsGroupBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="selectDiscsToMove.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="selectDiscs.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="selectDiscsToMove.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="selectDiscs.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 16</value>
   </data>
-  <data name="selectDiscsToMove.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="selectDiscs.Size" type="System.Drawing.Size, System.Drawing">
     <value>284, 247</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="selectDiscsToMove.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;selectDiscsToMove.Name" xml:space="preserve">
-    <value>selectDiscsToMove</value>
-  </data>
-  <data name="&gt;&gt;selectDiscsToMove.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;selectDiscsToMove.Parent" xml:space="preserve">
-    <value>selectDiscs</value>
-  </data>
-  <data name="&gt;&gt;selectDiscsToMove.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="selectDiscs.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 12</value>
-  </data>
-  <data name="selectDiscs.Size" type="System.Drawing.Size, System.Drawing">
-    <value>290, 266</value>
-  </data>
   <data name="selectDiscs.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="selectDiscs.Text" xml:space="preserve">
-    <value>Select Discs</value>
   </data>
   <data name="&gt;&gt;selectDiscs.Name" xml:space="preserve">
     <value>selectDiscs</value>
   </data>
   <data name="&gt;&gt;selectDiscs.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;selectDiscs.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>selectDiscsGroupBox</value>
   </data>
   <data name="&gt;&gt;selectDiscs.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="selectDiscsGroupBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="selectDiscsGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>290, 266</value>
+  </data>
+  <data name="selectDiscsGroupBox.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="selectDiscsGroupBox.Text" xml:space="preserve">
+    <value>Select Discs</value>
+  </data>
+  <data name="&gt;&gt;selectDiscsGroupBox.Name" xml:space="preserve">
+    <value>selectDiscsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;selectDiscsGroupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;selectDiscsGroupBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;selectDiscsGroupBox.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
   <data name="selectCakebox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -178,7 +178,7 @@
     <value>12, 284</value>
   </data>
   <data name="selectCakebox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>287, 21</value>
+    <value>290, 21</value>
   </data>
   <data name="selectCakebox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -199,7 +199,7 @@
     <value>Bottom, Right</value>
   </data>
   <data name="toggleButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>62, 311</value>
+    <value>65, 311</value>
   </data>
   <data name="toggleButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -226,7 +226,7 @@
     <value>Bottom, Right</value>
   </data>
   <data name="moveButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 311</value>
+    <value>146, 311</value>
   </data>
   <data name="moveButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -253,7 +253,7 @@
     <value>Bottom, Right</value>
   </data>
   <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>224, 311</value>
+    <value>227, 311</value>
   </data>
   <data name="cancelButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -285,11 +285,14 @@
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>314, 346</value>
   </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>330, 380</value>
+  </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterParent</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Mass Move Discs</value>
+    <value>Mass Move</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MassMove</value>

@@ -40,6 +40,7 @@ namespace Cavebox
 			// changelogTextBox
 			// 
 			this.changelogTextBox.BackColor = System.Drawing.SystemColors.Window;
+			this.changelogTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			resources.ApplyResources(this.changelogTextBox, "changelogTextBox");
 			this.changelogTextBox.Name = "changelogTextBox";
 			this.changelogTextBox.ReadOnly = true;
@@ -50,7 +51,7 @@ namespace Cavebox
 			resources.ApplyResources(this, "$this");
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this.changelogTextBox);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Name = "Changelog";
 			this.ShowInTaskbar = false;
 			this.ResumeLayout(false);
