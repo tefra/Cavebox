@@ -36,9 +36,12 @@ namespace Cavebox
 		public MainForm()
 		{
 			InitializeComponent();
-			this.Text += "v." + GetType().Assembly.GetName().Version.ToString();
 			
 			
+			Version v = new Version(Application.ProductVersion);
+			this.Text += String.Format(" v{0}.{1}.{2}", v.Major, v.Minor, v.Build);
+				
+				
 			lang = new ResourceManager("Cavebox.Properties.Strings", Assembly.GetExecutingAssembly());
 			Console.SetOut(new ConsoleWriter(console));
 			Console.WriteLine(lang.GetString("_applicationStartingUp"));
