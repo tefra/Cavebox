@@ -5,12 +5,10 @@
  */
 using System;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.IO;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Reflection;
 using System.Resources;
 using System.Windows.Forms;
 
@@ -36,15 +34,14 @@ namespace Cavebox
 		public MainForm()
 		{
 			InitializeComponent();
+			Lang.Rm = new ResourceManager("Cavebox.Properties.Strings", System.Reflection.Assembly.GetExecutingAssembly());
 			
 			
-			Version v = new Version(Application.ProductVersion);
-			this.Text += String.Format(" v{0}.{1}.{2}", v.Major, v.Minor, v.Build);
-				
-				
-			lang = new ResourceManager("Cavebox.Properties.Strings", Assembly.GetExecutingAssembly());
+			
+			
+			
 			Console.SetOut(new ConsoleWriter(console));
-			Console.WriteLine(lang.GetString("_applicationStartingUp"));
+			Console.WriteLine(Lang.GetString("_applicationStartingUp"));
 			model = Model.Instance;
 			showCakeboxes(0, true);
 			scanDrive.DataSource = DriveInfo.GetDrives().Where(d => /*d.DriveType == DriveType.CDRom &&*/ d.IsReady == true).ToArray();
@@ -206,7 +203,7 @@ namespace Cavebox
 				string drive = scanDrive.SelectedItem.ToString();
 				if(new DriveInfo(drive).IsReady)
 				{
-					Console.WriteLine(String.Format(lang.GetString("_scanStarting"), drive));
+					Console.WriteLine(Lang.GetString("_scanStarting", drive));
 					stopWatch = DateTime.Now;
 					scanLog.Focus();
 					scanWorker.RunWorkerAsync(drive);
@@ -219,7 +216,7 @@ namespace Cavebox
 				}
 				else
 				{
-					scanLog.Text = String.Format(lang.GetString("_driveXnotReady"), drive);
+					scanLog.Text = Lang.GetString("_driveXnotReady", drive);
 				}
 			}
 		}
@@ -247,11 +244,11 @@ namespace Cavebox
 				newDiscLabelTextBox.Text = null;
 				newDiscLabelTextBox.Enabled = false;
 				saveNewDiscButton.Enabled = false;
-				Console.WriteLine(lang.GetString("_scanWasCanceled"));
+				Console.WriteLine(Lang.GetString("_scanWasCanceled"));
 			}
 			else
 			{
-				Console.WriteLine(String.Format(lang.GetString("_scanWasCompleted"), scanTotalFiles, (DateTime.Now - stopWatch).TotalSeconds));
+				Console.WriteLine(Lang.GetString("_scanWasCompleted", scanTotalFiles, (DateTime.Now - stopWatch).TotalSeconds));
 				newDiscLabelTextBox.Text = new DriveInfo(scanDrive.SelectedItem.ToString()).VolumeLabel;
 				newDiscLabelTextBox.Enabled = true;
 				saveNewDiscButton.Enabled = true;
@@ -299,11 +296,11 @@ namespace Cavebox
 			
 			if(newDiscCakebox.SelectedIndex == -1)
 			{
-				MessageBox.Show(lang.GetString("_newDiscMissingCakebox"), lang.GetString("_error"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+				MessageBox.Show(Lang.GetString("_newDiscMissingCakebox"), Lang.GetString("_error"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
 			}
 			else if(label.Length == 0)
 			{
-				MessageBox.Show(lang.GetString("_discLabelMissing"), lang.GetString("_error"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+				MessageBox.Show(Lang.GetString("_discLabelMissing"), Lang.GetString("_error"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
 			}
 			else
 			{
@@ -315,7 +312,7 @@ namespace Cavebox
 				model.addDisc(label, files, scanTotalFiles.ToString(), cid, added.ToString());
 				showCakeboxes();
 				refreshStatusBar(false, true);
-				scanLog.AppendText(String.Format(lang.GetString("_newDiscAdded"), label, clabel));
+				scanLog.Text = Lang.GetString("_newDiscAdded", label, clabel);
 				scanLog.ScrollToCaret();
 				newDiscLabelTextBox.Text = null;
 				saveNewDiscButton.Enabled = false;
@@ -357,13 +354,13 @@ namespace Cavebox
 		{
 			if(discsListBox.Items.Count > 0)
 			{
-				MessageBox.Show(lang.GetString("_cakeboxNotEmpty"), lang.GetString("_error"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+				MessageBox.Show(Lang.GetString("_cakeboxNotEmpty"), Lang.GetString("_error"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
 
 			}
-			else if(MessageBox.Show(String.Format(lang.GetString("_confirmDeleteCakebox"), cakeboxesListBox.Text), lang.GetString("_confirmDelete"), MessageBoxButtons.YesNo) == DialogResult.Yes)
+			else if(MessageBox.Show(Lang.GetString("_confirmDeleteCakebox", cakeboxesListBox.Text), Lang.GetString("_confirmDelete"), MessageBoxButtons.YesNo) == DialogResult.Yes)
 			{
 				model.deleteCakebox(Convert.ToInt32(cakeboxesListBox.SelectedValue.ToString()));
-				Console.WriteLine(String.Format(lang.GetString("_cakeboxDeleted"), cakeboxesListBox.Text));
+				Console.WriteLine(Lang.GetString("_cakeboxDeleted", cakeboxesListBox.Text));
 				showCakeboxes(0, true);
 				refreshStatusBar(true, false);
 			}
@@ -391,10 +388,10 @@ namespace Cavebox
 
 		private void deleteDisc(object sender, EventArgs e)
 		{
-			if(MessageBox.Show(String.Format(lang.GetString("_confirmDeleteDisc"), discsListBox.Text), lang.GetString("_confirmDelete"), MessageBoxButtons.YesNo) == DialogResult.Yes)
+			if(MessageBox.Show(Lang.GetString("_confirmDeleteDisc", discsListBox.Text), Lang.GetString("_confirmDelete"), MessageBoxButtons.YesNo) == DialogResult.Yes)
 			{
 				model.deleteDisc(Convert.ToInt32(discsListBox.SelectedValue.ToString()));
-				Console.WriteLine(String.Format(lang.GetString("_discDeleted"), discsListBox.Text));
+				Console.WriteLine(Lang.GetString("_discDeleted", discsListBox.Text));
 				showDiscs(sender, e);
 				refreshStatusBar(false, true);
 			}
@@ -557,8 +554,8 @@ namespace Cavebox
 		private void importXml(object sender, EventArgs e)
 		{
 			OpenFileDialog openFileDialog = new OpenFileDialog();
-			openFileDialog.Filter = lang.GetString("_xmlFilesDesc");
-			openFileDialog.Title = lang.GetString("_selectBackupFile");
+			openFileDialog.Filter = Lang.GetString("_xmlFilesDesc");
+			openFileDialog.Title = Lang.GetString("_selectBackupFile");
 
 			if (openFileDialog.ShowDialog() == DialogResult.OK)
 			{

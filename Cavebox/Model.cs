@@ -28,7 +28,7 @@ namespace Cavebox
 		public SQLiteConnection db {get; set;}
 
 		private Model()
-		{
+		{		
 			db = null;
 			try
 			{
