@@ -109,6 +109,7 @@
     <EmbeddedResource Include="MassMove.resx">
       <DependentUpon>MassMove.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Images.resx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources" />
