@@ -42,12 +42,13 @@ namespace Cavebox
 				this.Dispose();
 			}
 			ShowCakeboxes(0, true);
-			scanDrive.DataSource = DriveInfo.GetDrives().Where(d => /*d.DriveType == DriveType.CDRom &&*/ d.IsReady == true).ToArray();
+			scanDrive.DataSource = DriveInfo.GetDrives().Where(d => d.DriveType == DriveType.CDRom).ToArray();
 		}
 		
 		private void MainFormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
 		{
 			Model.Vacuum();
+			Model.Close();
 			Console.WriteLine(Lang.GetString("_applicationClosing"));
 		}
 		
@@ -594,5 +595,6 @@ namespace Cavebox
 					break;
 			}
 		}
+
 	}
 }

@@ -15,7 +15,7 @@ namespace Cavebox
 	/// Description of Model.
 	/// </summary>
 	static class Model
-	{		
+	{
 		public static SQLiteConnection db {get; set;}
 
 		public static Boolean Connect(string connectionString)
@@ -25,17 +25,20 @@ namespace Cavebox
 				db = new SQLiteConnection(connectionString).OpenAndReturn();
 				return true;
 			}
-			catch(SQLiteException e)
+			catch
 			{
-				Console.WriteLine(e.Message);
 				return false;
 			}
-
+		}
+		
+		public static void Close()
+		{
+			db.Close();
 		}
 		
 		public static string Status()
 		{
-			return FetchOne("PRAGMA integrity_check");
+			return ExecuteScalar("PRAGMA integrity_check");
 		}
 		
 		public static string SQLiteVersion()
@@ -43,16 +46,20 @@ namespace Cavebox
 			return db.ServerVersion;
 		}
 		
+		public static void Vacuum()
+		{
+			ExecuteNonQuery("VACUUM");
+		}
+		
 		public static void Install()
 		{
 			try
 			{
-				SQLiteCommand cm = db.CreateCommand();
-				cm.CommandText = "CREATE TABLE cakebox (id INTEGER PRIMARY KEY, label TEXT NOT NULL);";
-				cm.ExecuteNonQuery();
-				cm.CommandText = "CREATE TABLE disc (id INTEGER PRIMARY KEY, cid INTEGER DEFAULT 0, label TEXT NOT NULL, files TEXT NOT NULL, filesno INTEGER DEFAULT 0, added INTEGER NOT NULL DEFAULT 0);";
-				cm.ExecuteNonQuery();
-				cm.Dispose();
+				SQLiteCommand c = CreateCommand("CREATE TABLE cakebox (id INTEGER PRIMARY KEY, label TEXT NOT NULL);");
+				c.ExecuteNonQuery();
+				c.CommandText = "CREATE TABLE disc (id INTEGER PRIMARY KEY, cid INTEGER DEFAULT 0, label TEXT NOT NULL, files TEXT NOT NULL, filesno INTEGER DEFAULT 0, added INTEGER NOT NULL DEFAULT 0);";
+				c.ExecuteNonQuery();
+				c.Dispose();
 				Console.WriteLine(Lang.GetString("_installing"));
 			}
 			catch
@@ -66,27 +73,23 @@ namespace Cavebox
 			try
 			{
 				SQLiteTransaction transaction = db.BeginTransaction();
-				SQLiteCommand cm = db.CreateCommand();
-				SQLiteCommand up = db.CreateCommand();
-				
-				cm.CommandText = "SELECT id, files FROM disc WHERE 1";
-				up.CommandText = "Update disc SET filesno = ? WHERE id = ?";
+				SQLiteCommand c = CreateCommand("SELECT id, files FROM disc WHERE 1");
+				SQLiteCommand u = CreateCommand("Update disc SET filesno = ? WHERE id = ?");
 				SQLiteParameter id = new SQLiteParameter();
 				SQLiteParameter filesno = new SQLiteParameter();
-
-				up.Parameters.Add(filesno);
-				up.Parameters.Add(id);
-
-				SQLiteDataReader row = cm.ExecuteReader();
-				while (row.Read())
+				u.Parameters.Add(filesno);
+				u.Parameters.Add(id);
+				SQLiteDataReader r = c.ExecuteReader();
+				while (r.Read())
 				{
-					id.Value = row.GetInt32(0);
-					filesno.Value = row.GetString(1).Split('\n').Length;
-					up.ExecuteNonQuery();
+					id.Value = r.GetInt32(0);
+					filesno.Value = r.GetString(1).Split('\n').Length;
+					u.ExecuteNonQuery();
 				}
 				transaction.Commit();
-				row.Close();
-				cm.Dispose();
+				r.Close();
+				c.Dispose();
+				u.Dispose();
 			}
 			catch(SQLiteException e)
 			{
@@ -99,23 +102,19 @@ namespace Cavebox
 			List<Index> list = new List<Index>();
 			try
 			{
-				SQLiteCommand cm = db.CreateCommand();
-				if(filter == null)
-				{
-					cm.CommandText = "SELECT id, label FROM cakebox ORDER BY label COLLATE NOCASE ASC";
-				}
-				else
-				{
-					cm.CommandText = "SELECT c.id, c.label FROM cakebox AS c LEFT JOIN disc AS d on d.cid = c.id WHERE files LIKE '" + filter + "' GROUP BY c.id ";
-				}
 				
-				SQLiteDataReader row = cm.ExecuteReader();
-				while (row.Read())
+				string sql = (filter == null) ?
+					"SELECT id, label FROM cakebox ORDER BY label COLLATE NOCASE ASC" :
+					"SELECT c.id, c.label FROM cakebox AS c LEFT JOIN disc AS d on d.cid = c.id WHERE files LIKE '" + filter + "' GROUP BY c.id";
+
+				SQLiteCommand c = CreateCommand(sql);
+				SQLiteDataReader r = c.ExecuteReader();
+				while (r.Read())
 				{
-					list.Add(new Index(row.GetInt32(0), row.GetString(1)));
+					list.Add(new Index(r.GetInt32(0), r.GetString(1)));
 				}
-				row.Close();
-				cm.Dispose();
+				r.Close();
+				c.Dispose();
 			}
 			catch(SQLiteException e)
 			{
@@ -129,7 +128,6 @@ namespace Cavebox
 			List<Index> list = new List<Index>();
 			try
 			{
-				SQLiteCommand cm = db.CreateCommand();
 				string orderClause = null;
 				switch(orderBy)
 				{
@@ -145,22 +143,18 @@ namespace Cavebox
 				}
 				orderClause += (orderWay == 0) ? " ASC" : " DESC";
 				
-				if(filter != null)
-				{
-					cm.CommandText = "SELECT id, label, filesno FROM disc WHERE cid = "+ id+" AND files LIKE '" + filter + "' ORDER BY "+orderClause;
-				}
-				else
-				{
-					cm.CommandText = "SELECT id, label, filesno FROM disc WHERE cid = "+ id+" ORDER BY "+orderClause;
-				}
-				
-				SQLiteDataReader row = cm.ExecuteReader();
+				string sql = (filter != null) ?
+					"SELECT id, label, filesno FROM disc WHERE cid = "+ id+" AND files LIKE '" + filter + "' ORDER BY "+orderClause :
+					"SELECT id, label, filesno FROM disc WHERE cid = "+ id+" ORDER BY "+orderClause;
+
+				SQLiteCommand c = CreateCommand(sql);
+				SQLiteDataReader r = c.ExecuteReader();
 				string label;
 				int diskId;
-				while (row.Read())
+				while (r.Read())
 				{
-					label = row.GetString(1);
-					diskId = row.GetInt32(0);
+					label = r.GetString(1);
+					diskId = r.GetInt32(0);
 					
 					if(label.ToUpper().Equals("MOVIES") || orderBy == 0)
 					{
@@ -168,40 +162,40 @@ namespace Cavebox
 					}
 					if(orderBy == 2)
 					{
-						label += " (" + row.GetInt32(2) + ")";
+						label += " (" + r.GetInt32(2) + ")";
 					}
 					list.Add(new Index(diskId, label));
 				}
-				row.Close();			
+				r.Close();
+				c.Dispose();
 			}
 			catch(SQLiteException e)
 			{
 				Console.WriteLine(e.Message);
-			}			
+			}
 			return list;
 		}
 		
 		public static string FetchDiscLabelById(int id)
 		{
-			return FetchOne("SELECT label FROM disc WHERE id = " + id);
+			return ExecuteScalar("SELECT label FROM disc WHERE id = " + id);
 		}
 		
 		public static object[] FetchFilesListByDiscId(string id)
-		{	
+		{
 			object[] result = new object[3];
 			try
 			{
-				SQLiteCommand cm = db.CreateCommand();
-				cm.CommandText = "SELECT files, filesno, added FROM disc WHERE id = "+ id;
-				SQLiteDataReader row = cm.ExecuteReader();
-
-				while(row.Read())
+				SQLiteCommand c = CreateCommand("SELECT files, filesno, added FROM disc WHERE id = "+ id);
+				SQLiteDataReader r = c.ExecuteReader();
+				while(r.Read())
 				{
-					result[0] = row.GetString(0);
-					result[1] = row.GetInt32(1);
-					result[2] = row.GetInt32(2);
+					result[0] = r.GetString(0);
+					result[1] = r.GetInt32(1);
+					result[2] = r.GetInt32(2);
 				}
-				row.Close();
+				r.Close();
+				c.Dispose();
 			}
 			catch(SQLiteException e)
 			{
@@ -221,7 +215,6 @@ namespace Cavebox
 			else
 			{
 				Insert("cakebox", data);
-				
 			}
 		}
 		
@@ -229,7 +222,7 @@ namespace Cavebox
 		{
 			if(id > 0)
 			{
-				Execute("Delete FROM cakebox WHERE id = " + id);
+				ExecuteNonQuery("Delete FROM cakebox WHERE id = " + id);
 			}
 		}
 		
@@ -256,7 +249,7 @@ namespace Cavebox
 		{
 			if(id > 0)
 			{
-				Execute("Delete FROM disc WHERE id = " + id);
+				ExecuteNonQuery("Delete FROM disc WHERE id = " + id);
 			}
 		}
 		
@@ -269,17 +262,17 @@ namespace Cavebox
 
 		public static int GetTotalCakeboxes()
 		{
-			return Convert.ToInt32(FetchOne("SELECT COUNT(*) AS total FROM cakebox"));
+			return Convert.ToInt32(ExecuteScalar("SELECT COUNT(*) AS total FROM cakebox"));
 		}
 		
 		public static int GetTotalDiscs()
 		{
-			return Convert.ToInt32(FetchOne("SELECT COUNT(*) AS total FROM disc"));
+			return Convert.ToInt32(ExecuteScalar("SELECT COUNT(*) AS total FROM disc"));
 		}
 		
 		public static int GetTotalFiles()
 		{
-			return Convert.ToInt32(FetchOne("SELECT COALESCE(SUM(filesno), 0) AS total FROM disc"));
+			return Convert.ToInt32(ExecuteScalar("SELECT COALESCE(SUM(filesno), 0) AS total FROM disc"));
 		}
 		
 		public static void Update(string table, Dictionary<string, string> data, string where)
@@ -287,15 +280,15 @@ namespace Cavebox
 			try
 			{
 				List<string> sets = new List<string>();
-				SQLiteCommand cm = db.CreateCommand();
+				SQLiteCommand c = db.CreateCommand();
 				foreach (KeyValuePair<string, string> pair in data)
 				{
 					sets.Add(String.Format("{0} = @{0}", pair.Key));
-					cm.Parameters.Add(new SQLiteParameter("@"+pair.Key, pair.Value));
+					c.Parameters.Add(new SQLiteParameter("@"+pair.Key, pair.Value));
 				}
-				cm.CommandText = String.Format("UPDATE {0} SET {1} WHERE {2}", table, String.Join(", ", sets), where);
-				cm.ExecuteNonQuery();
-				cm.Dispose();
+				c.CommandText = String.Format("UPDATE {0} SET {1} WHERE {2}", table, String.Join(", ", sets), where);
+				c.ExecuteNonQuery();
+				c.Dispose();
 			}
 			catch(SQLiteException e)
 			{
@@ -310,24 +303,22 @@ namespace Cavebox
 		
 		public static void Insert(string table, List<string> columns, List<string> values)
 		{
-			SQLiteCommand cm = db.CreateCommand();
-			cm.CommandText = String.Format("INSERT INTO {0} ({1}) VALUES (@{2})", table, String.Join(", ", columns), String.Join(", @", columns));
+			SQLiteCommand c = CreateCommand(String.Format("INSERT INTO {0} ({1}) VALUES (@{2})", table, String.Join(", ", columns), String.Join(", @", columns)));
 			for(int i = 0; i < columns.Count; i++)
 			{
-				cm.Parameters.Add(new SQLiteParameter("@"+columns[i], values[i]));
+				c.Parameters.Add(new SQLiteParameter("@"+columns[i], values[i]));
 			}
-			cm.ExecuteNonQuery();
-			cm.Dispose();
+			c.ExecuteNonQuery();
+			c.Dispose();
 		}
 		
-		private static void Execute(string sql)
+		private static void ExecuteNonQuery(string sql)
 		{
 			try
 			{
-				SQLiteCommand cm = db.CreateCommand();
-				cm.CommandText = sql;
-				cm.ExecuteNonQuery();
-				cm.Dispose();
+				SQLiteCommand c = CreateCommand(sql);
+				c.ExecuteNonQuery();
+				c.Dispose();
 			}
 			catch(SQLiteException e)
 			{
@@ -335,14 +326,13 @@ namespace Cavebox
 			}
 		}
 		
-		private static string FetchOne(string sql)
+		private static string ExecuteScalar(string sql)
 		{
 			try
 			{
-				SQLiteCommand cm = new SQLiteCommand(db);
-				cm.CommandText = sql;
-				Object res = cm.ExecuteScalar();
-				cm.Dispose();
+				SQLiteCommand c = CreateCommand(sql);
+				Object res = c.ExecuteScalar();
+				c.Dispose();
 				return res.ToString();
 			}
 			catch(SQLiteException e)
@@ -352,9 +342,11 @@ namespace Cavebox
 			}
 		}
 		
-		public static void Vacuum()
+		private static SQLiteCommand CreateCommand(string sql)
 		{
-			Execute("VACUUM");
+			SQLiteCommand c = db.CreateCommand();
+			c.CommandText = sql;
+			return c;
 		}
 	}
 }
