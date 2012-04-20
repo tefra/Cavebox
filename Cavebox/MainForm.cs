@@ -52,6 +52,11 @@ namespace Cavebox
 			Console.WriteLine(Lang.GetString("_applicationClosing"));
 		}
 		
+		private void ExitApplication(object sender, EventArgs e)
+		{
+			Dispose();
+		}
+
 		public Boolean isFilterOn()
 		{
 			return _filter != null;
@@ -595,6 +600,5 @@ namespace Cavebox
 					break;
 			}
 		}
-
 	}
 }

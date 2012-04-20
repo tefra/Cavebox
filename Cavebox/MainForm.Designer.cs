@@ -112,6 +112,8 @@ namespace Cavebox
 			this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.scanWorker = new System.ComponentModel.BackgroundWorker();
 			this.filterTextChangedTimer = new System.Windows.Forms.Timer(this.components);
+			this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			((System.ComponentModel.ISupportInitialize)(this.cakeboxDiscFileSplitContainer)).BeginInit();
 			this.cakeboxDiscFileSplitContainer.Panel1.SuspendLayout();
 			this.cakeboxDiscFileSplitContainer.Panel2.SuspendLayout();
@@ -457,7 +459,9 @@ namespace Cavebox
 									this.importToolStripMenuItem,
 									this.exportToolStripMenuItem,
 									this.toolStripSeparator1,
-									this.rebuildFileCountersToolStripMenuItem});
+									this.rebuildFileCountersToolStripMenuItem,
+									this.toolStripSeparator6,
+									this.exitToolStripMenuItem});
 			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
 			resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
 			// 
@@ -743,6 +747,17 @@ namespace Cavebox
 			this.filterTextChangedTimer.Interval = 175;
 			this.filterTextChangedTimer.Tick += new System.EventHandler(this.Filter);
 			// 
+			// toolStripSeparator6
+			// 
+			this.toolStripSeparator6.Name = "toolStripSeparator6";
+			resources.ApplyResources(this.toolStripSeparator6, "toolStripSeparator6");
+			// 
+			// exitToolStripMenuItem
+			// 
+			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+			resources.ApplyResources(this.exitToolStripMenuItem, "exitToolStripMenuItem");
+			this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitApplication);
+			// 
 			// MainForm
 			// 
 			resources.ApplyResources(this, "$this");
@@ -787,6 +802,8 @@ namespace Cavebox
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
 		private System.Windows.Forms.Button stopScanButton;
 		private System.Windows.Forms.Timer filterTextChangedTimer;
 		private System.Windows.Forms.RichTextBox console;
