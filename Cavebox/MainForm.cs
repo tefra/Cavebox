@@ -61,8 +61,19 @@ namespace Cavebox
 				buildCakeboxesCache();
 				refreshStatusBar(true, true);
 			}
+			
+			
 
 			List<Index> newDataSource = model.fetchCakeboxes(_filterLike);
+		
+			for(int i = 0; i < newDataSource.Count; i++)
+			{
+				listView1.Items.Add(newDataSource[i].Value).SubItems.Add(newDataSource[i].Id.ToString());
+				
+			}
+			
+			
+			
 			cakeboxesListBox.SelectedValueChanged -= showDiscs;
 			cakeboxesListBox.DataSource = newDataSource;
 			cakeboxesListBox.SelectedValueChanged += showDiscs;

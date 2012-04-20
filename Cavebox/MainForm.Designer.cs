@@ -110,6 +110,10 @@ namespace Cavebox
 			this.console = new System.Windows.Forms.RichTextBox();
 			this.consoleActionsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.listView1 = new System.Windows.Forms.ListView();
+			this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+			this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
 			this.scanWorker = new System.ComponentModel.BackgroundWorker();
 			this.filterTextChangedTimer = new System.Windows.Forms.Timer(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.cakeboxDiscFileSplitContainer)).BeginInit();
@@ -139,6 +143,7 @@ namespace Cavebox
 			this.consoleTabPage.SuspendLayout();
 			this.consoleGroupBox.SuspendLayout();
 			this.consoleActionsMenu.SuspendLayout();
+			this.tabPage1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// cakeboxDiscFileSplitContainer
@@ -571,6 +576,7 @@ namespace Cavebox
 			this.tabControl.Controls.Add(this.mainTabPage);
 			this.tabControl.Controls.Add(this.scanTabPage);
 			this.tabControl.Controls.Add(this.consoleTabPage);
+			this.tabControl.Controls.Add(this.tabPage1);
 			resources.ApplyResources(this.tabControl, "tabControl");
 			this.tabControl.Name = "tabControl";
 			this.tabControl.SelectedIndex = 0;
@@ -731,6 +737,32 @@ namespace Cavebox
 			resources.ApplyResources(this.clearToolStripMenuItem, "clearToolStripMenuItem");
 			this.clearToolStripMenuItem.Click += new System.EventHandler(this.clearConsole);
 			// 
+			// tabPage1
+			// 
+			this.tabPage1.Controls.Add(this.listView1);
+			resources.ApplyResources(this.tabPage1, "tabPage1");
+			this.tabPage1.Name = "tabPage1";
+			this.tabPage1.UseVisualStyleBackColor = true;
+			// 
+			// listView1
+			// 
+			this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+									this.columnHeader1,
+									this.columnHeader2});
+			this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+			resources.ApplyResources(this.listView1, "listView1");
+			this.listView1.Name = "listView1";
+			this.listView1.UseCompatibleStateImageBehavior = false;
+			this.listView1.View = System.Windows.Forms.View.Details;
+			// 
+			// columnHeader1
+			// 
+			resources.ApplyResources(this.columnHeader1, "columnHeader1");
+			// 
+			// columnHeader2
+			// 
+			resources.ApplyResources(this.columnHeader2, "columnHeader2");
+			// 
 			// scanWorker
 			// 
 			this.scanWorker.WorkerSupportsCancellation = true;
@@ -783,9 +815,14 @@ namespace Cavebox
 			this.consoleTabPage.ResumeLayout(false);
 			this.consoleGroupBox.ResumeLayout(false);
 			this.consoleActionsMenu.ResumeLayout(false);
+			this.tabPage1.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ColumnHeader columnHeader2;
+		private System.Windows.Forms.ColumnHeader columnHeader1;
+		private System.Windows.Forms.ListView listView1;
+		private System.Windows.Forms.TabPage tabPage1;
 		private System.Windows.Forms.Button stopScanButton;
 		private System.Windows.Forms.Timer filterTextChangedTimer;
 		private System.Windows.Forms.RichTextBox console;
