@@ -5,7 +5,7 @@
  */
 namespace Cavebox
 {
-	partial class MassMove
+	partial class MassMoveForm
 	{
 		/// <summary>
 		/// Designer variable used to keep track of non-visual components.
@@ -33,7 +33,7 @@ namespace Cavebox
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MassMove));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MassMoveForm));
 			this.selectDiscsGroupBox = new System.Windows.Forms.GroupBox();
 			this.selectDiscs = new System.Windows.Forms.CheckedListBox();
 			this.selectCakebox = new System.Windows.Forms.ComboBox();

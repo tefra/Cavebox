@@ -66,18 +66,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Changelog.cs" />
-    <Compile Include="Changelog.Designer.cs">
-      <DependentUpon>Changelog.cs</DependentUpon>
+    <Compile Include="ChangelogForm.cs" />
+    <Compile Include="ChangelogForm.Designer.cs">
+      <DependentUpon>ChangelogForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ConsoleWriter.cs" />
-    <Compile Include="EditCakebox.cs" />
-    <Compile Include="EditCakebox.Designer.cs">
-      <DependentUpon>EditCakebox.cs</DependentUpon>
+    <Compile Include="EditCakeboxForm.cs" />
+    <Compile Include="EditCakeboxForm.Designer.cs">
+      <DependentUpon>EditCakeboxForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditDisc.cs" />
-    <Compile Include="EditDisc.Designer.cs">
-      <DependentUpon>EditDisc.cs</DependentUpon>
+    <Compile Include="EditDiscForm.cs" />
+    <Compile Include="EditDiscForm.Designer.cs">
+      <DependentUpon>EditDiscForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Index.cs" />
     <Compile Include="Lang.cs" />
@@ -85,9 +85,9 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MassMove.cs" />
-    <Compile Include="MassMove.Designer.cs">
-      <DependentUpon>MassMove.cs</DependentUpon>
+    <Compile Include="MassMoveForm.cs" />
+    <Compile Include="MassMoveForm.Designer.cs">
+      <DependentUpon>MassMoveForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model.cs" />
     <Compile Include="Program.cs" />
@@ -100,20 +100,20 @@
     <Compile Include="XMLImport.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Changelog.resx">
-      <DependentUpon>Changelog.cs</DependentUpon>
+    <EmbeddedResource Include="ChangelogForm.resx">
+      <DependentUpon>ChangelogForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditCakebox.resx">
-      <DependentUpon>EditCakebox.cs</DependentUpon>
+    <EmbeddedResource Include="EditCakeboxForm.resx">
+      <DependentUpon>EditCakeboxForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditDisc.resx">
-      <DependentUpon>EditDisc.cs</DependentUpon>
+    <EmbeddedResource Include="EditDiscForm.resx">
+      <DependentUpon>EditDiscForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MassMove.resx">
-      <DependentUpon>MassMove.cs</DependentUpon>
+    <EmbeddedResource Include="MassMoveForm.resx">
+      <DependentUpon>MassMoveForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Images.resx">
       <Generator>ResXFileCodeGenerator</Generator>

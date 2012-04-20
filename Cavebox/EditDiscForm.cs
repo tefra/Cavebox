@@ -12,7 +12,7 @@ namespace Cavebox
 	/// <summary>
 	/// Description of EditDisc.
 	/// </summary>
-	public partial class EditDisc : Form
+	public partial class EditDiscForm : Form
 	{
 		
 		int _id;
@@ -20,7 +20,7 @@ namespace Cavebox
 		string _label;
 		MainForm app;
 		
-		public EditDisc(MainForm form, int id, int cid, string label)
+		public EditDiscForm(MainForm form, int id, int cid, string label)
 		{
 			InitializeComponent();
 			app = form;

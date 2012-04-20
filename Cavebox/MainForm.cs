@@ -318,7 +318,7 @@ namespace Cavebox
 
 		private void ChangelogToolStripMenuItemClick(object sender, EventArgs e)
 		{
-			new Changelog().ShowDialog();
+			new ChangelogForm().ShowDialog();
 		}
 
 		private void CakeboxesListBoxMouseDown(object sender, MouseEventArgs e)
@@ -333,7 +333,7 @@ namespace Cavebox
 
 		private void OpenNewCakeboxForm(object sender, EventArgs e)
 		{
-			new EditCakebox(this).ShowDialog();
+			new EditCakeboxForm(this).ShowDialog();
 		}
 
 		private void OpenEditCakeboxForm(object sender, EventArgs e)
@@ -342,7 +342,7 @@ namespace Cavebox
 			{
 				int id = Convert.ToInt32(cakeboxesListBox.SelectedValue.ToString());
 				string label = cakeboxesListBox.Text;
-				new EditCakebox(this, id, label).ShowDialog();
+				new EditCakeboxForm(this, id, label).ShowDialog();
 			}
 		}
 
@@ -366,7 +366,7 @@ namespace Cavebox
 			if(cakeboxesListBox.SelectedIndex > -1)
 			{
 				int id = Convert.ToInt32(cakeboxesListBox.SelectedValue.ToString());
-				new MassMove(this, id).ShowDialog();
+				new MassMoveForm(this, id).ShowDialog();
 			}
 		}
 		
@@ -377,7 +377,7 @@ namespace Cavebox
 				int id = Convert.ToInt32(discsListBox.SelectedValue.ToString());
 				int cid = Convert.ToInt32(cakeboxesListBox.SelectedValue.ToString());
 				string label = Model.FetchDiscLabelById(id); // <-- stupid sorting methods change the disc label
-				new EditDisc(this, id, cid, label).ShowDialog();
+				new EditDiscForm(this, id, cid, label).ShowDialog();
 			}
 		}
 

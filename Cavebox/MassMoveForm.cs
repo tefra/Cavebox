@@ -13,13 +13,13 @@ namespace Cavebox
 	/// <summary>
 	/// Description of MassMove.
 	/// </summary>
-	public partial class MassMove : Form
+	public partial class MassMoveForm : Form
 	{
 		MainForm app;
 		Boolean checkFlag = false;
 		int source;
 		
-		public MassMove(MainForm form, int cid)
+		public MassMoveForm(MainForm form, int cid)
 		{
 			InitializeComponent();
 			app = form;

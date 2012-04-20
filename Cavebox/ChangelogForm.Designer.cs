@@ -5,7 +5,7 @@
  */
 namespace Cavebox
 {
-	partial class Changelog
+	partial class ChangelogForm
 	{
 		/// <summary>
 		/// Designer variable used to keep track of non-visual components.
@@ -33,7 +33,7 @@ namespace Cavebox
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Changelog));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChangelogForm));
 			this.changelogTextBox = new System.Windows.Forms.RichTextBox();
 			this.SuspendLayout();
 			// 

@@ -5,7 +5,7 @@
  */
 namespace Cavebox
 {
-	partial class EditDisc
+	partial class EditDiscForm
 	{
 		/// <summary>
 		/// Designer variable used to keep track of non-visual components.
@@ -33,7 +33,7 @@ namespace Cavebox
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditDisc));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditDiscForm));
 			this.discLabelLabel = new System.Windows.Forms.Label();
 			this.selectCakeboxLabel = new System.Windows.Forms.Label();
 			this.discLabel = new System.Windows.Forms.TextBox();

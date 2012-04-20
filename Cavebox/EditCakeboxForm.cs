@@ -12,13 +12,13 @@ namespace Cavebox
 	/// <summary>
 	/// Description of EditCakebox.
 	/// </summary>
-	public partial class EditCakebox : Form
+	public partial class EditCakeboxForm : Form
 	{
 		int _id;
 		string _label;
 		MainForm app;
 		
-		public EditCakebox(MainForm form, int id = 0, string label = null)
+		public EditCakeboxForm(MainForm form, int id = 0, string label = null)
 		{
 			InitializeComponent();
 			if(id > 0)

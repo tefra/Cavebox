@@ -12,9 +12,9 @@ namespace Cavebox
 	/// <summary>
 	/// Description of Changelog.
 	/// </summary>
-	public partial class Changelog : Form
+	public partial class ChangelogForm : Form
 	{
-		public Changelog()
+		public ChangelogForm()
 		{
 			InitializeComponent();
 		}
