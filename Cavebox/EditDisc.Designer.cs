@@ -35,9 +35,9 @@ namespace Cavebox
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditDisc));
 			this.discLabelLabel = new System.Windows.Forms.Label();
-			this.discCakeboxLabel = new System.Windows.Forms.Label();
+			this.selectCakeboxLabel = new System.Windows.Forms.Label();
 			this.discLabel = new System.Windows.Forms.TextBox();
-			this.discCakebox = new System.Windows.Forms.ComboBox();
+			this.selectCakebox = new System.Windows.Forms.ComboBox();
 			this.saveButton = new System.Windows.Forms.Button();
 			this.cancelButton = new System.Windows.Forms.Button();
 			this.SuspendLayout();
@@ -47,10 +47,10 @@ namespace Cavebox
 			resources.ApplyResources(this.discLabelLabel, "discLabelLabel");
 			this.discLabelLabel.Name = "discLabelLabel";
 			// 
-			// discCakeboxLabel
+			// selectCakeboxLabel
 			// 
-			resources.ApplyResources(this.discCakeboxLabel, "discCakeboxLabel");
-			this.discCakeboxLabel.Name = "discCakeboxLabel";
+			resources.ApplyResources(this.selectCakeboxLabel, "selectCakeboxLabel");
+			this.selectCakeboxLabel.Name = "selectCakeboxLabel";
 			// 
 			// discLabel
 			// 
@@ -58,16 +58,16 @@ namespace Cavebox
 			this.discLabel.Name = "discLabel";
 			this.discLabel.TextChanged += new System.EventHandler(this.enableSaveButton);
 			// 
-			// discCakebox
+			// selectCakebox
 			// 
-			this.discCakebox.DisplayMember = "Value";
-			this.discCakebox.DropDownHeight = 150;
-			this.discCakebox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.discCakebox.FormattingEnabled = true;
-			resources.ApplyResources(this.discCakebox, "discCakebox");
-			this.discCakebox.Name = "discCakebox";
-			this.discCakebox.ValueMember = "Id";
-			this.discCakebox.SelectedValueChanged += new System.EventHandler(this.enableSaveButton);
+			this.selectCakebox.DisplayMember = "Value";
+			this.selectCakebox.DropDownHeight = 150;
+			this.selectCakebox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.selectCakebox.FormattingEnabled = true;
+			resources.ApplyResources(this.selectCakebox, "selectCakebox");
+			this.selectCakebox.Name = "selectCakebox";
+			this.selectCakebox.ValueMember = "Id";
+			this.selectCakebox.SelectedValueChanged += new System.EventHandler(this.enableSaveButton);
 			// 
 			// saveButton
 			// 
@@ -92,9 +92,9 @@ namespace Cavebox
 			this.CancelButton = this.cancelButton;
 			this.Controls.Add(this.cancelButton);
 			this.Controls.Add(this.saveButton);
-			this.Controls.Add(this.discCakebox);
+			this.Controls.Add(this.selectCakebox);
 			this.Controls.Add(this.discLabel);
-			this.Controls.Add(this.discCakeboxLabel);
+			this.Controls.Add(this.selectCakeboxLabel);
 			this.Controls.Add(this.discLabelLabel);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Name = "EditDisc";
@@ -102,11 +102,11 @@ namespace Cavebox
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Label discLabelLabel;
 		private System.Windows.Forms.Button cancelButton;
 		private System.Windows.Forms.Button saveButton;
-		private System.Windows.Forms.ComboBox discCakebox;
+		private System.Windows.Forms.ComboBox selectCakebox;
 		private System.Windows.Forms.TextBox discLabel;
-		private System.Windows.Forms.Label discCakeboxLabel;
-		private System.Windows.Forms.Label discLabelLabel;
+		private System.Windows.Forms.Label selectCakeboxLabel;
 	}
 }

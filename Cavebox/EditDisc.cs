@@ -27,9 +27,9 @@ namespace Cavebox
 			_id = id;
 			_cid = cid;
 			_label = label;
-			discCakebox.DataSource = app.newDiscCakebox.DataSource;
+			selectCakebox.DataSource = app.newDiscCakebox.DataSource;
 			discLabel.Text = label;
-			discCakebox.SelectedValue = cid;
+			selectCakebox.SelectedValue = cid;
 		}
 		
 		private void SaveDisc(object sender, EventArgs e)
@@ -65,7 +65,7 @@ namespace Cavebox
 		
 		private int getTargetCakeboxId()
 		{
-			return Convert.ToInt32(discCakebox.SelectedValue.ToString());
+			return Convert.ToInt32(selectCakebox.SelectedValue.ToString());
 		}
 		
 	}

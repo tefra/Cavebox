@@ -69,7 +69,6 @@ namespace Cavebox
 				BuildCakeboxesCache();
 				RefreshStatusBar(true, true);
 			}
-			
 			List<Index> newDataSource = Model.FetchCakeboxes(_filterLike);
 			cakeboxesListBox.SelectedValueChanged -= ShowDiscs;
 			cakeboxesListBox.DataSource = newDataSource;
@@ -256,23 +255,23 @@ namespace Cavebox
 
 		private void ScanWorkerReset(object sender, EventArgs e)
 		{
-			saveNewDiscButton.Enabled = false;
 			if(scanWorker.IsBusy)
 			{
 				scanWorker.CancelAsync();
 			}
-			
-			newDiscLabelTextBox.Text = null;
-			newDiscLabelTextBox.Enabled = false;
-			saveNewDiscButton.Enabled = false;
-			scanLog.Clear();
+			else
+			{
+				newDiscLabelTextBox.Text = null;
+				newDiscLabelTextBox.Enabled = false;
+				saveNewDiscButton.Enabled = false;
+				scanLog.Clear();
+			}
 		}
 		
 		private void ScanWorkerDoWork(object sender, System.ComponentModel.DoWorkEventArgs evt)
 		{
-			scanTotalFiles = 0;
 			string drive = evt.Argument as string;
-
+			scanTotalFiles = 0;
 			foreach(string file in Directory.EnumerateFiles(drive, "*", SearchOption.AllDirectories))
 			{
 				if(scanWorker.CancellationPending)
@@ -292,7 +291,6 @@ namespace Cavebox
 		{
 			string label = newDiscLabelTextBox.Text.Trim();
 			string files = scanLog.Text.Trim();
-			
 			if(newDiscCakebox.SelectedIndex == -1)
 			{
 				MessageBox.Show(Lang.GetString("_newDiscMissingCakebox"), Lang.GetString("_error"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
@@ -316,7 +314,6 @@ namespace Cavebox
 				newDiscLabelTextBox.Text = null;
 				saveNewDiscButton.Enabled = false;
 			}
-
 		}
 
 		private void ChangelogToolStripMenuItemClick(object sender, EventArgs e)
@@ -354,7 +351,6 @@ namespace Cavebox
 			if(discsListBox.Items.Count > 0)
 			{
 				MessageBox.Show(Lang.GetString("_cakeboxNotEmpty"), Lang.GetString("_error"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
-
 			}
 			else if(MessageBox.Show(Lang.GetString("_confirmDeleteCakebox", cakeboxesListBox.Text), Lang.GetString("_confirmDelete"), MessageBoxButtons.YesNo) == DialogResult.Yes)
 			{
@@ -414,12 +410,8 @@ namespace Cavebox
 					backcolor = (index % 2 == 0) ? Color.WhiteSmoke :  Color.White;
 					forecolor = SystemColors.WindowText;
 				}
-				/* Draw Background */
 				g.FillRectangle(new SolidBrush(backcolor), e.Bounds);
-
-				/* Draw Item Text */
 				g.DrawString(listbox.Items[index].ToString(), e.Font, new SolidBrush(forecolor), e.Bounds, StringFormat.GenericDefault);
-
 			}
 			e.DrawFocusRectangle();
 		}
@@ -502,7 +494,6 @@ namespace Cavebox
 			{
 				link = "http://www.youtube.com/results?search_query=";
 			}
-			
 			link  += String.Join("+", filesList.SelectedText.Trim().Replace("\n", " ").Split(' '));
 			System.Diagnostics.Process.Start(link);
 		}
@@ -584,6 +575,24 @@ namespace Cavebox
 			Boolean check = !alwaysOnTopToolStripMenuItem.Checked;
 			this.TopMost = check;
 			alwaysOnTopToolStripMenuItem.Checked = check;
+		}
+		
+		void TabControlSelectedIndexChanged(object sender, EventArgs e)
+		{
+			switch(tabControl.SelectedIndex)
+			{
+				case 0:
+					AcceptButton = null;
+					break;
+					
+				case 1:
+					AcceptButton = saveNewDiscButton;
+					break;
+					
+				case 2:
+					AcceptButton = null;
+					break;
+			}
 		}
 	}
 }

@@ -574,6 +574,7 @@ namespace Cavebox
 			resources.ApplyResources(this.tabControl, "tabControl");
 			this.tabControl.Name = "tabControl";
 			this.tabControl.SelectedIndex = 0;
+			this.tabControl.SelectedIndexChanged += new System.EventHandler(this.TabControlSelectedIndexChanged);
 			// 
 			// mainTabPage
 			// 

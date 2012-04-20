@@ -119,10 +119,10 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="cakeboxLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 12</value>
+    <value>54, 12</value>
   </data>
   <data name="cakeboxLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>360, 20</value>
+    <value>318, 20</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="cakeboxLabel.TabIndex" type="System.Int32, mscorlib">
@@ -138,7 +138,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cakeboxLabel.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="saveButton.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -165,7 +165,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;saveButton.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="Cancel.Location" type="System.Drawing.Point, System.Drawing">
     <value>297, 38</value>
@@ -189,6 +189,30 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Cancel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="cakeboxLabelLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 15</value>
+  </data>
+  <data name="cakeboxLabelLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 23</value>
+  </data>
+  <data name="cakeboxLabelLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="cakeboxLabelLabel.Text" xml:space="preserve">
+    <value>Label:</value>
+  </data>
+  <data name="&gt;&gt;cakeboxLabelLabel.Name" xml:space="preserve">
+    <value>cakeboxLabelLabel</value>
+  </data>
+  <data name="&gt;&gt;cakeboxLabelLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cakeboxLabelLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cakeboxLabelLabel.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -205,7 +229,7 @@
     <value>CenterParent</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Edit Cakebox Label</value>
+    <value>Edit Cakebox</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>EditCakebox</value>

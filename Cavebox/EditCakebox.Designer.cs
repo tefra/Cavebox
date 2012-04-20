@@ -37,6 +37,7 @@ namespace Cavebox
 			this.cakeboxLabel = new System.Windows.Forms.TextBox();
 			this.saveButton = new System.Windows.Forms.Button();
 			this.Cancel = new System.Windows.Forms.Button();
+			this.cakeboxLabelLabel = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// cakeboxLabel
@@ -60,12 +61,18 @@ namespace Cavebox
 			this.Cancel.UseVisualStyleBackColor = true;
 			this.Cancel.Click += new System.EventHandler(this.CloseForm);
 			// 
+			// cakeboxLabelLabel
+			// 
+			resources.ApplyResources(this.cakeboxLabelLabel, "cakeboxLabelLabel");
+			this.cakeboxLabelLabel.Name = "cakeboxLabelLabel";
+			// 
 			// EditCakebox
 			// 
 			this.AcceptButton = this.saveButton;
 			resources.ApplyResources(this, "$this");
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.Cancel;
+			this.Controls.Add(this.cakeboxLabelLabel);
 			this.Controls.Add(this.Cancel);
 			this.Controls.Add(this.saveButton);
 			this.Controls.Add(this.cakeboxLabel);
@@ -75,6 +82,7 @@ namespace Cavebox
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Label cakeboxLabelLabel;
 		private System.Windows.Forms.Button Cancel;
 		private System.Windows.Forms.Button saveButton;
 		private System.Windows.Forms.TextBox cakeboxLabel;

@@ -24,6 +24,11 @@ namespace Cavebox
 			app = form;
 			_id = id;
 			_label = label;
+			if(id > 0)
+			{
+				this.Text += " #"+id;
+			}
+			
 			cakeboxLabel.Text = label;
 		}
 		

@@ -86,14 +86,17 @@ namespace Cavebox
 			// cancelButton
 			// 
 			resources.ApplyResources(this.cancelButton, "cancelButton");
+			this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.cancelButton.Name = "cancelButton";
 			this.cancelButton.UseVisualStyleBackColor = true;
 			this.cancelButton.Click += new System.EventHandler(this.closeForm);
 			// 
 			// MassMove
 			// 
+			this.AcceptButton = this.moveButton;
 			resources.ApplyResources(this, "$this");
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.CancelButton = this.cancelButton;
 			this.Controls.Add(this.cancelButton);
 			this.Controls.Add(this.moveButton);
 			this.Controls.Add(this.toggleButton);
