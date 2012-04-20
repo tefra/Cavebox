@@ -18,7 +18,6 @@ namespace Cavebox
 	/// </summary>
 	public partial class MainForm : Form
 	{
-		Model model;
 		List<Index> cakeboxes = null;
 
 		string _filter;
@@ -33,14 +32,23 @@ namespace Cavebox
 			InitializeComponent();
 			Console.SetOut(new ConsoleWriter(console));
 			Console.WriteLine(Lang.GetString("_applicationStartingUp"));
-			model = Model.Instance;
-			showCakeboxes(0, true);
+			if(Model.Connect("Data Source=data.db"))
+			{
+				Console.WriteLine(Lang.GetString("_sqliteStartinUp", Model.SQLiteVersion(), Model.Status()));
+			}
+			else
+			{
+				MessageBox.Show(Lang.GetString("_dbConnectionFailed"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+				this.Dispose();
+			}
+			ShowCakeboxes(0, true);
 			scanDrive.DataSource = DriveInfo.GetDrives().Where(d => /*d.DriveType == DriveType.CDRom &&*/ d.IsReady == true).ToArray();
 		}
 		
-		private void mainFormClosed(object sender, FormClosedEventArgs e)
+		private void MainFormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
 		{
-			model.vacuum();
+			Model.Vacuum();
+			Console.WriteLine(Lang.GetString("_applicationClosing"));
 		}
 		
 		public Boolean isFilterOn()
@@ -48,59 +56,51 @@ namespace Cavebox
 			return _filter != null;
 		}
 		
-		private void buildCakeboxesCache()
+		private void BuildCakeboxesCache()
 		{
-			cakeboxes = model.fetchCakeboxes();
+			cakeboxes = Model.FetchCakeboxes();
 			newDiscCakebox.DataSource = cakeboxes;
 		}
 
-		public void showCakeboxes(int selectValue = 0, Boolean refreshCakeboxesCache = false)
+		public void ShowCakeboxes(int selectValue = 0, Boolean refreshCakeboxesCache = false)
 		{
 			if(refreshCakeboxesCache)
 			{
-				buildCakeboxesCache();
-				refreshStatusBar(true, true);
+				BuildCakeboxesCache();
+				RefreshStatusBar(true, true);
 			}
 			
-			
-
-			List<Index> newDataSource = model.fetchCakeboxes(_filterLike);
-		
-			for(int i = 0; i < newDataSource.Count; i++)
-			{
-				listView1.Items.Add(newDataSource[i].Value).SubItems.Add(newDataSource[i].Id.ToString());
-				
-			}
-			
-			
-			
-			cakeboxesListBox.SelectedValueChanged -= showDiscs;
+			List<Index> newDataSource = Model.FetchCakeboxes(_filterLike);
+			cakeboxesListBox.SelectedValueChanged -= ShowDiscs;
 			cakeboxesListBox.DataSource = newDataSource;
-			cakeboxesListBox.SelectedValueChanged += showDiscs;
+			cakeboxesListBox.SelectedValueChanged += ShowDiscs;
 			cakeboxesListBox.SelectedValue = selectValue;
-			updateNumTitle(cakeboxesGroupBox, newDataSource.Count);
+			UpdateNumTitle(cakeboxesGroupBox, newDataSource.Count);
 		}
 
-		public void showDiscs(object sender, EventArgs e)
+		public void ShowDiscs(object sender, EventArgs e)
 		{
-			List<Index> newDataSource = (cakeboxesListBox.SelectedIndex > -1) ? model.fetchDiscsByCakeboxId(cakeboxesListBox.SelectedValue.ToString(), _filterLike, discsOrderBy, discsOrderWay) : new List<Index>();
-			discsListBox.SelectedValueChanged -= showFiles;
+			List<Index> newDataSource = (cakeboxesListBox.SelectedIndex > -1) ? Model.FetchDiscsByCakeboxId(cakeboxesListBox.SelectedValue.ToString(), _filterLike, discsOrderBy, discsOrderWay) : new List<Index>();
+			discsListBox.SelectedValueChanged -= ShowFiles;
 			discsListBox.DataSource = newDataSource;
 			discsListBox.SelectedValue = 0;
-			discsListBox.SelectedValueChanged += showFiles;
-			showFiles(sender, e);
-			updateNumTitle(discsGroupBox, newDataSource.Count);
+			discsListBox.SelectedValueChanged += ShowFiles;
+			ShowFiles(sender, e);
+			UpdateNumTitle(discsGroupBox, newDataSource.Count);
 		}
 
-		private void showFiles(object sender, EventArgs e)
+		private void ShowFiles(object sender, EventArgs e)
 		{
 			filesList.Clear();
 			if(discsListBox.SelectedIndex > -1)
 			{
-				Tuple<string, int, int> result = model.fetchFilesListByDiscId(discsListBox.SelectedValue.ToString());
-				filesList.Text = result.Item1;
+				object[] result = Model.FetchFilesListByDiscId(discsListBox.SelectedValue.ToString());
+				string files = result[0].ToString();
+				int added = Convert.ToInt32(result[2]);
+				int filesno = Convert.ToInt32(result[1]);
+				filesList.Text = files;
 				int start, pos, keyLength;
-				int end = result.Item1.Length;
+				int end = filesList.Text.Length;
 				foreach(string key in filterTextBox.Text.Split(' '))
 				{
 					keyLength = key.Length;
@@ -112,22 +112,20 @@ namespace Cavebox
 						start = pos+keyLength;
 					}
 				}
-				
-				string added = (result.Item3 > 0) ? new DateTime(1970, 1, 1).AddSeconds(result.Item3).ToLocalTime().ToString("dd/MM/yyyy HH:mm:ss") : "N/A";
 				discAddedLabel.Visible = true;
 				discAddedValueLabel.Visible = true;
-				discAddedValueLabel.Text = added;
-				updateNumTitle(discFilesGroupBox, result.Item2);
+				discAddedValueLabel.Text = (added > 0) ? new DateTime(1970, 1, 1).AddSeconds(added).ToLocalTime().ToString("dd/MM/yyyy HH:mm:ss") : Lang.GetString("_unknownDate");
+				UpdateNumTitle(discFilesGroupBox, filesno);
 			}
 			else
 			{
 				discAddedLabel.Visible = false;
 				discAddedValueLabel.Visible = false;
-				updateNumTitle(discFilesGroupBox, 0);
+				UpdateNumTitle(discFilesGroupBox, 0);
 			}
 		}
 
-		private void filterTextBoxTextChanged(object sender, EventArgs e)
+		private void FilterTextBoxTextChanged(object sender, EventArgs e)
 		{
 			if(filterTextChangedTimer.Enabled)
 			{
@@ -136,7 +134,7 @@ namespace Cavebox
 			filterTextChangedTimer.Start();
 		}
 
-		private void filter(object sender, EventArgs e)
+		private void Filter(object sender, EventArgs e)
 		{
 			filterTextChangedTimer.Stop();
 			string filter = filterTextBox.Text.Trim();
@@ -156,47 +154,47 @@ namespace Cavebox
 				clearFilterButton.Enabled = false;
 				_filter = _filterLike = null;
 			}
-			showCakeboxes();
+			ShowCakeboxes();
 		}
 		
-		private void filterOff(object sender, EventArgs e)
+		private void FilterOff(object sender, EventArgs e)
 		{
-			filterTextBox.TextChanged -= filterTextBoxTextChanged;
+			filterTextBox.TextChanged -= FilterTextBoxTextChanged;
 			filterTextBox.Text = null;
 			clearFilterButton.Enabled = false;
 			_filter = _filterLike = null;
-			showCakeboxes();
-			filterTextBox.TextChanged += filterTextBoxTextChanged;
+			ShowCakeboxes();
+			filterTextBox.TextChanged += FilterTextBoxTextChanged;
 		}
 		
-		public void refreshStatusBar(Boolean cakebox = false, Boolean disc = false)
+		public void RefreshStatusBar(Boolean cakebox = false, Boolean disc = false)
 		{
 			if(cakebox)
 			{
-				updateNumTitle(cakeboxStatsLabel, model.getTotalCakeboxes());
+				UpdateNumTitle(cakeboxStatsLabel, Model.GetTotalCakeboxes());
 			}
 			if(disc)
 			{
-				updateNumTitle(discStatsLabel, model.getTotalDiscs());
-				updateNumTitle(fileStatsLabel, model.getTotalFiles());
+				UpdateNumTitle(discStatsLabel, Model.GetTotalDiscs());
+				UpdateNumTitle(fileStatsLabel, Model.GetTotalFiles());
 			}
 		}
 
-		private void updateNumTitle(ToolStripLabel label, int num)
+		private void UpdateNumTitle(ToolStripLabel label, int num)
 		{
 			string title = label.Text.Split(':')[0].Trim();
 			title += (num > 0) ? ": " + String.Format("{0:n0}", num) : null;
 			label.Text = title;
 		}
 
-		public void updateNumTitle(GroupBox groupBox, int num)
+		public void UpdateNumTitle(GroupBox groupBox, int num)
 		{
 			string title = groupBox.Text.Split(':')[0].Trim();
 			title += (num > 0) ? ": " + String.Format("{0:n0}", num) : null;
 			groupBox.Text = title;
 		}
 
-		private void scanWorkerStart(object sender, EventArgs e)
+		private void ScanWorkerStart(object sender, EventArgs e)
 		{
 			saveNewDiscButton.Enabled = false;
 			if(!scanWorker.IsBusy)
@@ -222,7 +220,7 @@ namespace Cavebox
 			}
 		}
 
-		private void scanWorkerStop(object sender, EventArgs e)
+		private void ScanWorkerStop(object sender, EventArgs e)
 		{
 			saveNewDiscButton.Enabled = false;
 			if(scanWorker.IsBusy)
@@ -233,7 +231,7 @@ namespace Cavebox
 			}
 		}
 		
-		private void scanWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+		private void ScanWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
 		{
 			scanLog.ScrollToCaret();
 			scanDrive.Enabled = true;
@@ -256,7 +254,7 @@ namespace Cavebox
 			}
 		}
 
-		private void scanWorkerReset(object sender, EventArgs e)
+		private void ScanWorkerReset(object sender, EventArgs e)
 		{
 			saveNewDiscButton.Enabled = false;
 			if(scanWorker.IsBusy)
@@ -270,7 +268,7 @@ namespace Cavebox
 			scanLog.Clear();
 		}
 		
-		private void scanWorkerDoWork(object sender, System.ComponentModel.DoWorkEventArgs evt)
+		private void ScanWorkerDoWork(object sender, System.ComponentModel.DoWorkEventArgs evt)
 		{
 			scanTotalFiles = 0;
 			string drive = evt.Argument as string;
@@ -290,7 +288,7 @@ namespace Cavebox
 			}
 		}
 
-		private void saveNewDisc(object sender, EventArgs e)
+		private void SaveNewDisc(object sender, EventArgs e)
 		{
 			string label = newDiscLabelTextBox.Text.Trim();
 			string files = scanLog.Text.Trim();
@@ -310,9 +308,9 @@ namespace Cavebox
 				string clabel = newDiscCakebox.Text;
 				string cid = newDiscCakebox.SelectedValue.ToString();
 				
-				model.addDisc(label, files, scanTotalFiles.ToString(), cid, added.ToString());
-				showCakeboxes();
-				refreshStatusBar(false, true);
+				Model.AddDisc(label, files, scanTotalFiles.ToString(), cid, added.ToString());
+				ShowCakeboxes();
+				RefreshStatusBar(false, true);
 				scanLog.Text = Lang.GetString("_newDiscAdded", label, clabel);
 				scanLog.ScrollToCaret();
 				newDiscLabelTextBox.Text = null;
@@ -336,12 +334,12 @@ namespace Cavebox
 			discsListBox.SelectedIndex = discsListBox.IndexFromPoint(e.X, e.Y);
 		}
 
-		private void openNewCakeboxForm(object sender, EventArgs e)
+		private void OpenNewCakeboxForm(object sender, EventArgs e)
 		{
 			new EditCakebox(this).ShowDialog();
 		}
 
-		private void openEditCakeboxForm(object sender, EventArgs e)
+		private void OpenEditCakeboxForm(object sender, EventArgs e)
 		{
 			if(cakeboxesListBox.SelectedIndex > -1)
 			{
@@ -351,7 +349,7 @@ namespace Cavebox
 			}
 		}
 
-		private void deleteCakebox(object sender, EventArgs e)
+		private void DeleteCakebox(object sender, EventArgs e)
 		{
 			if(discsListBox.Items.Count > 0)
 			{
@@ -360,14 +358,14 @@ namespace Cavebox
 			}
 			else if(MessageBox.Show(Lang.GetString("_confirmDeleteCakebox", cakeboxesListBox.Text), Lang.GetString("_confirmDelete"), MessageBoxButtons.YesNo) == DialogResult.Yes)
 			{
-				model.deleteCakebox(Convert.ToInt32(cakeboxesListBox.SelectedValue.ToString()));
+				Model.DeleteCakebox(Convert.ToInt32(cakeboxesListBox.SelectedValue.ToString()));
 				Console.WriteLine(Lang.GetString("_cakeboxDeleted", cakeboxesListBox.Text));
-				showCakeboxes(0, true);
-				refreshStatusBar(true, false);
+				ShowCakeboxes(0, true);
+				RefreshStatusBar(true, false);
 			}
 		}
 		
-		private void openMassMoveForm(object sender, EventArgs e)
+		private void OpenMassMoveForm(object sender, EventArgs e)
 		{
 			if(cakeboxesListBox.SelectedIndex > -1)
 			{
@@ -376,29 +374,29 @@ namespace Cavebox
 			}
 		}
 		
-		private void openEditDiscForm(object sender, EventArgs e)
+		private void OpenEditDiscForm(object sender, EventArgs e)
 		{
 			if(discsListBox.SelectedIndex > -1 && cakeboxesListBox.SelectedIndex > -1)
 			{
 				int id = Convert.ToInt32(discsListBox.SelectedValue.ToString());
 				int cid = Convert.ToInt32(cakeboxesListBox.SelectedValue.ToString());
-				string label = model.fetchDiscLabelById(id); // <-- stupid sorting methods change the disc label
+				string label = Model.FetchDiscLabelById(id); // <-- stupid sorting methods change the disc label
 				new EditDisc(this, id, cid, label).ShowDialog();
 			}
 		}
 
-		private void deleteDisc(object sender, EventArgs e)
+		private void DeleteDisc(object sender, EventArgs e)
 		{
 			if(MessageBox.Show(Lang.GetString("_confirmDeleteDisc", discsListBox.Text), Lang.GetString("_confirmDelete"), MessageBoxButtons.YesNo) == DialogResult.Yes)
 			{
-				model.deleteDisc(Convert.ToInt32(discsListBox.SelectedValue.ToString()));
+				Model.DeleteDisc(Convert.ToInt32(discsListBox.SelectedValue.ToString()));
 				Console.WriteLine(Lang.GetString("_discDeleted", discsListBox.Text));
-				showDiscs(sender, e);
-				refreshStatusBar(false, true);
+				ShowDiscs(sender, e);
+				RefreshStatusBar(false, true);
 			}
 		}
 
-		private void listBoxDrawItem(object sender, DrawItemEventArgs e)
+		private void ListBoxDrawItem(object sender, DrawItemEventArgs e)
 		{
 			ListBox listbox = (ListBox) sender;
 			int index = e.Index;
@@ -426,7 +424,7 @@ namespace Cavebox
 			e.DrawFocusRectangle();
 		}
 
-		private void sortDiscs(object sender, EventArgs e)
+		private void SortDiscs(object sender, EventArgs e)
 		{
 			ToolStripMenuItem source = (ToolStripMenuItem) sender;
 			int prevBy = discsOrderBy;
@@ -467,16 +465,16 @@ namespace Cavebox
 			}
 			if(prevBy != discsOrderBy || prevWay != discsOrderWay)
 			{
-				showDiscs(sender, e);
+				ShowDiscs(sender, e);
 			}
 		}
 		
-		private void clearConsole(object sender, EventArgs e)
+		private void ClearConsole(object sender, EventArgs e)
 		{
 			console.Clear();
 		}
 		
-		private void openSearchUrl(object sender, EventArgs e)
+		private void OpenSearchUrl(object sender, EventArgs e)
 		{
 			string link = null;
 			ToolStripMenuItem source = (ToolStripMenuItem) sender;
@@ -529,7 +527,7 @@ namespace Cavebox
 			}
 		}
 		
-		void DiscsActionsMenuOpening(object sender, CancelEventArgs e)
+		private void DiscsActionsMenuOpening(object sender, CancelEventArgs e)
 		{
 			if(discsListBox.SelectedIndex == -1)
 			{
@@ -537,40 +535,43 @@ namespace Cavebox
 			}
 		}
 		
-		private void rebuildFileCounters(object sender, EventArgs e)
+		private void RebuildFileCounters(object sender, EventArgs e)
 		{
-			model.rebuildFileCounters();
+			Model.RebuildFileCounters();
 		}
 		
-		private void exportXml(object sender, EventArgs e)
+		private void ExportXml(object sender, EventArgs e)
 		{
 			FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
 			if(folderBrowserDialog.ShowDialog() == DialogResult.OK)
 			{
 				string file = folderBrowserDialog.SelectedPath + Path.DirectorySeparatorChar + DateTime.Now.ToString("yyyy-MM-dd-HHmmss") + ".xml";
+				stopWatch = DateTime.Now;
 				new XMLExport(file);
+				Console.WriteLine(Lang.GetString("_exportCompleted", (DateTime.Now - stopWatch).TotalSeconds));
 			}
 		}
 		
-		private void importXml(object sender, EventArgs e)
+		private void ImportXml(object sender, EventArgs e)
 		{
 			OpenFileDialog openFileDialog = new OpenFileDialog();
 			openFileDialog.Filter = Lang.GetString("_xmlFilesDesc");
 			openFileDialog.Title = Lang.GetString("_selectBackupFile");
-
 			if (openFileDialog.ShowDialog() == DialogResult.OK)
 			{
+				stopWatch = DateTime.Now;
 				new XMLImport(openFileDialog.FileName);
-				showCakeboxes(0, true);
+				Console.WriteLine(Lang.GetString("_importCompleted", (DateTime.Now - stopWatch).TotalSeconds));
+				ShowCakeboxes(0, true);
 			}
 		}
 
-		private void copyFilesListClick(object sender, EventArgs e)
+		private void CopyFilesListClick(object sender, EventArgs e)
 		{
 			Clipboard.SetDataObject(filesList, true);
 		}
 		
-		private void alwaysOnTopMenuItemClick(object sender, EventArgs e)
+		private void AlwaysOnTopMenuItemClick(object sender, EventArgs e)
 		{
 			Boolean check = !alwaysOnTopToolStripMenuItem.Checked;
 			this.TopMost = check;

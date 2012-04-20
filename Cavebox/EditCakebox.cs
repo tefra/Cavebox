@@ -38,9 +38,9 @@ namespace Cavebox
 				{
 					Console.WriteLine(Lang.GetString("_addedNewCakebox", label));
 				}
-				Model.Instance.saveCakebox(label, _id);
-				app.refreshStatusBar(true, false);
-				app.showCakeboxes(_id, true);
+				Model.SaveCakebox(label, _id);
+				app.RefreshStatusBar(true, false);
+				app.ShowCakeboxes(_id, true);
 				closeForm(sender, e);
 			}
 		}

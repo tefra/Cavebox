@@ -4,11 +4,9 @@
  * @link	http://www.t3-design.com
  */
 using System;
-using System.CodeDom;
+
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SQLite;
-using System.Linq.Expressions;
 using System.Windows.Forms;
 
 namespace Cavebox
@@ -16,33 +14,37 @@ namespace Cavebox
 	/// <summary>
 	/// Description of Model.
 	/// </summary>
-	public class Model
-	{
-		private static Model instance = new Model();
-		
-		public static Model Instance
-		{
-			get { return instance; }
-		}
-		
-		public SQLiteConnection db {get; set;}
+	static class Model
+	{		
+		public static SQLiteConnection db {get; set;}
 
-		private Model()
-		{		
-			db = null;
+		public static Boolean Connect(string connectionString)
+		{
 			try
 			{
-				String dbConnection = "Data Source=data.db";
-				db = new SQLiteConnection(dbConnection);
-				db.Open();
-				Console.WriteLine(Lang.GetString("_sqliteStartinUp", db.ServerVersion, fetchOne("PRAGMA integrity_check")));
+				db = new SQLiteConnection(connectionString).OpenAndReturn();
+				return true;
 			}
-			catch
+			catch(SQLiteException e)
 			{
-				MessageBox.Show(Lang.GetString("_dbConnectionFailed"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-				Application.Exit();
+				Console.WriteLine(e.Message);
+				return false;
 			}
-			
+
+		}
+		
+		public static string Status()
+		{
+			return FetchOne("PRAGMA integrity_check");
+		}
+		
+		public static string SQLiteVersion()
+		{
+			return db.ServerVersion;
+		}
+		
+		public static void Install()
+		{
 			try
 			{
 				SQLiteCommand cm = db.CreateCommand();
@@ -51,7 +53,6 @@ namespace Cavebox
 				cm.CommandText = "CREATE TABLE disc (id INTEGER PRIMARY KEY, cid INTEGER DEFAULT 0, label TEXT NOT NULL, files TEXT NOT NULL, filesno INTEGER DEFAULT 0, added INTEGER NOT NULL DEFAULT 0);";
 				cm.ExecuteNonQuery();
 				cm.Dispose();
-				
 				Console.WriteLine(Lang.GetString("_installing"));
 			}
 			catch
@@ -60,7 +61,7 @@ namespace Cavebox
 			}
 		}
 
-		public void rebuildFileCounters()
+		public static void RebuildFileCounters()
 		{
 			try
 			{
@@ -86,7 +87,6 @@ namespace Cavebox
 				transaction.Commit();
 				row.Close();
 				cm.Dispose();
-				up.Dispose();
 			}
 			catch(SQLiteException e)
 			{
@@ -94,7 +94,7 @@ namespace Cavebox
 			}
 		}
 		
-		public List<Index> fetchCakeboxes(String filter = null)
+		public static List<Index> FetchCakeboxes(string filter = null)
 		{
 			List<Index> list = new List<Index>();
 			try
@@ -124,13 +124,13 @@ namespace Cavebox
 			return list;
 		}
 		
-		public List<Index> fetchDiscsByCakeboxId(String id, String filter = null, int orderBy = 1, int orderWay = 0)
+		public static List<Index> FetchDiscsByCakeboxId(string id, string filter = null, int orderBy = 1, int orderWay = 0)
 		{
 			List<Index> list = new List<Index>();
 			try
 			{
 				SQLiteCommand cm = db.CreateCommand();
-				String orderClause = null;
+				string orderClause = null;
 				switch(orderBy)
 				{
 					case 0:
@@ -155,7 +155,7 @@ namespace Cavebox
 				}
 				
 				SQLiteDataReader row = cm.ExecuteReader();
-				String label;
+				string label;
 				int diskId;
 				while (row.Read())
 				{
@@ -172,24 +172,23 @@ namespace Cavebox
 					}
 					list.Add(new Index(diskId, label));
 				}
-				
-				row.Close();
-				cm.Dispose();
+				row.Close();			
 			}
 			catch(SQLiteException e)
 			{
 				Console.WriteLine(e.Message);
-			}
+			}			
 			return list;
 		}
 		
-		public string fetchDiscLabelById(int id)
+		public static string FetchDiscLabelById(int id)
 		{
-			return fetchOne("SELECT label FROM disc WHERE id = " + id);
+			return FetchOne("SELECT label FROM disc WHERE id = " + id);
 		}
 		
-		public Tuple<string, int, int> fetchFilesListByDiscId(String id)
-		{
+		public static object[] FetchFilesListByDiscId(string id)
+		{	
+			object[] result = new object[3];
 			try
 			{
 				SQLiteCommand cm = db.CreateCommand();
@@ -198,52 +197,51 @@ namespace Cavebox
 
 				while(row.Read())
 				{
-					return new Tuple<string, int, int>(row.GetString(0), row.GetInt32(1), row.GetInt32(2));
+					result[0] = row.GetString(0);
+					result[1] = row.GetInt32(1);
+					result[2] = row.GetInt32(2);
 				}
 				row.Close();
-				cm.Dispose();
 			}
 			catch(SQLiteException e)
 			{
 				Console.WriteLine(e.Message);
-				
 			}
-			
-			return new Tuple<string, int, int>(null, 0, 0);
+			return result;
 		}
 		
-		public void saveCakebox(String label, int id = 0)
+		public static void SaveCakebox(string label, int id = 0)
 		{
 			Dictionary<string, string> data = new Dictionary<string, string>();
 			data.Add("label", label);
 			if(id > 0)
 			{
-				update("cakebox", data, "id = " + id);
+				Update("cakebox", data, "id = " + id);
 			}
 			else
 			{
-				insert("cakebox", data);
+				Insert("cakebox", data);
 				
 			}
 		}
 		
-		public void deleteCakebox(int id)
+		public static void DeleteCakebox(int id)
 		{
 			if(id > 0)
 			{
-				query("Delete FROM cakebox WHERE id = " + id);
+				Execute("Delete FROM cakebox WHERE id = " + id);
 			}
 		}
 		
-		public void updateDisc(int id, int cid, string label)
+		public static void UpdateDisc(int id, int cid, string label)
 		{
 			Dictionary<string, string> data = new Dictionary<string, string>();
 			data.Add("cid", cid.ToString());
 			data.Add("label", label);
-			update("disc", data, "id = " + id);
+			Update("disc", data, "id = " + id);
 		}
 		
-		public void addDisc(string label, string files, string filesno, string cid, string added)
+		public static void AddDisc(string label, string files, string filesno, string cid, string added)
 		{
 			Dictionary<string, string> data = new Dictionary<string, string>();
 			data.Add("cid", cid);
@@ -251,40 +249,40 @@ namespace Cavebox
 			data.Add("files", files);
 			data.Add("filesno", filesno);
 			data.Add("added", added);
-			insert("disc", data);
+			Insert("disc", data);
 		}
 		
-		public void deleteDisc(int id)
+		public static void DeleteDisc(int id)
 		{
 			if(id > 0)
 			{
-				query("Delete FROM disc WHERE id = " + id);
+				Execute("Delete FROM disc WHERE id = " + id);
 			}
 		}
 		
-		public void moveDiscs(int target, List<int> discs)
+		public static void MoveDiscs(int target, List<int> discs)
 		{
 			Dictionary<string, string> data = new Dictionary<string, string>();
 			data.Add("cid", target.ToString());
-			update("disc", data, "id IN (" + String.Join(", ", discs) + ")");
+			Update("disc", data, "id IN (" + String.Join(", ", discs) + ")");
 		}
 
-		public int getTotalCakeboxes()
+		public static int GetTotalCakeboxes()
 		{
-			return Convert.ToInt32(fetchOne("SELECT COUNT(*) AS total FROM cakebox"));
+			return Convert.ToInt32(FetchOne("SELECT COUNT(*) AS total FROM cakebox"));
 		}
 		
-		public int getTotalDiscs()
+		public static int GetTotalDiscs()
 		{
-			return Convert.ToInt32(fetchOne("SELECT COUNT(*) AS total FROM disc"));
+			return Convert.ToInt32(FetchOne("SELECT COUNT(*) AS total FROM disc"));
 		}
 		
-		public int getTotalFiles()
+		public static int GetTotalFiles()
 		{
-			return Convert.ToInt32(fetchOne("SELECT COALESCE(SUM(filesno), 0) AS total FROM disc"));
+			return Convert.ToInt32(FetchOne("SELECT COALESCE(SUM(filesno), 0) AS total FROM disc"));
 		}
 		
-		public void update(string table, Dictionary<string, string> data, string where)
+		public static void Update(string table, Dictionary<string, string> data, string where)
 		{
 			try
 			{
@@ -305,12 +303,12 @@ namespace Cavebox
 			}
 		}
 		
-		public void insert(string table, Dictionary<string, string> data)
+		public static void Insert(string table, Dictionary<string, string> data)
 		{
-			insert(table, new List<string>(data.Keys), new List<string>(data.Values));
+			Insert(table, new List<string>(data.Keys), new List<string>(data.Values));
 		}
 		
-		public void insert(String table, List<string> columns, List<string> values)
+		public static void Insert(string table, List<string> columns, List<string> values)
 		{
 			SQLiteCommand cm = db.CreateCommand();
 			cm.CommandText = String.Format("INSERT INTO {0} ({1}) VALUES (@{2})", table, String.Join(", ", columns), String.Join(", @", columns));
@@ -322,7 +320,7 @@ namespace Cavebox
 			cm.Dispose();
 		}
 		
-		private void query(string sql)
+		private static void Execute(string sql)
 		{
 			try
 			{
@@ -337,7 +335,7 @@ namespace Cavebox
 			}
 		}
 		
-		private String fetchOne(String sql)
+		private static string FetchOne(string sql)
 		{
 			try
 			{
@@ -354,9 +352,9 @@ namespace Cavebox
 			}
 		}
 		
-		public void vacuum()
+		public static void Vacuum()
 		{
-			query("VACUUM");
+			Execute("VACUUM");
 		}
 	}
 }

@@ -34,15 +34,15 @@ namespace Cavebox
 			int cid = Convert.ToInt32(discCakebox.SelectedValue.ToString());
 			if(label.Length > 0)
 			{
-				Model.Instance.updateDisc(_id, cid, label);
+				Model.UpdateDisc(_id, cid, label);
 				Console.WriteLine(Lang.GetString("_updatedDisc", _id));
 				if(app.isFilterOn())
 				{
-					app.showCakeboxes();
+					app.ShowCakeboxes();
 				}
 				else
 				{
-					app.showDiscs(sender, e);
+					app.ShowDiscs(sender, e);
 				}
 				closeForm(sender, e);
 			}

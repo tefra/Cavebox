@@ -23,8 +23,7 @@ namespace Cavebox
 				List<string> columns = null;
 				List<string> values = null;
 				
-				Model model = Model.Instance;
-				SQLiteConnection db = model.db;
+				SQLiteConnection db = Model.db;
 				
 				SQLiteTransaction transaction = db.BeginTransaction();
 				using (XmlReader reader = new XmlTextReader(file))
@@ -49,7 +48,7 @@ namespace Cavebox
 						{
 							if(reader.Name == "table")
 							{
-								model.insert(table, columns, values);
+								Model.Insert(table, columns, values);
 							}
 						}
 					}
@@ -59,6 +58,10 @@ namespace Cavebox
 			catch(SQLiteException e)
 			{
 				Console.WriteLine(e.Message);
+			}
+			finally
+			{
+				
 			}
 		}
 	}

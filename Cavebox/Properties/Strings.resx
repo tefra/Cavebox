@@ -192,4 +192,16 @@
   <data name="_movingDiscs" xml:space="preserve">
     <value>Moving the following discs to cakebox: {0}</value>
   </data>
+  <data name="_importCompleted" xml:space="preserve">
+    <value>Importing took {0:0.000} seconds</value>
+  </data>
+  <data name="_exportCompleted" xml:space="preserve">
+    <value>Exporting took {0:0.000} seconds</value>
+  </data>
+  <data name="_applicationClosing" xml:space="preserve">
+    <value>Bye Bye...</value>
+  </data>
+  <data name="_unknownDate" xml:space="preserve">
+    <value>∞</value>
+  </data>
 </root>

@@ -110,10 +110,6 @@ namespace Cavebox
 			this.console = new System.Windows.Forms.RichTextBox();
 			this.consoleActionsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.tabPage1 = new System.Windows.Forms.TabPage();
-			this.listView1 = new System.Windows.Forms.ListView();
-			this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-			this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
 			this.scanWorker = new System.ComponentModel.BackgroundWorker();
 			this.filterTextChangedTimer = new System.Windows.Forms.Timer(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.cakeboxDiscFileSplitContainer)).BeginInit();
@@ -143,7 +139,6 @@ namespace Cavebox
 			this.consoleTabPage.SuspendLayout();
 			this.consoleGroupBox.SuspendLayout();
 			this.consoleActionsMenu.SuspendLayout();
-			this.tabPage1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// cakeboxDiscFileSplitContainer
@@ -194,9 +189,9 @@ namespace Cavebox
 			this.cakeboxesListBox.FormattingEnabled = true;
 			this.cakeboxesListBox.Name = "cakeboxesListBox";
 			this.cakeboxesListBox.ValueMember = "Id";
-			this.cakeboxesListBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBoxDrawItem);
-			this.cakeboxesListBox.SelectedValueChanged += new System.EventHandler(this.showDiscs);
-			this.cakeboxesListBox.DoubleClick += new System.EventHandler(this.openEditCakeboxForm);
+			this.cakeboxesListBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ListBoxDrawItem);
+			this.cakeboxesListBox.SelectedValueChanged += new System.EventHandler(this.ShowDiscs);
+			this.cakeboxesListBox.DoubleClick += new System.EventHandler(this.OpenEditCakeboxForm);
 			this.cakeboxesListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CakeboxesListBoxMouseDown);
 			// 
 			// cakeboxesActionsMenu
@@ -215,14 +210,14 @@ namespace Cavebox
 			this.editCakeboxMenuItem.Image = global::Cavebox.Properties.Images.edit_document;
 			this.editCakeboxMenuItem.Name = "editCakeboxMenuItem";
 			resources.ApplyResources(this.editCakeboxMenuItem, "editCakeboxMenuItem");
-			this.editCakeboxMenuItem.Click += new System.EventHandler(this.openEditCakeboxForm);
+			this.editCakeboxMenuItem.Click += new System.EventHandler(this.OpenEditCakeboxForm);
 			// 
 			// deleteCakeboxMenuItem
 			// 
 			this.deleteCakeboxMenuItem.Image = global::Cavebox.Properties.Images.delete;
 			this.deleteCakeboxMenuItem.Name = "deleteCakeboxMenuItem";
 			resources.ApplyResources(this.deleteCakeboxMenuItem, "deleteCakeboxMenuItem");
-			this.deleteCakeboxMenuItem.Click += new System.EventHandler(this.deleteCakebox);
+			this.deleteCakeboxMenuItem.Click += new System.EventHandler(this.DeleteCakebox);
 			// 
 			// toolStripSeparator2
 			// 
@@ -234,7 +229,7 @@ namespace Cavebox
 			this.massMoveDiscsMenuItem.Image = global::Cavebox.Properties.Images.shapes_move_front;
 			this.massMoveDiscsMenuItem.Name = "massMoveDiscsMenuItem";
 			resources.ApplyResources(this.massMoveDiscsMenuItem, "massMoveDiscsMenuItem");
-			this.massMoveDiscsMenuItem.Click += new System.EventHandler(this.openMassMoveForm);
+			this.massMoveDiscsMenuItem.Click += new System.EventHandler(this.OpenMassMoveForm);
 			// 
 			// discsGroupBox
 			// 
@@ -253,9 +248,9 @@ namespace Cavebox
 			this.discsListBox.FormattingEnabled = true;
 			this.discsListBox.Name = "discsListBox";
 			this.discsListBox.ValueMember = "Id";
-			this.discsListBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBoxDrawItem);
-			this.discsListBox.SelectedValueChanged += new System.EventHandler(this.showFiles);
-			this.discsListBox.DoubleClick += new System.EventHandler(this.openEditDiscForm);
+			this.discsListBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ListBoxDrawItem);
+			this.discsListBox.SelectedValueChanged += new System.EventHandler(this.ShowFiles);
+			this.discsListBox.DoubleClick += new System.EventHandler(this.OpenEditDiscForm);
 			this.discsListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DiscsListBoxMouseDown);
 			// 
 			// discsActionsMenu
@@ -274,14 +269,14 @@ namespace Cavebox
 			this.editDiscMenuItem.Image = global::Cavebox.Properties.Images.edit_document;
 			this.editDiscMenuItem.Name = "editDiscMenuItem";
 			resources.ApplyResources(this.editDiscMenuItem, "editDiscMenuItem");
-			this.editDiscMenuItem.Click += new System.EventHandler(this.openEditDiscForm);
+			this.editDiscMenuItem.Click += new System.EventHandler(this.OpenEditDiscForm);
 			// 
 			// deleteDiscMenuItem
 			// 
 			this.deleteDiscMenuItem.Image = global::Cavebox.Properties.Images.delete;
 			this.deleteDiscMenuItem.Name = "deleteDiscMenuItem";
 			resources.ApplyResources(this.deleteDiscMenuItem, "deleteDiscMenuItem");
-			this.deleteDiscMenuItem.Click += new System.EventHandler(this.deleteDisc);
+			this.deleteDiscMenuItem.Click += new System.EventHandler(this.DeleteDisc);
 			// 
 			// toolStripSeparator3
 			// 
@@ -305,7 +300,7 @@ namespace Cavebox
 			// 
 			this.sortDiscsByIdMenuItem.Name = "sortDiscsByIdMenuItem";
 			resources.ApplyResources(this.sortDiscsByIdMenuItem, "sortDiscsByIdMenuItem");
-			this.sortDiscsByIdMenuItem.Click += new System.EventHandler(this.sortDiscs);
+			this.sortDiscsByIdMenuItem.Click += new System.EventHandler(this.SortDiscs);
 			// 
 			// sortDiscsByLabelMenuItem
 			// 
@@ -313,13 +308,13 @@ namespace Cavebox
 			this.sortDiscsByLabelMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.sortDiscsByLabelMenuItem.Name = "sortDiscsByLabelMenuItem";
 			resources.ApplyResources(this.sortDiscsByLabelMenuItem, "sortDiscsByLabelMenuItem");
-			this.sortDiscsByLabelMenuItem.Click += new System.EventHandler(this.sortDiscs);
+			this.sortDiscsByLabelMenuItem.Click += new System.EventHandler(this.SortDiscs);
 			// 
 			// sortDiscsByFilesNoMenuItem
 			// 
 			this.sortDiscsByFilesNoMenuItem.Name = "sortDiscsByFilesNoMenuItem";
 			resources.ApplyResources(this.sortDiscsByFilesNoMenuItem, "sortDiscsByFilesNoMenuItem");
-			this.sortDiscsByFilesNoMenuItem.Click += new System.EventHandler(this.sortDiscs);
+			this.sortDiscsByFilesNoMenuItem.Click += new System.EventHandler(this.SortDiscs);
 			// 
 			// toolStripSeparator4
 			// 
@@ -332,13 +327,13 @@ namespace Cavebox
 			this.sortDiscsAscendingMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.sortDiscsAscendingMenuItem.Name = "sortDiscsAscendingMenuItem";
 			resources.ApplyResources(this.sortDiscsAscendingMenuItem, "sortDiscsAscendingMenuItem");
-			this.sortDiscsAscendingMenuItem.Click += new System.EventHandler(this.sortDiscs);
+			this.sortDiscsAscendingMenuItem.Click += new System.EventHandler(this.SortDiscs);
 			// 
 			// sortDiscsDescendingMenuItem
 			// 
 			this.sortDiscsDescendingMenuItem.Name = "sortDiscsDescendingMenuItem";
 			resources.ApplyResources(this.sortDiscsDescendingMenuItem, "sortDiscsDescendingMenuItem");
-			this.sortDiscsDescendingMenuItem.Click += new System.EventHandler(this.sortDiscs);
+			this.sortDiscsDescendingMenuItem.Click += new System.EventHandler(this.SortDiscs);
 			// 
 			// filterGroupBox
 			// 
@@ -354,13 +349,13 @@ namespace Cavebox
 			this.clearFilterButton.Image = global::Cavebox.Properties.Images.cancel;
 			this.clearFilterButton.Name = "clearFilterButton";
 			this.clearFilterButton.UseVisualStyleBackColor = true;
-			this.clearFilterButton.Click += new System.EventHandler(this.filterOff);
+			this.clearFilterButton.Click += new System.EventHandler(this.FilterOff);
 			// 
 			// filterTextBox
 			// 
 			resources.ApplyResources(this.filterTextBox, "filterTextBox");
 			this.filterTextBox.Name = "filterTextBox";
-			this.filterTextBox.TextChanged += new System.EventHandler(this.filterTextBoxTextChanged);
+			this.filterTextBox.TextChanged += new System.EventHandler(this.FilterTextBoxTextChanged);
 			// 
 			// discFilesGroupBox
 			// 
@@ -397,7 +392,7 @@ namespace Cavebox
 			// 
 			this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
 			resources.ApplyResources(this.copyToolStripMenuItem, "copyToolStripMenuItem");
-			this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyFilesListClick);
+			this.copyToolStripMenuItem.Click += new System.EventHandler(this.CopyFilesListClick);
 			// 
 			// toolStripSeparator5
 			// 
@@ -409,42 +404,42 @@ namespace Cavebox
 			this.googleToolStripMenuItem.Image = global::Cavebox.Properties.Images.google;
 			this.googleToolStripMenuItem.Name = "googleToolStripMenuItem";
 			resources.ApplyResources(this.googleToolStripMenuItem, "googleToolStripMenuItem");
-			this.googleToolStripMenuItem.Click += new System.EventHandler(this.openSearchUrl);
+			this.googleToolStripMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
 			// 
 			// wikipediaToolStripMenuItem
 			// 
 			this.wikipediaToolStripMenuItem.Image = global::Cavebox.Properties.Images.wikipedia;
 			this.wikipediaToolStripMenuItem.Name = "wikipediaToolStripMenuItem";
 			resources.ApplyResources(this.wikipediaToolStripMenuItem, "wikipediaToolStripMenuItem");
-			this.wikipediaToolStripMenuItem.Click += new System.EventHandler(this.openSearchUrl);
+			this.wikipediaToolStripMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
 			// 
 			// anidbToolStripMenuItem
 			// 
 			this.anidbToolStripMenuItem.Image = global::Cavebox.Properties.Images.anidb;
 			this.anidbToolStripMenuItem.Name = "anidbToolStripMenuItem";
 			resources.ApplyResources(this.anidbToolStripMenuItem, "anidbToolStripMenuItem");
-			this.anidbToolStripMenuItem.Click += new System.EventHandler(this.openSearchUrl);
+			this.anidbToolStripMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
 			// 
 			// imdbToolStripMenuItem
 			// 
 			this.imdbToolStripMenuItem.Image = global::Cavebox.Properties.Images.imdb;
 			this.imdbToolStripMenuItem.Name = "imdbToolStripMenuItem";
 			resources.ApplyResources(this.imdbToolStripMenuItem, "imdbToolStripMenuItem");
-			this.imdbToolStripMenuItem.Click += new System.EventHandler(this.openSearchUrl);
+			this.imdbToolStripMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
 			// 
 			// lastfmToolStripMenuItem
 			// 
 			this.lastfmToolStripMenuItem.Image = global::Cavebox.Properties.Images.lastFM;
 			this.lastfmToolStripMenuItem.Name = "lastfmToolStripMenuItem";
 			resources.ApplyResources(this.lastfmToolStripMenuItem, "lastfmToolStripMenuItem");
-			this.lastfmToolStripMenuItem.Click += new System.EventHandler(this.openSearchUrl);
+			this.lastfmToolStripMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
 			// 
 			// youtubeToolStripMenuItem
 			// 
 			this.youtubeToolStripMenuItem.Image = global::Cavebox.Properties.Images.youtube;
 			this.youtubeToolStripMenuItem.Name = "youtubeToolStripMenuItem";
 			resources.ApplyResources(this.youtubeToolStripMenuItem, "youtubeToolStripMenuItem");
-			this.youtubeToolStripMenuItem.Click += new System.EventHandler(this.openSearchUrl);
+			this.youtubeToolStripMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
 			// 
 			// menuStrip
 			// 
@@ -471,21 +466,21 @@ namespace Cavebox
 			this.newCakeboxToolStripMenuItem.Image = global::Cavebox.Properties.Images.database_1;
 			this.newCakeboxToolStripMenuItem.Name = "newCakeboxToolStripMenuItem";
 			resources.ApplyResources(this.newCakeboxToolStripMenuItem, "newCakeboxToolStripMenuItem");
-			this.newCakeboxToolStripMenuItem.Click += new System.EventHandler(this.openNewCakeboxForm);
+			this.newCakeboxToolStripMenuItem.Click += new System.EventHandler(this.OpenNewCakeboxForm);
 			// 
 			// importToolStripMenuItem
 			// 
 			this.importToolStripMenuItem.Image = global::Cavebox.Properties.Images.database_go;
 			this.importToolStripMenuItem.Name = "importToolStripMenuItem";
 			resources.ApplyResources(this.importToolStripMenuItem, "importToolStripMenuItem");
-			this.importToolStripMenuItem.Click += new System.EventHandler(this.importXml);
+			this.importToolStripMenuItem.Click += new System.EventHandler(this.ImportXml);
 			// 
 			// exportToolStripMenuItem
 			// 
 			this.exportToolStripMenuItem.Image = global::Cavebox.Properties.Images.database_save;
 			this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
 			resources.ApplyResources(this.exportToolStripMenuItem, "exportToolStripMenuItem");
-			this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportXml);
+			this.exportToolStripMenuItem.Click += new System.EventHandler(this.ExportXml);
 			// 
 			// toolStripSeparator1
 			// 
@@ -497,7 +492,7 @@ namespace Cavebox
 			this.rebuildFileCountersToolStripMenuItem.Image = global::Cavebox.Properties.Images.database_gear;
 			this.rebuildFileCountersToolStripMenuItem.Name = "rebuildFileCountersToolStripMenuItem";
 			resources.ApplyResources(this.rebuildFileCountersToolStripMenuItem, "rebuildFileCountersToolStripMenuItem");
-			this.rebuildFileCountersToolStripMenuItem.Click += new System.EventHandler(this.rebuildFileCounters);
+			this.rebuildFileCountersToolStripMenuItem.Click += new System.EventHandler(this.RebuildFileCounters);
 			// 
 			// viewToolStripMenuItem
 			// 
@@ -510,7 +505,7 @@ namespace Cavebox
 			// 
 			this.alwaysOnTopToolStripMenuItem.Name = "alwaysOnTopToolStripMenuItem";
 			resources.ApplyResources(this.alwaysOnTopToolStripMenuItem, "alwaysOnTopToolStripMenuItem");
-			this.alwaysOnTopToolStripMenuItem.Click += new System.EventHandler(this.alwaysOnTopMenuItemClick);
+			this.alwaysOnTopToolStripMenuItem.Click += new System.EventHandler(this.AlwaysOnTopMenuItemClick);
 			// 
 			// helpToolStripMenuItem
 			// 
@@ -576,7 +571,6 @@ namespace Cavebox
 			this.tabControl.Controls.Add(this.mainTabPage);
 			this.tabControl.Controls.Add(this.scanTabPage);
 			this.tabControl.Controls.Add(this.consoleTabPage);
-			this.tabControl.Controls.Add(this.tabPage1);
 			resources.ApplyResources(this.tabControl, "tabControl");
 			this.tabControl.Name = "tabControl";
 			this.tabControl.SelectedIndex = 0;
@@ -623,7 +617,7 @@ namespace Cavebox
 			this.saveNewDiscButton.Image = global::Cavebox.Properties.Images.document_new;
 			this.saveNewDiscButton.Name = "saveNewDiscButton";
 			this.saveNewDiscButton.UseVisualStyleBackColor = true;
-			this.saveNewDiscButton.Click += new System.EventHandler(this.saveNewDisc);
+			this.saveNewDiscButton.Click += new System.EventHandler(this.SaveNewDisc);
 			// 
 			// newDiscLabelTextBox
 			// 
@@ -667,7 +661,7 @@ namespace Cavebox
 			// 
 			this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
 			resources.ApplyResources(this.resetToolStripMenuItem, "resetToolStripMenuItem");
-			this.resetToolStripMenuItem.Click += new System.EventHandler(this.scanWorkerReset);
+			this.resetToolStripMenuItem.Click += new System.EventHandler(this.ScanWorkerReset);
 			// 
 			// scanDriveGroupBox
 			// 
@@ -684,7 +678,7 @@ namespace Cavebox
 			this.stopScanButton.Image = global::Cavebox.Properties.Images.MD_stop;
 			this.stopScanButton.Name = "stopScanButton";
 			this.stopScanButton.UseVisualStyleBackColor = true;
-			this.stopScanButton.Click += new System.EventHandler(this.scanWorkerStop);
+			this.stopScanButton.Click += new System.EventHandler(this.ScanWorkerStop);
 			// 
 			// scanDrive
 			// 
@@ -700,7 +694,7 @@ namespace Cavebox
 			this.startScanButton.Image = global::Cavebox.Properties.Images.MD_play;
 			this.startScanButton.Name = "startScanButton";
 			this.startScanButton.UseVisualStyleBackColor = true;
-			this.startScanButton.Click += new System.EventHandler(this.scanWorkerStart);
+			this.startScanButton.Click += new System.EventHandler(this.ScanWorkerStart);
 			// 
 			// consoleTabPage
 			// 
@@ -735,44 +729,18 @@ namespace Cavebox
 			// 
 			this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
 			resources.ApplyResources(this.clearToolStripMenuItem, "clearToolStripMenuItem");
-			this.clearToolStripMenuItem.Click += new System.EventHandler(this.clearConsole);
-			// 
-			// tabPage1
-			// 
-			this.tabPage1.Controls.Add(this.listView1);
-			resources.ApplyResources(this.tabPage1, "tabPage1");
-			this.tabPage1.Name = "tabPage1";
-			this.tabPage1.UseVisualStyleBackColor = true;
-			// 
-			// listView1
-			// 
-			this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-									this.columnHeader1,
-									this.columnHeader2});
-			this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-			resources.ApplyResources(this.listView1, "listView1");
-			this.listView1.Name = "listView1";
-			this.listView1.UseCompatibleStateImageBehavior = false;
-			this.listView1.View = System.Windows.Forms.View.Details;
-			// 
-			// columnHeader1
-			// 
-			resources.ApplyResources(this.columnHeader1, "columnHeader1");
-			// 
-			// columnHeader2
-			// 
-			resources.ApplyResources(this.columnHeader2, "columnHeader2");
+			this.clearToolStripMenuItem.Click += new System.EventHandler(this.ClearConsole);
 			// 
 			// scanWorker
 			// 
 			this.scanWorker.WorkerSupportsCancellation = true;
-			this.scanWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.scanWorkerDoWork);
-			this.scanWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.scanWorkerCompleted);
+			this.scanWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.ScanWorkerDoWork);
+			this.scanWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.ScanWorkerCompleted);
 			// 
 			// filterTextChangedTimer
 			// 
 			this.filterTextChangedTimer.Interval = 175;
-			this.filterTextChangedTimer.Tick += new System.EventHandler(this.filter);
+			this.filterTextChangedTimer.Tick += new System.EventHandler(this.Filter);
 			// 
 			// MainForm
 			// 
@@ -783,7 +751,7 @@ namespace Cavebox
 			this.Controls.Add(this.menuStrip);
 			this.Icon = global::Cavebox.Properties.Images.database;
 			this.Name = "MainForm";
-			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.mainFormClosed);
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainFormClosing);
 			this.cakeboxDiscFileSplitContainer.Panel1.ResumeLayout(false);
 			this.cakeboxDiscFileSplitContainer.Panel2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.cakeboxDiscFileSplitContainer)).EndInit();
@@ -815,14 +783,9 @@ namespace Cavebox
 			this.consoleTabPage.ResumeLayout(false);
 			this.consoleGroupBox.ResumeLayout(false);
 			this.consoleActionsMenu.ResumeLayout(false);
-			this.tabPage1.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
-		private System.Windows.Forms.ColumnHeader columnHeader2;
-		private System.Windows.Forms.ColumnHeader columnHeader1;
-		private System.Windows.Forms.ListView listView1;
-		private System.Windows.Forms.TabPage tabPage1;
 		private System.Windows.Forms.Button stopScanButton;
 		private System.Windows.Forms.Timer filterTextChangedTimer;
 		private System.Windows.Forms.RichTextBox console;

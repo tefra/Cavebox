@@ -64,8 +64,8 @@ namespace Cavebox
 					discs.Add(item.Id);
 					Console.Write(item.Value+"\n");
 				}
-				Model.Instance.moveDiscs(target, discs);
-				app.showCakeboxes();
+				Model.MoveDiscs(target, discs);
+				app.ShowCakeboxes();
 				closeForm(sender, e);
 			}
 		}

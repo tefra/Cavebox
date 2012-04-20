@@ -34,7 +34,7 @@ namespace Cavebox
 		{
 			try
 			{
-				SQLiteCommand cm = Model.Instance.db.CreateCommand();
+				SQLiteCommand cm = Model.db.CreateCommand();
 				cm.CommandText = "SELECT * FROM "+table+" WHERE 1";
 				SQLiteDataReader row = cm.ExecuteReader();
 				while(row.Read())
