@@ -21,14 +21,13 @@ namespace Cavebox
 		public EditCakebox(MainForm form, int id = 0, string label = null)
 		{
 			InitializeComponent();
-			app = form;
-			_id = id;
-			_label = label;
 			if(id > 0)
 			{
 				this.Text += " #"+id;
 			}
-			
+			app = form;
+			_id = id;
+			_label = label;
 			cakeboxLabel.Text = label;
 		}
 		
