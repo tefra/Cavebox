@@ -35,6 +35,7 @@ namespace Cavebox
 			if(Model.Connect("Data Source=data.db"))
 			{
 				Console.WriteLine(Lang.GetString("_sqliteStartinUp", Model.SQLiteVersion(), Model.Status()));
+				Model.Install();
 			}
 			else
 			{
@@ -537,7 +538,11 @@ namespace Cavebox
 		
 		private void RebuildFileCounters(object sender, EventArgs e)
 		{
+			Cursor.Current = Cursors.WaitCursor;
+			stopWatch = DateTime.Now;
 			Model.RebuildFileCounters();
+			Console.WriteLine(Lang.GetString("_rebuildingFileCountersCompleted", (DateTime.Now - stopWatch).TotalSeconds));
+			Cursor.Current = Cursors.Default;
 		}
 		
 		private void ExportXml(object sender, EventArgs e)
@@ -545,10 +550,12 @@ namespace Cavebox
 			FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
 			if(folderBrowserDialog.ShowDialog() == DialogResult.OK)
 			{
+				Cursor.Current = Cursors.WaitCursor;
 				string file = folderBrowserDialog.SelectedPath + Path.DirectorySeparatorChar + DateTime.Now.ToString("yyyy-MM-dd-HHmmss") + ".xml";
 				stopWatch = DateTime.Now;
 				new XMLExport(file);
 				Console.WriteLine(Lang.GetString("_exportCompleted", (DateTime.Now - stopWatch).TotalSeconds));
+				Cursor.Current = Cursors.Default;
 			}
 		}
 		
@@ -559,9 +566,11 @@ namespace Cavebox
 			openFileDialog.Title = Lang.GetString("_selectBackupFile");
 			if (openFileDialog.ShowDialog() == DialogResult.OK)
 			{
+				Cursor.Current = Cursors.WaitCursor;
 				stopWatch = DateTime.Now;
 				new XMLImport(openFileDialog.FileName);
 				Console.WriteLine(Lang.GetString("_importCompleted", (DateTime.Now - stopWatch).TotalSeconds));
+				Cursor.Current = Cursors.Default;
 				ShowCakeboxes(0, true);
 			}
 		}

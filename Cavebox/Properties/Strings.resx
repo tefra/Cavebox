@@ -204,4 +204,7 @@
   <data name="_unknownDate" xml:space="preserve">
     <value>∞</value>
   </data>
+  <data name="_rebuildingFileCountersCompleted" xml:space="preserve">
+    <value>Rebuilding files counters took {0:0.000} seconds</value>
+  </data>
 </root>
