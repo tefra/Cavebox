@@ -180,4 +180,16 @@
   <data name="_installed" xml:space="preserve">
     <value>Valid DB Schema Found</value>
   </data>
+  <data name="_addedNewCakebox" xml:space="preserve">
+    <value>Added new cakebox: {0}</value>
+  </data>
+  <data name="_updatedCakebox" xml:space="preserve">
+    <value>Updated cakebox #{0}</value>
+  </data>
+  <data name="_updatedDisc" xml:space="preserve">
+    <value>Updated disk #{0}</value>
+  </data>
+  <data name="_movingDiscs" xml:space="preserve">
+    <value>Moving the following discs to cakebox: {0}</value>
+  </data>
 </root>

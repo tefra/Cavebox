@@ -56,13 +56,13 @@ namespace Cavebox
 			int target = getTargetCakeboxId();
 			if(target != source && selectDiscs.CheckedItems.Count > 0)
 			{
-				Console.WriteLine("Moving discs to: " + selectCakebox.SelectedText);
+				Console.WriteLine(Lang.GetString("_movingDiscs", selectCakebox.SelectedItem));
 				List<int> discs = new List<int>();
 				foreach(object itemChecked in selectDiscs.CheckedItems)
 				{
 					Index item = (Index) itemChecked;
 					discs.Add(item.Id);
-					Console.WriteLine(item.Value);
+					Console.Write(item.Value+"\n");
 				}
 				Model.Instance.moveDiscs(target, discs);
 				app.showCakeboxes();

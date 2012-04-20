@@ -28,8 +28,6 @@ namespace Cavebox
 		int discsOrderWay = 0;
 		DateTime stopWatch;
 
-
-				
 		public MainForm()
 		{
 			InitializeComponent();

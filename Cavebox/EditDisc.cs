@@ -35,6 +35,7 @@ namespace Cavebox
 			if(label.Length > 0)
 			{
 				Model.Instance.updateDisc(_id, cid, label);
+				Console.WriteLine(Lang.GetString("_updatedDisc", _id));
 				if(app.isFilterOn())
 				{
 					app.showCakeboxes();

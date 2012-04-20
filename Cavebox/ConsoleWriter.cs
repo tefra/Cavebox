@@ -24,7 +24,7 @@ namespace Cavebox
 		
 		public override void Write(string str)
 		{
-			console.AppendText(str + "\n");
+			console.AppendText(str);
 		}
 
 		public override void WriteLine(string str)

@@ -30,6 +30,14 @@ namespace Cavebox
 			String label = cakeboxLabel.Text.Trim();
 			if(label.Length > 0)
 			{
+				if(_id > 0)
+				{
+					Console.WriteLine(Lang.GetString("_updatedCakebox", _id));
+				}
+				else
+				{
+					Console.WriteLine(Lang.GetString("_addedNewCakebox", label));
+				}
 				Model.Instance.saveCakebox(label, _id);
 				app.refreshStatusBar(true, false);
 				app.showCakeboxes(_id, true);
