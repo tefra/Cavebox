@@ -19,7 +19,6 @@ namespace Cavebox
 	public partial class MainForm : Form
 	{
 		List<Index> cakeboxes = null;
-
 		string _filter;
 		string _filterLike;
 		int scanTotalFiles = 0;

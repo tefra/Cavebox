@@ -56,6 +56,7 @@ namespace Cavebox
 			// 
 			resources.ApplyResources(this.discLabel, "discLabel");
 			this.discLabel.Name = "discLabel";
+			this.discLabel.TextChanged += new System.EventHandler(this.enableSaveButton);
 			// 
 			// discCakebox
 			// 
@@ -66,13 +67,14 @@ namespace Cavebox
 			resources.ApplyResources(this.discCakebox, "discCakebox");
 			this.discCakebox.Name = "discCakebox";
 			this.discCakebox.ValueMember = "Id";
+			this.discCakebox.SelectedValueChanged += new System.EventHandler(this.enableSaveButton);
 			// 
 			// saveButton
 			// 
 			resources.ApplyResources(this.saveButton, "saveButton");
 			this.saveButton.Name = "saveButton";
 			this.saveButton.UseVisualStyleBackColor = true;
-			this.saveButton.Click += new System.EventHandler(this.saveDisc);
+			this.saveButton.Click += new System.EventHandler(this.SaveDisc);
 			// 
 			// cancelButton
 			// 
@@ -80,7 +82,7 @@ namespace Cavebox
 			resources.ApplyResources(this.cancelButton, "cancelButton");
 			this.cancelButton.Name = "cancelButton";
 			this.cancelButton.UseVisualStyleBackColor = true;
-			this.cancelButton.Click += new System.EventHandler(this.closeForm);
+			this.cancelButton.Click += new System.EventHandler(this.CloseForm);
 			// 
 			// EditDisc
 			// 

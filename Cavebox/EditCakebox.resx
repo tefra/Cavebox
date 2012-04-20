@@ -140,6 +140,9 @@
   <data name="&gt;&gt;cakeboxLabel.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="saveButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="saveButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>216, 38</value>
   </data>

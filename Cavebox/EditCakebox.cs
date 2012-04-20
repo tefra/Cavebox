@@ -15,6 +15,7 @@ namespace Cavebox
 	public partial class EditCakebox : Form
 	{
 		int _id;
+		string _label;
 		MainForm app;
 		
 		public EditCakebox(MainForm form, int id = 0, string label = null)
@@ -22,13 +23,14 @@ namespace Cavebox
 			InitializeComponent();
 			app = form;
 			_id = id;
+			_label = label;
 			cakeboxLabel.Text = label;
 		}
 		
-		private void saveCakebox(object sender, EventArgs e)
+		private void SaveCakebox(object sender, EventArgs e)
 		{
 			String label = cakeboxLabel.Text.Trim();
-			if(label.Length > 0)
+			if(label != _label && label.Length > 0)
 			{
 				if(_id > 0)
 				{
@@ -41,13 +43,19 @@ namespace Cavebox
 				Model.SaveCakebox(label, _id);
 				app.RefreshStatusBar(true, false);
 				app.ShowCakeboxes(_id, true);
-				closeForm(sender, e);
+				CloseForm(sender, e);
 			}
 		}
 		
-		private void closeForm(object sender, EventArgs e)
+		private void CloseForm(object sender, EventArgs e)
 		{
 			Dispose();
+		}
+		
+		private void CakeboxLabelTextChanged(object sender, EventArgs e)
+		{
+			string label = cakeboxLabel.Text.Trim();
+			saveButton.Enabled = (label != _label && label.Length > 0);
 		}
 	}
 }

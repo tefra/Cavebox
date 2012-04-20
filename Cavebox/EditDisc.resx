@@ -212,6 +212,9 @@
   <data name="&gt;&gt;discCakebox.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="saveButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="saveButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>216, 64</value>
   </data>

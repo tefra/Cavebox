@@ -43,13 +43,14 @@ namespace Cavebox
 			// 
 			resources.ApplyResources(this.cakeboxLabel, "cakeboxLabel");
 			this.cakeboxLabel.Name = "cakeboxLabel";
+			this.cakeboxLabel.TextChanged += new System.EventHandler(this.CakeboxLabelTextChanged);
 			// 
 			// saveButton
 			// 
 			resources.ApplyResources(this.saveButton, "saveButton");
 			this.saveButton.Name = "saveButton";
 			this.saveButton.UseVisualStyleBackColor = true;
-			this.saveButton.Click += new System.EventHandler(this.saveCakebox);
+			this.saveButton.Click += new System.EventHandler(this.SaveCakebox);
 			// 
 			// Cancel
 			// 
@@ -57,7 +58,7 @@ namespace Cavebox
 			resources.ApplyResources(this.Cancel, "Cancel");
 			this.Cancel.Name = "Cancel";
 			this.Cancel.UseVisualStyleBackColor = true;
-			this.Cancel.Click += new System.EventHandler(this.closeForm);
+			this.Cancel.Click += new System.EventHandler(this.CloseForm);
 			// 
 			// EditCakebox
 			// 

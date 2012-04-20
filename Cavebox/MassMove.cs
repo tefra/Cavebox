@@ -30,22 +30,7 @@ namespace Cavebox
 			selectCakebox.DataSource = app.newDiscCakebox.DataSource;
 			selectCakebox.SelectedValue = source;
 		}
-		
-		private int getTargetCakeboxId()
-		{
-			return Convert.ToInt32(selectCakebox.SelectedValue.ToString());
-		}
-		
-		private void ToggleButtonClick(object sender, EventArgs e)
-		{
-			checkFlag = !checkFlag;
-			for(int i = 0; i < selectDiscs.Items.Count; i++)
-			{
-				selectDiscs.SetItemChecked(i, checkFlag);
-			}
-			enableMoveButton(sender, e);
-		}
-		
+	
 		private void closeForm(object sender, EventArgs e)
 		{
 			Dispose();
@@ -73,6 +58,21 @@ namespace Cavebox
 		private void enableMoveButton(object sender, EventArgs e)
 		{
 			moveButton.Enabled = (selectDiscs.CheckedItems.Count > 0 && getTargetCakeboxId() != source);
+		}
+		
+		private int getTargetCakeboxId()
+		{
+			return Convert.ToInt32(selectCakebox.SelectedValue.ToString());
+		}
+		
+		private void ToggleButtonClick(object sender, EventArgs e)
+		{
+			checkFlag = !checkFlag;
+			for(int i = 0; i < selectDiscs.Items.Count; i++)
+			{
+				selectDiscs.SetItemChecked(i, checkFlag);
+			}
+			enableMoveButton(sender, e);
 		}
 	}
 }

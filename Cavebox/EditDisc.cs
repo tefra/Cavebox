@@ -16,6 +16,8 @@ namespace Cavebox
 	{
 		
 		int _id;
+		int _cid;
+		string _label;
 		MainForm app;
 		
 		public EditDisc(MainForm form, int id, int cid, string label)
@@ -23,16 +25,18 @@ namespace Cavebox
 			InitializeComponent();
 			app = form;
 			_id = id;
+			_cid = cid;
+			_label = label;
 			discCakebox.DataSource = app.newDiscCakebox.DataSource;
 			discLabel.Text = label;
 			discCakebox.SelectedValue = cid;
 		}
 		
-		private void saveDisc(object sender, EventArgs e)
+		private void SaveDisc(object sender, EventArgs e)
 		{
 			String label = discLabel.Text.Trim();
-			int cid = Convert.ToInt32(discCakebox.SelectedValue.ToString());
-			if(label.Length > 0)
+			int cid = getTargetCakeboxId();
+			if((label != _label && label.Length > 0) || getTargetCakeboxId() != _cid)
 			{
 				Model.UpdateDisc(_id, cid, label);
 				Console.WriteLine(Lang.GetString("_updatedDisc", _id));
@@ -44,13 +48,25 @@ namespace Cavebox
 				{
 					app.ShowDiscs(sender, e);
 				}
-				closeForm(sender, e);
+				CloseForm(sender, e);
 			}
 		}
 		
-		private void closeForm(object sender, EventArgs e)
+		private void CloseForm(object sender, EventArgs e)
 		{
 			Dispose();
 		}
+		
+		private void enableSaveButton(object sender, EventArgs e)
+		{
+			string label = discLabel.Text.Trim();
+			saveButton.Enabled = ((label != _label && label.Length > 0) || getTargetCakeboxId() != _cid);
+		}
+		
+		private int getTargetCakeboxId()
+		{
+			return Convert.ToInt32(discCakebox.SelectedValue.ToString());
+		}
+		
 	}
 }
