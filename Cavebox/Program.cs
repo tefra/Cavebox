@@ -22,7 +22,7 @@ namespace Cavebox
 		{
 			if (!Program.isSingleton())
 			{
-				MessageBox.Show("Cakebox Archive is already running!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+				MessageBox.Show("Cavebox is already running!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
 			}
 			else
 			{
@@ -38,11 +38,11 @@ namespace Cavebox
 		{
 			try
 			{
-				Mutex.OpenExisting("Cakebox Archive");
+				Mutex.OpenExisting("Cavebox");
 			}
 			catch
 			{
-				Program._m = new Mutex(true, "Cakebox Archive");
+				Program._m = new Mutex(true, "Cavebox");
 				return true;
 			}
 			return false;
