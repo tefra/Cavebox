@@ -136,7 +136,9 @@
     <value>v2.0.0
 - Renamed application to Cavebox
 - Ported application to C# - SQLite
-- Isn't the above good enough ?
+-&gt; Removed sql import/export
+-&gt; Removed window preferenses
+-&gt; Limited scan procedure to optical drives only
 -------------------------------------------------------------
 v1.5.0
 - Redesigned from scratch to get rid of the Swing Application Framework
@@ -236,7 +238,7 @@ v1.3.2
     <value>Changelog</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Changelog</value>
+    <value>ChangelogForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

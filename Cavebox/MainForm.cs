@@ -75,16 +75,28 @@ namespace Cavebox
 				BuildCakeboxesCache();
 				RefreshStatusBar(true, true);
 			}
+			Console.WriteLine("ShowCakeboxes");
 			List<Index> newDataSource = Model.FetchCakeboxes(_filterLike);
 			cakeboxesListBox.SelectedValueChanged -= ShowDiscs;
 			cakeboxesListBox.DataSource = newDataSource;
 			cakeboxesListBox.SelectedValueChanged += ShowDiscs;
-			cakeboxesListBox.SelectedValue = selectValue;
+			
+			if(newDataSource.Count == 0)
+			{
+				ShowDiscs(null, EventArgs.Empty);
+			}
+			else
+			{
+				cakeboxesListBox.SelectedValue = selectValue;
+			}
+			
+			
 			UpdateNumTitle(cakeboxesGroupBox, newDataSource.Count);
 		}
 
 		public void ShowDiscs(object sender, EventArgs e)
 		{
+			Console.WriteLine("ShowDiscs");
 			List<Index> newDataSource = (cakeboxesListBox.SelectedIndex > -1) ? Model.FetchDiscsByCakeboxId(cakeboxesListBox.SelectedValue.ToString(), _filterLike, discsOrderBy, discsOrderWay) : new List<Index>();
 			discsListBox.SelectedValueChanged -= ShowFiles;
 			discsListBox.DataSource = newDataSource;
@@ -96,6 +108,7 @@ namespace Cavebox
 
 		private void ShowFiles(object sender, EventArgs e)
 		{
+			Console.WriteLine("ShowFiles");
 			filesList.Clear();
 			if(discsListBox.SelectedIndex > -1)
 			{
@@ -146,12 +159,14 @@ namespace Cavebox
 			if(filter.Length > 0)
 			{
 				_filterLike = null;
-				string[] tokens = filter.ToUpper().Split(' ');
+				string[] tokens = filter.Split(' ');
 				for(int i = 0; i < tokens.Length; i++)
 				{
 					_filterLike += "%" + tokens[i] + "%";
 				}
 				_filter = filter;
+				Console.WriteLine(_filterLike);
+				
 				clearFilterButton.Enabled = true;
 			}
 			else

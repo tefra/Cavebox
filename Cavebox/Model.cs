@@ -23,6 +23,7 @@ namespace Cavebox
 			try
 			{
 				db = new SQLiteConnection(connectionString).OpenAndReturn();
+				//ExecuteNonQuery("PRAGMA ENCODING='UTF-8'");
 				return true;
 			}
 			catch
@@ -105,7 +106,7 @@ namespace Cavebox
 				
 				string sql = (filter == null) ?
 					"SELECT id, label FROM cakebox ORDER BY label COLLATE NOCASE ASC" :
-					"SELECT c.id, c.label FROM cakebox AS c LEFT JOIN disc AS d on d.cid = c.id WHERE files LIKE '" + filter + "' GROUP BY c.id";
+					"SELECT c.id, c.label FROM cakebox AS c LEFT JOIN disc AS d on d.cid = c.id WHERE d.files LIKE '" + filter + "' GROUP BY c.id";
 
 				SQLiteCommand c = CreateCommand(sql);
 				SQLiteDataReader r = c.ExecuteReader();
