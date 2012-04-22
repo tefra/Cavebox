@@ -90,7 +90,6 @@ namespace Cavebox
 			{
 				cakeboxesListBox.SelectedValue = selectValue;
 			}
-			
 		}
 
 		public void ShowDiscs(object sender, EventArgs e)

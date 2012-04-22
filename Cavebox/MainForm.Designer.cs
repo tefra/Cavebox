@@ -188,7 +188,6 @@ namespace Cavebox
 			this.cakeboxesListBox.ContextMenuStrip = this.cakeboxesActionsMenu;
 			this.cakeboxesListBox.DisplayMember = "Value";
 			resources.ApplyResources(this.cakeboxesListBox, "cakeboxesListBox");
-			this.cakeboxesListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
 			this.cakeboxesListBox.FormattingEnabled = true;
 			this.cakeboxesListBox.Name = "cakeboxesListBox";
 			this.cakeboxesListBox.ValueMember = "Id";
