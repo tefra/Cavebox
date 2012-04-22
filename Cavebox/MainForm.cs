@@ -155,17 +155,20 @@ namespace Cavebox
 			string filter = filterTextBox.Text.Trim();
 			if(filter.Length > 0)
 			{
-				_filterLike = String.Format("%{0}%", String.Join("%", filter.ToLower().Split(' ')));
-				_filter = filter;
-				Console.WriteLine(_filterLike);
-				clearFilterButton.Enabled = true;
+				if(filter != _filter)
+				{
+					_filterLike = String.Format("%{0}%", String.Join("%", filter.ToLower().Split(' ')));
+					_filter = filter;
+					clearFilterButton.Enabled = true;
+					ShowCakeboxes();
+				}
 			}
 			else
 			{
 				clearFilterButton.Enabled = false;
 				_filter = _filterLike = null;
+				ShowCakeboxes();
 			}
-			ShowCakeboxes();
 		}
 		
 		private void FilterOff(object sender, EventArgs e)
@@ -422,6 +425,7 @@ namespace Cavebox
 					backcolor = (index % 2 == 0) ? Color.WhiteSmoke :  Color.White;
 					forecolor = SystemColors.WindowText;
 				}
+				
 				g.FillRectangle(new SolidBrush(backcolor), e.Bounds);
 				g.DrawString(listbox.Items[index].ToString(), e.Font, new SolidBrush(forecolor), e.Bounds, StringFormat.GenericDefault);
 			}

@@ -178,7 +178,7 @@
     <value>3, 16</value>
   </data>
   <data name="cakeboxesListBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>252, 213</value>
+    <value>255, 218</value>
   </data>
   <data name="cakeboxesListBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -202,7 +202,7 @@
     <value>0, 0</value>
   </data>
   <data name="cakeboxesGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 232</value>
+    <value>261, 237</value>
   </data>
   <data name="cakeboxesGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -313,7 +313,7 @@
     <value>3, 16</value>
   </data>
   <data name="discsListBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>252, 213</value>
+    <value>257, 218</value>
   </data>
   <data name="discsListBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -337,7 +337,7 @@
     <value>0, 0</value>
   </data>
   <data name="discsGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 232</value>
+    <value>263, 237</value>
   </data>
   <data name="discsGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -373,10 +373,10 @@
     <value>1</value>
   </data>
   <data name="cakeboxDiscSplitContainer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>520, 232</value>
+    <value>528, 237</value>
   </data>
   <data name="cakeboxDiscSplitContainer.SplitterDistance" type="System.Int32, mscorlib">
-    <value>258</value>
+    <value>261</value>
   </data>
   <data name="cakeboxDiscSplitContainer.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -406,7 +406,7 @@
     <value>NoControl</value>
   </data>
   <data name="clearFilterButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>464, 20</value>
+    <value>472, 20</value>
   </data>
   <data name="clearFilterButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>50, 21</value>
@@ -433,7 +433,7 @@
     <value>7, 20</value>
   </data>
   <data name="filterTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>451, 20</value>
+    <value>459, 20</value>
   </data>
   <data name="filterTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -454,7 +454,7 @@
     <value>0, 0</value>
   </data>
   <data name="filterGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>520, 55</value>
+    <value>528, 55</value>
   </data>
   <data name="filterGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -553,7 +553,7 @@
     <value>3, 16</value>
   </data>
   <data name="filesList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>514, 166</value>
+    <value>522, 172</value>
   </data>
   <data name="filesList.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -583,7 +583,7 @@
     <value>0, 0</value>
   </data>
   <data name="discFilesGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>520, 185</value>
+    <value>528, 191</value>
   </data>
   <data name="discFilesGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -619,10 +619,10 @@
     <value>1</value>
   </data>
   <data name="cakeboxDiscFileSplitContainer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>520, 482</value>
+    <value>528, 493</value>
   </data>
   <data name="cakeboxDiscFileSplitContainer.SplitterDistance" type="System.Int32, mscorlib">
-    <value>293</value>
+    <value>298</value>
   </data>
   <data name="cakeboxDiscFileSplitContainer.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -699,6 +699,9 @@
   <data name="vacuumToolStripMenuItem.Text" xml:space="preserve">
     <value>Vacuum</value>
   </data>
+  <data name="vacuumToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Rebuild the entire database</value>
+  </data>
   <data name="toolsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 20</value>
   </data>
@@ -721,7 +724,7 @@
     <value>0, 0</value>
   </data>
   <data name="menuStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>534, 24</value>
+    <value>542, 24</value>
   </data>
   <data name="menuStrip.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -781,10 +784,10 @@
     <value>False</value>
   </data>
   <data name="statusStrip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 538</value>
+    <value>0, 549</value>
   </data>
   <data name="statusStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>534, 24</value>
+    <value>542, 24</value>
   </data>
   <data name="statusStrip.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -811,7 +814,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="mainTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>526, 488</value>
+    <value>534, 499</value>
   </data>
   <data name="mainTabPage.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1186,7 +1189,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="scanTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>526, 488</value>
+    <value>534, 499</value>
   </data>
   <data name="scanTabPage.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1231,7 +1234,7 @@
     <value>3, 16</value>
   </data>
   <data name="console.Size" type="System.Drawing.Size, System.Drawing">
-    <value>514, 463</value>
+    <value>522, 474</value>
   </data>
   <data name="console.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1261,7 +1264,7 @@
     <value>3, 3</value>
   </data>
   <data name="consoleGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>520, 482</value>
+    <value>528, 493</value>
   </data>
   <data name="consoleGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1288,7 +1291,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="consoleTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>526, 488</value>
+    <value>534, 499</value>
   </data>
   <data name="consoleTabPage.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1315,7 +1318,7 @@
     <value>0, 24</value>
   </data>
   <data name="tabControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>534, 514</value>
+    <value>542, 525</value>
   </data>
   <data name="tabControl.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -1348,7 +1351,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>534, 562</value>
+    <value>542, 573</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>550, 600</value>
