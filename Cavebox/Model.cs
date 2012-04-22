@@ -7,7 +7,6 @@ using System;
 
 using System.Collections.Generic;
 using System.Data.SQLite;
-using System.Windows.Forms;
 
 namespace Cavebox
 {
@@ -22,8 +21,7 @@ namespace Cavebox
 		{
 			try
 			{
-				db = new SQLiteConnection(connectionString).OpenAndReturn();
-				//ExecuteNonQuery("PRAGMA ENCODING='UTF-8'");
+				db = new SQLiteConnection(connectionString).OpenAndReturn();				
 				return true;
 			}
 			catch
@@ -55,17 +53,25 @@ namespace Cavebox
 		public static void Install()
 		{
 			try
-			{
-				SQLiteCommand c = CreateCommand("CREATE TABLE cakebox (id INTEGER PRIMARY KEY, label TEXT NOT NULL);");
-				c.ExecuteNonQuery();
-				c.CommandText = "CREATE TABLE disc (id INTEGER PRIMARY KEY, cid INTEGER DEFAULT 0, label TEXT NOT NULL, files TEXT NOT NULL, filesno INTEGER DEFAULT 0, added INTEGER NOT NULL DEFAULT 0);";
-				c.ExecuteNonQuery();
-				c.Dispose();
-				Console.WriteLine(Lang.GetString("_installing"));
+			{				
+				ExecuteNonQuery(
+					"CREATE TABLE IF NOT EXISTS cakebox ("
+					+ " id INTEGER PRIMARY KEY, "
+					+ " label TEXT NOT NULL);"
+					+ "CREATE TABLE IF NOT EXISTS disc ("
+					+ " id INTEGER PRIMARY KEY, "
+					+ " cid INTEGER DEFAULT 0, "
+					+ " label TEXT NOT NULL, "
+					+ " files TEXT NOT NULL, "
+					+ " filesno INTEGER DEFAULT 0, "
+					+ " added INTEGER NOT NULL DEFAULT 0);"
+					+ "CREATE INDEX IF NOT EXISTS disc_cid ON disc (cid ASC);"
+					+ "CREATE INDEX IF NOT EXISTS disc_files ON disc (files ASC);"
+				);
 			}
-			catch
+			catch(SQLiteException e)
 			{
-				Console.WriteLine(Lang.GetString("_installed"));
+				Console.WriteLine(e.Message);
 			}
 		}
 
@@ -98,15 +104,23 @@ namespace Cavebox
 			}
 		}
 		
+		[SQLiteFunction(Name = "ToLower", Arguments = 1, FuncType = FunctionType.Scalar)]
+		public class ToLower: SQLiteFunction
+		{
+			public override object Invoke(object[] args)
+			{
+				return args[0].ToString().ToLower();
+			}
+		}	
+		
 		public static List<Index> FetchCakeboxes(string filter = null)
 		{
 			List<Index> list = new List<Index>();
 			try
 			{
-				
 				string sql = (filter == null) ?
 					"SELECT id, label FROM cakebox ORDER BY label COLLATE NOCASE ASC" :
-					"SELECT c.id, c.label FROM cakebox AS c LEFT JOIN disc AS d on d.cid = c.id WHERE d.files LIKE '" + filter + "' GROUP BY c.id";
+					"SELECT c.id, c.label FROM cakebox AS c LEFT JOIN disc AS d on d.cid = c.id WHERE ToLower(d.files) LIKE '" + filter + "' GROUP BY c.id";
 
 				SQLiteCommand c = CreateCommand(sql);
 				SQLiteDataReader r = c.ExecuteReader();
@@ -145,7 +159,7 @@ namespace Cavebox
 				orderClause += (orderWay == 0) ? " ASC" : " DESC";
 				
 				string sql = (filter != null) ?
-					"SELECT id, label, filesno FROM disc WHERE cid = "+ id+" AND files LIKE '" + filter + "' ORDER BY "+orderClause :
+					"SELECT id, label, filesno FROM disc WHERE cid = "+ id+" AND ToLower(files) LIKE '" + filter + "' ORDER BY "+orderClause :
 					"SELECT id, label, filesno FROM disc WHERE cid = "+ id+" ORDER BY "+orderClause;
 
 				SQLiteCommand c = CreateCommand(sql);

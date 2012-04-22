@@ -42,14 +42,14 @@ namespace Cavebox
 				this.Dispose();
 			}
 			ShowCakeboxes(0, true);
-			scanDrive.DataSource = DriveInfo.GetDrives().Where(d => d.DriveType == DriveType.CDRom).ToArray();
+			scanDrive.DataSource = DriveInfo.GetDrives().Where(d => d.Name != String.Empty  /*d.DriveType == DriveType.CDRom*/).ToArray();
 		}
 		
 		private void MainFormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
 		{
-			Model.Vacuum();
-			Model.Close();
 			Console.WriteLine(Lang.GetString("_applicationClosing"));
+			Model.Close();
+			
 		}
 		
 		private void ExitApplication(object sender, EventArgs e)
@@ -75,11 +75,12 @@ namespace Cavebox
 				BuildCakeboxesCache();
 				RefreshStatusBar(true, true);
 			}
-			Console.WriteLine("ShowCakeboxes");
+			
 			List<Index> newDataSource = Model.FetchCakeboxes(_filterLike);
 			cakeboxesListBox.SelectedValueChanged -= ShowDiscs;
 			cakeboxesListBox.DataSource = newDataSource;
 			cakeboxesListBox.SelectedValueChanged += ShowDiscs;
+			UpdateNumTitle(cakeboxesGroupBox, newDataSource.Count);
 			
 			if(newDataSource.Count == 0)
 			{
@@ -90,13 +91,10 @@ namespace Cavebox
 				cakeboxesListBox.SelectedValue = selectValue;
 			}
 			
-			
-			UpdateNumTitle(cakeboxesGroupBox, newDataSource.Count);
 		}
 
 		public void ShowDiscs(object sender, EventArgs e)
 		{
-			Console.WriteLine("ShowDiscs");
 			List<Index> newDataSource = (cakeboxesListBox.SelectedIndex > -1) ? Model.FetchDiscsByCakeboxId(cakeboxesListBox.SelectedValue.ToString(), _filterLike, discsOrderBy, discsOrderWay) : new List<Index>();
 			discsListBox.SelectedValueChanged -= ShowFiles;
 			discsListBox.DataSource = newDataSource;
@@ -108,7 +106,6 @@ namespace Cavebox
 
 		private void ShowFiles(object sender, EventArgs e)
 		{
-			Console.WriteLine("ShowFiles");
 			filesList.Clear();
 			if(discsListBox.SelectedIndex > -1)
 			{
@@ -158,15 +155,9 @@ namespace Cavebox
 			string filter = filterTextBox.Text.Trim();
 			if(filter.Length > 0)
 			{
-				_filterLike = null;
-				string[] tokens = filter.Split(' ');
-				for(int i = 0; i < tokens.Length; i++)
-				{
-					_filterLike += "%" + tokens[i] + "%";
-				}
+				_filterLike = String.Format("%{0}%", String.Join("%", filter.ToLower().Split(' ')));
 				_filter = filter;
 				Console.WriteLine(_filterLike);
-				
 				clearFilterButton.Enabled = true;
 			}
 			else
@@ -553,6 +544,15 @@ namespace Cavebox
 			stopWatch = DateTime.Now;
 			Model.RebuildFileCounters();
 			Console.WriteLine(Lang.GetString("_rebuildingFileCountersCompleted", (DateTime.Now - stopWatch).TotalSeconds));
+			Cursor.Current = Cursors.Default;
+		}
+		
+		private void VacuumTables(object sender, EventArgs e)
+		{
+			Cursor.Current = Cursors.WaitCursor;
+			stopWatch = DateTime.Now;
+			Model.Vacuum();
+			Console.WriteLine(Lang.GetString("_vacuumTables", (DateTime.Now - stopWatch).TotalSeconds));
 			Cursor.Current = Cursors.Default;
 		}
 		

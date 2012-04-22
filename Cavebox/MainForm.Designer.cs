@@ -77,8 +77,6 @@ namespace Cavebox
 			this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-			this.rebuildFileCountersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.alwaysOnTopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -114,6 +112,9 @@ namespace Cavebox
 			this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.scanWorker = new System.ComponentModel.BackgroundWorker();
 			this.filterTextChangedTimer = new System.Windows.Forms.Timer(this.components);
+			this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.rebuildFileCountersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.vacuumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			((System.ComponentModel.ISupportInitialize)(this.cakeboxDiscFileSplitContainer)).BeginInit();
 			this.cakeboxDiscFileSplitContainer.Panel1.SuspendLayout();
 			this.cakeboxDiscFileSplitContainer.Panel2.SuspendLayout();
@@ -448,6 +449,7 @@ namespace Cavebox
 			this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
 									this.toolStripMenuItem1,
 									this.viewToolStripMenuItem,
+									this.toolsToolStripMenuItem,
 									this.helpToolStripMenuItem});
 			resources.ApplyResources(this.menuStrip, "menuStrip");
 			this.menuStrip.Name = "menuStrip";
@@ -459,8 +461,6 @@ namespace Cavebox
 									this.importToolStripMenuItem,
 									this.exportToolStripMenuItem,
 									this.toolStripSeparator1,
-									this.rebuildFileCountersToolStripMenuItem,
-									this.toolStripSeparator6,
 									this.exitToolStripMenuItem});
 			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
 			resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
@@ -490,18 +490,6 @@ namespace Cavebox
 			// 
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
 			resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
-			// 
-			// rebuildFileCountersToolStripMenuItem
-			// 
-			this.rebuildFileCountersToolStripMenuItem.Image = global::Cavebox.Properties.Images.database_gear;
-			this.rebuildFileCountersToolStripMenuItem.Name = "rebuildFileCountersToolStripMenuItem";
-			resources.ApplyResources(this.rebuildFileCountersToolStripMenuItem, "rebuildFileCountersToolStripMenuItem");
-			this.rebuildFileCountersToolStripMenuItem.Click += new System.EventHandler(this.RebuildFileCounters);
-			// 
-			// toolStripSeparator6
-			// 
-			this.toolStripSeparator6.Name = "toolStripSeparator6";
-			resources.ApplyResources(this.toolStripSeparator6, "toolStripSeparator6");
 			// 
 			// exitToolStripMenuItem
 			// 
@@ -755,8 +743,28 @@ namespace Cavebox
 			// 
 			// filterTextChangedTimer
 			// 
-			this.filterTextChangedTimer.Interval = 175;
+			this.filterTextChangedTimer.Interval = 250;
 			this.filterTextChangedTimer.Tick += new System.EventHandler(this.Filter);
+			// 
+			// toolsToolStripMenuItem
+			// 
+			this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.rebuildFileCountersToolStripMenuItem,
+									this.vacuumToolStripMenuItem});
+			this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+			resources.ApplyResources(this.toolsToolStripMenuItem, "toolsToolStripMenuItem");
+			// 
+			// rebuildFileCountersToolStripMenuItem
+			// 
+			this.rebuildFileCountersToolStripMenuItem.Name = "rebuildFileCountersToolStripMenuItem";
+			resources.ApplyResources(this.rebuildFileCountersToolStripMenuItem, "rebuildFileCountersToolStripMenuItem");
+			this.rebuildFileCountersToolStripMenuItem.Click += new System.EventHandler(this.RebuildFileCounters);
+			// 
+			// vacuumToolStripMenuItem
+			// 
+			this.vacuumToolStripMenuItem.Name = "vacuumToolStripMenuItem";
+			resources.ApplyResources(this.vacuumToolStripMenuItem, "vacuumToolStripMenuItem");
+			this.vacuumToolStripMenuItem.Click += new System.EventHandler(this.VacuumTables);
 			// 
 			// MainForm
 			// 
@@ -802,8 +810,9 @@ namespace Cavebox
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripMenuItem vacuumToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
 		private System.Windows.Forms.Button stopScanButton;
 		private System.Windows.Forms.Timer filterTextChangedTimer;
 		private System.Windows.Forms.RichTextBox console;

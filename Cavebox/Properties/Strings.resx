@@ -174,12 +174,6 @@
   <data name="_dbConnectionFailed" xml:space="preserve">
     <value>Databased connection failed...</value>
   </data>
-  <data name="_installing" xml:space="preserve">
-    <value>Creating DB Schema...</value>
-  </data>
-  <data name="_installed" xml:space="preserve">
-    <value>Valid DB Schema Found</value>
-  </data>
   <data name="_addedNewCakebox" xml:space="preserve">
     <value>Added new cakebox: {0}</value>
   </data>
@@ -206,5 +200,8 @@
   </data>
   <data name="_rebuildingFileCountersCompleted" xml:space="preserve">
     <value>Rebuilding files counters took {0:0.000} seconds</value>
+  </data>
+  <data name="_vacuumTables" xml:space="preserve">
+    <value>Vacuum database took {0:0.000} seconds</value>
   </data>
 </root>
