@@ -191,7 +191,6 @@ namespace Cavebox
 			this.cakeboxesListBox.FormattingEnabled = true;
 			this.cakeboxesListBox.Name = "cakeboxesListBox";
 			this.cakeboxesListBox.ValueMember = "Id";
-			this.cakeboxesListBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ListBoxDrawItem);
 			this.cakeboxesListBox.SelectedValueChanged += new System.EventHandler(this.ShowDiscs);
 			this.cakeboxesListBox.DoubleClick += new System.EventHandler(this.OpenEditCakeboxForm);
 			this.cakeboxesListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CakeboxesListBoxMouseDown);
@@ -246,11 +245,9 @@ namespace Cavebox
 			this.discsListBox.ContextMenuStrip = this.discsActionsMenu;
 			this.discsListBox.DisplayMember = "Value";
 			resources.ApplyResources(this.discsListBox, "discsListBox");
-			this.discsListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
 			this.discsListBox.FormattingEnabled = true;
 			this.discsListBox.Name = "discsListBox";
 			this.discsListBox.ValueMember = "Id";
-			this.discsListBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ListBoxDrawItem);
 			this.discsListBox.SelectedValueChanged += new System.EventHandler(this.ShowFiles);
 			this.discsListBox.DoubleClick += new System.EventHandler(this.OpenEditDiscForm);
 			this.discsListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DiscsListBoxMouseDown);

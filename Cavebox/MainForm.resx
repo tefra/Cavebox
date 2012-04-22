@@ -252,9 +252,6 @@
   <data name="discsListBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="discsListBox.ItemHeight" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
   <data name="discsListBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 16</value>
   </data>
