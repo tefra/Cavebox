@@ -128,18 +128,6 @@
   <data name="cakeboxLabel.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;cakeboxLabel.Name" xml:space="preserve">
-    <value>cakeboxLabel</value>
-  </data>
-  <data name="&gt;&gt;cakeboxLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cakeboxLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;cakeboxLabel.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
   <data name="saveButton.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -155,18 +143,6 @@
   <data name="saveButton.Text" xml:space="preserve">
     <value>Save</value>
   </data>
-  <data name="&gt;&gt;saveButton.Name" xml:space="preserve">
-    <value>saveButton</value>
-  </data>
-  <data name="&gt;&gt;saveButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;saveButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;saveButton.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="Cancel.Location" type="System.Drawing.Point, System.Drawing">
     <value>297, 38</value>
   </data>
@@ -178,18 +154,6 @@
   </data>
   <data name="Cancel.Text" xml:space="preserve">
     <value>Cancel</value>
-  </data>
-  <data name="&gt;&gt;Cancel.Name" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="&gt;&gt;Cancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Cancel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Cancel.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="cakeboxLabelLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 15</value>
@@ -203,21 +167,6 @@
   <data name="cakeboxLabelLabel.Text" xml:space="preserve">
     <value>Label:</value>
   </data>
-  <data name="&gt;&gt;cakeboxLabelLabel.Name" xml:space="preserve">
-    <value>cakeboxLabelLabel</value>
-  </data>
-  <data name="&gt;&gt;cakeboxLabelLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cakeboxLabelLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;cakeboxLabelLabel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
@@ -231,10 +180,7 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Edit Cakebox</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>EditCakebox</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>
