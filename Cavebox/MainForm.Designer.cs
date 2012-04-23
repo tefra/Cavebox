@@ -80,6 +80,7 @@ namespace Cavebox
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.alwaysOnTopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.resetWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.rebuildFileCountersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.vacuumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -104,9 +105,9 @@ namespace Cavebox
 			this.scanLog = new System.Windows.Forms.RichTextBox();
 			this.scanLogActionsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.scanDriveGroupBox = new System.Windows.Forms.GroupBox();
+			this.scanPathGroupBox = new System.Windows.Forms.GroupBox();
 			this.stopScanButton = new System.Windows.Forms.Button();
-			this.scanDrive = new System.Windows.Forms.ComboBox();
+			this.scanPathTextBox = new System.Windows.Forms.ComboBox();
 			this.startScanButton = new System.Windows.Forms.Button();
 			this.consoleTabPage = new System.Windows.Forms.TabPage();
 			this.consoleGroupBox = new System.Windows.Forms.GroupBox();
@@ -138,7 +139,7 @@ namespace Cavebox
 			this.saveNewDiscGroupBox.SuspendLayout();
 			this.scanLogGroupBox.SuspendLayout();
 			this.scanLogActionsMenu.SuspendLayout();
-			this.scanDriveGroupBox.SuspendLayout();
+			this.scanPathGroupBox.SuspendLayout();
 			this.consoleTabPage.SuspendLayout();
 			this.consoleGroupBox.SuspendLayout();
 			this.consoleActionsMenu.SuspendLayout();
@@ -496,7 +497,8 @@ namespace Cavebox
 			// viewToolStripMenuItem
 			// 
 			this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-									this.alwaysOnTopToolStripMenuItem});
+									this.alwaysOnTopToolStripMenuItem,
+									this.resetWindowToolStripMenuItem});
 			this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
 			resources.ApplyResources(this.viewToolStripMenuItem, "viewToolStripMenuItem");
 			// 
@@ -505,6 +507,12 @@ namespace Cavebox
 			this.alwaysOnTopToolStripMenuItem.Name = "alwaysOnTopToolStripMenuItem";
 			resources.ApplyResources(this.alwaysOnTopToolStripMenuItem, "alwaysOnTopToolStripMenuItem");
 			this.alwaysOnTopToolStripMenuItem.Click += new System.EventHandler(this.AlwaysOnTopMenuItemClick);
+			// 
+			// resetWindowToolStripMenuItem
+			// 
+			this.resetWindowToolStripMenuItem.Name = "resetWindowToolStripMenuItem";
+			resources.ApplyResources(this.resetWindowToolStripMenuItem, "resetWindowToolStripMenuItem");
+			this.resetWindowToolStripMenuItem.Click += new System.EventHandler(this.ResetWindow);
 			// 
 			// toolsToolStripMenuItem
 			// 
@@ -606,7 +614,7 @@ namespace Cavebox
 			// 
 			this.scanTabPage.Controls.Add(this.saveNewDiscGroupBox);
 			this.scanTabPage.Controls.Add(this.scanLogGroupBox);
-			this.scanTabPage.Controls.Add(this.scanDriveGroupBox);
+			this.scanTabPage.Controls.Add(this.scanPathGroupBox);
 			resources.ApplyResources(this.scanTabPage, "scanTabPage");
 			this.scanTabPage.Name = "scanTabPage";
 			// 
@@ -683,14 +691,14 @@ namespace Cavebox
 			resources.ApplyResources(this.resetToolStripMenuItem, "resetToolStripMenuItem");
 			this.resetToolStripMenuItem.Click += new System.EventHandler(this.ScanWorkerReset);
 			// 
-			// scanDriveGroupBox
+			// scanPathGroupBox
 			// 
-			resources.ApplyResources(this.scanDriveGroupBox, "scanDriveGroupBox");
-			this.scanDriveGroupBox.Controls.Add(this.stopScanButton);
-			this.scanDriveGroupBox.Controls.Add(this.scanDrive);
-			this.scanDriveGroupBox.Controls.Add(this.startScanButton);
-			this.scanDriveGroupBox.Name = "scanDriveGroupBox";
-			this.scanDriveGroupBox.TabStop = false;
+			resources.ApplyResources(this.scanPathGroupBox, "scanPathGroupBox");
+			this.scanPathGroupBox.Controls.Add(this.stopScanButton);
+			this.scanPathGroupBox.Controls.Add(this.scanPathTextBox);
+			this.scanPathGroupBox.Controls.Add(this.startScanButton);
+			this.scanPathGroupBox.Name = "scanPathGroupBox";
+			this.scanPathGroupBox.TabStop = false;
 			// 
 			// stopScanButton
 			// 
@@ -700,13 +708,12 @@ namespace Cavebox
 			this.stopScanButton.UseVisualStyleBackColor = true;
 			this.stopScanButton.Click += new System.EventHandler(this.ScanWorkerStop);
 			// 
-			// scanDrive
+			// scanPathTextBox
 			// 
-			resources.ApplyResources(this.scanDrive, "scanDrive");
-			this.scanDrive.DataSource = this.discsListBox.CustomTabOffsets;
-			this.scanDrive.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.scanDrive.FormattingEnabled = true;
-			this.scanDrive.Name = "scanDrive";
+			resources.ApplyResources(this.scanPathTextBox, "scanPathTextBox");
+			this.scanPathTextBox.DataSource = this.discsListBox.CustomTabOffsets;
+			this.scanPathTextBox.FormattingEnabled = true;
+			this.scanPathTextBox.Name = "scanPathTextBox";
 			// 
 			// startScanButton
 			// 
@@ -799,13 +806,14 @@ namespace Cavebox
 			this.saveNewDiscGroupBox.PerformLayout();
 			this.scanLogGroupBox.ResumeLayout(false);
 			this.scanLogActionsMenu.ResumeLayout(false);
-			this.scanDriveGroupBox.ResumeLayout(false);
+			this.scanPathGroupBox.ResumeLayout(false);
 			this.consoleTabPage.ResumeLayout(false);
 			this.consoleGroupBox.ResumeLayout(false);
 			this.consoleActionsMenu.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripMenuItem resetWindowToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem vacuumToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
@@ -862,8 +870,8 @@ namespace Cavebox
 		private System.Windows.Forms.GroupBox consoleGroupBox;
 		private System.Windows.Forms.TabPage consoleTabPage;
 		private System.Windows.Forms.Button startScanButton;
-		private System.Windows.Forms.ComboBox scanDrive;
-		private System.Windows.Forms.GroupBox scanDriveGroupBox;
+		private System.Windows.Forms.ComboBox scanPathTextBox;
+		private System.Windows.Forms.GroupBox scanPathGroupBox;
 		private System.Windows.Forms.RichTextBox scanLog;
 		private System.Windows.Forms.GroupBox scanLogGroupBox;
 		private System.Windows.Forms.Label newDiscLabelLabel;

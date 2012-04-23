@@ -120,11 +120,11 @@
   <data name="_applicationStartingUp" xml:space="preserve">
     <value>Cavebox starting up...</value>
   </data>
-  <data name="_driveXnotReady" xml:space="preserve">
-    <value>Dive {0} is not ready...</value>
+  <data name="_pathXnotavailabe" xml:space="preserve">
+    <value>Path {0} is not available...</value>
   </data>
   <data name="_scanStarting" xml:space="preserve">
-    <value>Scanning drive {0}</value>
+    <value>Scanning path {0}</value>
   </data>
   <data name="_scanWasCanceled" xml:space="preserve">
     <value>Scan was canceled...</value>

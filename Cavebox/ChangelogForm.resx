@@ -136,9 +136,6 @@
     <value>v2.0.0
 - Renamed application to Cavebox
 - Ported application to C# - SQLite
--&gt; Removed sql import/export
--&gt; Removed window preferenses
--&gt; Limited scan procedure to optical drives only
 -------------------------------------------------------------
 v1.5.0
 - Redesigned from scratch to get rid of the Swing Application Framework

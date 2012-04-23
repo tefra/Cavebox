@@ -168,7 +168,7 @@
     <value>3, 16</value>
   </data>
   <data name="cakeboxesListBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>255, 218</value>
+    <value>252, 230</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="cakeboxesListBox.TabIndex" type="System.Int32, mscorlib">
@@ -181,7 +181,7 @@
     <value>0, 0</value>
   </data>
   <data name="cakeboxesGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>261, 237</value>
+    <value>258, 249</value>
   </data>
   <data name="cakeboxesGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -256,7 +256,7 @@
     <value>3, 16</value>
   </data>
   <data name="discsListBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>257, 218</value>
+    <value>252, 230</value>
   </data>
   <data name="discsListBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -268,7 +268,7 @@
     <value>0, 0</value>
   </data>
   <data name="discsGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>263, 237</value>
+    <value>258, 249</value>
   </data>
   <data name="discsGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -280,10 +280,10 @@
     <value>No</value>
   </data>
   <data name="cakeboxDiscSplitContainer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>528, 237</value>
+    <value>520, 249</value>
   </data>
   <data name="cakeboxDiscSplitContainer.SplitterDistance" type="System.Int32, mscorlib">
-    <value>261</value>
+    <value>258</value>
   </data>
   <data name="cakeboxDiscSplitContainer.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -301,7 +301,7 @@
     <value>NoControl</value>
   </data>
   <data name="clearFilterButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>472, 20</value>
+    <value>464, 20</value>
   </data>
   <data name="clearFilterButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>50, 21</value>
@@ -316,7 +316,7 @@
     <value>7, 20</value>
   </data>
   <data name="filterTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>459, 20</value>
+    <value>451, 20</value>
   </data>
   <data name="filterTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -325,7 +325,7 @@
     <value>0, 0</value>
   </data>
   <data name="filterGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>528, 55</value>
+    <value>520, 55</value>
   </data>
   <data name="filterGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -335,6 +335,9 @@
   </data>
   <data name="cakeboxDiscFileSplitContainer.Panel1.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>No</value>
+  </data>
+  <data name="cakeboxDiscFileSplitContainer.Panel1MinSize" type="System.Int32, mscorlib">
+    <value>200</value>
   </data>
   <data name="copyToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>126, 22</value>
@@ -391,7 +394,7 @@
     <value>3, 16</value>
   </data>
   <data name="filesList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>522, 172</value>
+    <value>514, 149</value>
   </data>
   <data name="filesList.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -409,7 +412,7 @@
     <value>0, 0</value>
   </data>
   <data name="discFilesGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>528, 191</value>
+    <value>520, 168</value>
   </data>
   <data name="discFilesGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -420,11 +423,14 @@
   <data name="cakeboxDiscFileSplitContainer.Panel2.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>No</value>
   </data>
+  <data name="cakeboxDiscFileSplitContainer.Panel2MinSize" type="System.Int32, mscorlib">
+    <value>100</value>
+  </data>
   <data name="cakeboxDiscFileSplitContainer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>528, 493</value>
+    <value>520, 482</value>
   </data>
   <data name="cakeboxDiscFileSplitContainer.SplitterDistance" type="System.Int32, mscorlib">
-    <value>298</value>
+    <value>310</value>
   </data>
   <data name="cakeboxDiscFileSplitContainer.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -467,6 +473,12 @@
   </data>
   <data name="alwaysOnTopToolStripMenuItem.Text" xml:space="preserve">
     <value>Always on Top</value>
+  </data>
+  <data name="resetWindowToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="resetWindowToolStripMenuItem.Text" xml:space="preserve">
+    <value>Reset Window</value>
   </data>
   <data name="viewToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>44, 20</value>
@@ -511,7 +523,7 @@
     <value>0, 0</value>
   </data>
   <data name="menuStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>542, 24</value>
+    <value>534, 24</value>
   </data>
   <data name="menuStrip.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -556,10 +568,10 @@
     <value>False</value>
   </data>
   <data name="statusStrip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 549</value>
+    <value>0, 538</value>
   </data>
   <data name="statusStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>542, 24</value>
+    <value>534, 24</value>
   </data>
   <data name="statusStrip.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -574,7 +586,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="mainTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>534, 499</value>
+    <value>526, 488</value>
   </data>
   <data name="mainTabPage.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -717,7 +729,7 @@
   <data name="scanLogGroupBox.Text" xml:space="preserve">
     <value>Log</value>
   </data>
-  <data name="scanDriveGroupBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="scanPathGroupBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
   <data name="stopScanButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -735,19 +747,19 @@
   <data name="stopScanButton.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="scanDrive.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="scanPathTextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
-  <data name="scanDrive.ItemHeight" type="System.Int32, mscorlib">
+  <data name="scanPathTextBox.ItemHeight" type="System.Int32, mscorlib">
     <value>13</value>
   </data>
-  <data name="scanDrive.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="scanPathTextBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>7, 20</value>
   </data>
-  <data name="scanDrive.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="scanPathTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>395, 21</value>
   </data>
-  <data name="scanDrive.TabIndex" type="System.Int32, mscorlib">
+  <data name="scanPathTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="startScanButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -765,17 +777,17 @@
   <data name="startScanButton.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="scanDriveGroupBox.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="scanPathGroupBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
-  <data name="scanDriveGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="scanPathGroupBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>520, 55</value>
   </data>
-  <data name="scanDriveGroupBox.TabIndex" type="System.Int32, mscorlib">
+  <data name="scanPathGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="scanDriveGroupBox.Text" xml:space="preserve">
-    <value>Scan Address</value>
+  <data name="scanPathGroupBox.Text" xml:space="preserve">
+    <value>Scan Path</value>
   </data>
   <data name="scanTabPage.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
@@ -784,7 +796,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="scanTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>534, 499</value>
+    <value>526, 488</value>
   </data>
   <data name="scanTabPage.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -808,7 +820,7 @@
     <value>3, 16</value>
   </data>
   <data name="console.Size" type="System.Drawing.Size, System.Drawing">
-    <value>522, 474</value>
+    <value>514, 463</value>
   </data>
   <data name="console.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -826,7 +838,7 @@
     <value>3, 3</value>
   </data>
   <data name="consoleGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>528, 493</value>
+    <value>520, 482</value>
   </data>
   <data name="consoleGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -841,7 +853,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="consoleTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>534, 499</value>
+    <value>526, 488</value>
   </data>
   <data name="consoleTabPage.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -856,7 +868,7 @@
     <value>0, 24</value>
   </data>
   <data name="tabControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>542, 525</value>
+    <value>534, 514</value>
   </data>
   <data name="tabControl.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -865,7 +877,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>542, 573</value>
+    <value>534, 562</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>550, 600</value>

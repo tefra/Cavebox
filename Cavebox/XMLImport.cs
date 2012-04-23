@@ -15,6 +15,10 @@ namespace Cavebox
 	/// </summary>
 	public class XMLImport
 	{
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="file"></param>
 		public XMLImport(string file)
 		{
 			try

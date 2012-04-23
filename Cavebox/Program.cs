@@ -15,8 +15,9 @@ namespace Cavebox
 	internal sealed class Program
 	{
 		/// <summary>
-		/// Program entry point.
+		/// 
 		/// </summary>
+		/// <param name="args"></param>
 		[STAThread]
 		private static void Main(string[] args)
 		{
@@ -34,6 +35,10 @@ namespace Cavebox
 		
 		static Mutex _m;
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
 		static bool isSingleton()
 		{
 			try

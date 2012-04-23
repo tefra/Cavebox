@@ -19,6 +19,11 @@ namespace Cavebox
 		Boolean checkFlag = false;
 		int source;
 		
+		/// <summary>
+		///
+		/// </summary>
+		/// <param name="form"></param>
+		/// <param name="cid"></param>
 		public MassMoveForm(MainForm form, int cid)
 		{
 			InitializeComponent();
@@ -31,11 +36,21 @@ namespace Cavebox
 			selectCakebox.SelectedValue = source;
 		}
 	
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void closeForm(object sender, EventArgs e)
 		{
 			Dispose();
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void MoveButtonClick(object sender, EventArgs e)
 		{
 			int target = getTargetCakeboxId();
@@ -55,16 +70,30 @@ namespace Cavebox
 			}
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void enableMoveButton(object sender, EventArgs e)
 		{
 			moveButton.Enabled = (selectDiscs.CheckedItems.Count > 0 && getTargetCakeboxId() != source);
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
 		private int getTargetCakeboxId()
 		{
 			return Convert.ToInt32(selectCakebox.SelectedValue.ToString());
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void ToggleButtonClick(object sender, EventArgs e)
 		{
 			checkFlag = !checkFlag;

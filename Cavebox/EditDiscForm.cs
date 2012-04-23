@@ -20,6 +20,13 @@ namespace Cavebox
 		string _label;
 		MainForm app;
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="form"></param>
+		/// <param name="id"></param>
+		/// <param name="cid"></param>
+		/// <param name="label"></param>
 		public EditDiscForm(MainForm form, int id, int cid, string label)
 		{
 			InitializeComponent();
@@ -32,6 +39,11 @@ namespace Cavebox
 			selectCakebox.SelectedValue = cid;
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void SaveDisc(object sender, EventArgs e)
 		{
 			String label = discLabel.Text.Trim();
@@ -52,17 +64,31 @@ namespace Cavebox
 			}
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void CloseForm(object sender, EventArgs e)
 		{
 			Dispose();
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void enableSaveButton(object sender, EventArgs e)
 		{
 			string label = discLabel.Text.Trim();
 			saveButton.Enabled = ((label != _label && label.Length > 0) || getTargetCakeboxId() != _cid);
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
 		private int getTargetCakeboxId()
 		{
 			return Convert.ToInt32(selectCakebox.SelectedValue.ToString());

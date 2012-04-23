@@ -17,21 +17,36 @@ namespace Cavebox
 		private string format = "hh:mm:ss";
 		private System.Windows.Forms.RichTextBox console;
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="textBox"></param>
 		public ConsoleWriter(System.Windows.Forms.RichTextBox textBox)
 		{
 			console = textBox;
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="str"></param>
 		public override void Write(string str)
 		{
 			console.AppendText(str);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="str"></param>
 		public override void WriteLine(string str)
 		{
 			console.AppendText("[" + DateTime.Now.ToString(format) + "] " + str + "\n");
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
 		public override System.Text.Encoding Encoding
 		{
 			get { return System.Text.Encoding.ASCII; }

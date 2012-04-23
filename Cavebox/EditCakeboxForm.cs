@@ -18,6 +18,12 @@ namespace Cavebox
 		string _label;
 		MainForm app;
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="form"></param>
+		/// <param name="id"></param>
+		/// <param name="label"></param>
 		public EditCakeboxForm(MainForm form, int id = 0, string label = null)
 		{
 			InitializeComponent();
@@ -31,6 +37,11 @@ namespace Cavebox
 			cakeboxLabel.Text = label;
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void SaveCakebox(object sender, EventArgs e)
 		{
 			String label = cakeboxLabel.Text.Trim();
@@ -51,11 +62,21 @@ namespace Cavebox
 			}
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void CloseForm(object sender, EventArgs e)
 		{
 			Dispose();
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void CakeboxLabelTextChanged(object sender, EventArgs e)
 		{
 			string label = cakeboxLabel.Text.Trim();

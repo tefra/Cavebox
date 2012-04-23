@@ -15,8 +15,16 @@ namespace Cavebox
 	/// </summary>
 	static class Model
 	{
+		/// <summary>
+		/// 
+		/// </summary>
 		public static SQLiteConnection db {get; set;}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="connectionString"></param>
+		/// <returns></returns>
 		public static Boolean Connect(string connectionString)
 		{
 			try
@@ -30,26 +38,43 @@ namespace Cavebox
 			}
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
 		public static void Close()
 		{
 			db.Close();
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
 		public static string Status()
 		{
 			return ExecuteScalar("PRAGMA integrity_check");
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
 		public static string SQLiteVersion()
 		{
 			return db.ServerVersion;
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
 		public static void Vacuum()
 		{
 			ExecuteNonQuery("VACUUM");
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
 		public static void Install()
 		{
 			try
@@ -75,6 +100,9 @@ namespace Cavebox
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public static void RebuildFileCounters()
 		{
 			try
@@ -104,6 +132,9 @@ namespace Cavebox
 			}
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
 		[SQLiteFunction(Name = "ToLower", Arguments = 1, FuncType = FunctionType.Scalar)]
 		public class ToLower: SQLiteFunction
 		{
@@ -138,6 +169,14 @@ namespace Cavebox
 			return list;
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="id"></param>
+		/// <param name="filter"></param>
+		/// <param name="orderBy"></param>
+		/// <param name="orderWay"></param>
+		/// <returns></returns>
 		public static List<Index> FetchDiscsByCakeboxId(string id, string filter = null, int orderBy = 1, int orderWay = 0)
 		{
 			List<Index> list = new List<Index>();
@@ -191,11 +230,21 @@ namespace Cavebox
 			return list;
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns></returns>
 		public static string FetchDiscLabelById(int id)
 		{
 			return ExecuteScalar("SELECT label FROM disc WHERE id = " + id);
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns></returns>
 		public static object[] FetchFilesListByDiscId(string id)
 		{
 			object[] result = new object[3];
@@ -219,6 +268,11 @@ namespace Cavebox
 			return result;
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="label"></param>
+		/// <param name="id"></param>
 		public static void SaveCakebox(string label, int id = 0)
 		{
 			Dictionary<string, string> data = new Dictionary<string, string>();
@@ -233,6 +287,10 @@ namespace Cavebox
 			}
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="id"></param>
 		public static void DeleteCakebox(int id)
 		{
 			if(id > 0)
@@ -241,6 +299,12 @@ namespace Cavebox
 			}
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="id"></param>
+		/// <param name="cid"></param>
+		/// <param name="label"></param>
 		public static void UpdateDisc(int id, int cid, string label)
 		{
 			Dictionary<string, string> data = new Dictionary<string, string>();
@@ -249,6 +313,14 @@ namespace Cavebox
 			Update("disc", data, "id = " + id);
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="label"></param>
+		/// <param name="files"></param>
+		/// <param name="filesno"></param>
+		/// <param name="cid"></param>
+		/// <param name="added"></param>
 		public static void AddDisc(string label, string files, string filesno, string cid, string added)
 		{
 			Dictionary<string, string> data = new Dictionary<string, string>();
@@ -260,6 +332,10 @@ namespace Cavebox
 			Insert("disc", data);
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="id"></param>
 		public static void DeleteDisc(int id)
 		{
 			if(id > 0)
@@ -268,6 +344,11 @@ namespace Cavebox
 			}
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="target"></param>
+		/// <param name="discs"></param>
 		public static void MoveDiscs(int target, List<int> discs)
 		{
 			Dictionary<string, string> data = new Dictionary<string, string>();
@@ -275,21 +356,39 @@ namespace Cavebox
 			Update("disc", data, "id IN (" + String.Join(", ", discs) + ")");
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
 		public static int GetTotalCakeboxes()
 		{
 			return Convert.ToInt32(ExecuteScalar("SELECT COUNT(*) AS total FROM cakebox"));
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
 		public static int GetTotalDiscs()
 		{
 			return Convert.ToInt32(ExecuteScalar("SELECT COUNT(*) AS total FROM disc"));
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
 		public static int GetTotalFiles()
 		{
 			return Convert.ToInt32(ExecuteScalar("SELECT COALESCE(SUM(filesno), 0) AS total FROM disc"));
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="table"></param>
+		/// <param name="data"></param>
+		/// <param name="where"></param>
 		public static void Update(string table, Dictionary<string, string> data, string where)
 		{
 			try
@@ -311,11 +410,22 @@ namespace Cavebox
 			}
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="table"></param>
+		/// <param name="data"></param>
 		public static void Insert(string table, Dictionary<string, string> data)
 		{
 			Insert(table, new List<string>(data.Keys), new List<string>(data.Values));
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="table"></param>
+		/// <param name="columns"></param>
+		/// <param name="values"></param>
 		public static void Insert(string table, List<string> columns, List<string> values)
 		{
 			SQLiteCommand c = CreateCommand(String.Format("INSERT INTO {0} ({1}) VALUES (@{2})", table, String.Join(", ", columns), String.Join(", @", columns)));
@@ -327,6 +437,10 @@ namespace Cavebox
 			c.Dispose();
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sql"></param>
 		private static void ExecuteNonQuery(string sql)
 		{
 			try
@@ -341,6 +455,11 @@ namespace Cavebox
 			}
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sql"></param>
+		/// <returns></returns>
 		private static string ExecuteScalar(string sql)
 		{
 			try
@@ -357,6 +476,11 @@ namespace Cavebox
 			}
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sql"></param>
+		/// <returns></returns>
 		private static SQLiteCommand CreateCommand(string sql)
 		{
 			SQLiteCommand c = db.CreateCommand();

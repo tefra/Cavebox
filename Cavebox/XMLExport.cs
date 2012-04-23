@@ -14,6 +14,10 @@ namespace Cavebox
 	/// </summary>
 	public class XMLExport
 	{
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="file"></param>
 		public XMLExport(string file)
 		{
 			XmlWriterSettings settings = new XmlWriterSettings();
@@ -30,6 +34,11 @@ namespace Cavebox
 			}
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="table"></param>
+		/// <param name="writer"></param>
 		public void writeTable(string table, XmlWriter writer)
 		{
 			try
