@@ -18,10 +18,5 @@ namespace Cavebox
 		{
 			InitializeComponent();
 		}
-		
-		void ChangelogTextBoxTextChanged(object sender, EventArgs e)
-		{
-			
-		}
 	}
 }

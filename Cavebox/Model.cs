@@ -21,10 +21,10 @@ namespace Cavebox
 		public static SQLiteConnection db {get; set;}
 
 		/// <summary>
-		/// 
+		/// Connect to sqlite database and return result
 		/// </summary>
 		/// <param name="connectionString"></param>
-		/// <returns></returns>
+		/// <returns>Boolean</returns>
 		public static Boolean Connect(string connectionString)
 		{
 			try
@@ -39,7 +39,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Close database connection
 		/// </summary>
 		public static void Close()
 		{
@@ -47,7 +47,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Run integrity check and return result
 		/// </summary>
 		/// <returns></returns>
 		public static string Status()
@@ -56,7 +56,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Return sqlite version
 		/// </summary>
 		/// <returns></returns>
 		public static string SQLiteVersion()
@@ -65,7 +65,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Execute vacuum command
 		/// </summary>
 		public static void Vacuum()
 		{
@@ -73,7 +73,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Create tables schema if it doesn't exist
 		/// </summary>
 		public static void Install()
 		{
@@ -101,7 +101,7 @@ namespace Cavebox
 		}
 
 		/// <summary>
-		/// 
+		/// Rebuild file counters
 		/// </summary>
 		public static void RebuildFileCounters()
 		{
@@ -133,7 +133,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Custom ToLower Sqlite Command for proper search LIKE results
 		/// </summary>
 		[SQLiteFunction(Name = "ToLower", Arguments = 1, FuncType = FunctionType.Scalar)]
 		public class ToLower: SQLiteFunction
@@ -144,6 +144,11 @@ namespace Cavebox
 			}
 		}	
 		
+		/// <summary>
+		/// Fetch cakeboxes list with or without filter
+		/// </summary>
+		/// <param name="filter"></param>
+		/// <returns></returns>
 		public static List<Index> FetchCakeboxes(string filter = null)
 		{
 			List<Index> list = new List<Index>();
@@ -170,7 +175,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Fetch discs list with or without filter with custom sort
 		/// </summary>
 		/// <param name="id"></param>
 		/// <param name="filter"></param>
@@ -231,7 +236,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Fetch disc label by id
 		/// </summary>
 		/// <param name="id"></param>
 		/// <returns></returns>
@@ -241,7 +246,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Fetch files list, files number and added date by disc id
 		/// </summary>
 		/// <param name="id"></param>
 		/// <returns></returns>
@@ -269,7 +274,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Insert/Update cakebox
 		/// </summary>
 		/// <param name="label"></param>
 		/// <param name="id"></param>
@@ -288,7 +293,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Delete cakebox by id
 		/// </summary>
 		/// <param name="id"></param>
 		public static void DeleteCakebox(int id)
@@ -300,7 +305,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Update disc information
 		/// </summary>
 		/// <param name="id"></param>
 		/// <param name="cid"></param>
@@ -333,7 +338,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Delete disc by id
 		/// </summary>
 		/// <param name="id"></param>
 		public static void DeleteDisc(int id)
@@ -345,7 +350,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Move discs to a new cakeboxe
 		/// </summary>
 		/// <param name="target"></param>
 		/// <param name="discs"></param>
@@ -357,7 +362,7 @@ namespace Cavebox
 		}
 
 		/// <summary>
-		/// 
+		/// Fetch total cakeboxes
 		/// </summary>
 		/// <returns></returns>
 		public static int GetTotalCakeboxes()
@@ -366,7 +371,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Fetch total discs 
 		/// </summary>
 		/// <returns></returns>
 		public static int GetTotalDiscs()
@@ -375,7 +380,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Fetch total files
 		/// </summary>
 		/// <returns></returns>
 		public static int GetTotalFiles()
@@ -384,7 +389,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// General update db table method
 		/// </summary>
 		/// <param name="table"></param>
 		/// <param name="data"></param>
@@ -411,7 +416,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// General insert new db table row method
 		/// </summary>
 		/// <param name="table"></param>
 		/// <param name="data"></param>
@@ -421,7 +426,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// General insert new db table row method
 		/// </summary>
 		/// <param name="table"></param>
 		/// <param name="columns"></param>
@@ -438,7 +443,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Execute non query
 		/// </summary>
 		/// <param name="sql"></param>
 		private static void ExecuteNonQuery(string sql)
@@ -456,7 +461,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Execute scalar
 		/// </summary>
 		/// <param name="sql"></param>
 		/// <returns></returns>
@@ -477,7 +482,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Create sqlite command
 		/// </summary>
 		/// <param name="sql"></param>
 		/// <returns></returns>

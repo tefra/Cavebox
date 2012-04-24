@@ -161,9 +161,6 @@
   <data name="cakeboxesListBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="cakeboxesListBox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 11px</value>
-  </data>
   <data name="cakeboxesListBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 16</value>
   </data>

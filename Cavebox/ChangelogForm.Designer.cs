@@ -44,7 +44,6 @@ namespace Cavebox
 			resources.ApplyResources(this.changelogTextBox, "changelogTextBox");
 			this.changelogTextBox.Name = "changelogTextBox";
 			this.changelogTextBox.ReadOnly = true;
-			this.changelogTextBox.TextChanged += new System.EventHandler(this.ChangelogTextBoxTextChanged);
 			// 
 			// ChangelogForm
 			// 

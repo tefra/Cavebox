@@ -27,6 +27,9 @@ namespace Cavebox
 		int discsOrderWay = 0;
 		DateTime stopWatch;
 
+		/// <summary>
+		/// Initialize components and database connection
+		/// </summary>
 		public MainForm()
 		{
 			InitializeComponent();
@@ -47,7 +50,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Close database connection before closing and say bye bye
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -58,7 +61,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Exit application
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -68,25 +71,18 @@ namespace Cavebox
 		}
 
 		/// <summary>
-		///
+		/// Get filter status
 		/// </summary>
 		/// <returns></returns>
 		public Boolean isFilterOn()
 		{
 			return _filter != null;
 		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		private void BuildCakeboxesCache()
-		{
-			cakeboxes = Model.FetchCakeboxes();
-			newDiscCakebox.DataSource = cakeboxes;
-		}
 
 		/// <summary>
-		/// 
+		/// Refresh cakeboxes lists and status bar stats on
+		/// - Cakebox add/edit/delete
+		/// - Filtering results
 		/// </summary>
 		/// <param name="selectValue"></param>
 		/// <param name="refreshCakeboxesCache"></param>
@@ -94,11 +90,12 @@ namespace Cavebox
 		{
 			if(refreshCakeboxesCache)
 			{
-				BuildCakeboxesCache();
+				cakeboxes = Model.FetchCakeboxes();
+				newDiscCakebox.DataSource = cakeboxes.ToList();
 				RefreshStatusBar(true, true);
 			}
 			
-			List<Index> newDataSource = Model.FetchCakeboxes(_filterLike);
+			List<Index> newDataSource = (_filterLike == null) ? cakeboxes.ToList() : Model.FetchCakeboxes(_filterLike);
 			cakeboxesListBox.SelectedValueChanged -= ShowDiscs;
 			cakeboxesListBox.DataSource = newDataSource;
 			cakeboxesListBox.SelectedValueChanged += ShowDiscs;
@@ -115,7 +112,7 @@ namespace Cavebox
 		}
 
 		/// <summary>
-		/// 
+		/// Show discs based on the cakeboxes list box selection and filter
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -131,7 +128,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Show disc files based on discs list box selection and highlight filter strings
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -172,7 +169,7 @@ namespace Cavebox
 		}
 
 		/// <summary>
-		/// 
+		/// Start/Reset filter timer while typing to avoid useless db queries
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -186,7 +183,7 @@ namespace Cavebox
 		}
 
 		/// <summary>
-		/// 
+		/// Stop filter timer, construct filterLike keywords and refresh cakeboxes if necessary
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -213,7 +210,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Immediately set filter off
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -228,7 +225,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Refress cakeboxes, discs, files total status bar labels
 		/// </summary>
 		/// <param name="cakebox"></param>
 		/// <param name="disc"></param>
@@ -246,7 +243,7 @@ namespace Cavebox
 		}
 
 		/// <summary>
-		/// 
+		/// Update total label
 		/// </summary>
 		/// <param name="label"></param>
 		/// <param name="num"></param>
@@ -258,7 +255,7 @@ namespace Cavebox
 		}
 
 		/// <summary>
-		/// 
+		/// Update total label
 		/// </summary>
 		/// <param name="groupBox"></param>
 		/// <param name="num"></param>
@@ -270,7 +267,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Start scan path procedure if path exists
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -306,7 +303,7 @@ namespace Cavebox
 		}
 
 		/// <summary>
-		/// 
+		/// Stop scan procedure
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -322,7 +319,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Reset scan controls
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -342,7 +339,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Scan worker start walking the dir tree
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="evt"></param>
@@ -354,7 +351,8 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Recursive directory walking, remove the root from the file list
+		/// and cancel the procedure uppon user interruption
 		/// </summary>
 		/// <param name="path"></param>
 		/// <param name="substring"></param>
@@ -394,7 +392,7 @@ namespace Cavebox
 		}
 
 		/// <summary>
-		/// 
+		/// Show scan worker cancelled/completed results
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -422,7 +420,8 @@ namespace Cavebox
 		}
 
 		/// <summary>
-		/// 
+		/// Add new disc with the scan worker results
+		/// New disc label and cakebox are required fields
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -448,15 +447,15 @@ namespace Cavebox
 				Model.AddDisc(label, files, scanTotalFiles.ToString(), cid, added.ToString());
 				ShowCakeboxes();
 				RefreshStatusBar(false, true);
+				scanLog.Clear();
 				scanLog.Text = Lang.GetString("_newDiscAdded", label, clabel);
-				scanLog.ScrollToCaret();
 				newDiscLabelTextBox.Text = null;
 				saveNewDiscButton.Enabled = false;
 			}
 		}
 
 		/// <summary>
-		/// 
+		/// Show changelog dialog
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -466,22 +465,18 @@ namespace Cavebox
 		}
 
 		/// <summary>
-		/// 
+		/// Listbox select item on right click
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void CakeboxesListBoxMouseDown(object sender, MouseEventArgs e)
+		private void ListBoxMouseDown(object sender, MouseEventArgs e)
 		{
-			cakeboxesListBox.SelectedIndex = cakeboxesListBox.IndexFromPoint(e.X, e.Y);
-		}
-
-		private void DiscsListBoxMouseDown(object sender, MouseEventArgs e)
-		{
-			discsListBox.SelectedIndex = discsListBox.IndexFromPoint(e.X, e.Y);
+			ListBox listbox = (ListBox) sender;
+			listbox.SelectedIndex = listbox.IndexFromPoint(e.X, e.Y);
 		}
 
 		/// <summary>
-		/// 
+		/// Open new cakebox dialog
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -491,7 +486,7 @@ namespace Cavebox
 		}
 
 		/// <summary>
-		/// 
+		/// Open edit cakebox dialog
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -506,7 +501,7 @@ namespace Cavebox
 		}
 
 		/// <summary>
-		/// 
+		/// Delete cakebox
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -526,7 +521,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Open mass move discs dialog
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -540,7 +535,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Open edit disc dialog
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -556,7 +551,7 @@ namespace Cavebox
 		}
 
 		/// <summary>
-		/// 
+		/// Delete disc
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -572,7 +567,7 @@ namespace Cavebox
 		}
 
 		/// <summary>
-		/// 
+		/// Change sorting rules on discs listbox and refresh
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -622,7 +617,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Clear console text
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -632,7 +627,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Open search url with selected file list text
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -669,7 +664,8 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Hide delete option on cakeboxes listbox if it containns discs
+		/// or cancel menu opening if nothing is selected
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -686,7 +682,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Cancel files list action menu if nothing is selected
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -699,7 +695,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Cancel discs list box action menu if nothing is selected
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -712,7 +708,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Rebuild file counters, legacy procedure
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -726,7 +722,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Run sqlite vacuum procedure to rebuild database to save database and speed up things
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -740,7 +736,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Export xml database backup
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -759,7 +755,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Import xml database backup
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -780,7 +776,7 @@ namespace Cavebox
 		}
 
 		/// <summary>
-		/// 
+		/// Copy selected text from the files list to system clipboard
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -790,7 +786,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Toggle always on top window option
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -802,7 +798,7 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Make default accept button the save new disc button when scan tab is selected
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -825,15 +821,15 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// 
+		/// Reset window size/potion and split containers splitter distance
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void ResetWindow(object sender, EventArgs e)
 		{
 			this.CenterToScreen();
-			this.Height = 600;
-			this.Width = 550;
+			this.Height = this.MinimumSize.Height;
+			this.Width = this.MinimumSize.Width;
 			cakeboxDiscSplitContainer.SplitterDistance = (cakeboxDiscSplitContainer.Width - cakeboxDiscSplitContainer.SplitterWidth) / 2;
 			cakeboxDiscFileSplitContainer.SplitterDistance = 310;
 		}
