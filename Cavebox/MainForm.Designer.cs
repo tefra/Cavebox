@@ -467,7 +467,7 @@ namespace Cavebox
 			this.newCakeboxToolStripMenuItem.Image = global::Cavebox.Properties.Images.database_1;
 			this.newCakeboxToolStripMenuItem.Name = "newCakeboxToolStripMenuItem";
 			resources.ApplyResources(this.newCakeboxToolStripMenuItem, "newCakeboxToolStripMenuItem");
-			this.newCakeboxToolStripMenuItem.Click += new System.EventHandler(this.OpenNewCakeboxForm);
+			this.newCakeboxToolStripMenuItem.Click += new System.EventHandler(this.OpenEditCakeboxForm);
 			// 
 			// importToolStripMenuItem
 			// 

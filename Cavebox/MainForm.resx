@@ -337,52 +337,52 @@
     <value>200</value>
   </data>
   <data name="copyToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="copyToolStripMenuItem.Text" xml:space="preserve">
     <value>Copy</value>
   </data>
   <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 6</value>
+    <value>149, 6</value>
   </data>
   <data name="googleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="googleToolStripMenuItem.Text" xml:space="preserve">
     <value>Google</value>
   </data>
   <data name="wikipediaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="wikipediaToolStripMenuItem.Text" xml:space="preserve">
     <value>Wikipedia</value>
   </data>
   <data name="anidbToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="anidbToolStripMenuItem.Text" xml:space="preserve">
     <value>Anidb</value>
   </data>
   <data name="imdbToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="imdbToolStripMenuItem.Text" xml:space="preserve">
     <value>Imdb</value>
   </data>
   <data name="lastfmToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="lastfmToolStripMenuItem.Text" xml:space="preserve">
     <value>Last.fm</value>
   </data>
   <data name="youtubeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="youtubeToolStripMenuItem.Text" xml:space="preserve">
     <value>Youtube</value>
   </data>
   <data name="filesListActionMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 164</value>
+    <value>153, 186</value>
   </data>
   <data name="filesList.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>

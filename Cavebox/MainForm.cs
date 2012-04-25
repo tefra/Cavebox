@@ -453,52 +453,7 @@ namespace Cavebox
 				saveNewDiscButton.Enabled = false;
 			}
 		}
-
-		/// <summary>
-		/// Show changelog dialog
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ChangelogToolStripMenuItemClick(object sender, EventArgs e)
-		{
-			new ChangelogForm().ShowDialog();
-		}
-
-		/// <summary>
-		/// Listbox select item on right click
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ListBoxMouseDown(object sender, MouseEventArgs e)
-		{
-			ListBox listbox = (ListBox) sender;
-			listbox.SelectedIndex = listbox.IndexFromPoint(e.X, e.Y);
-		}
-
-		/// <summary>
-		/// Open new cakebox dialog
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void OpenNewCakeboxForm(object sender, EventArgs e)
-		{
-			new EditCakeboxForm(this).ShowDialog();
-		}
-
-		/// <summary>
-		/// Open edit cakebox dialog
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void OpenEditCakeboxForm(object sender, EventArgs e)
-		{
-			if(cakeboxesListBox.SelectedIndex > -1)
-			{
-				int id = Convert.ToInt32(cakeboxesListBox.SelectedValue.ToString());
-				string label = cakeboxesListBox.Text;
-				new EditCakeboxForm(this, id, label).ShowDialog();
-			}
-		}
+		
 
 		/// <summary>
 		/// Delete cakebox
@@ -706,6 +661,60 @@ namespace Cavebox
 				e.Cancel = true;
 			}
 		}
+
+		/// <summary>
+		/// Copy selected text from the files list to system clipboard
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void CopyFilesListClick(object sender, EventArgs e)
+		{
+			Clipboard.SetText(filesList.SelectedText);
+		}
+		
+		/// <summary>
+		/// Make default accept button the save new disc button when scan tab is selected
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void TabControlSelectedIndexChanged(object sender, EventArgs e)
+		{
+			switch(tabControl.SelectedIndex)
+			{
+				case 0:
+					AcceptButton = null;
+					break;
+					
+				case 1:
+					AcceptButton = saveNewDiscButton;
+					break;
+					
+				case 2:
+					AcceptButton = null;
+					break;
+			}
+		}
+		
+
+		/* Menu strip actions */
+		
+		/// <summary>
+		/// Open edit cakebox dialog
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void OpenEditCakeboxForm(object sender, EventArgs e)
+		{
+			int id = 0;
+			string label = null;
+			
+			if(cakeboxesListBox.SelectedIndex > -1)
+			{
+				id = Convert.ToInt32(cakeboxesListBox.SelectedValue.ToString());
+				label = cakeboxesListBox.Text;
+			}
+			new EditCakeboxForm(this, id, label).ShowDialog();
+		}
 		
 		/// <summary>
 		/// Rebuild file counters, legacy procedure
@@ -774,16 +783,6 @@ namespace Cavebox
 				ShowCakeboxes(0, true);
 			}
 		}
-
-		/// <summary>
-		/// Copy selected text from the files list to system clipboard
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void CopyFilesListClick(object sender, EventArgs e)
-		{
-			Clipboard.SetDataObject(filesList, true);
-		}
 		
 		/// <summary>
 		/// Toggle always on top window option
@@ -798,29 +797,6 @@ namespace Cavebox
 		}
 		
 		/// <summary>
-		/// Make default accept button the save new disc button when scan tab is selected
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void TabControlSelectedIndexChanged(object sender, EventArgs e)
-		{
-			switch(tabControl.SelectedIndex)
-			{
-				case 0:
-					AcceptButton = null;
-					break;
-					
-				case 1:
-					AcceptButton = saveNewDiscButton;
-					break;
-					
-				case 2:
-					AcceptButton = null;
-					break;
-			}
-		}
-		
-		/// <summary>
 		/// Reset window size/potion and split containers splitter distance
 		/// </summary>
 		/// <param name="sender"></param>
@@ -832,6 +808,29 @@ namespace Cavebox
 			this.Width = this.MinimumSize.Width;
 			cakeboxDiscSplitContainer.SplitterDistance = (cakeboxDiscSplitContainer.Width - cakeboxDiscSplitContainer.SplitterWidth) / 2;
 			cakeboxDiscFileSplitContainer.SplitterDistance = 310;
+		}
+		
+		/// <summary>
+		/// Show changelog dialog
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ChangelogToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			new ChangelogForm().ShowDialog();
+		}
+		
+		
+		/* General behavioral stuff */
+		/// <summary>
+		/// Listbox select item on right click
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ListBoxMouseDown(object sender, MouseEventArgs e)
+		{
+			ListBox listbox = (ListBox) sender;
+			listbox.SelectedIndex = listbox.IndexFromPoint(e.X, e.Y);
 		}
 	}
 }
