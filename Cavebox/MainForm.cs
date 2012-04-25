@@ -791,9 +791,9 @@ namespace Cavebox
 		/// <param name="e"></param>
 		private void AlwaysOnTopMenuItemClick(object sender, EventArgs e)
 		{
-			Boolean check = !alwaysOnTopToolStripMenuItem.Checked;
+			Boolean check = !alwaysOnTopMenuItem.Checked;
 			this.TopMost = check;
-			alwaysOnTopToolStripMenuItem.Checked = check;
+			alwaysOnTopMenuItem.Checked = check;
 		}
 		
 		/// <summary>

@@ -432,88 +432,88 @@
   <data name="cakeboxDiscFileSplitContainer.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="newCakeboxToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 22</value>
+  <data name="newCakeboxMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
   </data>
-  <data name="newCakeboxToolStripMenuItem.Text" xml:space="preserve">
+  <data name="newCakeboxMenuItem.Text" xml:space="preserve">
     <value>New Cakebox</value>
   </data>
-  <data name="importToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 22</value>
+  <data name="restoreMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
   </data>
-  <data name="importToolStripMenuItem.Text" xml:space="preserve">
-    <value>Import</value>
+  <data name="restoreMenuItem.Text" xml:space="preserve">
+    <value>Restore</value>
   </data>
-  <data name="exportToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 22</value>
+  <data name="backupMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
   </data>
-  <data name="exportToolStripMenuItem.Text" xml:space="preserve">
-    <value>Export</value>
+  <data name="backupMenuItem.Text" xml:space="preserve">
+    <value>Backup</value>
   </data>
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 6</value>
+    <value>149, 6</value>
   </data>
-  <data name="exitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 22</value>
+  <data name="exitMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
   </data>
-  <data name="exitToolStripMenuItem.Text" xml:space="preserve">
+  <data name="exitMenuItem.Text" xml:space="preserve">
     <value>Exit</value>
   </data>
-  <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="fileMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>37, 20</value>
   </data>
-  <data name="toolStripMenuItem1.Text" xml:space="preserve">
+  <data name="fileMenuItem.Text" xml:space="preserve">
     <value>File</value>
   </data>
-  <data name="alwaysOnTopToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="alwaysOnTopMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>152, 22</value>
   </data>
-  <data name="alwaysOnTopToolStripMenuItem.Text" xml:space="preserve">
+  <data name="alwaysOnTopMenuItem.Text" xml:space="preserve">
     <value>Always on Top</value>
   </data>
-  <data name="resetWindowToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="resetWindowMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>152, 22</value>
   </data>
-  <data name="resetWindowToolStripMenuItem.Text" xml:space="preserve">
+  <data name="resetWindowMenuItem.Text" xml:space="preserve">
     <value>Reset Window</value>
   </data>
-  <data name="viewToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="viewMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>44, 20</value>
   </data>
-  <data name="viewToolStripMenuItem.Text" xml:space="preserve">
+  <data name="viewMenuItem.Text" xml:space="preserve">
     <value>View</value>
   </data>
-  <data name="rebuildFileCountersToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>186, 22</value>
+  <data name="rebuildTotalFilesMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 22</value>
   </data>
-  <data name="rebuildFileCountersToolStripMenuItem.Text" xml:space="preserve">
-    <value>Rebuild File Counters</value>
+  <data name="rebuildTotalFilesMenuItem.Text" xml:space="preserve">
+    <value>Rebuild Total Files</value>
   </data>
-  <data name="vacuumToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>186, 22</value>
+  <data name="vacuumDatabaseMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 22</value>
   </data>
-  <data name="vacuumToolStripMenuItem.Text" xml:space="preserve">
-    <value>Vacuum</value>
+  <data name="vacuumDatabaseMenuItem.Text" xml:space="preserve">
+    <value>Vacuum Database</value>
   </data>
-  <data name="vacuumToolStripMenuItem.ToolTipText" xml:space="preserve">
+  <data name="vacuumDatabaseMenuItem.ToolTipText" xml:space="preserve">
     <value>Rebuild the entire database</value>
   </data>
-  <data name="toolsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="toolsMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 20</value>
   </data>
-  <data name="toolsToolStripMenuItem.Text" xml:space="preserve">
+  <data name="toolsMenuItem.Text" xml:space="preserve">
     <value>Tools</value>
   </data>
-  <data name="changelogToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 22</value>
+  <data name="changelogMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
   </data>
-  <data name="changelogToolStripMenuItem.Text" xml:space="preserve">
+  <data name="changelogMenuItem.Text" xml:space="preserve">
     <value>Changelog</value>
   </data>
-  <data name="helpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="helpMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>44, 20</value>
   </data>
-  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
+  <data name="helpMenuItem.Text" xml:space="preserve">
     <value>Help</value>
   </data>
   <data name="menuStrip.Location" type="System.Drawing.Point, System.Drawing">

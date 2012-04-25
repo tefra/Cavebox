@@ -72,20 +72,20 @@ namespace Cavebox
 			this.lastfmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.youtubeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip = new System.Windows.Forms.MenuStrip();
-			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-			this.newCakeboxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.newCakeboxMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.restoreMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.backupMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.alwaysOnTopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.resetWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.rebuildFileCountersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.vacuumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.changelogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.viewMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.alwaysOnTopMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.resetWindowMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.rebuildTotalFilesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.vacuumDatabaseMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.helpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.changelogMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.statusStrip = new System.Windows.Forms.StatusStrip();
 			this.cakeboxStatsLabel = new System.Windows.Forms.ToolStripStatusLabel();
 			this.discStatsLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -444,108 +444,108 @@ namespace Cavebox
 			// menuStrip
 			// 
 			this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-									this.toolStripMenuItem1,
-									this.viewToolStripMenuItem,
-									this.toolsToolStripMenuItem,
-									this.helpToolStripMenuItem});
+									this.fileMenuItem,
+									this.viewMenuItem,
+									this.toolsMenuItem,
+									this.helpMenuItem});
 			resources.ApplyResources(this.menuStrip, "menuStrip");
 			this.menuStrip.Name = "menuStrip";
 			// 
-			// toolStripMenuItem1
+			// fileMenuItem
 			// 
-			this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-									this.newCakeboxToolStripMenuItem,
-									this.importToolStripMenuItem,
-									this.exportToolStripMenuItem,
+			this.fileMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.newCakeboxMenuItem,
+									this.restoreMenuItem,
+									this.backupMenuItem,
 									this.toolStripSeparator1,
-									this.exitToolStripMenuItem});
-			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-			resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
+									this.exitMenuItem});
+			this.fileMenuItem.Name = "fileMenuItem";
+			resources.ApplyResources(this.fileMenuItem, "fileMenuItem");
 			// 
-			// newCakeboxToolStripMenuItem
+			// newCakeboxMenuItem
 			// 
-			this.newCakeboxToolStripMenuItem.Image = global::Cavebox.Properties.Images.database_1;
-			this.newCakeboxToolStripMenuItem.Name = "newCakeboxToolStripMenuItem";
-			resources.ApplyResources(this.newCakeboxToolStripMenuItem, "newCakeboxToolStripMenuItem");
-			this.newCakeboxToolStripMenuItem.Click += new System.EventHandler(this.OpenEditCakeboxForm);
+			this.newCakeboxMenuItem.Image = global::Cavebox.Properties.Images.database_1;
+			this.newCakeboxMenuItem.Name = "newCakeboxMenuItem";
+			resources.ApplyResources(this.newCakeboxMenuItem, "newCakeboxMenuItem");
+			this.newCakeboxMenuItem.Click += new System.EventHandler(this.OpenEditCakeboxForm);
 			// 
-			// importToolStripMenuItem
+			// restoreMenuItem
 			// 
-			this.importToolStripMenuItem.Image = global::Cavebox.Properties.Images.database_go;
-			this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-			resources.ApplyResources(this.importToolStripMenuItem, "importToolStripMenuItem");
-			this.importToolStripMenuItem.Click += new System.EventHandler(this.ImportXml);
+			this.restoreMenuItem.Image = global::Cavebox.Properties.Images.database_go;
+			this.restoreMenuItem.Name = "restoreMenuItem";
+			resources.ApplyResources(this.restoreMenuItem, "restoreMenuItem");
+			this.restoreMenuItem.Click += new System.EventHandler(this.ImportXml);
 			// 
-			// exportToolStripMenuItem
+			// backupMenuItem
 			// 
-			this.exportToolStripMenuItem.Image = global::Cavebox.Properties.Images.database_save;
-			this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-			resources.ApplyResources(this.exportToolStripMenuItem, "exportToolStripMenuItem");
-			this.exportToolStripMenuItem.Click += new System.EventHandler(this.ExportXml);
+			this.backupMenuItem.Image = global::Cavebox.Properties.Images.database_save;
+			this.backupMenuItem.Name = "backupMenuItem";
+			resources.ApplyResources(this.backupMenuItem, "backupMenuItem");
+			this.backupMenuItem.Click += new System.EventHandler(this.ExportXml);
 			// 
 			// toolStripSeparator1
 			// 
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
 			resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
 			// 
-			// exitToolStripMenuItem
+			// exitMenuItem
 			// 
-			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-			resources.ApplyResources(this.exitToolStripMenuItem, "exitToolStripMenuItem");
-			this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitApplication);
+			this.exitMenuItem.Name = "exitMenuItem";
+			resources.ApplyResources(this.exitMenuItem, "exitMenuItem");
+			this.exitMenuItem.Click += new System.EventHandler(this.ExitApplication);
 			// 
-			// viewToolStripMenuItem
+			// viewMenuItem
 			// 
-			this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-									this.alwaysOnTopToolStripMenuItem,
-									this.resetWindowToolStripMenuItem});
-			this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-			resources.ApplyResources(this.viewToolStripMenuItem, "viewToolStripMenuItem");
+			this.viewMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.alwaysOnTopMenuItem,
+									this.resetWindowMenuItem});
+			this.viewMenuItem.Name = "viewMenuItem";
+			resources.ApplyResources(this.viewMenuItem, "viewMenuItem");
 			// 
-			// alwaysOnTopToolStripMenuItem
+			// alwaysOnTopMenuItem
 			// 
-			this.alwaysOnTopToolStripMenuItem.Name = "alwaysOnTopToolStripMenuItem";
-			resources.ApplyResources(this.alwaysOnTopToolStripMenuItem, "alwaysOnTopToolStripMenuItem");
-			this.alwaysOnTopToolStripMenuItem.Click += new System.EventHandler(this.AlwaysOnTopMenuItemClick);
+			this.alwaysOnTopMenuItem.Name = "alwaysOnTopMenuItem";
+			resources.ApplyResources(this.alwaysOnTopMenuItem, "alwaysOnTopMenuItem");
+			this.alwaysOnTopMenuItem.Click += new System.EventHandler(this.AlwaysOnTopMenuItemClick);
 			// 
-			// resetWindowToolStripMenuItem
+			// resetWindowMenuItem
 			// 
-			this.resetWindowToolStripMenuItem.Name = "resetWindowToolStripMenuItem";
-			resources.ApplyResources(this.resetWindowToolStripMenuItem, "resetWindowToolStripMenuItem");
-			this.resetWindowToolStripMenuItem.Click += new System.EventHandler(this.ResetWindow);
+			this.resetWindowMenuItem.Name = "resetWindowMenuItem";
+			resources.ApplyResources(this.resetWindowMenuItem, "resetWindowMenuItem");
+			this.resetWindowMenuItem.Click += new System.EventHandler(this.ResetWindow);
 			// 
-			// toolsToolStripMenuItem
+			// toolsMenuItem
 			// 
-			this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-									this.rebuildFileCountersToolStripMenuItem,
-									this.vacuumToolStripMenuItem});
-			this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-			resources.ApplyResources(this.toolsToolStripMenuItem, "toolsToolStripMenuItem");
+			this.toolsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.rebuildTotalFilesMenuItem,
+									this.vacuumDatabaseMenuItem});
+			this.toolsMenuItem.Name = "toolsMenuItem";
+			resources.ApplyResources(this.toolsMenuItem, "toolsMenuItem");
 			// 
-			// rebuildFileCountersToolStripMenuItem
+			// rebuildTotalFilesMenuItem
 			// 
-			this.rebuildFileCountersToolStripMenuItem.Name = "rebuildFileCountersToolStripMenuItem";
-			resources.ApplyResources(this.rebuildFileCountersToolStripMenuItem, "rebuildFileCountersToolStripMenuItem");
-			this.rebuildFileCountersToolStripMenuItem.Click += new System.EventHandler(this.RebuildFileCounters);
+			this.rebuildTotalFilesMenuItem.Name = "rebuildTotalFilesMenuItem";
+			resources.ApplyResources(this.rebuildTotalFilesMenuItem, "rebuildTotalFilesMenuItem");
+			this.rebuildTotalFilesMenuItem.Click += new System.EventHandler(this.RebuildFileCounters);
 			// 
-			// vacuumToolStripMenuItem
+			// vacuumDatabaseMenuItem
 			// 
-			this.vacuumToolStripMenuItem.Name = "vacuumToolStripMenuItem";
-			resources.ApplyResources(this.vacuumToolStripMenuItem, "vacuumToolStripMenuItem");
-			this.vacuumToolStripMenuItem.Click += new System.EventHandler(this.VacuumTables);
+			this.vacuumDatabaseMenuItem.Name = "vacuumDatabaseMenuItem";
+			resources.ApplyResources(this.vacuumDatabaseMenuItem, "vacuumDatabaseMenuItem");
+			this.vacuumDatabaseMenuItem.Click += new System.EventHandler(this.VacuumTables);
 			// 
-			// helpToolStripMenuItem
+			// helpMenuItem
 			// 
-			this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-									this.changelogToolStripMenuItem});
-			this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-			resources.ApplyResources(this.helpToolStripMenuItem, "helpToolStripMenuItem");
+			this.helpMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.changelogMenuItem});
+			this.helpMenuItem.Name = "helpMenuItem";
+			resources.ApplyResources(this.helpMenuItem, "helpMenuItem");
 			// 
-			// changelogToolStripMenuItem
+			// changelogMenuItem
 			// 
-			this.changelogToolStripMenuItem.Name = "changelogToolStripMenuItem";
-			resources.ApplyResources(this.changelogToolStripMenuItem, "changelogToolStripMenuItem");
-			this.changelogToolStripMenuItem.Click += new System.EventHandler(this.ChangelogToolStripMenuItemClick);
+			this.changelogMenuItem.Name = "changelogMenuItem";
+			resources.ApplyResources(this.changelogMenuItem, "changelogMenuItem");
+			this.changelogMenuItem.Click += new System.EventHandler(this.ChangelogToolStripMenuItemClick);
 			// 
 			// statusStrip
 			// 
@@ -813,10 +813,10 @@ namespace Cavebox
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
-		private System.Windows.Forms.ToolStripMenuItem resetWindowToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem vacuumToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem resetWindowMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem vacuumDatabaseMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem toolsMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem exitMenuItem;
 		private System.Windows.Forms.Button stopScanButton;
 		private System.Windows.Forms.Timer filterTextChangedTimer;
 		private System.Windows.Forms.RichTextBox console;
@@ -856,16 +856,16 @@ namespace Cavebox
 		private System.Windows.Forms.ToolStripStatusLabel discStatsLabel;
 		private System.Windows.Forms.ToolStripStatusLabel cakeboxStatsLabel;
 		private System.Windows.Forms.StatusStrip statusStrip;
-		private System.Windows.Forms.ToolStripMenuItem changelogToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem alwaysOnTopToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem rebuildFileCountersToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem changelogMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem helpMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem alwaysOnTopMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem viewMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem rebuildTotalFilesMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-		private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem newCakeboxToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+		private System.Windows.Forms.ToolStripMenuItem backupMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem restoreMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem newCakeboxMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem fileMenuItem;
 		private System.Windows.Forms.MenuStrip menuStrip;
 		private System.Windows.Forms.GroupBox consoleGroupBox;
 		private System.Windows.Forms.TabPage consoleTabPage;
