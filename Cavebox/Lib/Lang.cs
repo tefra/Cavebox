@@ -1,5 +1,5 @@
 ﻿/**
- * @version	$Id: Lang.cs 68 2012-04-23 22:59:36Z Tefra $
+ * @version	$Id$
  * @author	Christodoulos Tsoulloftas
  * @link	http://www.t3-design.com
  */

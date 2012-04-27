@@ -1,5 +1,5 @@
 ﻿/**
- * @version	$Id: MainForm.Designer.cs 71 2012-04-25 20:45:59Z Tefra $
+ * @version	$Id$
  * @author	Christodoulos Tsoulloftas
  * @link	http://www.t3-design.com
  */

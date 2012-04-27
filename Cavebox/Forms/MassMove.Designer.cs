@@ -1,5 +1,5 @@
 ﻿/**
- * @version	$Id: MassMoveForm.Designer.cs 57 2012-04-20 18:19:01Z Tefra $
+ * @version	$Id$
  * @author	Christodoulos Tsoulloftas
  * @link	http://www.t3-design.com
  */

@@ -1,5 +1,5 @@
 ﻿/**
- * @version	$Id: ChangelogForm.Designer.cs 69 2012-04-24 18:19:29Z Tefra $
+ * @version	$Id$
  * @author	Christodoulos Tsoulloftas
  * @link	http://www.t3-design.com
  */
