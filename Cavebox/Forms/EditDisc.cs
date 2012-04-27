@@ -1,5 +1,5 @@
 ﻿/**
- * @version	$Id$
+ * @version	$Id: EditDiscForm.cs 68 2012-04-23 22:59:36Z Tefra $
  * @author	Christodoulos Tsoulloftas
  * @link	http://www.t3-design.com
  */
@@ -7,18 +7,20 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Cavebox
+using Cavebox.Lib;
+
+namespace Cavebox.Forms
 {
 	/// <summary>
 	/// Description of EditDisc.
 	/// </summary>
-	public partial class EditDiscForm : Form
+	public partial class EditDisc : Form
 	{
 		
 		int _id;
 		int _cid;
 		string _label;
-		MainForm app;
+		Main app;
 		
 		/// <summary>
 		/// 
@@ -27,7 +29,7 @@ namespace Cavebox
 		/// <param name="id"></param>
 		/// <param name="cid"></param>
 		/// <param name="label"></param>
-		public EditDiscForm(MainForm form, int id, int cid, string label)
+		public EditDisc(Main form, int id, int cid, string label)
 		{
 			InitializeComponent();
 			app = form;

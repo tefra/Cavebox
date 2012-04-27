@@ -1,5 +1,5 @@
 ﻿/**
- * @version	$Id$
+ * @version	$Id: MainForm.cs 71 2012-04-25 20:45:59Z Tefra $
  * @author	Christodoulos Tsoulloftas
  * @link	http://www.t3-design.com
  */
@@ -12,12 +12,14 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Cavebox
+using Cavebox.Lib;
+
+namespace Cavebox.Forms
 {
 	/// <summary>
 	/// Description of MainForm.
 	/// </summary>
-	public partial class MainForm : Form
+	public partial class Main : Form
 	{
 		List<Index> cakeboxes = null;
 		string _filter;
@@ -30,7 +32,7 @@ namespace Cavebox
 		/// <summary>
 		/// Initialize components and database connection
 		/// </summary>
-		public MainForm()
+		public Main()
 		{
 			InitializeComponent();
 			Console.SetOut(new ConsoleWriter(console));
@@ -485,7 +487,7 @@ namespace Cavebox
 			if(cakeboxesListBox.SelectedIndex > -1)
 			{
 				int id = Convert.ToInt32(cakeboxesListBox.SelectedValue.ToString());
-				new MassMoveForm(this, id).ShowDialog();
+				new MassMove(this, id).ShowDialog();
 			}
 		}
 		
@@ -501,7 +503,7 @@ namespace Cavebox
 				int id = Convert.ToInt32(discsListBox.SelectedValue.ToString());
 				int cid = Convert.ToInt32(cakeboxesListBox.SelectedValue.ToString());
 				string label = Model.FetchDiscLabelById(id); // <-- stupid sorting methods change the disc label
-				new EditDiscForm(this, id, cid, label).ShowDialog();
+				new EditDisc(this, id, cid, label).ShowDialog();
 			}
 		}
 
@@ -713,7 +715,7 @@ namespace Cavebox
 				id = Convert.ToInt32(cakeboxesListBox.SelectedValue.ToString());
 				label = cakeboxesListBox.Text;
 			}
-			new EditCakeboxForm(this, id, label).ShowDialog();
+			new EditCakebox(this, id, label).ShowDialog();
 		}
 		
 		/// <summary>
@@ -817,7 +819,7 @@ namespace Cavebox
 		/// <param name="e"></param>
 		private void ChangelogToolStripMenuItemClick(object sender, EventArgs e)
 		{
-			new ChangelogForm().ShowDialog();
+			new Changelog().ShowDialog();
 		}
 		
 		

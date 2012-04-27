@@ -1,5 +1,5 @@
 ﻿/**
- * @version	$Id$
+ * @version	$Id: EditCakeboxForm.cs 68 2012-04-23 22:59:36Z Tefra $
  * @author	Christodoulos Tsoulloftas
  * @link	http://www.t3-design.com
  */
@@ -7,16 +7,18 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Cavebox
+using Cavebox.Lib;
+
+namespace Cavebox.Forms
 {
 	/// <summary>
 	/// Description of EditCakebox.
 	/// </summary>
-	public partial class EditCakeboxForm : Form
+	public partial class EditCakebox : Form
 	{
 		int _id;
 		string _label;
-		MainForm app;
+		Main app;
 		
 		/// <summary>
 		/// 
@@ -24,7 +26,7 @@ namespace Cavebox
 		/// <param name="form"></param>
 		/// <param name="id"></param>
 		/// <param name="label"></param>
-		public EditCakeboxForm(MainForm form, int id = 0, string label = null)
+		public EditCakebox(Main form, int id = 0, string label = null)
 		{
 			InitializeComponent();
 			if(id > 0)

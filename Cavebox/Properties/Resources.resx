@@ -118,108 +118,61 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="changelogTextBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="changelogTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="alt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\alt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="changelogTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>394, 276</value>
+  <data name="anidb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\anidb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="changelogTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="cancel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\cancel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="changelogTextBox.Text" xml:space="preserve">
-    <value>v2.0.0
-- Renamed application to Cavebox
-- Ported application to C# - SQLite
--------------------------------------------------------------
-v1.5.0
-- Redesigned from scratch to get rid of the Swing Application Framework
-- Updated H2 Database Engine to v1.3.165
--------------------------------------------------------------
-v1.4.1
-- Updated to JDK 7
-- UI Improvements
-- Updated H2 Database Engine to v1.3.161
--------------------------------------------------------------
-v1.4.0
-- Fixed Bug in the text highlighting
-- Fixed Bug in box edit not updating status bar
-- Updated filter to work on the fly
-- Updated forms to work on Enter key press
-- Updated status bar
-- Updated H2 Database Engine to v1.3.160
-- Updated UI elements for a cleaner look
-- Added icons to some menu items
-- Added menu item to dump h2 db settings
-- Added double click events to show edit media/box forms
-- Added XML Option to export/import procedures
-- Added Last.fm and Youtube links to the search media files
-- Added new column in media date "ADDED"
-- Removed all hardcoded messages (internalization is possible now)
-- Performance imporvements
--------------------------------------------------------------
-v1.3.9
-- Updated H2 Database Engine to v1.2.137
-- Effort to reduce memory footprint below 100mb
--------------------------------------------------------------
-v1.3.8
-- Updated H2 Database Engine to v1.2.136
-- Changed backups naming scheme for easier sorting
-- Cleaned up some console bogus messages 
--------------------------------------------------------------
-v1.3.7
-- Added Sort Options For The Media
-- Added quick links for google, wikipedia, anidb, imdb search
-- Updated H2 Database Engine to v1.2.134
--------------------------------------------------------------
-v1.3.6
-- More Code Cleanup
-- More UI fixes/changes
-- Added file list highligh when filter is used
-- Updated H2 Database Engine to v1.2.132
-- Fixed a bug with reset window procedure
--------------------------------------------------------------
-v1.3.5
-- Intergraded search under main tab
-- Improved functionality for mass moving cd/dvds
-- General/Critical code fixes/changes
-- UI numerous fixes/changes
-- Enabled window storage
--------------------------------------------------------------
-v1.3.4
-- Added Mass Move Procedures for medias
-- Updated H2 Database Engine to v1.2.131
--------------------------------------------------------------
-v1.3.3
-- Added Console under the statistics tab
-- Updated H2 Database Engine to v1.2.125
--------------------------------------------------------------
-v1.3.2
-- Changed HSQLDB to H2 Database Engine
-- Updated Export|Import Procedures
-- Small UI Changed and fixes</value>
+  <data name="database" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\database.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+  <data name="database1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icons\database.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>394, 276</value>
+  <data name="database_gear" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\database_gear.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>400, 300</value>
+  <data name="database_go" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\database_go.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterParent</value>
+  <data name="database_save" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\database_save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Changelog</value>
+  <data name="delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
+  <data name="edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="google" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\google.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imdb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\imdb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lastFM" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\lastFM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="move" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\move.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="start" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\start.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="stop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\stop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wikipedia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\wikipedia.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="youtube" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\youtube.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

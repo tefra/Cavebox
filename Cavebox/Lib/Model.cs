@@ -1,5 +1,5 @@
 ﻿/**
- * @version	$Id$
+ * @version	$Id: Model.cs 69 2012-04-24 18:19:29Z Tefra $
  * @author	Christodoulos Tsoulloftas
  * @link	http://www.t3-design.com
  */
@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 
-namespace Cavebox
+namespace Cavebox.Lib
 {
 	/// <summary>
 	/// Description of Model.

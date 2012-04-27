@@ -1,11 +1,11 @@
 ﻿/**
- * @version	$Id$
+ * @version	$Id: EditCakeboxForm.Designer.cs 57 2012-04-20 18:19:01Z Tefra $
  * @author	Christodoulos Tsoulloftas
  * @link	http://www.t3-design.com
  */
-namespace Cavebox
+namespace Cavebox.Forms
 {
-	partial class EditCakeboxForm
+	partial class EditCakebox
 	{
 		/// <summary>
 		/// Designer variable used to keep track of non-visual components.
@@ -33,7 +33,7 @@ namespace Cavebox
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditCakeboxForm));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditCakebox));
 			this.cakeboxLabel = new System.Windows.Forms.TextBox();
 			this.saveButton = new System.Windows.Forms.Button();
 			this.Cancel = new System.Windows.Forms.Button();

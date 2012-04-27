@@ -1,11 +1,11 @@
 ﻿/**
- * @version	$Id$
+ * @version	$Id: EditDiscForm.Designer.cs 57 2012-04-20 18:19:01Z Tefra $
  * @author	Christodoulos Tsoulloftas
  * @link	http://www.t3-design.com
  */
-namespace Cavebox
+namespace Cavebox.Forms
 {
-	partial class EditDiscForm
+	partial class EditDisc
 	{
 		/// <summary>
 		/// Designer variable used to keep track of non-visual components.
@@ -33,7 +33,7 @@ namespace Cavebox
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditDiscForm));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditDisc));
 			this.discLabelLabel = new System.Windows.Forms.Label();
 			this.selectCakeboxLabel = new System.Windows.Forms.Label();
 			this.discLabel = new System.Windows.Forms.TextBox();

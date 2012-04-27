@@ -20,7 +20,23 @@
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <RunCodeAnalysis>False</RunCodeAnalysis>
     <RunSourceAnalysis>False</RunSourceAnalysis>
-    <ApplicationIcon>Properties\database.ico</ApplicationIcon>
+    <ApplicationIcon>database.ico</ApplicationIcon>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\Tefra\Desktop\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Platform)' == 'x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -45,6 +61,18 @@
     <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
     <DefineConstants>TRACE</DefineConstants>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>B9B95252A88786E8AFB9F538840CD87809AA12D0</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Cavebox_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -66,60 +94,118 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChangelogForm.cs" />
-    <Compile Include="ChangelogForm.Designer.cs">
-      <DependentUpon>ChangelogForm.cs</DependentUpon>
+    <Compile Include="Forms\Changelog.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ConsoleWriter.cs" />
-    <Compile Include="EditCakeboxForm.cs" />
-    <Compile Include="EditCakeboxForm.Designer.cs">
-      <DependentUpon>EditCakeboxForm.cs</DependentUpon>
+    <Compile Include="Forms\Changelog.Designer.cs">
+      <DependentUpon>Changelog.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditDiscForm.cs" />
-    <Compile Include="EditDiscForm.Designer.cs">
-      <DependentUpon>EditDiscForm.cs</DependentUpon>
+    <Compile Include="Lib\ConsoleWriter.cs" />
+    <Compile Include="Forms\EditCakebox.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Index.cs" />
-    <Compile Include="Lang.cs" />
-    <Compile Include="MainForm.cs" />
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <Compile Include="Forms\EditCakebox.Designer.cs">
+      <DependentUpon>EditCakebox.cs</DependentUpon>
     </Compile>
-    <Compile Include="MassMoveForm.cs" />
-    <Compile Include="MassMoveForm.Designer.cs">
-      <DependentUpon>MassMoveForm.cs</DependentUpon>
+    <Compile Include="Forms\EditDisc.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Model.cs" />
+    <Compile Include="Forms\EditDisc.Designer.cs">
+      <DependentUpon>EditDisc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lib\Index.cs" />
+    <Compile Include="Lib\Lang.cs" />
+    <Compile Include="Forms\Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MassMove.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MassMove.Designer.cs">
+      <DependentUpon>MassMove.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lib\Model.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Images.Designer.cs">
-      <DependentUpon>Images.resx</DependentUpon>
+    <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="XMLExport.cs" />
-    <Compile Include="XMLImport.cs" />
+    <Compile Include="Lib\XMLExport.cs" />
+    <Compile Include="Lib\XMLImport.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ChangelogForm.resx">
-      <DependentUpon>ChangelogForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Changelog.resx">
+      <DependentUpon>Changelog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditCakeboxForm.resx">
-      <DependentUpon>EditCakeboxForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\EditCakebox.resx">
+      <DependentUpon>EditCakebox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditDiscForm.resx">
-      <DependentUpon>EditDiscForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\EditDisc.resx">
+      <DependentUpon>EditDisc.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MassMoveForm.resx">
-      <DependentUpon>MassMoveForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\MassMove.resx">
+      <DependentUpon>MassMove.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Images.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Images.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Strings.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="database.ico" />
+    <Content Include="Resources\Icons\database.ico" />
+    <Content Include="Resources\Images\add.png" />
+    <Content Include="Resources\Images\alt.png" />
+    <Content Include="Resources\Images\anidb.png" />
+    <Content Include="Resources\Images\cancel.png" />
+    <Content Include="Resources\Images\database.png" />
+    <Content Include="Resources\Images\database_gear.png" />
+    <Content Include="Resources\Images\database_go.png" />
+    <Content Include="Resources\Images\database_save.png" />
+    <Content Include="Resources\Images\delete.png" />
+    <Content Include="Resources\Images\edit.png" />
+    <Content Include="Resources\Images\google.png" />
+    <Content Include="Resources\Images\imdb.png" />
+    <Content Include="Resources\Images\lastFM.png" />
+    <Content Include="Resources\Images\move.png" />
+    <Content Include="Resources\Images\start.png" />
+    <Content Include="Resources\Images\stop.png" />
+    <Content Include="Resources\Images\wikipedia.png" />
+    <Content Include="Resources\Images\youtube.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Cavebox_TemporaryKey.pfx" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
 </Project>

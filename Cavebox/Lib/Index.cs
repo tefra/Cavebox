@@ -1,11 +1,11 @@
 ﻿/**
- * @version	$Id$
+ * @version	$Id: Index.cs 68 2012-04-23 22:59:36Z Tefra $
  * @author	Christodoulos Tsoulloftas
  * @link	http://www.t3-design.com
  */
 using System;
 
-namespace Cavebox
+namespace Cavebox.Lib
 {
 	/// <summary>
 	/// Description of Index.
