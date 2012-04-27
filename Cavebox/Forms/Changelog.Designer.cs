@@ -33,28 +33,27 @@ namespace Cavebox.Forms
 		/// </summary>
 		private void InitializeComponent()
 		{
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Changelog));
-            this.changelogTextBox = new System.Windows.Forms.RichTextBox();
-            this.SuspendLayout();
-            // 
-            // changelogTextBox
-            // 
-            this.changelogTextBox.BackColor = System.Drawing.SystemColors.Window;
-            this.changelogTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.changelogTextBox, "changelogTextBox");
-            this.changelogTextBox.Name = "changelogTextBox";
-            this.changelogTextBox.ReadOnly = true;
-            // 
-            // Changelog
-            // 
-            resources.ApplyResources(this, "$this");
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.changelogTextBox);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "Changelog";
-            this.ShowInTaskbar = false;
-            this.ResumeLayout(false);
-
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Changelog));
+			this.changelogTextBox = new System.Windows.Forms.RichTextBox();
+			this.SuspendLayout();
+			// 
+			// changelogTextBox
+			// 
+			this.changelogTextBox.BackColor = System.Drawing.SystemColors.Window;
+			this.changelogTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			resources.ApplyResources(this.changelogTextBox, "changelogTextBox");
+			this.changelogTextBox.Name = "changelogTextBox";
+			this.changelogTextBox.ReadOnly = true;
+			// 
+			// ChangelogForm
+			// 
+			resources.ApplyResources(this, "$this");
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.Controls.Add(this.changelogTextBox);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+			this.Name = "ChangelogForm";
+			this.ShowInTaskbar = false;
+			this.ResumeLayout(false);
 		}
 		private System.Windows.Forms.RichTextBox changelogTextBox;
 	}
