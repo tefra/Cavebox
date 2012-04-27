@@ -209,7 +209,7 @@ namespace Cavebox.Forms
 			// 
 			// editCakeboxMenuItem
 			// 
-			this.editCakeboxMenuItem.Image = global::Cavebox.Properties.Images.edit_document;
+			this.editCakeboxMenuItem.Image = global::Cavebox.Properties.Images.document_edit;
 			this.editCakeboxMenuItem.Name = "editCakeboxMenuItem";
 			resources.ApplyResources(this.editCakeboxMenuItem, "editCakeboxMenuItem");
 			this.editCakeboxMenuItem.Click += new System.EventHandler(this.OpenEditCakeboxForm);
@@ -228,7 +228,7 @@ namespace Cavebox.Forms
 			// 
 			// massMoveDiscsMenuItem
 			// 
-			this.massMoveDiscsMenuItem.Image = global::Cavebox.Properties.Images.shapes_move_front;
+			this.massMoveDiscsMenuItem.Image = global::Cavebox.Properties.Images.mass_move;
 			this.massMoveDiscsMenuItem.Name = "massMoveDiscsMenuItem";
 			resources.ApplyResources(this.massMoveDiscsMenuItem, "massMoveDiscsMenuItem");
 			this.massMoveDiscsMenuItem.Click += new System.EventHandler(this.OpenMassMoveForm);
@@ -266,7 +266,7 @@ namespace Cavebox.Forms
 			// 
 			// editDiscMenuItem
 			// 
-			this.editDiscMenuItem.Image = global::Cavebox.Properties.Images.edit_document;
+			this.editDiscMenuItem.Image = global::Cavebox.Properties.Images.document_edit;
 			this.editDiscMenuItem.Name = "editDiscMenuItem";
 			resources.ApplyResources(this.editDiscMenuItem, "editDiscMenuItem");
 			this.editDiscMenuItem.Click += new System.EventHandler(this.OpenEditDiscForm);
@@ -464,7 +464,7 @@ namespace Cavebox.Forms
 			// 
 			// newCakeboxMenuItem
 			// 
-			this.newCakeboxMenuItem.Image = global::Cavebox.Properties.Images.database_1;
+			this.newCakeboxMenuItem.Image = global::Cavebox.Properties.Images.database;
 			this.newCakeboxMenuItem.Name = "newCakeboxMenuItem";
 			resources.ApplyResources(this.newCakeboxMenuItem, "newCakeboxMenuItem");
 			this.newCakeboxMenuItem.Click += new System.EventHandler(this.OpenEditCakeboxForm);
@@ -703,7 +703,7 @@ namespace Cavebox.Forms
 			// stopScanButton
 			// 
 			resources.ApplyResources(this.stopScanButton, "stopScanButton");
-			this.stopScanButton.Image = global::Cavebox.Properties.Images.MD_stop;
+			this.stopScanButton.Image = global::Cavebox.Properties.Images.stop;
 			this.stopScanButton.Name = "stopScanButton";
 			this.stopScanButton.UseVisualStyleBackColor = true;
 			this.stopScanButton.Click += new System.EventHandler(this.ScanWorkerStop);
@@ -718,7 +718,7 @@ namespace Cavebox.Forms
 			// startScanButton
 			// 
 			resources.ApplyResources(this.startScanButton, "startScanButton");
-			this.startScanButton.Image = global::Cavebox.Properties.Images.MD_play;
+			this.startScanButton.Image = global::Cavebox.Properties.Images.start;
 			this.startScanButton.Name = "startScanButton";
 			this.startScanButton.UseVisualStyleBackColor = true;
 			this.startScanButton.Click += new System.EventHandler(this.ScanWorkerStart);
@@ -776,7 +776,7 @@ namespace Cavebox.Forms
 			this.Controls.Add(this.tabControl);
 			this.Controls.Add(this.statusStrip);
 			this.Controls.Add(this.menuStrip);
-			this.Icon = global::Cavebox.Properties.Images.database;
+			this.Icon = global::Cavebox.Properties.Images.app;
 			this.Name = "MainForm";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainFormClosing);
 			this.cakeboxDiscFileSplitContainer.Panel1.ResumeLayout(false);
