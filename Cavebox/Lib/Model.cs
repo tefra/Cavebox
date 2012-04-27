@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 
-namespace Cavebox
+namespace Cavebox.Lib
 {
 	/// <summary>
 	/// Description of Model.

@@ -5,7 +5,7 @@
  */
 using System;
 
-namespace Cavebox
+namespace Cavebox.Lib
 {
 	/// <summary>
 	/// Description of Index.

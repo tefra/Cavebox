@@ -3,9 +3,9 @@
  * @author	Christodoulos Tsoulloftas
  * @link	http://www.t3-design.com
  */
-namespace Cavebox
+namespace Cavebox.Forms
 {
-	partial class MainForm
+	partial class Main
 	{
 		/// <summary>
 		/// Designer variable used to keep track of non-visual components.
@@ -34,7 +34,7 @@ namespace Cavebox
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
 			this.cakeboxDiscFileSplitContainer = new System.Windows.Forms.SplitContainer();
 			this.cakeboxDiscSplitContainer = new System.Windows.Forms.SplitContainer();
 			this.cakeboxesGroupBox = new System.Windows.Forms.GroupBox();

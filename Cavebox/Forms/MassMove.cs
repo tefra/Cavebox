@@ -8,14 +8,16 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Cavebox
+using Cavebox.Lib;
+
+namespace Cavebox.Forms
 {
 	/// <summary>
 	/// Description of MassMove.
 	/// </summary>
-	public partial class MassMoveForm : Form
+	public partial class MassMove : Form
 	{
-		MainForm app;
+		Main app;
 		Boolean checkFlag = false;
 		int source;
 		
@@ -24,7 +26,7 @@ namespace Cavebox
 		/// </summary>
 		/// <param name="form"></param>
 		/// <param name="cid"></param>
-		public MassMoveForm(MainForm form, int cid)
+		public MassMove(Main form, int cid)
 		{
 			InitializeComponent();
 			app = form;

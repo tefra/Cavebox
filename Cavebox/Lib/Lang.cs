@@ -6,7 +6,7 @@
 using System;
 using System.Resources;
 
-namespace Cavebox
+namespace Cavebox.Lib
 {
 	/// <summary>
 	/// Description of Lang.

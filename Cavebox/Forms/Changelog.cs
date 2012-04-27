@@ -7,14 +7,14 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Cavebox
+namespace Cavebox.Forms
 {
 	/// <summary>
 	/// Description of Changelog.
 	/// </summary>
-	public partial class ChangelogForm : Form
+	public partial class Changelog : Form
 	{
-		public ChangelogForm()
+		public Changelog()
 		{
 			InitializeComponent();
 		}

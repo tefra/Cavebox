@@ -7,7 +7,9 @@ using System;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace Cavebox
+using Cavebox.Forms;
+
+namespace Cavebox.Lib
 {
 	/// <summary>
 	/// Class with program entry point.
@@ -29,7 +31,7 @@ namespace Cavebox
 			{
 				Application.EnableVisualStyles();
 				Application.SetCompatibleTextRenderingDefault(false);
-				Application.Run(new MainForm());
+				Application.Run(new Main());
 			}
 		}
 		
