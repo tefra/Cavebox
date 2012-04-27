@@ -773,8 +773,11 @@ namespace Cavebox.Forms
 		private void ImportXml(object sender, EventArgs e)
 		{
 			OpenFileDialog openFileDialog = new OpenFileDialog();
+			openFileDialog.InitialDirectory = Path.GetDirectoryName(Application.ExecutablePath);
 			openFileDialog.Filter = Lang.GetString("_xmlFilesDesc");
 			openFileDialog.Title = Lang.GetString("_selectBackupFile");
+			
+			
 			if (openFileDialog.ShowDialog() == DialogResult.OK)
 			{
 				Cursor.Current = Cursors.WaitCursor;

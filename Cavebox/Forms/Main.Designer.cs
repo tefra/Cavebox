@@ -769,7 +769,7 @@ namespace Cavebox.Forms
 			this.filterTextChangedTimer.Interval = 250;
 			this.filterTextChangedTimer.Tick += new System.EventHandler(this.Filter);
 			// 
-			// MainForm
+			// Main
 			// 
 			resources.ApplyResources(this, "$this");
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -777,7 +777,8 @@ namespace Cavebox.Forms
 			this.Controls.Add(this.statusStrip);
 			this.Controls.Add(this.menuStrip);
 			this.Icon = global::Cavebox.Properties.Images.app;
-			this.Name = "MainForm";
+			this.MainMenuStrip = this.menuStrip;
+			this.Name = "Main";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainFormClosing);
 			this.cakeboxDiscFileSplitContainer.Panel1.ResumeLayout(false);
 			this.cakeboxDiscFileSplitContainer.Panel2.ResumeLayout(false);

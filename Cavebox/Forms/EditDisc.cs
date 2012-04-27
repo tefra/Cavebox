@@ -33,6 +33,7 @@ namespace Cavebox.Forms
 		{
 			InitializeComponent();
 			app = form;
+			this.Text += " #" + id;
 			_id = id;
 			_cid = cid;
 			_label = label;
