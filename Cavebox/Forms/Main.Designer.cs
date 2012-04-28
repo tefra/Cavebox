@@ -210,7 +210,7 @@ namespace Cavebox.Forms
 			// 
 			// editCakeboxMenuItem
 			// 
-			this.editCakeboxMenuItem.Image = global::Cavebox.Properties.Images.document_edit;
+			this.editCakeboxMenuItem.Image = global::Cavebox.Properties.Images.edit;
 			this.editCakeboxMenuItem.Name = "editCakeboxMenuItem";
 			resources.ApplyResources(this.editCakeboxMenuItem, "editCakeboxMenuItem");
 			this.editCakeboxMenuItem.Click += new System.EventHandler(this.OpenEditCakeboxForm);
@@ -267,7 +267,7 @@ namespace Cavebox.Forms
 			// 
 			// editDiscMenuItem
 			// 
-			this.editDiscMenuItem.Image = global::Cavebox.Properties.Images.document_edit;
+			this.editDiscMenuItem.Image = global::Cavebox.Properties.Images.edit;
 			this.editDiscMenuItem.Name = "editDiscMenuItem";
 			resources.ApplyResources(this.editDiscMenuItem, "editDiscMenuItem");
 			this.editDiscMenuItem.Click += new System.EventHandler(this.OpenEditDiscForm);
@@ -643,7 +643,7 @@ namespace Cavebox.Forms
 			// saveNewDiscButton
 			// 
 			resources.ApplyResources(this.saveNewDiscButton, "saveNewDiscButton");
-			this.saveNewDiscButton.Image = global::Cavebox.Properties.Images.document_new;
+			this.saveNewDiscButton.Image = global::Cavebox.Properties.Images.edit;
 			this.saveNewDiscButton.Name = "saveNewDiscButton";
 			this.saveNewDiscButton.UseVisualStyleBackColor = true;
 			this.saveNewDiscButton.Click += new System.EventHandler(this.SaveNewDisc);

@@ -137,20 +137,6 @@ namespace Cavebox.Properties {
 			}
 		}
 		
-		internal static System.Drawing.Bitmap document_edit {
-			get {
-				object obj = ResourceManager.GetObject("document_edit", resourceCulture);
-				return ((System.Drawing.Bitmap)(obj));
-			}
-		}
-		
-		internal static System.Drawing.Bitmap document_new {
-			get {
-				object obj = ResourceManager.GetObject("document_new", resourceCulture);
-				return ((System.Drawing.Bitmap)(obj));
-			}
-		}
-		
 		internal static System.Drawing.Bitmap edit {
 			get {
 				object obj = ResourceManager.GetObject("edit", resourceCulture);

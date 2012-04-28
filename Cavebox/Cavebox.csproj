@@ -140,8 +140,6 @@
     <None Include="Resources\Images\database_go.png" />
     <None Include="Resources\Images\database_save.png" />
     <None Include="Resources\Images\delete.png" />
-    <None Include="Resources\Images\document_edit.png" />
-    <None Include="Resources\Images\document_new.png" />
     <None Include="Resources\Images\edit.png" />
     <None Include="Resources\Images\google.png" />
     <None Include="Resources\Images\imdb.png" />
