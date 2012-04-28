@@ -106,9 +106,10 @@ namespace Cavebox.Forms
 			this.scanLogActionsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.scanPathGroupBox = new System.Windows.Forms.GroupBox();
-			this.stopScanButton = new System.Windows.Forms.Button();
-			this.scanPathTextBox = new System.Windows.Forms.ComboBox();
-			this.startScanButton = new System.Windows.Forms.Button();
+			this.browseScanPathButton = new System.Windows.Forms.Button();
+			this.scanPathComboBox = new System.Windows.Forms.ComboBox();
+			this.toggleScanButton = new System.Windows.Forms.Button();
+			this.stopStartImageList = new System.Windows.Forms.ImageList(this.components);
 			this.consoleTabPage = new System.Windows.Forms.TabPage();
 			this.consoleGroupBox = new System.Windows.Forms.GroupBox();
 			this.console = new System.Windows.Forms.RichTextBox();
@@ -228,7 +229,7 @@ namespace Cavebox.Forms
 			// 
 			// massMoveDiscsMenuItem
 			// 
-			this.massMoveDiscsMenuItem.Image = global::Cavebox.Properties.Images.mass_move;
+			this.massMoveDiscsMenuItem.Image = global::Cavebox.Properties.Images.move;
 			this.massMoveDiscsMenuItem.Name = "massMoveDiscsMenuItem";
 			resources.ApplyResources(this.massMoveDiscsMenuItem, "massMoveDiscsMenuItem");
 			this.massMoveDiscsMenuItem.Click += new System.EventHandler(this.OpenMassMoveForm);
@@ -694,34 +695,41 @@ namespace Cavebox.Forms
 			// scanPathGroupBox
 			// 
 			resources.ApplyResources(this.scanPathGroupBox, "scanPathGroupBox");
-			this.scanPathGroupBox.Controls.Add(this.stopScanButton);
-			this.scanPathGroupBox.Controls.Add(this.scanPathTextBox);
-			this.scanPathGroupBox.Controls.Add(this.startScanButton);
+			this.scanPathGroupBox.Controls.Add(this.browseScanPathButton);
+			this.scanPathGroupBox.Controls.Add(this.scanPathComboBox);
+			this.scanPathGroupBox.Controls.Add(this.toggleScanButton);
 			this.scanPathGroupBox.Name = "scanPathGroupBox";
 			this.scanPathGroupBox.TabStop = false;
 			// 
-			// stopScanButton
+			// browseScanPathButton
 			// 
-			resources.ApplyResources(this.stopScanButton, "stopScanButton");
-			this.stopScanButton.Image = global::Cavebox.Properties.Images.stop;
-			this.stopScanButton.Name = "stopScanButton";
-			this.stopScanButton.UseVisualStyleBackColor = true;
-			this.stopScanButton.Click += new System.EventHandler(this.ScanWorkerStop);
+			resources.ApplyResources(this.browseScanPathButton, "browseScanPathButton");
+			this.browseScanPathButton.Image = global::Cavebox.Properties.Images.browse;
+			this.browseScanPathButton.Name = "browseScanPathButton";
+			this.browseScanPathButton.UseVisualStyleBackColor = true;
+			this.browseScanPathButton.Click += new System.EventHandler(this.BrowseScanPath);
 			// 
-			// scanPathTextBox
+			// scanPathComboBox
 			// 
-			resources.ApplyResources(this.scanPathTextBox, "scanPathTextBox");
-			this.scanPathTextBox.DataSource = this.discsListBox.CustomTabOffsets;
-			this.scanPathTextBox.FormattingEnabled = true;
-			this.scanPathTextBox.Name = "scanPathTextBox";
+			resources.ApplyResources(this.scanPathComboBox, "scanPathComboBox");
+			this.scanPathComboBox.DataSource = this.discsListBox.CustomTabOffsets;
+			this.scanPathComboBox.FormattingEnabled = true;
+			this.scanPathComboBox.Name = "scanPathComboBox";
 			// 
-			// startScanButton
+			// toggleScanButton
 			// 
-			resources.ApplyResources(this.startScanButton, "startScanButton");
-			this.startScanButton.Image = global::Cavebox.Properties.Images.start;
-			this.startScanButton.Name = "startScanButton";
-			this.startScanButton.UseVisualStyleBackColor = true;
-			this.startScanButton.Click += new System.EventHandler(this.ScanWorkerStart);
+			resources.ApplyResources(this.toggleScanButton, "toggleScanButton");
+			this.toggleScanButton.ImageList = this.stopStartImageList;
+			this.toggleScanButton.Name = "toggleScanButton";
+			this.toggleScanButton.UseVisualStyleBackColor = true;
+			this.toggleScanButton.Click += new System.EventHandler(this.ScanWorkerToggle);
+			// 
+			// stopStartImageList
+			// 
+			this.stopStartImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("stopStartImageList.ImageStream")));
+			this.stopStartImageList.TransparentColor = System.Drawing.Color.Transparent;
+			this.stopStartImageList.Images.SetKeyName(0, "start");
+			this.stopStartImageList.Images.SetKeyName(1, "stop");
 			// 
 			// consoleTabPage
 			// 
@@ -814,11 +822,12 @@ namespace Cavebox.Forms
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Button browseScanPathButton;
+		private System.Windows.Forms.ImageList stopStartImageList;
 		private System.Windows.Forms.ToolStripMenuItem resetWindowMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem vacuumDatabaseMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem toolsMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem exitMenuItem;
-		private System.Windows.Forms.Button stopScanButton;
 		private System.Windows.Forms.Timer filterTextChangedTimer;
 		private System.Windows.Forms.RichTextBox console;
 		private System.ComponentModel.BackgroundWorker scanWorker;
@@ -870,8 +879,8 @@ namespace Cavebox.Forms
 		private System.Windows.Forms.MenuStrip menuStrip;
 		private System.Windows.Forms.GroupBox consoleGroupBox;
 		private System.Windows.Forms.TabPage consoleTabPage;
-		private System.Windows.Forms.Button startScanButton;
-		private System.Windows.Forms.ComboBox scanPathTextBox;
+		private System.Windows.Forms.Button toggleScanButton;
+		private System.Windows.Forms.ComboBox scanPathComboBox;
 		private System.Windows.Forms.GroupBox scanPathGroupBox;
 		private System.Windows.Forms.RichTextBox scanLog;
 		private System.Windows.Forms.GroupBox scanLogGroupBox;

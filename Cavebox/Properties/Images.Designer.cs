@@ -88,6 +88,13 @@ namespace Cavebox.Properties {
 			}
 		}
 		
+		internal static System.Drawing.Bitmap browse {
+			get {
+				object obj = ResourceManager.GetObject("browse", resourceCulture);
+				return ((System.Drawing.Bitmap)(obj));
+			}
+		}
+		
 		internal static System.Drawing.Bitmap cancel {
 			get {
 				object obj = ResourceManager.GetObject("cancel", resourceCulture);
@@ -172,13 +179,6 @@ namespace Cavebox.Properties {
 			}
 		}
 		
-		internal static System.Drawing.Bitmap mass_move {
-			get {
-				object obj = ResourceManager.GetObject("mass_move", resourceCulture);
-				return ((System.Drawing.Bitmap)(obj));
-			}
-		}
-		
 		internal static System.Drawing.Bitmap move {
 			get {
 				object obj = ResourceManager.GetObject("move", resourceCulture);
@@ -189,20 +189,6 @@ namespace Cavebox.Properties {
 		internal static System.Drawing.Bitmap sort {
 			get {
 				object obj = ResourceManager.GetObject("sort", resourceCulture);
-				return ((System.Drawing.Bitmap)(obj));
-			}
-		}
-		
-		internal static System.Drawing.Bitmap start {
-			get {
-				object obj = ResourceManager.GetObject("start", resourceCulture);
-				return ((System.Drawing.Bitmap)(obj));
-			}
-		}
-		
-		internal static System.Drawing.Bitmap stop {
-			get {
-				object obj = ResourceManager.GetObject("stop", resourceCulture);
 				return ((System.Drawing.Bitmap)(obj));
 			}
 		}

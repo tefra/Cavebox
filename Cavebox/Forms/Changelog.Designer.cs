@@ -45,13 +45,13 @@ namespace Cavebox.Forms
 			this.changelogTextBox.Name = "changelogTextBox";
 			this.changelogTextBox.ReadOnly = true;
 			// 
-			// ChangelogForm
+			// Changelog
 			// 
 			resources.ApplyResources(this, "$this");
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this.changelogTextBox);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-			this.Name = "ChangelogForm";
+			this.Name = "Changelog";
 			this.ShowInTaskbar = false;
 			this.ResumeLayout(false);
 		}

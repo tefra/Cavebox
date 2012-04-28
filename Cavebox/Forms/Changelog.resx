@@ -133,7 +133,12 @@
     <value>0</value>
   </data>
   <data name="changelogTextBox.Text" xml:space="preserve">
-    <value>v2.0.0
+    <value>v2.0.1
+- Code cleanup
+- Speed/Load Improvements
+- Java to C# Port MIA features added back
+-------------------------------------------------------------
+v2.0.0
 - Renamed application to Cavebox
 - Ported application to C# - SQLite
 -------------------------------------------------------------

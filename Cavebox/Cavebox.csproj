@@ -133,6 +133,7 @@
     <None Include="Resources\Images\add.png" />
     <None Include="Resources\Images\alt.png" />
     <None Include="Resources\Images\anidb.png" />
+    <None Include="Resources\Images\browse.png" />
     <None Include="Resources\Images\cancel.png" />
     <None Include="Resources\Images\database.png" />
     <None Include="Resources\Images\database_gear.png" />
@@ -145,7 +146,6 @@
     <None Include="Resources\Images\google.png" />
     <None Include="Resources\Images\imdb.png" />
     <None Include="Resources\Images\lastFM.png" />
-    <None Include="Resources\Images\mass_move.png" />
     <None Include="Resources\Images\move.png" />
     <None Include="Resources\Images\sort.png" />
     <None Include="Resources\Images\start.png" />

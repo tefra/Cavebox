@@ -48,7 +48,7 @@ namespace Cavebox.Forms
 				this.Dispose();
 			}
 			ShowCakeboxes(0, true);
-			scanPathTextBox.DataSource = DriveInfo.GetDrives().Where(d => d.Name != String.Empty  /*d.DriveType == DriveType.CDRom*/).ToArray();
+			scanPathComboBox.DataSource = DriveInfo.GetDrives().Where(d => d.Name != String.Empty  /*d.DriveType == DriveType.CDRom*/).ToArray();
 		}
 		
 		/// <summary>
@@ -269,16 +269,31 @@ namespace Cavebox.Forms
 		}
 		
 		/// <summary>
-		/// Start scan path procedure if path exists
+		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ScanWorkerStart(object sender, EventArgs e)
+		private void BrowseScanPath(object sender, EventArgs e)
+		{
+			FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+			folderBrowserDialog.ShowNewFolderButton = false;
+			if(folderBrowserDialog.ShowDialog() == DialogResult.OK)
+			{
+				scanPathComboBox.Text = folderBrowserDialog.SelectedPath;
+			}
+		}
+		
+		/// <summary>
+		/// Start/Stop scan path procedure if path exists
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ScanWorkerToggle(object sender, EventArgs e)
 		{
 			saveNewDiscButton.Enabled = false;
 			if(!scanWorker.IsBusy)
 			{
-				string path = scanPathTextBox.Text;
+				string path = scanPathComboBox.Text;
 				if(!path.EndsWith(Path.DirectorySeparatorChar.ToString()))
 				{
 					path += Path.DirectorySeparatorChar;
@@ -290,33 +305,23 @@ namespace Cavebox.Forms
 					stopWatch = DateTime.Now;
 					scanLog.Focus();
 					scanWorker.RunWorkerAsync(path);
-					scanPathTextBox.Enabled = false;
+					scanPathComboBox.Enabled = false;
 					scanLog.Text = null;
 					newDiscLabelTextBox.Text = null;
 					newDiscLabelTextBox.Enabled = false;
-					startScanButton.Enabled = false;
-					stopScanButton.Enabled = true;
+					toggleScanButton.ImageKey = "stop";
+					
 				}
 				else
 				{
 					scanLog.Text = Lang.GetString("_pathXnotavailabe", path);
 				}
 			}
-		}
-
-		/// <summary>
-		/// Stop scan procedure
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ScanWorkerStop(object sender, EventArgs e)
-		{
-			saveNewDiscButton.Enabled = false;
-			if(scanWorker.IsBusy)
+			else
 			{
 				scanWorker.CancelAsync();
-				startScanButton.Enabled = true;
-				stopScanButton.Enabled = false;
+				toggleScanButton.ImageKey = "start";
+
 			}
 		}
 		
@@ -401,9 +406,8 @@ namespace Cavebox.Forms
 		private void ScanWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
 		{
 			scanLog.ScrollToCaret();
-			scanPathTextBox.Enabled = true;
-			startScanButton.Enabled = true;
-			stopScanButton.Enabled = false;
+			scanPathComboBox.Enabled = true;
+			toggleScanButton.ImageKey = "start";
 			if(e.Cancelled)
 			{
 				scanLog.Clear();
@@ -415,7 +419,7 @@ namespace Cavebox.Forms
 			else
 			{
 				Console.WriteLine(Lang.GetString("_scanWasCompleted", scanTotalFiles, (DateTime.Now - stopWatch).TotalSeconds));
-				newDiscLabelTextBox.Text = new DriveInfo(scanPathTextBox.Text).VolumeLabel;
+				newDiscLabelTextBox.Text = new DriveInfo(scanPathComboBox.Text).VolumeLabel;
 				newDiscLabelTextBox.Enabled = true;
 				saveNewDiscButton.Enabled = true;
 			}
@@ -754,6 +758,7 @@ namespace Cavebox.Forms
 		private void ExportXml(object sender, EventArgs e)
 		{
 			FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+			folderBrowserDialog.SelectedPath = Path.GetDirectoryName(Application.ExecutablePath);
 			if(folderBrowserDialog.ShowDialog() == DialogResult.OK)
 			{
 				Cursor.Current = Cursors.WaitCursor;
@@ -776,7 +781,6 @@ namespace Cavebox.Forms
 			openFileDialog.InitialDirectory = Path.GetDirectoryName(Application.ExecutablePath);
 			openFileDialog.Filter = Lang.GetString("_xmlFilesDesc");
 			openFileDialog.Title = Lang.GetString("_selectBackupFile");
-			
 			
 			if (openFileDialog.ShowDialog() == DialogResult.OK)
 			{
