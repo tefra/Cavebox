@@ -219,7 +219,7 @@ namespace Cavebox.Forms
 		private void FilterOff(object sender, EventArgs e)
 		{
 			filterTextBox.TextChanged -= FilterTextBoxTextChanged;
-			filterTextBox.Text = null;
+			filterTextBox.Clear();
 			clearFilterButton.Enabled = false;
 			_filter = _filterLike = null;
 			ShowCakeboxes();
@@ -269,7 +269,7 @@ namespace Cavebox.Forms
 		}
 		
 		/// <summary>
-		/// 
+		/// Open browse folder dialog to set the scan path
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -277,6 +277,10 @@ namespace Cavebox.Forms
 		{
 			FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
 			folderBrowserDialog.ShowNewFolderButton = false;
+			if(Directory.Exists(scanPathComboBox.Text))
+			{
+				folderBrowserDialog.SelectedPath = scanPathComboBox.Text;
+			}
 			if(folderBrowserDialog.ShowDialog() == DialogResult.OK)
 			{
 				scanPathComboBox.Text = folderBrowserDialog.SelectedPath;
@@ -306,11 +310,10 @@ namespace Cavebox.Forms
 					scanLog.Focus();
 					scanWorker.RunWorkerAsync(path);
 					scanPathComboBox.Enabled = false;
-					scanLog.Text = null;
-					newDiscLabelTextBox.Text = null;
+					scanLog.Clear();
+					newDiscLabelTextBox.Clear();
 					newDiscLabelTextBox.Enabled = false;
 					toggleScanButton.ImageKey = "stop";
-					
 				}
 				else
 				{
@@ -321,7 +324,6 @@ namespace Cavebox.Forms
 			{
 				scanWorker.CancelAsync();
 				toggleScanButton.ImageKey = "start";
-
 			}
 		}
 		
@@ -338,7 +340,7 @@ namespace Cavebox.Forms
 			}
 			else
 			{
-				newDiscLabelTextBox.Text = null;
+				newDiscLabelTextBox.Clear();
 				newDiscLabelTextBox.Enabled = false;
 				saveNewDiscButton.Enabled = false;
 				scanLog.Clear();
@@ -346,58 +348,76 @@ namespace Cavebox.Forms
 		}
 		
 		/// <summary>
-		/// Scan worker start walking the dir tree
+		/// Scan worker start walking the dir tree with stack push/pop
+		/// Update UI every 100 found files
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="evt"></param>
 		private void ScanWorkerDoWork(object sender, System.ComponentModel.DoWorkEventArgs evt)
 		{
 			string root = evt.Argument as string;
+			int rootLength = root.Length;
+			int i = 0;
 			scanTotalFiles = 0;
-			WalkTree(root, root.Length, evt);
-		}
-		
-		/// <summary>
-		/// Recursive directory walking, remove the root from the file list
-		/// and cancel the procedure uppon user interruption
-		/// </summary>
-		/// <param name="path"></param>
-		/// <param name="substring"></param>
-		/// <param name="e"></param>
-		private void WalkTree(string path, int substring, DoWorkEventArgs e)
-		{
-			if(scanWorker.CancellationPending)
+			StringBuilder buf = new StringBuilder();
+			Stack<string> pending = new Stack<string>();
+			pending.Push(root);
+			while (pending.Count != 0)
 			{
-				e.Cancel = true;
-				return;
+				if(scanWorker.CancellationPending)
+				{
+					evt.Cancel = true;
+					return;
+				}
+				
+				string path = pending.Pop();
+				string[] files = null;
+				string[] dirs = null;
+				try
+				{
+					
+					dirs = Directory.GetDirectories(path);
+					foreach(string dir in dirs.Reverse())
+					{
+						pending.Push(dir);
+					}
+					files = Directory.GetFiles(path);
+					foreach(string file in files)
+					{
+						i++;
+						buf.AppendLine(file.Substring(rootLength));
+					}
+					
+					if(i > 100)
+					{
+						ScanWorkerUpdateRTB(buf, i);
+						buf.Clear();
+						i = 0;
+					}
+				}
+				catch { }
 			}
 			
-			try
+			if(i > 0)
 			{
-				string[] files = Directory.GetFiles(path);
-				StringBuilder buf = new StringBuilder();
-				foreach(string file in files)
-				{
-					buf.AppendLine(file.Substring(substring));
-				}
-				scanLog.Invoke(new MethodInvoker(delegate
-				                                 {
-				                                 	scanLog.AppendText(buf.ToString());
-				                                 	scanTotalFiles += files.Length;
-				                                 }));
-
-				string[] dirs = Directory.GetDirectories(path);
-				foreach(string dir in dirs)
-				{
-					WalkTree(dir, substring, e);
-				}
-			}
-			catch
-			{
-				
+				ScanWorkerUpdateRTB(buf, i);
 			}
 		}
 
+		/// <summary>
+		/// Invoke update rtb with scanworker file lists
+		/// </summary>
+		/// <param name="buf"></param>
+		/// <param name="files"></param>
+		private void ScanWorkerUpdateRTB(StringBuilder buf, int files)
+		{
+			scanLog.Invoke(new MethodInvoker(delegate
+			                                 {
+			                                 	scanLog.AppendText(buf.ToString());
+			                                 	scanTotalFiles += files;
+			                                 }));
+		}
+		
 		/// <summary>
 		/// Show scan worker cancelled/completed results
 		/// </summary>
@@ -411,7 +431,7 @@ namespace Cavebox.Forms
 			if(e.Cancelled)
 			{
 				scanLog.Clear();
-				newDiscLabelTextBox.Text = null;
+				newDiscLabelTextBox.Clear();
 				newDiscLabelTextBox.Enabled = false;
 				saveNewDiscButton.Enabled = false;
 				Console.WriteLine(Lang.GetString("_scanWasCanceled"));
@@ -455,7 +475,7 @@ namespace Cavebox.Forms
 				RefreshStatusBar(false, true);
 				scanLog.Clear();
 				scanLog.Text = Lang.GetString("_newDiscAdded", label, clabel);
-				newDiscLabelTextBox.Text = null;
+				newDiscLabelTextBox.Clear();
 				saveNewDiscButton.Enabled = false;
 			}
 		}
@@ -843,28 +863,3 @@ namespace Cavebox.Forms
 		}
 	}
 }
-
-/*private void ListBoxDrawItem(object sender, DrawItemEventArgs e)
-{
-ListBox listbox = (ListBox) sender;
-int index = e.Index;
-if (index >= 0 && index < listbox.Items.Count)
-{
-Graphics g = e.Graphics;
-Color backcolor, forecolor;
-if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
-{
-backcolor = SystemColors.Highlight;
-forecolor = SystemColors.HighlightText;
-}
-else
-{
-backcolor = (index % 2 == 0) ? Color.WhiteSmoke :  Color.White;
-forecolor = SystemColors.WindowText;
-}
-
-g.FillRectangle(new SolidBrush(backcolor), e.Bounds);
-g.DrawString(listbox.Items[index].ToString(), e.Font, new SolidBrush(forecolor), e.Bounds, StringFormat.GenericDefault);
-}
-e.DrawFocusRectangle();
-}*/
