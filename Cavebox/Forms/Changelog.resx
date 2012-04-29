@@ -135,7 +135,8 @@
   <data name="changelogTextBox.Text" xml:space="preserve">
     <value>v2.0.1
 - Code cleanup
-- Speed/Load Improvements
+- Improved scan process performance over 110% in some cases
+- Fixed memory usage issues
 - Java to C# Port MIA features added back
 -------------------------------------------------------------
 v2.0.0
@@ -209,6 +210,21 @@ v1.3.2
 - Updated Export|Import Procedures
 - Small UI Changed and fixes</value>
   </data>
+  <data name="&gt;&gt;changelogTextBox.Name" xml:space="preserve">
+    <value>changelogTextBox</value>
+  </data>
+  <data name="&gt;&gt;changelogTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;changelogTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;changelogTextBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
@@ -224,7 +240,10 @@ v1.3.2
   <data name="$this.Text" xml:space="preserve">
     <value>Changelog</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>Changelog</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

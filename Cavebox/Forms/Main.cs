@@ -375,7 +375,6 @@ namespace Cavebox.Forms
 				string[] dirs = null;
 				try
 				{
-					
 					dirs = Directory.GetDirectories(path);
 					foreach(string dir in dirs.Reverse())
 					{
@@ -397,7 +396,6 @@ namespace Cavebox.Forms
 				}
 				catch { }
 			}
-			
 			if(i > 0)
 			{
 				ScanWorkerUpdateRTB(buf, i);
@@ -721,9 +719,7 @@ namespace Cavebox.Forms
 			}
 		}
 		
-
 		/* Menu strip actions */
-		
 		/// <summary>
 		/// Open edit cakebox dialog
 		/// </summary>
