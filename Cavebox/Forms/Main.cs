@@ -313,7 +313,7 @@ namespace Cavebox.Forms
 					scanLog.Clear();
 					newDiscLabelTextBox.Clear();
 					newDiscLabelTextBox.Enabled = false;
-					toggleScanButton.ImageKey = "stop";
+					toggleScanPathButton.ImageKey = "stop";
 				}
 				else
 				{
@@ -323,7 +323,7 @@ namespace Cavebox.Forms
 			else
 			{
 				scanWorker.CancelAsync();
-				toggleScanButton.ImageKey = "start";
+				toggleScanPathButton.ImageKey = "start";
 			}
 		}
 		
@@ -425,7 +425,7 @@ namespace Cavebox.Forms
 		{
 			scanLog.ScrollToCaret();
 			scanPathComboBox.Enabled = true;
-			toggleScanButton.ImageKey = "start";
+			toggleScanPathButton.ImageKey = "start";
 			if(e.Cancelled)
 			{
 				scanLog.Clear();
@@ -710,7 +710,7 @@ namespace Cavebox.Forms
 					break;
 					
 				case 1:
-					AcceptButton = saveNewDiscButton;
+					AcceptButton = saveNewDiscButton.Enabled ? saveNewDiscButton : toggleScanPathButton;
 					break;
 					
 				case 2:

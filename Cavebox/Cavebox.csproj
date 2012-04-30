@@ -151,5 +151,9 @@
     <None Include="Resources\Images\wikipedia.png" />
     <None Include="Resources\Images\youtube.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="ProfilingSessions\Session20120429_215611.sdps" />
+    <Content Include="ProfilingSessions\Session20120429_215713.sdps" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
 </Project>

@@ -103,18 +103,18 @@ namespace Cavebox.Forms
 			this.newDiscLabelLabel = new System.Windows.Forms.Label();
 			this.scanLogGroupBox = new System.Windows.Forms.GroupBox();
 			this.scanLog = new System.Windows.Forms.RichTextBox();
-			this.scanLogActionsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.scanPathGroupBox = new System.Windows.Forms.GroupBox();
 			this.browseScanPathButton = new System.Windows.Forms.Button();
 			this.scanPathComboBox = new System.Windows.Forms.ComboBox();
-			this.toggleScanButton = new System.Windows.Forms.Button();
+			this.toggleScanPathButton = new System.Windows.Forms.Button();
 			this.stopStartImageList = new System.Windows.Forms.ImageList(this.components);
 			this.consoleTabPage = new System.Windows.Forms.TabPage();
 			this.consoleGroupBox = new System.Windows.Forms.GroupBox();
 			this.console = new System.Windows.Forms.RichTextBox();
 			this.consoleActionsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.scanLogActionsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.scanWorker = new System.ComponentModel.BackgroundWorker();
 			this.filterTextChangedTimer = new System.Windows.Forms.Timer(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.cakeboxDiscFileSplitContainer)).BeginInit();
@@ -139,11 +139,11 @@ namespace Cavebox.Forms
 			this.scanTabPage.SuspendLayout();
 			this.saveNewDiscGroupBox.SuspendLayout();
 			this.scanLogGroupBox.SuspendLayout();
-			this.scanLogActionsMenu.SuspendLayout();
 			this.scanPathGroupBox.SuspendLayout();
 			this.consoleTabPage.SuspendLayout();
 			this.consoleGroupBox.SuspendLayout();
 			this.consoleActionsMenu.SuspendLayout();
+			this.scanLogActionsMenu.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// cakeboxDiscFileSplitContainer
@@ -643,7 +643,7 @@ namespace Cavebox.Forms
 			// saveNewDiscButton
 			// 
 			resources.ApplyResources(this.saveNewDiscButton, "saveNewDiscButton");
-			this.saveNewDiscButton.Image = global::Cavebox.Properties.Images.edit;
+			this.saveNewDiscButton.Image = global::Cavebox.Properties.Images.add;
 			this.saveNewDiscButton.Name = "saveNewDiscButton";
 			this.saveNewDiscButton.UseVisualStyleBackColor = true;
 			this.saveNewDiscButton.Click += new System.EventHandler(this.SaveNewDisc);
@@ -673,31 +673,17 @@ namespace Cavebox.Forms
 			// scanLog
 			// 
 			this.scanLog.BackColor = System.Drawing.SystemColors.Window;
-			this.scanLog.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.scanLog.ContextMenuStrip = this.scanLogActionsMenu;
 			resources.ApplyResources(this.scanLog, "scanLog");
 			this.scanLog.Name = "scanLog";
 			this.scanLog.ReadOnly = true;
-			// 
-			// scanLogActionsMenu
-			// 
-			this.scanLogActionsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-									this.resetToolStripMenuItem});
-			this.scanLogActionsMenu.Name = "scanLogActionsMenu";
-			resources.ApplyResources(this.scanLogActionsMenu, "scanLogActionsMenu");
-			// 
-			// resetToolStripMenuItem
-			// 
-			this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
-			resources.ApplyResources(this.resetToolStripMenuItem, "resetToolStripMenuItem");
-			this.resetToolStripMenuItem.Click += new System.EventHandler(this.ScanWorkerReset);
 			// 
 			// scanPathGroupBox
 			// 
 			resources.ApplyResources(this.scanPathGroupBox, "scanPathGroupBox");
 			this.scanPathGroupBox.Controls.Add(this.browseScanPathButton);
 			this.scanPathGroupBox.Controls.Add(this.scanPathComboBox);
-			this.scanPathGroupBox.Controls.Add(this.toggleScanButton);
+			this.scanPathGroupBox.Controls.Add(this.toggleScanPathButton);
 			this.scanPathGroupBox.Name = "scanPathGroupBox";
 			this.scanPathGroupBox.TabStop = false;
 			// 
@@ -716,13 +702,13 @@ namespace Cavebox.Forms
 			this.scanPathComboBox.FormattingEnabled = true;
 			this.scanPathComboBox.Name = "scanPathComboBox";
 			// 
-			// toggleScanButton
+			// toggleScanPathButton
 			// 
-			resources.ApplyResources(this.toggleScanButton, "toggleScanButton");
-			this.toggleScanButton.ImageList = this.stopStartImageList;
-			this.toggleScanButton.Name = "toggleScanButton";
-			this.toggleScanButton.UseVisualStyleBackColor = true;
-			this.toggleScanButton.Click += new System.EventHandler(this.ScanWorkerToggle);
+			resources.ApplyResources(this.toggleScanPathButton, "toggleScanPathButton");
+			this.toggleScanPathButton.ImageList = this.stopStartImageList;
+			this.toggleScanPathButton.Name = "toggleScanPathButton";
+			this.toggleScanPathButton.UseVisualStyleBackColor = true;
+			this.toggleScanPathButton.Click += new System.EventHandler(this.ScanWorkerToggle);
 			// 
 			// stopStartImageList
 			// 
@@ -765,6 +751,19 @@ namespace Cavebox.Forms
 			this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
 			resources.ApplyResources(this.clearToolStripMenuItem, "clearToolStripMenuItem");
 			this.clearToolStripMenuItem.Click += new System.EventHandler(this.ClearConsole);
+			// 
+			// scanLogActionsMenu
+			// 
+			this.scanLogActionsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.resetToolStripMenuItem});
+			this.scanLogActionsMenu.Name = "scanLogActionsMenu";
+			resources.ApplyResources(this.scanLogActionsMenu, "scanLogActionsMenu");
+			// 
+			// resetToolStripMenuItem
+			// 
+			this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
+			resources.ApplyResources(this.resetToolStripMenuItem, "resetToolStripMenuItem");
+			this.resetToolStripMenuItem.Click += new System.EventHandler(this.ScanWorkerReset);
 			// 
 			// scanWorker
 			// 
@@ -814,11 +813,11 @@ namespace Cavebox.Forms
 			this.saveNewDiscGroupBox.ResumeLayout(false);
 			this.saveNewDiscGroupBox.PerformLayout();
 			this.scanLogGroupBox.ResumeLayout(false);
-			this.scanLogActionsMenu.ResumeLayout(false);
 			this.scanPathGroupBox.ResumeLayout(false);
 			this.consoleTabPage.ResumeLayout(false);
 			this.consoleGroupBox.ResumeLayout(false);
 			this.consoleActionsMenu.ResumeLayout(false);
+			this.scanLogActionsMenu.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
@@ -879,7 +878,7 @@ namespace Cavebox.Forms
 		private System.Windows.Forms.MenuStrip menuStrip;
 		private System.Windows.Forms.GroupBox consoleGroupBox;
 		private System.Windows.Forms.TabPage consoleTabPage;
-		private System.Windows.Forms.Button toggleScanButton;
+		private System.Windows.Forms.Button toggleScanPathButton;
 		private System.Windows.Forms.ComboBox scanPathComboBox;
 		private System.Windows.Forms.GroupBox scanPathGroupBox;
 		private System.Windows.Forms.RichTextBox scanLog;
