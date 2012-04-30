@@ -15,7 +15,7 @@ namespace Cavebox.Lib
 	public class XMLExport
 	{
 		/// <summary>
-		/// 
+		/// Open xmlwriter and write db tables cakebox and disc
 		/// </summary>
 		/// <param name="file"></param>
 		public XMLExport(string file)
@@ -35,7 +35,7 @@ namespace Cavebox.Lib
 		}
 		
 		/// <summary>
-		/// 
+		/// Write table data with xmlwriter
 		/// </summary>
 		/// <param name="table"></param>
 		/// <param name="writer"></param>

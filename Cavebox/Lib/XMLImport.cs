@@ -16,7 +16,8 @@ namespace Cavebox.Lib
 	public class XMLImport
 	{
 		/// <summary>
-		/// 
+		/// Read table data and insert it. Expect an exception in case
+		/// of bad schmema or missing table structures.
 		/// </summary>
 		/// <param name="file"></param>
 		public XMLImport(string file)
@@ -26,10 +27,7 @@ namespace Cavebox.Lib
 				string table = null;
 				List<string> columns = null;
 				List<string> values = null;
-				
-				SQLiteConnection db = Model.db;
-				
-				SQLiteTransaction transaction = db.BeginTransaction();
+				SQLiteTransaction transaction = Model.db.BeginTransaction();
 				using (XmlReader reader = new XmlTextReader(file))
 				{
 					while (reader.Read())

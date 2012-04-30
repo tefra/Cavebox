@@ -58,6 +58,17 @@ namespace Cavebox.Forms
 		/// <param name="e"></param>
 		private void MainFormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
 		{
+			
+			Properties.Settings.Default.WindowSize = this.Size;
+			Properties.Settings.Default.WindowLocation = this.Location;
+
+		
+			//Properties.Settings.Default.test = "xristodoulos";
+			Properties.Settings.Default.Save();
+			
+			
+			
+			
 			Console.WriteLine(Lang.GetString("_applicationClosing"));
 			Model.Close();
 		}
