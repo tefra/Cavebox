@@ -6,41 +6,73 @@
 using System.Configuration;
 using System.Windows.Forms;
 using System.Collections.Specialized;
-
 using System.Xml;
 using System.IO;
 
-
+/// <summary>
+/// 
+/// </summary>
 public class PortableSettingsProvider : SettingsProvider
 {
+	/// <summary>
+	/// 
+	/// </summary>
 	const string SETTINGSROOT = "Settings";
-
+	/// <summary>
+	/// 
+	/// </summary>
+	private XmlDocument _settingsXML = null;
+	
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="name"></param>
+	/// <param name="col"></param>
 	public override void Initialize(string name, NameValueCollection col)
 	{
 		base.Initialize(this.ApplicationName, col);
 	}
 	
+	/// <summary>
+	/// 
+	/// </summary>
 	public override string ApplicationName
 	{
 		get { return Application.ProductName; }
 		set { }
 	}
 	
+	/// <summary>
+	/// 
+	/// </summary>
 	public override string Name
 	{
 		get { return "PortableSettingsProvider"; }
 	}
 	
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <returns></returns>
 	public virtual string GetAppSettingsPath()
 	{
 		return Path.GetDirectoryName(Application.ExecutablePath);
 	}
 	
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <returns></returns>
 	public virtual string GetAppSettingsFilename()
 	{
 		return "settings.xml";
 	}
 	
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="context"></param>
+	/// <param name="propvals"></param>
 	public override void SetPropertyValues(SettingsContext context, SettingsPropertyValueCollection propvals)
 	{
 		foreach (SettingsPropertyValue propval in propvals)
@@ -54,6 +86,12 @@ public class PortableSettingsProvider : SettingsProvider
 		catch { }
 	}
 	
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="context"></param>
+	/// <param name="props"></param>
+	/// <returns></returns>
 	public override SettingsPropertyValueCollection GetPropertyValues(SettingsContext context, SettingsPropertyCollection props)
 	{
 		
@@ -68,8 +106,9 @@ public class PortableSettingsProvider : SettingsProvider
 		return values;
 	}
 	
-	private XmlDocument _settingsXML = null;
-	
+	/// <summary>
+	/// 
+	/// </summary>
 	private XmlDocument SettingsXML
 	{
 		get {
@@ -94,6 +133,11 @@ public class PortableSettingsProvider : SettingsProvider
 		}
 	}
 	
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="setting"></param>
+	/// <returns></returns>
 	private string GetValue(SettingsProperty setting)
 	{
 		try
@@ -106,6 +150,10 @@ public class PortableSettingsProvider : SettingsProvider
 		}
 	}
 	
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="propVal"></param>
 	private void SetValue(SettingsPropertyValue propVal)
 	{
 
