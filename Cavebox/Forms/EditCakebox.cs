@@ -40,7 +40,7 @@ namespace Cavebox.Forms
 		}
 		
 		/// <summary>
-		/// 
+		/// Insert/Update cakebox label notify main form to update
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -49,16 +49,8 @@ namespace Cavebox.Forms
 			String label = cakeboxLabel.Text.Trim();
 			if(label != _label && label.Length > 0)
 			{
-				if(_id > 0)
-				{
-					Console.WriteLine(Lang.GetString("_updatedCakebox", _id));
-				}
-				else
-				{
-					Console.WriteLine(Lang.GetString("_addedNewCakebox", label));
-				}
+				Console.WriteLine((_id > 0) ? Lang.GetString("_updatedCakebox", _id) : Lang.GetString("_addedNewCakebox", label));
 				Model.SaveCakebox(label, _id);
-				app.RefreshStatusBar(true, false);
 				app.ShowCakeboxes(_id, true);
 				CloseForm(sender, e);
 			}

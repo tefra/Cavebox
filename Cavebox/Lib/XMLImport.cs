@@ -15,6 +15,8 @@ namespace Cavebox.Lib
 	/// </summary>
 	public class XMLImport
 	{
+		public Dictionary<string, int> imported = new Dictionary<string, int>();
+		
 		/// <summary>
 		/// Read table data and insert it. Expect an exception in case
 		/// of bad schmema or missing table structures.
@@ -50,6 +52,7 @@ namespace Cavebox.Lib
 						{
 							if(reader.Name == "table")
 							{
+								imported[table] = imported.ContainsKey(table) ? imported[table] + 1 : 1;
 								Model.Insert(table, columns, values);
 							}
 						}
@@ -65,6 +68,11 @@ namespace Cavebox.Lib
 			{
 				
 			}
+			
+			
+			
+			
+			
 		}
 	}
 }

@@ -29,7 +29,7 @@ namespace Cavebox.Lib
 		{
 			try
 			{
-				db = new SQLiteConnection(connectionString).OpenAndReturn();				
+				db = new SQLiteConnection(connectionString).OpenAndReturn();
 				return true;
 			}
 			catch
@@ -77,29 +77,31 @@ namespace Cavebox.Lib
 		/// </summary>
 		public static void Install()
 		{
-			try
-			{				
-				ExecuteNonQuery(
-					"CREATE TABLE IF NOT EXISTS cakebox ("
-					+ " id INTEGER PRIMARY KEY, "
-					+ " label TEXT NOT NULL);"
-					+ "CREATE TABLE IF NOT EXISTS disc ("
-					+ " id INTEGER PRIMARY KEY, "
-					+ " cid INTEGER DEFAULT 0, "
-					+ " label TEXT NOT NULL, "
-					+ " files TEXT NOT NULL, "
-					+ " filesno INTEGER DEFAULT 0, "
-					+ " added INTEGER NOT NULL DEFAULT 0);"
-					+ "CREATE INDEX IF NOT EXISTS disc_cid ON disc (cid ASC);"
-					+ "CREATE INDEX IF NOT EXISTS disc_files ON disc (files ASC);"
-				);
-			}
-			catch(SQLiteException e)
-			{
-				Console.WriteLine(e.Message);
-			}
+			ExecuteNonQuery(
+				"CREATE TABLE IF NOT EXISTS cakebox ("
+				+ " id INTEGER PRIMARY KEY, "
+				+ " label TEXT NOT NULL);"
+				+ "CREATE TABLE IF NOT EXISTS disc ("
+				+ " id INTEGER PRIMARY KEY, "
+				+ " cid INTEGER DEFAULT 0, "
+				+ " label TEXT NOT NULL, "
+				+ " files TEXT NOT NULL, "
+				+ " filesno INTEGER DEFAULT 0, "
+				+ " added INTEGER NOT NULL DEFAULT 0);"
+				+ "CREATE INDEX IF NOT EXISTS disc_cid ON disc (cid ASC);"
+				+ "CREATE INDEX IF NOT EXISTS disc_files ON disc (files ASC);"
+			);
 		}
-
+		
+		/// <summary>
+		/// Drop tables cakebox and disc
+		/// </summary>
+		public static void DropTables()
+		{
+			ExecuteNonQuery("DROP TABLE cakebox");
+			ExecuteNonQuery("DROP TABLE disc");
+		}
+		
 		/// <summary>
 		/// Rebuild file counters
 		/// </summary>
@@ -142,7 +144,7 @@ namespace Cavebox.Lib
 			{
 				return args[0].ToString().ToLower();
 			}
-		}	
+		}
 		
 		/// <summary>
 		/// Fetch cakeboxes list with or without filter
@@ -371,7 +373,7 @@ namespace Cavebox.Lib
 		}
 		
 		/// <summary>
-		/// Fetch total discs 
+		/// Fetch total discs
 		/// </summary>
 		/// <returns></returns>
 		public static int GetTotalDiscs()
@@ -486,7 +488,7 @@ namespace Cavebox.Lib
 		/// </summary>
 		/// <param name="sql"></param>
 		/// <returns></returns>
-		private static SQLiteCommand CreateCommand(string sql)
+		public static SQLiteCommand CreateCommand(string sql)
 		{
 			SQLiteCommand c = db.CreateCommand();
 			c.CommandText = sql;

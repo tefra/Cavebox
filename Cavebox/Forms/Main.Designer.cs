@@ -84,6 +84,7 @@ namespace Cavebox.Forms
 			this.toolsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.rebuildTotalFilesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.vacuumDatabaseMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.dropDataMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.changelogMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.statusStrip = new System.Windows.Forms.StatusStrip();
@@ -468,7 +469,7 @@ namespace Cavebox.Forms
 			this.newCakeboxMenuItem.Image = global::Cavebox.Properties.Images.database;
 			this.newCakeboxMenuItem.Name = "newCakeboxMenuItem";
 			resources.ApplyResources(this.newCakeboxMenuItem, "newCakeboxMenuItem");
-			this.newCakeboxMenuItem.Click += new System.EventHandler(this.OpenEditCakeboxForm);
+			this.newCakeboxMenuItem.Click += new System.EventHandler(this.OpenAddCakeboxForm);
 			// 
 			// importMenuItem
 			// 
@@ -519,7 +520,8 @@ namespace Cavebox.Forms
 			// 
 			this.toolsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
 									this.rebuildTotalFilesMenuItem,
-									this.vacuumDatabaseMenuItem});
+									this.vacuumDatabaseMenuItem,
+									this.dropDataMenuItem});
 			this.toolsMenuItem.Name = "toolsMenuItem";
 			resources.ApplyResources(this.toolsMenuItem, "toolsMenuItem");
 			// 
@@ -534,6 +536,12 @@ namespace Cavebox.Forms
 			this.vacuumDatabaseMenuItem.Name = "vacuumDatabaseMenuItem";
 			resources.ApplyResources(this.vacuumDatabaseMenuItem, "vacuumDatabaseMenuItem");
 			this.vacuumDatabaseMenuItem.Click += new System.EventHandler(this.VacuumTables);
+			// 
+			// dropDataMenuItem
+			// 
+			this.dropDataMenuItem.Name = "dropDataMenuItem";
+			resources.ApplyResources(this.dropDataMenuItem, "dropDataMenuItem");
+			this.dropDataMenuItem.Click += new System.EventHandler(this.DropData);
 			// 
 			// helpMenuItem
 			// 
@@ -822,6 +830,7 @@ namespace Cavebox.Forms
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripMenuItem dropDataMenuItem;
 		private System.Windows.Forms.Button browseScanPathButton;
 		private System.Windows.Forms.ImageList stopStartImageList;
 		private System.Windows.Forms.ToolStripMenuItem resetWindowMenuItem;

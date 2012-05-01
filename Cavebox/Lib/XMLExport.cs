@@ -43,22 +43,23 @@ namespace Cavebox.Lib
 		{
 			try
 			{
-				SQLiteCommand cm = Model.db.CreateCommand();
-				cm.CommandText = "SELECT * FROM "+table+" WHERE 1";
-				SQLiteDataReader row = cm.ExecuteReader();
-				while(row.Read())
+				SQLiteCommand c = Model.CreateCommand("SELECT * FROM " + table + " WHERE 1");
+				SQLiteDataReader r = c.ExecuteReader();
+				while(r.Read())
 				{
 					writer.WriteStartElement("table");
 					writer.WriteAttributeString("name", table);
-					for(int i = 0; i < row.FieldCount; i++)
+					for(int i = 0; i < r.FieldCount; i++)
 					{
 						writer.WriteStartElement("column");
-						writer.WriteAttributeString("name", row.GetName(i));
-						writer.WriteString(row.GetValue(i).ToString());
+						writer.WriteAttributeString("name", r.GetName(i));
+						writer.WriteString(r.GetValue(i).ToString());
 						writer.WriteEndElement();
 					}
 					writer.WriteEndElement();
 				}
+				r.Close();
+				c.Dispose();
 			}
 			catch(SQLiteException e)
 			{

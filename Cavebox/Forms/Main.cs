@@ -253,7 +253,7 @@ namespace Cavebox.Forms
 		/// </summary>
 		/// <param name="cakebox"></param>
 		/// <param name="disc"></param>
-		public void RefreshStatusBar(Boolean cakebox = false, Boolean disc = false)
+		private void RefreshStatusBar(Boolean cakebox = false, Boolean disc = false)
 		{
 			if(cakebox)
 			{
@@ -502,7 +502,7 @@ namespace Cavebox.Forms
 		
 
 		/// <summary>
-		/// Delete cakebox
+		/// Delete cakebox, with confirmation dialog
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -510,9 +510,9 @@ namespace Cavebox.Forms
 		{
 			if(discsListBox.Items.Count > 0)
 			{
-				MessageBox.Show(Lang.GetString("_cakeboxNotEmpty"), Lang.GetString("_error"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+				MessageBox.Show(Lang.GetString("_cakeboxNotEmpty"), Lang.GetString("_error"), MessageBoxButtons.OK, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1);
 			}
-			else if(MessageBox.Show(Lang.GetString("_confirmDeleteCakebox", cakeboxesListBox.Text), Lang.GetString("_confirmDelete"), MessageBoxButtons.YesNo) == DialogResult.Yes)
+			else if(MessageBox.Show(Lang.GetString("_confirmDeleteCakebox", cakeboxesListBox.Text), Lang.GetString("_confirmTitle"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
 			{
 				Model.DeleteCakebox(Convert.ToInt32(cakeboxesListBox.SelectedValue.ToString()));
 				Console.WriteLine(Lang.GetString("_cakeboxDeleted", cakeboxesListBox.Text));
@@ -552,13 +552,13 @@ namespace Cavebox.Forms
 		}
 
 		/// <summary>
-		/// Delete disc
+		/// Delete disc, with confirmation dialog
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void DeleteDisc(object sender, EventArgs e)
 		{
-			if(MessageBox.Show(Lang.GetString("_confirmDeleteDisc", discsListBox.Text), Lang.GetString("_confirmDelete"), MessageBoxButtons.YesNo) == DialogResult.Yes)
+			if(MessageBox.Show(Lang.GetString("_confirmDeleteDisc", discsListBox.Text), Lang.GetString("_confirmTitle"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
 			{
 				Model.DeleteDisc(Convert.ToInt32(discsListBox.SelectedValue.ToString()));
 				Console.WriteLine(Lang.GetString("_discDeleted", discsListBox.Text));
@@ -743,6 +743,16 @@ namespace Cavebox.Forms
 		
 		/* Menu strip actions */
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void OpenAddCakeboxForm(object sender, EventArgs e)
+		{
+			new EditCakebox(this).ShowDialog();
+		}
+		
+		/// <summary>
 		/// Open edit cakebox dialog
 		/// </summary>
 		/// <param name="sender"></param>
@@ -751,7 +761,6 @@ namespace Cavebox.Forms
 		{
 			int id = 0;
 			string label = null;
-			
 			if(cakeboxesListBox.SelectedIndex > -1)
 			{
 				id = Convert.ToInt32(cakeboxesListBox.SelectedValue.ToString());
@@ -759,7 +768,7 @@ namespace Cavebox.Forms
 			}
 			new EditCakebox(this, id, label).ShowDialog();
 		}
-		
+
 		/// <summary>
 		/// Rebuild file counters, legacy procedure
 		/// </summary>
@@ -786,6 +795,25 @@ namespace Cavebox.Forms
 			Model.Vacuum();
 			Console.WriteLine(Lang.GetString("_vacuumTables", (DateTime.Now - stopWatch).TotalSeconds));
 			Cursor.Current = Cursors.Default;
+		}
+		
+		/// <summary>
+		/// Drop/Recreate database tables, with confirmation dialog
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void DropData(object sender, EventArgs e)
+		{
+			if(MessageBox.Show(Lang.GetString("_confirmDropData"), Lang.GetString("_confirmTitle"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+			{
+				Cursor.Current = Cursors.WaitCursor;
+				stopWatch = DateTime.Now;
+				Model.DropTables();
+				Model.Install();
+				Console.WriteLine(Lang.GetString("_dropData", (DateTime.Now - stopWatch).TotalSeconds));
+				Cursor.Current = Cursors.Default;
+				ShowCakeboxes(0, true);
+			}
 		}
 		
 		/// <summary>
@@ -824,8 +852,12 @@ namespace Cavebox.Forms
 			{
 				Cursor.Current = Cursors.WaitCursor;
 				stopWatch = DateTime.Now;
-				new XMLImport(openFileDialog.FileName);
+				XMLImport i = new XMLImport(openFileDialog.FileName);
 				Console.WriteLine(Lang.GetString("_importCompleted", (DateTime.Now - stopWatch).TotalSeconds));
+				foreach (KeyValuePair<string, int> pair in i.imported)
+				{
+					Console.Write(Lang.GetString("_importTableRows", pair.Key, pair.Value));
+				}
 				Cursor.Current = Cursors.Default;
 				ShowCakeboxes(0, true);
 			}

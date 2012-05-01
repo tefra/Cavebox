@@ -148,13 +148,10 @@
     <value>You can't delete a cakebox which isn't empty!</value>
   </data>
   <data name="_confirmDeleteDisc" xml:space="preserve">
-    <value>Are you sure you want to delete disc: {0}</value>
-  </data>
-  <data name="_confirmDelete" xml:space="preserve">
-    <value>Confirm delete</value>
+    <value>You are about to delete disc: {0}</value>
   </data>
   <data name="_confirmDeleteCakebox" xml:space="preserve">
-    <value>Are you sure you want to delete cakebox: {0}</value>
+    <value>You are about to delete cakebox: {0}</value>
   </data>
   <data name="_selectBackupFile" xml:space="preserve">
     <value>Select a backup File</value>
@@ -203,5 +200,18 @@
   </data>
   <data name="_vacuumTables" xml:space="preserve">
     <value>Vacuum database took {0:0.000} seconds</value>
+  </data>
+  <data name="_importTableRows" xml:space="preserve">
+    <value>Table {0}:  {1:n0} records
+</value>
+  </data>
+  <data name="_dropData" xml:space="preserve">
+    <value>Database reset took {0:0.000} seconds</value>
+  </data>
+  <data name="_confirmDropData" xml:space="preserve">
+    <value>All data will be lost, better have a backup!</value>
+  </data>
+  <data name="_confirmTitle" xml:space="preserve">
+    <value>Are you sure ?</value>
   </data>
 </root>
