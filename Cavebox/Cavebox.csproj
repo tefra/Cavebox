@@ -57,7 +57,6 @@
     </Reference>
     <Reference Include="System.Data.SQLite">
       <HintPath>..\..\sqlite binary bundle - x86 - net4.0 - 1.0.80.0\System.Data.SQLite.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
@@ -135,13 +134,17 @@
     <Folder Include="Resources\Icons" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="Resources\Icons\app.ico" />
-    <None Include="Resources\Images\add.png" />
+    <None Include="Resources\Images\add.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\Images\alt.png" />
     <None Include="Resources\Images\anidb.png" />
     <None Include="Resources\Images\browse.png" />
