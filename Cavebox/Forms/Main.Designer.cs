@@ -35,7 +35,7 @@ namespace Cavebox.Forms
 		{
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-			this.cakeboxDiscFileSplitContainer = new System.Windows.Forms.SplitContainer();
+			this.FileListSplitContainer = new System.Windows.Forms.SplitContainer();
 			this.cakeboxDiscSplitContainer = new System.Windows.Forms.SplitContainer();
 			this.cakeboxesGroupBox = new System.Windows.Forms.GroupBox();
 			this.cakeboxesListBox = new System.Windows.Forms.ListBox();
@@ -60,8 +60,8 @@ namespace Cavebox.Forms
 			this.filterGroupBox = new System.Windows.Forms.GroupBox();
 			this.clearFilterButton = new System.Windows.Forms.Button();
 			this.filterTextBox = new System.Windows.Forms.TextBox();
-			this.discFilesGroupBox = new System.Windows.Forms.GroupBox();
-			this.filesList = new System.Windows.Forms.RichTextBox();
+			this.fileListGroupBox = new System.Windows.Forms.GroupBox();
+			this.fileList = new System.Windows.Forms.RichTextBox();
 			this.filesListActionMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
@@ -74,8 +74,8 @@ namespace Cavebox.Forms
 			this.menuStrip = new System.Windows.Forms.MenuStrip();
 			this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.newCakeboxMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.restoreMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.backupMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.importMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.exportMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.viewMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -101,11 +101,13 @@ namespace Cavebox.Forms
 			this.newDiscLabelTextBox = new System.Windows.Forms.TextBox();
 			this.newDiscCakeboxLabel = new System.Windows.Forms.Label();
 			this.newDiscLabelLabel = new System.Windows.Forms.Label();
-			this.scanLogGroupBox = new System.Windows.Forms.GroupBox();
-			this.scanLog = new System.Windows.Forms.RichTextBox();
+			this.scanFileListGroupBox = new System.Windows.Forms.GroupBox();
+			this.scanFileList = new System.Windows.Forms.RichTextBox();
+			this.scanLogActionsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.scanPathGroupBox = new System.Windows.Forms.GroupBox();
-			this.browseScanPathButton = new System.Windows.Forms.Button();
 			this.scanPathComboBox = new System.Windows.Forms.ComboBox();
+			this.browseScanPathButton = new System.Windows.Forms.Button();
 			this.toggleScanPathButton = new System.Windows.Forms.Button();
 			this.stopStartImageList = new System.Windows.Forms.ImageList(this.components);
 			this.consoleTabPage = new System.Windows.Forms.TabPage();
@@ -113,14 +115,12 @@ namespace Cavebox.Forms
 			this.console = new System.Windows.Forms.RichTextBox();
 			this.consoleActionsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.scanLogActionsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.scanWorker = new System.ComponentModel.BackgroundWorker();
 			this.filterTextChangedTimer = new System.Windows.Forms.Timer(this.components);
-			((System.ComponentModel.ISupportInitialize)(this.cakeboxDiscFileSplitContainer)).BeginInit();
-			this.cakeboxDiscFileSplitContainer.Panel1.SuspendLayout();
-			this.cakeboxDiscFileSplitContainer.Panel2.SuspendLayout();
-			this.cakeboxDiscFileSplitContainer.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.FileListSplitContainer)).BeginInit();
+			this.FileListSplitContainer.Panel1.SuspendLayout();
+			this.FileListSplitContainer.Panel2.SuspendLayout();
+			this.FileListSplitContainer.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.cakeboxDiscSplitContainer)).BeginInit();
 			this.cakeboxDiscSplitContainer.Panel1.SuspendLayout();
 			this.cakeboxDiscSplitContainer.Panel2.SuspendLayout();
@@ -130,7 +130,7 @@ namespace Cavebox.Forms
 			this.discsGroupBox.SuspendLayout();
 			this.discsActionsMenu.SuspendLayout();
 			this.filterGroupBox.SuspendLayout();
-			this.discFilesGroupBox.SuspendLayout();
+			this.fileListGroupBox.SuspendLayout();
 			this.filesListActionMenu.SuspendLayout();
 			this.menuStrip.SuspendLayout();
 			this.statusStrip.SuspendLayout();
@@ -138,29 +138,29 @@ namespace Cavebox.Forms
 			this.mainTabPage.SuspendLayout();
 			this.scanTabPage.SuspendLayout();
 			this.saveNewDiscGroupBox.SuspendLayout();
-			this.scanLogGroupBox.SuspendLayout();
+			this.scanFileListGroupBox.SuspendLayout();
+			this.scanLogActionsMenu.SuspendLayout();
 			this.scanPathGroupBox.SuspendLayout();
 			this.consoleTabPage.SuspendLayout();
 			this.consoleGroupBox.SuspendLayout();
 			this.consoleActionsMenu.SuspendLayout();
-			this.scanLogActionsMenu.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// cakeboxDiscFileSplitContainer
+			// FileListSplitContainer
 			// 
-			resources.ApplyResources(this.cakeboxDiscFileSplitContainer, "cakeboxDiscFileSplitContainer");
-			this.cakeboxDiscFileSplitContainer.Name = "cakeboxDiscFileSplitContainer";
+			resources.ApplyResources(this.FileListSplitContainer, "FileListSplitContainer");
+			this.FileListSplitContainer.Name = "FileListSplitContainer";
 			// 
-			// cakeboxDiscFileSplitContainer.Panel1
+			// FileListSplitContainer.Panel1
 			// 
-			this.cakeboxDiscFileSplitContainer.Panel1.Controls.Add(this.cakeboxDiscSplitContainer);
-			this.cakeboxDiscFileSplitContainer.Panel1.Controls.Add(this.filterGroupBox);
-			resources.ApplyResources(this.cakeboxDiscFileSplitContainer.Panel1, "cakeboxDiscFileSplitContainer.Panel1");
+			this.FileListSplitContainer.Panel1.Controls.Add(this.cakeboxDiscSplitContainer);
+			this.FileListSplitContainer.Panel1.Controls.Add(this.filterGroupBox);
+			resources.ApplyResources(this.FileListSplitContainer.Panel1, "FileListSplitContainer.Panel1");
 			// 
-			// cakeboxDiscFileSplitContainer.Panel2
+			// FileListSplitContainer.Panel2
 			// 
-			this.cakeboxDiscFileSplitContainer.Panel2.Controls.Add(this.discFilesGroupBox);
-			resources.ApplyResources(this.cakeboxDiscFileSplitContainer.Panel2, "cakeboxDiscFileSplitContainer.Panel2");
+			this.FileListSplitContainer.Panel2.Controls.Add(this.fileListGroupBox);
+			resources.ApplyResources(this.FileListSplitContainer.Panel2, "FileListSplitContainer.Panel2");
 			// 
 			// cakeboxDiscSplitContainer
 			// 
@@ -358,21 +358,21 @@ namespace Cavebox.Forms
 			this.filterTextBox.Name = "filterTextBox";
 			this.filterTextBox.TextChanged += new System.EventHandler(this.FilterTextBoxTextChanged);
 			// 
-			// discFilesGroupBox
+			// fileListGroupBox
 			// 
-			this.discFilesGroupBox.Controls.Add(this.filesList);
-			resources.ApplyResources(this.discFilesGroupBox, "discFilesGroupBox");
-			this.discFilesGroupBox.Name = "discFilesGroupBox";
-			this.discFilesGroupBox.TabStop = false;
+			this.fileListGroupBox.Controls.Add(this.fileList);
+			resources.ApplyResources(this.fileListGroupBox, "fileListGroupBox");
+			this.fileListGroupBox.Name = "fileListGroupBox";
+			this.fileListGroupBox.TabStop = false;
 			// 
-			// filesList
+			// fileList
 			// 
-			this.filesList.BackColor = System.Drawing.SystemColors.Window;
-			this.filesList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.filesList.ContextMenuStrip = this.filesListActionMenu;
-			resources.ApplyResources(this.filesList, "filesList");
-			this.filesList.Name = "filesList";
-			this.filesList.ReadOnly = true;
+			this.fileList.BackColor = System.Drawing.SystemColors.Window;
+			this.fileList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.fileList.ContextMenuStrip = this.filesListActionMenu;
+			resources.ApplyResources(this.fileList, "fileList");
+			this.fileList.Name = "fileList";
+			this.fileList.ReadOnly = true;
 			// 
 			// filesListActionMenu
 			// 
@@ -456,8 +456,8 @@ namespace Cavebox.Forms
 			// 
 			this.fileMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
 									this.newCakeboxMenuItem,
-									this.restoreMenuItem,
-									this.backupMenuItem,
+									this.importMenuItem,
+									this.exportMenuItem,
 									this.toolStripSeparator1,
 									this.exitMenuItem});
 			this.fileMenuItem.Name = "fileMenuItem";
@@ -470,19 +470,19 @@ namespace Cavebox.Forms
 			resources.ApplyResources(this.newCakeboxMenuItem, "newCakeboxMenuItem");
 			this.newCakeboxMenuItem.Click += new System.EventHandler(this.OpenEditCakeboxForm);
 			// 
-			// restoreMenuItem
+			// importMenuItem
 			// 
-			this.restoreMenuItem.Image = global::Cavebox.Properties.Images.database_go;
-			this.restoreMenuItem.Name = "restoreMenuItem";
-			resources.ApplyResources(this.restoreMenuItem, "restoreMenuItem");
-			this.restoreMenuItem.Click += new System.EventHandler(this.ImportXml);
+			this.importMenuItem.Image = global::Cavebox.Properties.Images.database_go;
+			this.importMenuItem.Name = "importMenuItem";
+			resources.ApplyResources(this.importMenuItem, "importMenuItem");
+			this.importMenuItem.Click += new System.EventHandler(this.ImportXml);
 			// 
-			// backupMenuItem
+			// exportMenuItem
 			// 
-			this.backupMenuItem.Image = global::Cavebox.Properties.Images.database_save;
-			this.backupMenuItem.Name = "backupMenuItem";
-			resources.ApplyResources(this.backupMenuItem, "backupMenuItem");
-			this.backupMenuItem.Click += new System.EventHandler(this.ExportXml);
+			this.exportMenuItem.Image = global::Cavebox.Properties.Images.database_save;
+			this.exportMenuItem.Name = "exportMenuItem";
+			resources.ApplyResources(this.exportMenuItem, "exportMenuItem");
+			this.exportMenuItem.Click += new System.EventHandler(this.ExportXml);
 			// 
 			// toolStripSeparator1
 			// 
@@ -607,14 +607,14 @@ namespace Cavebox.Forms
 			// mainTabPage
 			// 
 			this.mainTabPage.BackColor = System.Drawing.SystemColors.Control;
-			this.mainTabPage.Controls.Add(this.cakeboxDiscFileSplitContainer);
+			this.mainTabPage.Controls.Add(this.FileListSplitContainer);
 			resources.ApplyResources(this.mainTabPage, "mainTabPage");
 			this.mainTabPage.Name = "mainTabPage";
 			// 
 			// scanTabPage
 			// 
 			this.scanTabPage.Controls.Add(this.saveNewDiscGroupBox);
-			this.scanTabPage.Controls.Add(this.scanLogGroupBox);
+			this.scanTabPage.Controls.Add(this.scanFileListGroupBox);
 			this.scanTabPage.Controls.Add(this.scanPathGroupBox);
 			resources.ApplyResources(this.scanTabPage, "scanTabPage");
 			this.scanTabPage.Name = "scanTabPage";
@@ -663,29 +663,49 @@ namespace Cavebox.Forms
 			resources.ApplyResources(this.newDiscLabelLabel, "newDiscLabelLabel");
 			this.newDiscLabelLabel.Name = "newDiscLabelLabel";
 			// 
-			// scanLogGroupBox
+			// scanFileListGroupBox
 			// 
-			resources.ApplyResources(this.scanLogGroupBox, "scanLogGroupBox");
-			this.scanLogGroupBox.Controls.Add(this.scanLog);
-			this.scanLogGroupBox.Name = "scanLogGroupBox";
-			this.scanLogGroupBox.TabStop = false;
+			resources.ApplyResources(this.scanFileListGroupBox, "scanFileListGroupBox");
+			this.scanFileListGroupBox.Controls.Add(this.scanFileList);
+			this.scanFileListGroupBox.Name = "scanFileListGroupBox";
+			this.scanFileListGroupBox.TabStop = false;
 			// 
-			// scanLog
+			// scanFileList
 			// 
-			this.scanLog.BackColor = System.Drawing.SystemColors.Window;
-			this.scanLog.ContextMenuStrip = this.scanLogActionsMenu;
-			resources.ApplyResources(this.scanLog, "scanLog");
-			this.scanLog.Name = "scanLog";
-			this.scanLog.ReadOnly = true;
+			this.scanFileList.BackColor = System.Drawing.SystemColors.Window;
+			this.scanFileList.ContextMenuStrip = this.scanLogActionsMenu;
+			resources.ApplyResources(this.scanFileList, "scanFileList");
+			this.scanFileList.Name = "scanFileList";
+			this.scanFileList.ReadOnly = true;
+			// 
+			// scanLogActionsMenu
+			// 
+			this.scanLogActionsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.resetToolStripMenuItem});
+			this.scanLogActionsMenu.Name = "scanLogActionsMenu";
+			resources.ApplyResources(this.scanLogActionsMenu, "scanLogActionsMenu");
+			// 
+			// resetToolStripMenuItem
+			// 
+			this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
+			resources.ApplyResources(this.resetToolStripMenuItem, "resetToolStripMenuItem");
+			this.resetToolStripMenuItem.Click += new System.EventHandler(this.ScanWorkerReset);
 			// 
 			// scanPathGroupBox
 			// 
 			resources.ApplyResources(this.scanPathGroupBox, "scanPathGroupBox");
-			this.scanPathGroupBox.Controls.Add(this.browseScanPathButton);
 			this.scanPathGroupBox.Controls.Add(this.scanPathComboBox);
+			this.scanPathGroupBox.Controls.Add(this.browseScanPathButton);
 			this.scanPathGroupBox.Controls.Add(this.toggleScanPathButton);
 			this.scanPathGroupBox.Name = "scanPathGroupBox";
 			this.scanPathGroupBox.TabStop = false;
+			// 
+			// scanPathComboBox
+			// 
+			resources.ApplyResources(this.scanPathComboBox, "scanPathComboBox");
+			this.scanPathComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+			this.scanPathComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.FileSystemDirectories;
+			this.scanPathComboBox.Name = "scanPathComboBox";
 			// 
 			// browseScanPathButton
 			// 
@@ -694,13 +714,6 @@ namespace Cavebox.Forms
 			this.browseScanPathButton.Name = "browseScanPathButton";
 			this.browseScanPathButton.UseVisualStyleBackColor = true;
 			this.browseScanPathButton.Click += new System.EventHandler(this.BrowseScanPath);
-			// 
-			// scanPathComboBox
-			// 
-			resources.ApplyResources(this.scanPathComboBox, "scanPathComboBox");
-			this.scanPathComboBox.DataSource = this.discsListBox.CustomTabOffsets;
-			this.scanPathComboBox.FormattingEnabled = true;
-			this.scanPathComboBox.Name = "scanPathComboBox";
 			// 
 			// toggleScanPathButton
 			// 
@@ -752,19 +765,6 @@ namespace Cavebox.Forms
 			resources.ApplyResources(this.clearToolStripMenuItem, "clearToolStripMenuItem");
 			this.clearToolStripMenuItem.Click += new System.EventHandler(this.ClearConsole);
 			// 
-			// scanLogActionsMenu
-			// 
-			this.scanLogActionsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-									this.resetToolStripMenuItem});
-			this.scanLogActionsMenu.Name = "scanLogActionsMenu";
-			resources.ApplyResources(this.scanLogActionsMenu, "scanLogActionsMenu");
-			// 
-			// resetToolStripMenuItem
-			// 
-			this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
-			resources.ApplyResources(this.resetToolStripMenuItem, "resetToolStripMenuItem");
-			this.resetToolStripMenuItem.Click += new System.EventHandler(this.ScanWorkerReset);
-			// 
 			// scanWorker
 			// 
 			this.scanWorker.WorkerSupportsCancellation = true;
@@ -787,10 +787,11 @@ namespace Cavebox.Forms
 			this.MainMenuStrip = this.menuStrip;
 			this.Name = "Main";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainFormClosing);
-			this.cakeboxDiscFileSplitContainer.Panel1.ResumeLayout(false);
-			this.cakeboxDiscFileSplitContainer.Panel2.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.cakeboxDiscFileSplitContainer)).EndInit();
-			this.cakeboxDiscFileSplitContainer.ResumeLayout(false);
+			this.Load += new System.EventHandler(this.MainFormLoad);
+			this.FileListSplitContainer.Panel1.ResumeLayout(false);
+			this.FileListSplitContainer.Panel2.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.FileListSplitContainer)).EndInit();
+			this.FileListSplitContainer.ResumeLayout(false);
 			this.cakeboxDiscSplitContainer.Panel1.ResumeLayout(false);
 			this.cakeboxDiscSplitContainer.Panel2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.cakeboxDiscSplitContainer)).EndInit();
@@ -801,7 +802,7 @@ namespace Cavebox.Forms
 			this.discsActionsMenu.ResumeLayout(false);
 			this.filterGroupBox.ResumeLayout(false);
 			this.filterGroupBox.PerformLayout();
-			this.discFilesGroupBox.ResumeLayout(false);
+			this.fileListGroupBox.ResumeLayout(false);
 			this.filesListActionMenu.ResumeLayout(false);
 			this.menuStrip.ResumeLayout(false);
 			this.menuStrip.PerformLayout();
@@ -812,12 +813,12 @@ namespace Cavebox.Forms
 			this.scanTabPage.ResumeLayout(false);
 			this.saveNewDiscGroupBox.ResumeLayout(false);
 			this.saveNewDiscGroupBox.PerformLayout();
-			this.scanLogGroupBox.ResumeLayout(false);
+			this.scanFileListGroupBox.ResumeLayout(false);
+			this.scanLogActionsMenu.ResumeLayout(false);
 			this.scanPathGroupBox.ResumeLayout(false);
 			this.consoleTabPage.ResumeLayout(false);
 			this.consoleGroupBox.ResumeLayout(false);
 			this.consoleActionsMenu.ResumeLayout(false);
-			this.scanLogActionsMenu.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
@@ -871,8 +872,8 @@ namespace Cavebox.Forms
 		private System.Windows.Forms.ToolStripMenuItem viewMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem rebuildTotalFilesMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-		private System.Windows.Forms.ToolStripMenuItem backupMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem restoreMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem exportMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem importMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem newCakeboxMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem fileMenuItem;
 		private System.Windows.Forms.MenuStrip menuStrip;
@@ -881,8 +882,8 @@ namespace Cavebox.Forms
 		private System.Windows.Forms.Button toggleScanPathButton;
 		private System.Windows.Forms.ComboBox scanPathComboBox;
 		private System.Windows.Forms.GroupBox scanPathGroupBox;
-		private System.Windows.Forms.RichTextBox scanLog;
-		private System.Windows.Forms.GroupBox scanLogGroupBox;
+		private System.Windows.Forms.RichTextBox scanFileList;
+		private System.Windows.Forms.GroupBox scanFileListGroupBox;
 		private System.Windows.Forms.Label newDiscLabelLabel;
 		private System.Windows.Forms.Label newDiscCakeboxLabel;
 		private System.Windows.Forms.TextBox newDiscLabelTextBox;
@@ -890,8 +891,8 @@ namespace Cavebox.Forms
 		public System.Windows.Forms.ComboBox newDiscCakebox;
 		private System.Windows.Forms.GroupBox saveNewDiscGroupBox;
 		private System.Windows.Forms.TabPage scanTabPage;
-		private System.Windows.Forms.RichTextBox filesList;
-		private System.Windows.Forms.GroupBox discFilesGroupBox;
+		private System.Windows.Forms.RichTextBox fileList;
+		private System.Windows.Forms.GroupBox fileListGroupBox;
 		private System.Windows.Forms.TextBox filterTextBox;
 		private System.Windows.Forms.Button clearFilterButton;
 		private System.Windows.Forms.GroupBox filterGroupBox;
@@ -900,7 +901,7 @@ namespace Cavebox.Forms
 		public System.Windows.Forms.ListBox cakeboxesListBox;
 		private System.Windows.Forms.GroupBox cakeboxesGroupBox;
 		private System.Windows.Forms.SplitContainer cakeboxDiscSplitContainer;
-		private System.Windows.Forms.SplitContainer cakeboxDiscFileSplitContainer;
+		private System.Windows.Forms.SplitContainer FileListSplitContainer;
 		private System.Windows.Forms.TabPage mainTabPage;
 		private System.Windows.Forms.TabControl tabControl;
 	}

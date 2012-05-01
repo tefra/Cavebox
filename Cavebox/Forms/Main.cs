@@ -11,7 +11,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
 using Cavebox.Lib;
 
 namespace Cavebox.Forms
@@ -47,30 +46,42 @@ namespace Cavebox.Forms
 				MessageBox.Show(Lang.GetString("_dbConnectionFailed"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
 				this.Dispose();
 			}
+		}
+
+		/// <summary>
+		/// Load previous session settings and data
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void MainFormLoad(object sender, EventArgs e)
+		{
+			this.Size = Properties.Settings.Default.WindowSize;
+			this.Location = Properties.Settings.Default.WindowLocation;
+			FileListSplitContainer.SplitterDistance = Properties.Settings.Default.FileListSplitterDistance;
+			cakeboxDiscSplitContainer.SplitterDistance = Properties.Settings.Default.CakeboxDiscSplitterDistance;
+			tabControl.SelectedIndex = Properties.Settings.Default.SelectedTabIndex;
+			scanPathComboBox.Items.AddRange(DriveInfo.GetDrives());
+			scanPathComboBox.Text = Properties.Settings.Default.LastScanPath;
 			ShowCakeboxes(0, true);
-			scanPathComboBox.DataSource = DriveInfo.GetDrives().Where(d => d.Name != String.Empty  /*d.DriveType == DriveType.CDRom*/).ToArray();
 		}
 		
 		/// <summary>
-		/// Close database connection before closing and say bye bye
+		/// Close database connection, save session settings
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void MainFormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
 		{
-			
 			Properties.Settings.Default.WindowSize = this.Size;
 			Properties.Settings.Default.WindowLocation = this.Location;
-
-		
-			//Properties.Settings.Default.test = "xristodoulos";
+			Properties.Settings.Default.FileListSplitterDistance = FileListSplitContainer.SplitterDistance;
+			Properties.Settings.Default.CakeboxDiscSplitterDistance = cakeboxDiscSplitContainer.SplitterDistance;
+			Properties.Settings.Default.LastScanPath = scanPathComboBox.Text;
+			Properties.Settings.Default.SelectedTabIndex = tabControl.SelectedIndex;
+			Properties.Settings.Default.Restarts = Properties.Settings.Default.Restarts + 1;
 			Properties.Settings.Default.Save();
-			
-			
-			
-			
-			Console.WriteLine(Lang.GetString("_applicationClosing"));
 			Model.Close();
+			Console.WriteLine(Lang.GetString("_applicationClosing"));
 		}
 		
 		/// <summary>
@@ -147,37 +158,37 @@ namespace Cavebox.Forms
 		/// <param name="e"></param>
 		private void ShowFiles(object sender, EventArgs e)
 		{
-			filesList.Clear();
+			fileList.Clear();
 			if(discsListBox.SelectedIndex > -1)
 			{
 				object[] result = Model.FetchFilesListByDiscId(discsListBox.SelectedValue.ToString());
 				string files = result[0].ToString();
 				int added = Convert.ToInt32(result[2]);
 				int filesno = Convert.ToInt32(result[1]);
-				filesList.Text = files;
+				fileList.Text = files;
 				int start, pos, keyLength;
-				int end = filesList.Text.Length;
+				int end = fileList.Text.Length;
 				foreach(string key in filterTextBox.Text.Split(' '))
 				{
 					keyLength = key.Length;
 					start = pos = 0;
-					while((pos = filesList.Find(key, start, -1, RichTextBoxFinds.None)) > -1)
+					while((pos = fileList.Find(key, start, -1, RichTextBoxFinds.None)) > -1)
 					{
-						filesList.Select(pos, keyLength);
-						filesList.SelectionBackColor = Color.Yellow;
+						fileList.Select(pos, keyLength);
+						fileList.SelectionBackColor = Color.Yellow;
 						start = pos+keyLength;
 					}
 				}
 				discAddedLabel.Visible = true;
 				discAddedValueLabel.Visible = true;
 				discAddedValueLabel.Text = (added > 0) ? new DateTime(1970, 1, 1).AddSeconds(added).ToLocalTime().ToString("dd/MM/yyyy HH:mm:ss") : Lang.GetString("_unknownDate");
-				UpdateNumTitle(discFilesGroupBox, filesno);
+				UpdateNumTitle(fileListGroupBox, filesno);
 			}
 			else
 			{
 				discAddedLabel.Visible = false;
 				discAddedValueLabel.Visible = false;
-				UpdateNumTitle(discFilesGroupBox, 0);
+				UpdateNumTitle(fileListGroupBox, 0);
 			}
 		}
 
@@ -318,17 +329,17 @@ namespace Cavebox.Forms
 				{
 					Console.WriteLine(Lang.GetString("_scanStarting", path));
 					stopWatch = DateTime.Now;
-					scanLog.Focus();
+					scanFileList.Focus();
 					scanWorker.RunWorkerAsync(path);
 					scanPathComboBox.Enabled = false;
-					scanLog.Clear();
+					scanFileList.Clear();
 					newDiscLabelTextBox.Clear();
 					newDiscLabelTextBox.Enabled = false;
 					toggleScanPathButton.ImageKey = "stop";
 				}
 				else
 				{
-					scanLog.Text = Lang.GetString("_pathXnotavailabe", path);
+					scanFileList.Text = Lang.GetString("_pathXnotavailabe", path);
 				}
 			}
 			else
@@ -354,7 +365,7 @@ namespace Cavebox.Forms
 				newDiscLabelTextBox.Clear();
 				newDiscLabelTextBox.Enabled = false;
 				saveNewDiscButton.Enabled = false;
-				scanLog.Clear();
+				scanFileList.Clear();
 			}
 		}
 		
@@ -420,11 +431,11 @@ namespace Cavebox.Forms
 		/// <param name="files"></param>
 		private void ScanWorkerUpdateRTB(StringBuilder buf, int files)
 		{
-			scanLog.Invoke(new MethodInvoker(delegate
-			                                 {
-			                                 	scanLog.AppendText(buf.ToString());
-			                                 	scanTotalFiles += files;
-			                                 }));
+			scanFileList.Invoke(new MethodInvoker(delegate
+			                                      {
+			                                      	scanFileList.AppendText(buf.ToString());
+			                                      	scanTotalFiles += files;
+			                                      }));
 		}
 		
 		/// <summary>
@@ -434,12 +445,12 @@ namespace Cavebox.Forms
 		/// <param name="e"></param>
 		private void ScanWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
 		{
-			scanLog.ScrollToCaret();
+			scanFileList.ScrollToCaret();
 			scanPathComboBox.Enabled = true;
 			toggleScanPathButton.ImageKey = "start";
 			if(e.Cancelled)
 			{
-				scanLog.Clear();
+				scanFileList.Clear();
 				newDiscLabelTextBox.Clear();
 				newDiscLabelTextBox.Enabled = false;
 				saveNewDiscButton.Enabled = false;
@@ -463,7 +474,7 @@ namespace Cavebox.Forms
 		private void SaveNewDisc(object sender, EventArgs e)
 		{
 			string label = newDiscLabelTextBox.Text.Trim();
-			string files = scanLog.Text.Trim();
+			string files = scanFileList.Text.Trim();
 			if(newDiscCakebox.SelectedIndex == -1)
 			{
 				MessageBox.Show(Lang.GetString("_newDiscMissingCakebox"), Lang.GetString("_error"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
@@ -482,8 +493,8 @@ namespace Cavebox.Forms
 				Model.AddDisc(label, files, scanTotalFiles.ToString(), cid, added.ToString());
 				ShowCakeboxes();
 				RefreshStatusBar(false, true);
-				scanLog.Clear();
-				scanLog.Text = Lang.GetString("_newDiscAdded", label, clabel);
+				scanFileList.Clear();
+				scanFileList.Text = Lang.GetString("_newDiscAdded", label, clabel);
 				newDiscLabelTextBox.Clear();
 				saveNewDiscButton.Enabled = false;
 			}
@@ -649,7 +660,7 @@ namespace Cavebox.Forms
 			{
 				link = "http://www.youtube.com/results?search_query=";
 			}
-			link  += String.Join("+", filesList.SelectedText.Trim().Replace("\n", " ").Split(' '));
+			link  += String.Join("+", fileList.SelectedText.Trim().Replace("\n", " ").Split(' '));
 			System.Diagnostics.Process.Start(link);
 		}
 		
@@ -678,7 +689,7 @@ namespace Cavebox.Forms
 		/// <param name="e"></param>
 		private void FilesListActionMenuOpening(object sender, CancelEventArgs e)
 		{
-			if(filesList.SelectedText.Trim().Length == 0)
+			if(fileList.SelectedText.Trim().Length == 0)
 			{
 				e.Cancel = true;
 			}
@@ -704,7 +715,7 @@ namespace Cavebox.Forms
 		/// <param name="e"></param>
 		private void CopyFilesListClick(object sender, EventArgs e)
 		{
-			Clipboard.SetText(filesList.SelectedText);
+			Clipboard.SetText(fileList.SelectedText);
 		}
 		
 		/// <summary>
@@ -839,11 +850,10 @@ namespace Cavebox.Forms
 		/// <param name="e"></param>
 		private void ResetWindow(object sender, EventArgs e)
 		{
-			this.CenterToScreen();
-			this.Height = this.MinimumSize.Height;
-			this.Width = this.MinimumSize.Width;
+			this.Size = Properties.Settings.Default.DefaultWindowSize;
 			cakeboxDiscSplitContainer.SplitterDistance = (cakeboxDiscSplitContainer.Width - cakeboxDiscSplitContainer.SplitterWidth) / 2;
-			cakeboxDiscFileSplitContainer.SplitterDistance = 310;
+			FileListSplitContainer.SplitterDistance = 310;
+			this.CenterToScreen();
 		}
 		
 		/// <summary>
@@ -856,7 +866,6 @@ namespace Cavebox.Forms
 			new Changelog().ShowDialog();
 		}
 		
-		
 		/* General behavioral stuff */
 		/// <summary>
 		/// Listbox select item on right click
@@ -868,5 +877,6 @@ namespace Cavebox.Forms
 			ListBox listbox = (ListBox) sender;
 			listbox.SelectedIndex = listbox.IndexFromPoint(e.X, e.Y);
 		}
+
 	}
 }

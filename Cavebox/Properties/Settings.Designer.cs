@@ -23,13 +23,78 @@ namespace Cavebox.Properties {
 			}
 		}
 		
+		[global::System.Configuration.UserScopedSettingAttribute()]
+		[global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+		[global::System.Configuration.DefaultSettingValueAttribute("258")]
+		public int CakeboxDiscSplitterDistance {
+			get {
+				return ((int)(this["CakeboxDiscSplitterDistance"]));
+			}
+			set {
+				this["CakeboxDiscSplitterDistance"] = value;
+			}
+		}
+		
 		[global::System.Configuration.ApplicationScopedSettingAttribute()]
 		[global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
 		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-		[global::System.Configuration.DefaultSettingValueAttribute("ffff")]
-		public string test {
+		[global::System.Configuration.DefaultSettingValueAttribute("550, 600")]
+		public global::System.Drawing.Size DefaultWindowSize {
 			get {
-				return ((string)(this["test"]));
+				return ((global::System.Drawing.Size)(this["DefaultWindowSize"]));
+			}
+		}
+		
+		[global::System.Configuration.UserScopedSettingAttribute()]
+		[global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+		[global::System.Configuration.DefaultSettingValueAttribute("310")]
+		public int FileListSplitterDistance {
+			get {
+				return ((int)(this["FileListSplitterDistance"]));
+			}
+			set {
+				this["FileListSplitterDistance"] = value;
+			}
+		}
+		
+		[global::System.Configuration.UserScopedSettingAttribute()]
+		[global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+		[global::System.Configuration.DefaultSettingValueAttribute("")]
+		public string LastScanPath {
+			get {
+				return ((string)(this["LastScanPath"]));
+			}
+			set {
+				this["LastScanPath"] = value;
+			}
+		}
+		
+		[global::System.Configuration.UserScopedSettingAttribute()]
+		[global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+		[global::System.Configuration.DefaultSettingValueAttribute("0")]
+		public int Restarts {
+			get {
+				return ((int)(this["Restarts"]));
+			}
+			set {
+				this["Restarts"] = value;
+			}
+		}
+		
+		[global::System.Configuration.UserScopedSettingAttribute()]
+		[global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+		[global::System.Configuration.DefaultSettingValueAttribute("0")]
+		public int SelectedTabIndex {
+			get {
+				return ((int)(this["SelectedTabIndex"]));
+			}
+			set {
+				this["SelectedTabIndex"] = value;
 			}
 		}
 		

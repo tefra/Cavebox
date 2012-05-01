@@ -151,34 +151,29 @@ public class PortableSettingsProvider : SettingsProvider
 	}
 	
 	/// <summary>
-	/// 
+	/// Check to see if the node exists, if so then set its new value
+	/// Otherwise store the value as an element of the Settings Root Node
 	/// </summary>
 	/// <param name="propVal"></param>
 	private void SetValue(SettingsPropertyValue propVal)
 	{
 
 		XmlElement SettingNode = default(XmlElement);
-		
-		//Determine if the setting is roaming.
-		//If roaming then the value is stored as an element under the root
-		//Otherwise it is stored under a machine name node
 		try
 		{
-			SettingNode = (XmlElement)SettingsXML.SelectSingleNode(SETTINGSROOT + "/" + propVal.Name);
+			SettingNode = (XmlElement) SettingsXML.SelectSingleNode(SETTINGSROOT + "/" + propVal.Name);
 		}
 		catch
 		{
 			SettingNode = null;
 		}
-		
-		//Check to see if the node exists, if so then set its new value
+
 		if((SettingNode != null))
 		{
 			SettingNode.InnerText = propVal.SerializedValue.ToString();
 		}
 		else
 		{
-			//Store the value as an element of the Settings Root Node
 			SettingNode = SettingsXML.CreateElement(propVal.Name);
 			SettingNode.InnerText = propVal.SerializedValue.ToString();
 			SettingsXML.SelectSingleNode(SETTINGSROOT).AppendChild(SettingNode);
