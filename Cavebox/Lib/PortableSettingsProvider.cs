@@ -90,7 +90,6 @@ public class PortableSettingsProvider : SettingsProvider
 	/// <returns></returns>
 	public override SettingsPropertyValueCollection GetPropertyValues(SettingsContext context, SettingsPropertyCollection props)
 	{
-		base.get
 		SettingsPropertyValueCollection values = new SettingsPropertyValueCollection();
 		foreach (SettingsProperty setting in props)
 		{
