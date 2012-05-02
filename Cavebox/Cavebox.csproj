@@ -96,6 +96,7 @@
     <Compile Include="Forms\MassMove.Designer.cs">
       <DependentUpon>MassMove.cs</DependentUpon>
     </Compile>
+    <Compile Include="Lib\ControlBinding.cs" />
     <Compile Include="Lib\ConsoleWriter.cs" />
     <Compile Include="Lib\Index.cs" />
     <Compile Include="Lib\Lang.cs" />
