@@ -10,31 +10,28 @@ using System.Xml;
 using System.IO;
 
 /// <summary>
-/// 
+/// Custom settings provider
+/// Stores the settings inside the application execution path in xml format
+/// The xml is named Settings.xml
 /// </summary>
 public class PortableSettingsProvider : SettingsProvider
 {
-	/// <summary>
-	/// 
-	/// </summary>
 	const string SETTINGSROOT = "Settings";
-	/// <summary>
-	/// 
-	/// </summary>
 	private XmlDocument _settingsXML = null;
 	
 	/// <summary>
-	/// 
+	/// Initializes the provider, well no it just calls the parent Initialize
 	/// </summary>
 	/// <param name="name"></param>
 	/// <param name="col"></param>
 	public override void Initialize(string name, NameValueCollection col)
 	{
+		base.init
 		base.Initialize(this.ApplicationName, col);
 	}
 	
 	/// <summary>
-	/// 
+	/// Magic get set for the application name
 	/// </summary>
 	public override string ApplicationName
 	{
@@ -43,7 +40,7 @@ public class PortableSettingsProvider : SettingsProvider
 	}
 	
 	/// <summary>
-	/// 
+	/// Magic get for the Provider name
 	/// </summary>
 	public override string Name
 	{
@@ -51,7 +48,7 @@ public class PortableSettingsProvider : SettingsProvider
 	}
 	
 	/// <summary>
-	/// 
+	/// Return the application execution path
 	/// </summary>
 	/// <returns></returns>
 	public virtual string GetAppSettingsPath()
@@ -60,7 +57,7 @@ public class PortableSettingsProvider : SettingsProvider
 	}
 	
 	/// <summary>
-	/// 
+	/// Get the filename where we are going to store/read the settings
 	/// </summary>
 	/// <returns></returns>
 	public virtual string GetAppSettingsFilename()
@@ -69,7 +66,7 @@ public class PortableSettingsProvider : SettingsProvider
 	}
 	
 	/// <summary>
-	/// 
+	/// Set property values
 	/// </summary>
 	/// <param name="context"></param>
 	/// <param name="propvals"></param>
@@ -87,14 +84,14 @@ public class PortableSettingsProvider : SettingsProvider
 	}
 	
 	/// <summary>
-	/// 
+	/// Returns the collection of properties values for the specified application and instance and settings property group
 	/// </summary>
 	/// <param name="context"></param>
 	/// <param name="props"></param>
 	/// <returns></returns>
 	public override SettingsPropertyValueCollection GetPropertyValues(SettingsContext context, SettingsPropertyCollection props)
 	{
-		
+		base.get
 		SettingsPropertyValueCollection values = new SettingsPropertyValueCollection();
 		foreach (SettingsProperty setting in props)
 		{
@@ -107,7 +104,7 @@ public class PortableSettingsProvider : SettingsProvider
 	}
 	
 	/// <summary>
-	/// 
+	/// Retrieve/Load/Create xml documnt
 	/// </summary>
 	private XmlDocument SettingsXML
 	{
@@ -134,7 +131,7 @@ public class PortableSettingsProvider : SettingsProvider
 	}
 	
 	/// <summary>
-	/// 
+	/// Get the value of a named setting
 	/// </summary>
 	/// <param name="setting"></param>
 	/// <returns></returns>

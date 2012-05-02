@@ -12,7 +12,6 @@ namespace Cavebox.Lib
 	/// </summary>
 	public class Identity
 	{
-
 		/// <summary>
 		/// Construct my lazy gibberish
 		/// </summary>
@@ -25,17 +24,17 @@ namespace Cavebox.Lib
 		}
 		
 		/// <summary>
-		/// 
+		/// Magic get set Value
 		/// </summary>
 		public string Value {get; set;}
 		
 		/// <summary>
-		/// 
+		/// Magic get set Key
 		/// </summary>
 		public int Key {get; set;}
 		
 		/// <summary>
-		/// 
+		/// Return the Value of the identity
 		/// </summary>
 		/// <returns></returns>
 		public override string ToString()
