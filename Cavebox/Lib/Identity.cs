@@ -36,7 +36,6 @@ namespace Cavebox.Lib
 		/// <summary>
 		/// Return the Value of the identity
 		/// </summary>
-		/// <returns></returns>
 		public override string ToString()
 		{
 			return Value;

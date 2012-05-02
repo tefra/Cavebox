@@ -24,10 +24,10 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Initialize components and their values from main form
 		/// </summary>
-		/// <param name="form"></param>
-		/// <param name="id"></param>
-		/// <param name="cid"></param>
-		/// <param name="label"></param>
+		/// <param name="form">Main form instance</param>
+		/// <param name="id">Disc id number</param>
+		/// <param name="cid">Disc's cakebox id number</param>
+		/// <param name="label">Disc label</param>
 		public EditDisc(Main form, int id, int cid, string label)
 		{
 			InitializeComponent();
@@ -44,8 +44,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Update disc notify main form to update either discs or cakeboxes list
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void SaveDisc(object sender, EventArgs e)
 		{
 			String label = discLabel.Text.Trim();
@@ -69,8 +67,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Dispose the form
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void CloseForm(object sender, EventArgs e)
 		{
 			Dispose();
@@ -79,8 +75,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Enable the save button when real changes were made
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void enableSaveButton(object sender, EventArgs e)
 		{
 			string label = discLabel.Text.Trim();
@@ -90,7 +84,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Get the id of the selected cakebox
 		/// </summary>
-		/// <returns></returns>
 		private int getTargetCakeboxId()
 		{
 			return Convert.ToInt32(selectCakebox.SelectedValue.ToString());

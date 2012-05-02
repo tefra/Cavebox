@@ -29,8 +29,8 @@ namespace Cavebox.Lib
 		/// <summary>
 		/// Get string from the ResourceManager
 		/// </summary>
-		/// <param name="str"></param>
-		/// <returns></returns>
+		/// <param name="str">Phrase key</param>
+		/// <returns>Phrase text</returns>
 		public static string GetString(string str)
 		{
 			return Rm.GetString(str);
@@ -39,9 +39,9 @@ namespace Cavebox.Lib
 		/// <summary>
 		/// Get string from the ResourceManager and format with one argument
 		/// </summary>
-		/// <param name="str"></param>
-		/// <param name="arg0"></param>
-		/// <returns></returns>
+		/// <param name="str">Phrase key</param>
+		/// <param name="arg0">Param to string format</param>
+		/// <returns>Phrase text</returns>
 		public static string GetString(string str, object arg0)
 		{
 			return String.Format(GetString(str), arg0);
@@ -50,10 +50,10 @@ namespace Cavebox.Lib
 		/// <summary>
 		/// Get string from the ResourceManager and format with two argument
 		/// </summary>
-		/// <param name="str"></param>
-		/// <param name="arg0"></param>
-		/// <param name="arg1"></param>
-		/// <returns></returns>
+		/// <param name="str">Phrase key</param>
+		/// <param name="arg0">Param to string format</param>
+		/// <param name="arg1">Param to string format</param>
+		/// <returns>Phrase text</returns>
 		public static string GetString(string str, object arg0, object arg1)
 		{
 			return String.Format(GetString(str), arg0, arg1);
@@ -62,11 +62,11 @@ namespace Cavebox.Lib
 		/// <summary>
 		/// Get string from the ResourceManager and format with three argument
 		/// </summary>
-		/// <param name="str"></param>
-		/// <param name="arg0"></param>
-		/// <param name="arg1"></param>
-		/// <param name="arg2"></param>
-		/// <returns></returns>
+		/// <param name="str">Phrase key</param>
+		/// <param name="arg0">Param to string format</param>
+		/// <param name="arg1">Param to string format</param>
+		/// <param name="arg2">Param to string format</param>
+		/// <returns>Phrase text</returns>
 		public static string GetString(string str, object arg0, object arg1, object arg2)
 		{
 			return String.Format(GetString(str), arg0, arg1, arg2);

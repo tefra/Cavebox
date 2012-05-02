@@ -20,14 +20,12 @@ public class PortableSettingsProvider : SettingsProvider
 	private XmlDocument _settingsXML = null;
 	
 	/// <summary>
-	/// Initializes the provider, well no it just calls the parent Initialize
+	/// Initializes the provider
 	/// </summary>
-	/// <param name="name"></param>
-	/// <param name="col"></param>
 	public override void Initialize(string name, NameValueCollection col)
 	{
 		base.Initialize(this.ApplicationName, col);
-	}
+	} 
 	
 	/// <summary>
 	/// Magic get set for the application name
@@ -49,7 +47,6 @@ public class PortableSettingsProvider : SettingsProvider
 	/// <summary>
 	/// Return the application execution path
 	/// </summary>
-	/// <returns></returns>
 	public virtual string GetAppSettingsPath()
 	{
 		return Path.GetDirectoryName(Application.ExecutablePath);
@@ -58,7 +55,6 @@ public class PortableSettingsProvider : SettingsProvider
 	/// <summary>
 	/// Get the filename where we are going to store/read the settings
 	/// </summary>
-	/// <returns></returns>
 	public virtual string GetAppSettingsFilename()
 	{
 		return "settings.xml";
@@ -67,8 +63,6 @@ public class PortableSettingsProvider : SettingsProvider
 	/// <summary>
 	/// Set property values
 	/// </summary>
-	/// <param name="context"></param>
-	/// <param name="propvals"></param>
 	public override void SetPropertyValues(SettingsContext context, SettingsPropertyValueCollection propvals)
 	{
 		foreach (SettingsPropertyValue propval in propvals)
@@ -85,9 +79,6 @@ public class PortableSettingsProvider : SettingsProvider
 	/// <summary>
 	/// Returns the collection of properties values for the specified application and instance and settings property group
 	/// </summary>
-	/// <param name="context"></param>
-	/// <param name="props"></param>
-	/// <returns></returns>
 	public override SettingsPropertyValueCollection GetPropertyValues(SettingsContext context, SettingsPropertyCollection props)
 	{
 		SettingsPropertyValueCollection values = new SettingsPropertyValueCollection();
@@ -131,8 +122,6 @@ public class PortableSettingsProvider : SettingsProvider
 	/// <summary>
 	/// Get the value of a named setting
 	/// </summary>
-	/// <param name="setting"></param>
-	/// <returns></returns>
 	private string GetValue(SettingsProperty setting)
 	{
 		try
@@ -149,7 +138,6 @@ public class PortableSettingsProvider : SettingsProvider
 	/// Check to see if the node exists, if so then set its new value
 	/// Otherwise store the value as an element of the Settings Root Node
 	/// </summary>
-	/// <param name="propVal"></param>
 	private void SetValue(SettingsPropertyValue propVal)
 	{
 

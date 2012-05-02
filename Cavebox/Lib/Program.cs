@@ -17,7 +17,6 @@ namespace Cavebox.Lib
 		/// <summary>
 		/// Check for single application instance and open the main form
 		/// </summary>
-		/// <param name="args"></param>
 		[STAThread]
 		private static void Main(string[] args)
 		{
@@ -39,7 +38,7 @@ namespace Cavebox.Lib
 		/// Check if the application is already running or not based on a named mutext
 		/// pretty sure this isn't the safest way, but hey this isn't AFIS ;p
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>True if the application is not already running False otherwise</returns>
 		static bool isSingleton()
 		{
 			try

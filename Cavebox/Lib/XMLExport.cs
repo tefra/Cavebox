@@ -10,14 +10,14 @@ using System.Xml;
 namespace Cavebox.Lib
 {
 	/// <summary>
-	/// Description of XMLExport.
+	/// Create a new xml file and write database table records.
 	/// </summary>
 	public class XMLExport
 	{
 		/// <summary>
 		/// Open xmlwriter and write db tables cakebox and disc
 		/// </summary>
-		/// <param name="file"></param>
+		/// <param name="file">filename where to open write and save backup</param>
 		public XMLExport(string file)
 		{
 			XmlWriterSettings settings = new XmlWriterSettings();
@@ -35,10 +35,14 @@ namespace Cavebox.Lib
 		}
 		
 		/// <summary>
-		/// Write table data with xmlwriter
+		/// Write table data with xmlwriter, example:
+		///   <table name="cakebox">
+		///     <column name="id">1</column>
+		///     <column name="label">Movies #01</column>
+		///   </table>
 		/// </summary>
-		/// <param name="table"></param>
-		/// <param name="writer"></param>
+		/// <param name="table">the table name</param>
+		/// <param name="writer">XmlWriter initialized istance</param>
 		public void writeTable(string table, XmlWriter writer)
 		{
 			try

@@ -24,8 +24,8 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Initialize components and their values from main form
 		/// </summary>
-		/// <param name="form"></param>
-		/// <param name="cid"></param>
+		/// <param name="form">Main form instance</param>
+		/// <param name="cid">Cakebox id number</param>
 		public MassMove(Main form, int cid)
 		{
 			InitializeComponent();
@@ -41,8 +41,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Displose form
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void closeForm(object sender, EventArgs e)
 		{
 			Dispose();
@@ -51,8 +49,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Move selected discs to selected cakebox
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void MoveButtonClick(object sender, EventArgs e)
 		{
 			int target = getTargetCakeboxId();
@@ -75,17 +71,14 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Enable the move button when we have something to move
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void enableMoveButton(object sender, EventArgs e)
 		{
 			moveButton.Enabled = (selectDiscs.CheckedItems.Count > 0 && getTargetCakeboxId() != source);
 		}
 		
 		/// <summary>
-		/// Shortcut method to get the cakebox Id from the listbox
+		/// Fetch the cakebox Id from the listbox
 		/// </summary>
-		/// <returns></returns>
 		private int getTargetCakeboxId()
 		{
 			return Convert.ToInt32(selectCakebox.SelectedValue.ToString());
@@ -94,8 +87,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Select/Deselect all items
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void ToggleButtonClick(object sender, EventArgs e)
 		{
 			checkFlag = !checkFlag;

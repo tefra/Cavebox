@@ -23,8 +23,8 @@ namespace Cavebox.Lib
 		/// <summary>
 		/// Connect to sqlite database and return result
 		/// </summary>
-		/// <param name="connectionString"></param>
-		/// <returns>Boolean</returns>
+		/// <param name="connectionString">Connection URL string</param>
+		/// <returns>True or False based on the result of trying to establish a new connection</returns>
 		public static Boolean Connect(string connectionString)
 		{
 			try
@@ -49,7 +49,7 @@ namespace Cavebox.Lib
 		/// <summary>
 		/// Run integrity check and return result
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>Ok: If everything looks right a catastrophic exception i guess if not</returns>
 		public static string Status()
 		{
 			return ExecuteScalar("PRAGMA integrity_check");
@@ -58,7 +58,7 @@ namespace Cavebox.Lib
 		/// <summary>
 		/// Return sqlite version
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>SQLite Server Version ex: 3.7.11</returns>
 		public static string SQLiteVersion()
 		{
 			return db.ServerVersion;
@@ -149,8 +149,8 @@ namespace Cavebox.Lib
 		/// <summary>
 		/// Fetch cakeboxes list with or without filter
 		/// </summary>
-		/// <param name="filter"></param>
-		/// <returns></returns>
+		/// <param name="filter">A prepared string to filter results ex: %criminal%</param>
+		/// <returns>A list of the matched cakeboxes</returns>
 		public static List<Identity> FetchCakeboxes(string filter = null)
 		{
 			List<Identity> list = new List<Identity>();
@@ -179,12 +179,12 @@ namespace Cavebox.Lib
 		/// <summary>
 		/// Fetch discs list with or without filter with custom sort
 		/// </summary>
-		/// <param name="id"></param>
-		/// <param name="filter"></param>
-		/// <param name="orderBy"></param>
-		/// <param name="orderWay"></param>
-		/// <returns></returns>
-		public static List<Identity> FetchDiscsByCakeboxId(string id, string filter = null, int orderBy = 1, int orderWay = 0)
+		/// <param name="cid">Cakebox id number</param>
+		/// <param name="filter">A prepared string to filter results ex: %criminal%</param>
+		/// <param name="orderBy">0-2 for sorting fields id, label, filesno</param>
+		/// <param name="orderWay">0: Ascending, 2: Descending</param>
+		/// <returns>A list of matched discs</returns>
+		public static List<Identity> FetchDiscsByCakeboxId(string cid, string filter = null, int orderBy = 1, int orderWay = 0)
 		{
 			List<Identity> list = new List<Identity>();
 			try
@@ -205,8 +205,8 @@ namespace Cavebox.Lib
 				orderClause += (orderWay == 0) ? " ASC" : " DESC";
 				
 				string sql = (filter != null) ?
-					"SELECT id, label, filesno FROM disc WHERE cid = "+ id+" AND ToLower(files) LIKE '" + filter + "' ORDER BY "+orderClause :
-					"SELECT id, label, filesno FROM disc WHERE cid = "+ id+" ORDER BY "+orderClause;
+					"SELECT id, label, filesno FROM disc WHERE cid = "+ cid+" AND ToLower(files) LIKE '" + filter + "' ORDER BY "+orderClause :
+					"SELECT id, label, filesno FROM disc WHERE cid = "+ cid+" ORDER BY "+orderClause;
 
 				SQLiteCommand c = CreateCommand(sql);
 				SQLiteDataReader r = c.ExecuteReader();
@@ -240,8 +240,8 @@ namespace Cavebox.Lib
 		/// <summary>
 		/// Fetch disc label by id
 		/// </summary>
-		/// <param name="id"></param>
-		/// <returns></returns>
+		/// <param name="id">Disc id number</param>
+		/// <returns>The disc label</returns>
 		public static string FetchDiscLabelById(int id)
 		{
 			return ExecuteScalar("SELECT label FROM disc WHERE id = " + id);
@@ -250,8 +250,8 @@ namespace Cavebox.Lib
 		/// <summary>
 		/// Fetch files list, files number and added date by disc id
 		/// </summary>
-		/// <param name="id"></param>
-		/// <returns></returns>
+		/// <param name="id">Disc id number</param>
+		/// <returns>File list, total files and added date</returns>
 		public static object[] FetchFilesListByDiscId(string id)
 		{
 			object[] result = new object[3];
@@ -276,10 +276,10 @@ namespace Cavebox.Lib
 		}
 		
 		/// <summary>
-		/// Insert/Update cakebox
+		/// Insert/Update cakebox information. Include id for update, skip to insert a new one.
 		/// </summary>
-		/// <param name="label"></param>
-		/// <param name="id"></param>
+		/// <param name="label">Cakebox label</param>
+		/// <param name="id">Cakebox id number (Optional)</param>
 		public static void SaveCakebox(string label, int id = 0)
 		{
 			Dictionary<string, string> data = new Dictionary<string, string>();
@@ -297,7 +297,7 @@ namespace Cavebox.Lib
 		/// <summary>
 		/// Delete cakebox by id
 		/// </summary>
-		/// <param name="id"></param>
+		/// <param name="id">Cakebox id number</param>
 		public static void DeleteCakebox(int id)
 		{
 			if(id > 0)
@@ -309,9 +309,9 @@ namespace Cavebox.Lib
 		/// <summary>
 		/// Update disc information
 		/// </summary>
-		/// <param name="id"></param>
-		/// <param name="cid"></param>
-		/// <param name="label"></param>
+		/// <param name="id">Disc id number</param>
+		/// <param name="cid">Disc's cakebox id number</param></param>
+		/// <param name="label">Disc label</param>
 		public static void UpdateDisc(int id, int cid, string label)
 		{
 			Dictionary<string, string> data = new Dictionary<string, string>();
@@ -321,13 +321,13 @@ namespace Cavebox.Lib
 		}
 		
 		/// <summary>
-		/// 
+		/// Add a new disc
 		/// </summary>
-		/// <param name="label"></param>
-		/// <param name="files"></param>
-		/// <param name="filesno"></param>
-		/// <param name="cid"></param>
-		/// <param name="added"></param>
+		/// <param name="label">Disc label</param>
+		/// <param name="files">Disc file list</param>
+		/// <param name="filesno">File list length</param>
+		/// <param name="cid">Disc's cakebox id number</param>
+		/// <param name="added">Current Unixtimestamp</param>
 		public static void AddDisc(string label, string files, string filesno, string cid, string added)
 		{
 			Dictionary<string, string> data = new Dictionary<string, string>();
@@ -342,7 +342,7 @@ namespace Cavebox.Lib
 		/// <summary>
 		/// Delete disc by id
 		/// </summary>
-		/// <param name="id"></param>
+		/// <param name="id">Disc id number</param>
 		public static void DeleteDisc(int id)
 		{
 			if(id > 0)
@@ -354,8 +354,8 @@ namespace Cavebox.Lib
 		/// <summary>
 		/// Move discs to a new cakeboxe
 		/// </summary>
-		/// <param name="target"></param>
-		/// <param name="discs"></param>
+		/// <param name="target">Cakebox id number</param>
+		/// <param name="discs">List of disc id numbers</param>
 		public static void MoveDiscs(int target, List<int> discs)
 		{
 			Dictionary<string, string> data = new Dictionary<string, string>();
@@ -366,7 +366,6 @@ namespace Cavebox.Lib
 		/// <summary>
 		/// Fetch total cakeboxes
 		/// </summary>
-		/// <returns></returns>
 		public static int GetTotalCakeboxes()
 		{
 			return Convert.ToInt32(ExecuteScalar("SELECT COUNT(*) AS total FROM cakebox"));
@@ -375,7 +374,6 @@ namespace Cavebox.Lib
 		/// <summary>
 		/// Fetch total discs
 		/// </summary>
-		/// <returns></returns>
 		public static int GetTotalDiscs()
 		{
 			return Convert.ToInt32(ExecuteScalar("SELECT COUNT(*) AS total FROM disc"));
@@ -384,7 +382,6 @@ namespace Cavebox.Lib
 		/// <summary>
 		/// Fetch total files
 		/// </summary>
-		/// <returns></returns>
 		public static int GetTotalFiles()
 		{
 			return Convert.ToInt32(ExecuteScalar("SELECT COALESCE(SUM(filesno), 0) AS total FROM disc"));
@@ -393,9 +390,9 @@ namespace Cavebox.Lib
 		/// <summary>
 		/// General update db table method
 		/// </summary>
-		/// <param name="table"></param>
-		/// <param name="data"></param>
-		/// <param name="where"></param>
+		/// <param name="table">Table name</param>
+		/// <param name="data">A list of keys and values representing db data</param>
+		/// <param name="where">Where clause to update records</param>
 		public static void Update(string table, Dictionary<string, string> data, string where)
 		{
 			try
@@ -418,10 +415,10 @@ namespace Cavebox.Lib
 		}
 		
 		/// <summary>
-		/// General insert new db table row method
+		/// Alternative method to insert data using a single list of data instead of two for columns and values
 		/// </summary>
-		/// <param name="table"></param>
-		/// <param name="data"></param>
+		/// <param name="table">Table name</param>
+		/// <param name="data">A list of keys and values representing db data</param>
 		public static void Insert(string table, Dictionary<string, string> data)
 		{
 			Insert(table, new List<string>(data.Keys), new List<string>(data.Values));
@@ -430,9 +427,9 @@ namespace Cavebox.Lib
 		/// <summary>
 		/// General insert new db table row method
 		/// </summary>
-		/// <param name="table"></param>
-		/// <param name="columns"></param>
-		/// <param name="values"></param>
+		/// <param name="table">Table</param>
+		/// <param name="columns">Columns names</param>
+		/// <param name="values">Columns values</param>
 		public static void Insert(string table, List<string> columns, List<string> values)
 		{
 			SQLiteCommand c = CreateCommand(String.Format("INSERT INTO {0} ({1}) VALUES (@{2})", table, String.Join(", ", columns), String.Join(", @", columns)));
@@ -447,7 +444,7 @@ namespace Cavebox.Lib
 		/// <summary>
 		/// Execute non query
 		/// </summary>
-		/// <param name="sql"></param>
+		/// <param name="sql">The query string to execute</param>
 		private static void ExecuteNonQuery(string sql)
 		{
 			try
@@ -465,8 +462,8 @@ namespace Cavebox.Lib
 		/// <summary>
 		/// Execute scalar
 		/// </summary>
-		/// <param name="sql"></param>
-		/// <returns></returns>
+		/// <param name="sql">The query string to execute</param>
+		/// <returns>The first column of the first row of the matched record</returns>
 		private static string ExecuteScalar(string sql)
 		{
 			try
@@ -486,8 +483,8 @@ namespace Cavebox.Lib
 		/// <summary>
 		/// Create sqlite command
 		/// </summary>
-		/// <param name="sql"></param>
-		/// <returns></returns>
+		/// <param name="sql">The query string to prepare</param>
+		/// <returns>The command ready to be executed</returns>
 		public static SQLiteCommand CreateCommand(string sql)
 		{
 			SQLiteCommand c = db.CreateCommand();

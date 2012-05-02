@@ -11,7 +11,7 @@ using System.Xml;
 namespace Cavebox.Lib
 {
 	/// <summary>
-	/// Description of XMLImport.
+	/// Load the xml file the XMLExport created and attempt to import the data
 	/// </summary>
 	public class XMLImport
 	{
@@ -21,7 +21,7 @@ namespace Cavebox.Lib
 		/// Read table data and insert it. Expect an exception in case
 		/// of bad schmema or missing table structures.
 		/// </summary>
-		/// <param name="file"></param>
+		/// <param name="file">Filename of the xml backup</param>
 		public XMLImport(string file)
 		{
 			try
@@ -64,15 +64,6 @@ namespace Cavebox.Lib
 			{
 				Console.WriteLine(e.Message);
 			}
-			finally
-			{
-				
-			}
-			
-			
-			
-			
-			
 		}
 	}
 }
