@@ -49,6 +49,11 @@ namespace Cavebox.Forms
 			}
 		}
 
+		/// <summary>
+		/// Restore previous session storage and initialize lists with data from database
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void MainFormLoad(object sender, EventArgs e)
 		{
 			controlBindings = new List<ControlBinding>();
@@ -340,6 +345,7 @@ namespace Cavebox.Forms
 					newDiscLabelTextBox.Clear();
 					newDiscLabelTextBox.Enabled = false;
 					toggleScanPathButton.ImageKey = "stop";
+					browseScanPathButton.Enabled = false;
 				}
 				else
 				{
@@ -350,6 +356,7 @@ namespace Cavebox.Forms
 			{
 				scanWorker.CancelAsync();
 				toggleScanPathButton.ImageKey = "start";
+				browseScanPathButton.Enabled = true;
 			}
 		}
 		
@@ -451,6 +458,7 @@ namespace Cavebox.Forms
 		{
 			scanFileList.ScrollToCaret();
 			scanPathComboBox.Enabled = true;
+			browseScanPathButton.Enabled = true;
 			toggleScanPathButton.ImageKey = "start";
 			if(e.Cancelled)
 			{
