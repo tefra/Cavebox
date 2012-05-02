@@ -16,14 +16,13 @@ namespace Cavebox.Forms
 	/// </summary>
 	public partial class EditDisc : Form
 	{
-		
 		int _id;
 		int _cid;
 		string _label;
 		Main app;
 		
 		/// <summary>
-		/// 
+		/// Initialize components and values
 		/// </summary>
 		/// <param name="form"></param>
 		/// <param name="id"></param>
@@ -43,7 +42,7 @@ namespace Cavebox.Forms
 		}
 		
 		/// <summary>
-		/// 
+		/// Update disc notify main form to update either discs or cakeboxes list
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -68,7 +67,7 @@ namespace Cavebox.Forms
 		}
 		
 		/// <summary>
-		/// 
+		/// Dispose the form
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -78,7 +77,8 @@ namespace Cavebox.Forms
 		}
 		
 		/// <summary>
-		/// 
+		/// Enable the save button when changes were made
+		/// Disable otherwrise
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -89,7 +89,7 @@ namespace Cavebox.Forms
 		}
 		
 		/// <summary>
-		/// 
+		/// Get the id of the selected cakebox
 		/// </summary>
 		/// <returns></returns>
 		private int getTargetCakeboxId()

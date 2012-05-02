@@ -97,6 +97,8 @@ namespace Cavebox.Forms
 			this.Controls.Add(this.selectCakeboxLabel);
 			this.Controls.Add(this.discLabelLabel);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "EditDisc";
 			this.ShowInTaskbar = false;
 			this.ResumeLayout(false);

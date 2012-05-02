@@ -665,85 +665,36 @@ namespace Cavebox.Forms
 		}
 		
 		/// <summary>
-		/// Hide delete option on cakeboxes listbox if it containns discs
-		/// or cancel menu opening if nothing is selected
+		/// Globalized Copy command
+		/// - So far only for richtextbox but it can be extended if such need appears
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void CakeboxesActionsMenuOpening(object sender, CancelEventArgs e)
+		private void ContextCopyClick(object sender, EventArgs e)
 		{
-			if(cakeboxesListBox.SelectedIndex > -1)
+			ToolStripMenuItem source = sender as ToolStripMenuItem;
+			ContextMenuStrip parent = source.GetCurrentParent() as ContextMenuStrip;
+			if(parent.SourceControl is RichTextBox)
 			{
-				deleteCakeboxMenuItem.Enabled = (discsListBox.Items.Count == 0);
+				RichTextBox rtb = parent.SourceControl as RichTextBox;
+				rtb.Copy();
 			}
-			else
+			else if(parent.SourceControl is ListBox)
 			{
-				e.Cancel = true;
-			}
-		}
-		
-		/// <summary>
-		/// Cancel files list action menu if nothing is selected
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void FilesListActionMenuOpening(object sender, CancelEventArgs e)
-		{
-			if(fileList.SelectedText.Trim().Length == 0)
-			{
-				e.Cancel = true;
+				ListBox lb = parent.SourceControl as ListBox;
+				if(lb.SelectedIndex > -1)
+				{
+					Clipboard.SetText(lb.Text);
+				}
 			}
 		}
 		
-		/// <summary>
-		/// Cancel discs list box action menu if nothing is selected
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void DiscsActionsMenuOpening(object sender, CancelEventArgs e)
-		{
-			if(discsListBox.SelectedIndex == -1)
-			{
-				e.Cancel = true;
-			}
-		}
-
-		/// <summary>
-		/// Copy selected text from the files list to system clipboard
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void CopyFilesListClick(object sender, EventArgs e)
-		{
-			Clipboard.SetText(fileList.SelectedText);
-		}
+		/***********************************************************
+							Menu Strip Action
+		 ***********************************************************/
 		
 		/// <summary>
-		/// Make default accept button the save new disc button when scan tab is selected
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void TabControlSelectedIndexChanged(object sender, EventArgs e)
-		{
-			switch(tabControl.SelectedIndex)
-			{
-				case 0:
-					AcceptButton = null;
-					break;
-					
-				case 1:
-					AcceptButton = saveNewDiscButton.Enabled ? saveNewDiscButton : toggleScanPathButton;
-					break;
-					
-				case 2:
-					AcceptButton = null;
-					break;
-			}
-		}
-		
-		/* Menu strip actions */
-		/// <summary>
-		/// 
+		/// Open add new cakebox dialog
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -759,18 +710,16 @@ namespace Cavebox.Forms
 		/// <param name="e"></param>
 		private void OpenEditCakeboxForm(object sender, EventArgs e)
 		{
-			int id = 0;
-			string label = null;
 			if(cakeboxesListBox.SelectedIndex > -1)
 			{
-				id = Convert.ToInt32(cakeboxesListBox.SelectedValue.ToString());
-				label = cakeboxesListBox.Text;
+				int id = Convert.ToInt32(cakeboxesListBox.SelectedValue.ToString());
+				string label = cakeboxesListBox.Text;
+				new EditCakebox(this, id, label).ShowDialog();
 			}
-			new EditCakebox(this, id, label).ShowDialog();
 		}
 
 		/// <summary>
-		/// Rebuild file counters, legacy procedure
+		/// Rebuild file counters (Deprecated)
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -898,9 +847,12 @@ namespace Cavebox.Forms
 			new Changelog().ShowDialog();
 		}
 		
-		/* General behavioral stuff */
+		/***********************************************************
+			UI Behavior things, small stuff to enhance experience
+		 ***********************************************************/
+
 		/// <summary>
-		/// Listbox select item on right click
+		/// Listbox select item on mouse down no matter what button
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -910,5 +862,92 @@ namespace Cavebox.Forms
 			listbox.SelectedIndex = listbox.IndexFromPoint(e.X, e.Y);
 		}
 
+		/// <summary>
+		/// Based on what tab is selected
+		/// - Change accept button to save new disc button or toggle scan path button
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void TabControlSelectedIndexChanged(object sender, EventArgs e)
+		{
+			switch(tabControl.SelectedIndex)
+			{
+				case 0:
+					AcceptButton = null;
+					break;
+					
+				case 1:
+					AcceptButton = saveNewDiscButton.Enabled ? saveNewDiscButton : toggleScanPathButton;
+					break;
+					
+				case 2:
+					AcceptButton = null;
+					break;
+			}
+		}
+		
+		/// <summary>
+		/// Hide delete option on cakeboxes listbox if it containns discs
+		/// or cancel menu opening if nothing is selected
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void CakeboxesActionsMenuOpening(object sender, CancelEventArgs e)
+		{
+			if(cakeboxesListBox.SelectedIndex > -1)
+			{
+				deleteCakeboxMenuItem.Enabled = discsListBox.Items.Count == 0;
+			}
+			else
+			{
+				e.Cancel = true;
+			}
+		}
+		
+		/// <summary>
+		/// Cancel files list action menu if nothing is selected
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void FilesListActionMenuOpening(object sender, CancelEventArgs e)
+		{
+			if(fileList.SelectedText.Trim().Length == 0)
+			{
+				e.Cancel = true;
+			}
+		}
+		
+		/// <summary>
+		/// Cancel discs list box action menu if nothing is selected
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void DiscsActionsMenuOpening(object sender, CancelEventArgs e)
+		{
+			if(discsListBox.SelectedIndex == -1)
+			{
+				e.Cancel = true;
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ConsoleActionsMenuOpening(object sender, CancelEventArgs e)
+		{
+			copyConsoleMenuItem.Enabled = console.SelectedText.Trim().Length > 0;
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ScanLogActionsMenuOpening(object sender, CancelEventArgs e)
+		{
+			copyScanFileListMenuItem.Enabled = scanFileList.SelectedText.Trim().Length > 0;
+		}
 	}
 }

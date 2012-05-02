@@ -103,6 +103,8 @@ namespace Cavebox.Forms
 			this.Controls.Add(this.selectCakebox);
 			this.Controls.Add(this.selectDiscsGroupBox);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "MassMove";
 			this.ShowInTaskbar = false;
 			this.selectDiscsGroupBox.ResumeLayout(false);

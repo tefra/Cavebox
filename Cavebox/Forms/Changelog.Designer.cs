@@ -51,6 +51,8 @@ namespace Cavebox.Forms
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this.changelogTextBox);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "Changelog";
 			this.ShowInTaskbar = false;
 			this.ResumeLayout(false);

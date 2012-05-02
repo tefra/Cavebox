@@ -77,6 +77,8 @@ namespace Cavebox.Forms
 			this.Controls.Add(this.saveButton);
 			this.Controls.Add(this.cakeboxLabel);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "EditCakebox";
 			this.ShowInTaskbar = false;
 			this.ResumeLayout(false);
