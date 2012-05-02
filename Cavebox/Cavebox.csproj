@@ -88,7 +88,7 @@
     </Compile>
     <Compile Include="Lib\ConsoleWriter.cs" />
     <Compile Include="Lib\ControlBinding.cs" />
-    <Compile Include="Lib\Index.cs" />
+    <Compile Include="Lib\Identity.cs" />
     <Compile Include="Lib\Lang.cs" />
     <Compile Include="Lib\Model.cs" />
     <Compile Include="Lib\PortableSettingsProvider.cs" />

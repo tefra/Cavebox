@@ -8,13 +8,13 @@ using System;
 namespace Cavebox.Lib
 {
 	/// <summary>
-	/// Description of Index.
+	///  Custom KeyValuePair to avoid all this List<keyvaluepair<int, string>> gibberish
 	/// </summary>
 	public class Identity
 	{
 
 		/// <summary>
-		/// 
+		/// Construct my lazy gibberish
 		/// </summary>
 		/// <param name="id"></param>
 		/// <param name="value"></param>

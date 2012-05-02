@@ -21,7 +21,7 @@ namespace Cavebox.Forms
 	public partial class Main : Form
 	{
 		List<ControlBinding> controlBindings = null;
-		List<Index> cakeboxes = null;
+		List<Identity> cakeboxes = null;
 		string _filter;
 		string _filterLike;
 		int scanTotalFiles = 0;
@@ -128,7 +128,7 @@ namespace Cavebox.Forms
 				RefreshStatusBar(true, true);
 			}
 			
-			List<Index> newDataSource = (_filterLike == null) ? cakeboxes.ToList() : Model.FetchCakeboxes(_filterLike);
+			List<Identity> newDataSource = (_filterLike == null) ? cakeboxes.ToList() : Model.FetchCakeboxes(_filterLike);
 			cakeboxesListBox.SelectedValueChanged -= ShowDiscs;
 			cakeboxesListBox.DataSource = newDataSource;
 			cakeboxesListBox.SelectedValueChanged += ShowDiscs;
@@ -151,7 +151,7 @@ namespace Cavebox.Forms
 		/// <param name="e"></param>
 		public void ShowDiscs(object sender, EventArgs e)
 		{
-			List<Index> newDataSource = (cakeboxesListBox.SelectedIndex > -1) ? Model.FetchDiscsByCakeboxId(cakeboxesListBox.SelectedValue.ToString(), _filterLike, discsOrderBy, discsOrderWay) : new List<Index>();
+			List<Identity> newDataSource = (cakeboxesListBox.SelectedIndex > -1) ? Model.FetchDiscsByCakeboxId(cakeboxesListBox.SelectedValue.ToString(), _filterLike, discsOrderBy, discsOrderWay) : new List<Identity>();
 			discsListBox.SelectedValueChanged -= ShowFiles;
 			discsListBox.DataSource = newDataSource;
 			discsListBox.SelectedValue = 0;

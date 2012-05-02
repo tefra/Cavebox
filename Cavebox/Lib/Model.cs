@@ -151,9 +151,9 @@ namespace Cavebox.Lib
 		/// </summary>
 		/// <param name="filter"></param>
 		/// <returns></returns>
-		public static List<Index> FetchCakeboxes(string filter = null)
+		public static List<Identity> FetchCakeboxes(string filter = null)
 		{
-			List<Index> list = new List<Index>();
+			List<Identity> list = new List<Identity>();
 			try
 			{
 				string sql = (filter == null) ?
@@ -164,7 +164,7 @@ namespace Cavebox.Lib
 				SQLiteDataReader r = c.ExecuteReader();
 				while (r.Read())
 				{
-					list.Add(new Index(r.GetInt32(0), r.GetString(1)));
+					list.Add(new Identity(r.GetInt32(0), r.GetString(1)));
 				}
 				r.Close();
 				c.Dispose();
@@ -184,9 +184,9 @@ namespace Cavebox.Lib
 		/// <param name="orderBy"></param>
 		/// <param name="orderWay"></param>
 		/// <returns></returns>
-		public static List<Index> FetchDiscsByCakeboxId(string id, string filter = null, int orderBy = 1, int orderWay = 0)
+		public static List<Identity> FetchDiscsByCakeboxId(string id, string filter = null, int orderBy = 1, int orderWay = 0)
 		{
-			List<Index> list = new List<Index>();
+			List<Identity> list = new List<Identity>();
 			try
 			{
 				string orderClause = null;
@@ -225,7 +225,7 @@ namespace Cavebox.Lib
 					{
 						label += " (" + r.GetInt32(2) + ")";
 					}
-					list.Add(new Index(diskId, label));
+					list.Add(new Identity(diskId, label));
 				}
 				r.Close();
 				c.Dispose();

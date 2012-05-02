@@ -62,8 +62,8 @@ namespace Cavebox.Forms
 				List<int> discs = new List<int>();
 				foreach(object itemChecked in selectDiscs.CheckedItems)
 				{
-					Index item = (Index) itemChecked;
-					discs.Add(item.Id);
+					Identity item = (Identity) itemChecked;
+					discs.Add(item.Key);
 					Console.Write(item.Value+"\n");
 				}
 				Model.MoveDiscs(target, discs);
