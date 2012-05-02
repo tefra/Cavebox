@@ -60,6 +60,7 @@ namespace Cavebox.Forms
 			FileListSplitContainer.SplitterDistance = Properties.Settings.Default.FileListSplitterDistance;
 			cakeboxDiscSplitContainer.SplitterDistance = Properties.Settings.Default.CakeboxDiscSplitterDistance;
 			tabControl.SelectedIndex = Properties.Settings.Default.SelectedTabIndex;
+			this.TopMost = alwaysOnTopMenuItem.Checked = Properties.Settings.Default.AlwaysOnTop;
 			scanPathComboBox.Items.AddRange(DriveInfo.GetDrives());
 			scanPathComboBox.Text = Properties.Settings.Default.LastScanPath;
 			ShowCakeboxes(0, true);
@@ -79,6 +80,7 @@ namespace Cavebox.Forms
 			Properties.Settings.Default.LastScanPath = scanPathComboBox.Text;
 			Properties.Settings.Default.SelectedTabIndex = tabControl.SelectedIndex;
 			Properties.Settings.Default.Restarts = Properties.Settings.Default.Restarts + 1;
+			Properties.Settings.Default.AlwaysOnTop = this.TopMost;
 			Properties.Settings.Default.Save();
 			Model.Close();
 			Console.WriteLine(Lang.GetString("_applicationClosing"));

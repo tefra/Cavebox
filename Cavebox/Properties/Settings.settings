@@ -4,6 +4,9 @@
     <Profile Name="(Default)" />
   </Profiles>
   <Settings>
+    <Setting Name="AlwaysOnTop" Type="System.Boolean" Scope="User" Roaming="false">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
     <Setting Name="CakeboxDiscSplitterDistance" Type="System.Int32" Scope="User" Provider="PortableSettingsProvider" Roaming="false">
       <Value Profile="(Default)">258</Value>
     </Setting>
