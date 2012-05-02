@@ -49,14 +49,6 @@ namespace Cavebox.Forms
 			}
 		}
 
-<<<<<<< .mine
-=======
-		/// <summary>
-		/// Load session storage properties values and initialize lists
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
->>>>>>> .r102
 		private void MainFormLoad(object sender, EventArgs e)
 		{
 			controlBindings = new List<ControlBinding>();
@@ -703,263 +695,263 @@ namespace Cavebox.Forms
 		
 		/***********************************************************
 							Menu Strip Action
-			 ***********************************************************/
-			
-			/// <summary>
-			/// Open add new cakebox dialog
-			/// </summary>
-			/// <param name="sender"></param>
-			/// <param name="e"></param>
-			private void OpenAddCakeboxForm(object sender, EventArgs e)
+		 ***********************************************************/
+		
+		/// <summary>
+		/// Open add new cakebox dialog
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void OpenAddCakeboxForm(object sender, EventArgs e)
+		{
+			new EditCakebox(this).ShowDialog();
+		}
+		
+		/// <summary>
+		/// Open edit cakebox dialog
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void OpenEditCakeboxForm(object sender, EventArgs e)
+		{
+			if(cakeboxesListBox.SelectedIndex > -1)
 			{
-				new EditCakebox(this).ShowDialog();
-			}
-			
-			/// <summary>
-			/// Open edit cakebox dialog
-			/// </summary>
-			/// <param name="sender"></param>
-			/// <param name="e"></param>
-			private void OpenEditCakeboxForm(object sender, EventArgs e)
-			{
-				if(cakeboxesListBox.SelectedIndex > -1)
-				{
-					int id = Convert.ToInt32(cakeboxesListBox.SelectedValue.ToString());
-					string label = cakeboxesListBox.Text;
-					new EditCakebox(this, id, label).ShowDialog();
-				}
-			}
-
-			/// <summary>
-			/// Rebuild file counters (Deprecated)
-			/// </summary>
-			/// <param name="sender"></param>
-			/// <param name="e"></param>
-			private void RebuildFileCounters(object sender, EventArgs e)
-			{
-				Cursor.Current = Cursors.WaitCursor;
-				stopWatch = DateTime.Now;
-				Model.RebuildFileCounters();
-				Console.WriteLine(Lang.GetString("_rebuildingFileCountersCompleted", (DateTime.Now - stopWatch).TotalSeconds));
-				Cursor.Current = Cursors.Default;
-			}
-			
-			/// <summary>
-			/// Run sqlite vacuum procedure to rebuild database to save database and speed up things
-			/// </summary>
-			/// <param name="sender"></param>
-			/// <param name="e"></param>
-			private void VacuumTables(object sender, EventArgs e)
-			{
-				Cursor.Current = Cursors.WaitCursor;
-				stopWatch = DateTime.Now;
-				Model.Vacuum();
-				Console.WriteLine(Lang.GetString("_vacuumTables", (DateTime.Now - stopWatch).TotalSeconds));
-				Cursor.Current = Cursors.Default;
-			}
-			
-			/// <summary>
-			/// Drop/Recreate database tables, with confirmation dialog
-			/// </summary>
-			/// <param name="sender"></param>
-			/// <param name="e"></param>
-			private void DropData(object sender, EventArgs e)
-			{
-				if(MessageBox.Show(Lang.GetString("_confirmDropData"), Lang.GetString("_confirmTitle"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-				{
-					Cursor.Current = Cursors.WaitCursor;
-					stopWatch = DateTime.Now;
-					Model.DropTables();
-					Model.Install();
-					Console.WriteLine(Lang.GetString("_dropData", (DateTime.Now - stopWatch).TotalSeconds));
-					Cursor.Current = Cursors.Default;
-					ShowCakeboxes(0, true);
-				}
-			}
-			
-			/// <summary>
-			/// Export xml database backup
-			/// </summary>
-			/// <param name="sender"></param>
-			/// <param name="e"></param>
-			private void ExportXml(object sender, EventArgs e)
-			{
-				FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
-				folderBrowserDialog.SelectedPath = Path.GetDirectoryName(Application.ExecutablePath);
-				if(folderBrowserDialog.ShowDialog() == DialogResult.OK)
-				{
-					Cursor.Current = Cursors.WaitCursor;
-					string file = folderBrowserDialog.SelectedPath + Path.DirectorySeparatorChar + DateTime.Now.ToString("yyyy-MM-dd-HHmmss") + ".xml";
-					stopWatch = DateTime.Now;
-					new XMLExport(file);
-					Console.WriteLine(Lang.GetString("_exportCompleted", (DateTime.Now - stopWatch).TotalSeconds));
-					Cursor.Current = Cursors.Default;
-				}
-			}
-			
-			/// <summary>
-			/// Import xml database backup
-			/// </summary>
-			/// <param name="sender"></param>
-			/// <param name="e"></param>
-			private void ImportXml(object sender, EventArgs e)
-			{
-				OpenFileDialog openFileDialog = new OpenFileDialog();
-				openFileDialog.InitialDirectory = Path.GetDirectoryName(Application.ExecutablePath);
-				openFileDialog.Filter = Lang.GetString("_xmlFilesDesc");
-				openFileDialog.Title = Lang.GetString("_selectBackupFile");
-				
-				if (openFileDialog.ShowDialog() == DialogResult.OK)
-				{
-					Cursor.Current = Cursors.WaitCursor;
-					stopWatch = DateTime.Now;
-					XMLImport i = new XMLImport(openFileDialog.FileName);
-					Console.WriteLine(Lang.GetString("_importCompleted", (DateTime.Now - stopWatch).TotalSeconds));
-					foreach (KeyValuePair<string, int> pair in i.imported)
-					{
-						Console.Write(Lang.GetString("_importTableRows", pair.Key, pair.Value));
-					}
-					Cursor.Current = Cursors.Default;
-					ShowCakeboxes(0, true);
-				}
-			}
-			
-			/// <summary>
-			/// Toggle always on top window option
-			/// </summary>
-			/// <param name="sender"></param>
-			/// <param name="e"></param>
-			private void AlwaysOnTopMenuItemClick(object sender, EventArgs e)
-			{
-				Boolean check = !alwaysOnTopMenuItem.Checked;
-				this.TopMost = check;
-				alwaysOnTopMenuItem.Checked = check;
-			}
-			
-			/// <summary>
-			/// Reset window size/potion and split containers splitter distance
-			/// </summary>
-			/// <param name="sender"></param>
-			/// <param name="e"></param>
-			private void ResetWindow(object sender, EventArgs e)
-			{
-				this.Size = Properties.Settings.Default.DefaultWindowSize;
-				cakeboxDiscSplitContainer.SplitterDistance = (cakeboxDiscSplitContainer.Width - cakeboxDiscSplitContainer.SplitterWidth) / 2;
-				FileListSplitContainer.SplitterDistance = 310;
-				this.CenterToScreen();
-			}
-			
-			/// <summary>
-			/// Show changelog dialog
-			/// </summary>
-			/// <param name="sender"></param>
-			/// <param name="e"></param>
-			private void ChangelogToolStripMenuItemClick(object sender, EventArgs e)
-			{
-				new Changelog().ShowDialog();
-			}
-			
-			/***********************************************************
-			UI Behavior things, small stuff to enhance experience
-			 ***********************************************************/
-
-			/// <summary>
-			/// Listbox select item on mouse down no matter what button
-			/// </summary>
-			/// <param name="sender"></param>
-			/// <param name="e"></param>
-			private void ListBoxMouseDown(object sender, MouseEventArgs e)
-			{
-				ListBox listbox = (ListBox) sender;
-				listbox.SelectedIndex = listbox.IndexFromPoint(e.X, e.Y);
-			}
-
-			/// <summary>
-			/// Based on what tab is selected
-			/// - Change accept button to save new disc button or toggle scan path button
-			/// </summary>
-			/// <param name="sender"></param>
-			/// <param name="e"></param>
-			private void TabControlSelectedIndexChanged(object sender, EventArgs e)
-			{
-				switch(tabControl.SelectedIndex)
-				{
-					case 0:
-						AcceptButton = null;
-						break;
-						
-					case 1:
-						AcceptButton = saveNewDiscButton.Enabled ? saveNewDiscButton : toggleScanPathButton;
-						break;
-						
-					case 2:
-						AcceptButton = null;
-						break;
-				}
-			}
-			
-			/// <summary>
-			/// Hide delete option on cakeboxes listbox if it containns discs
-			/// or cancel menu opening if nothing is selected
-			/// </summary>
-			/// <param name="sender"></param>
-			/// <param name="e"></param>
-			private void CakeboxesActionsMenuOpening(object sender, CancelEventArgs e)
-			{
-				if(cakeboxesListBox.SelectedIndex > -1)
-				{
-					deleteCakeboxMenuItem.Enabled = discsListBox.Items.Count == 0;
-				}
-				else
-				{
-					e.Cancel = true;
-				}
-			}
-			
-			/// <summary>
-			/// Cancel files list action menu if nothing is selected
-			/// </summary>
-			/// <param name="sender"></param>
-			/// <param name="e"></param>
-			private void FilesListActionMenuOpening(object sender, CancelEventArgs e)
-			{
-				if(fileList.SelectedText.Trim().Length == 0)
-				{
-					e.Cancel = true;
-				}
-			}
-			
-			/// <summary>
-			/// Cancel discs list box action menu if nothing is selected
-			/// </summary>
-			/// <param name="sender"></param>
-			/// <param name="e"></param>
-			private void DiscsActionsMenuOpening(object sender, CancelEventArgs e)
-			{
-				if(discsListBox.SelectedIndex == -1)
-				{
-					e.Cancel = true;
-				}
-			}
-			
-			/// <summary>
-			/// 
-			/// </summary>
-			/// <param name="sender"></param>
-			/// <param name="e"></param>
-			private void ConsoleActionsMenuOpening(object sender, CancelEventArgs e)
-			{
-				copyConsoleMenuItem.Enabled = console.SelectedText.Trim().Length > 0;
-			}
-			
-			/// <summary>
-			/// 
-			/// </summary>
-			/// <param name="sender"></param>
-			/// <param name="e"></param>
-			private void ScanLogActionsMenuOpening(object sender, CancelEventArgs e)
-			{
-				copyScanFileListMenuItem.Enabled = scanFileList.SelectedText.Trim().Length > 0;
+				int id = Convert.ToInt32(cakeboxesListBox.SelectedValue.ToString());
+				string label = cakeboxesListBox.Text;
+				new EditCakebox(this, id, label).ShowDialog();
 			}
 		}
+
+		/// <summary>
+		/// Rebuild file counters (Deprecated)
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void RebuildFileCounters(object sender, EventArgs e)
+		{
+			Cursor.Current = Cursors.WaitCursor;
+			stopWatch = DateTime.Now;
+			Model.RebuildFileCounters();
+			Console.WriteLine(Lang.GetString("_rebuildingFileCountersCompleted", (DateTime.Now - stopWatch).TotalSeconds));
+			Cursor.Current = Cursors.Default;
+		}
+		
+		/// <summary>
+		/// Run sqlite vacuum procedure to rebuild database to save database and speed up things
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void VacuumTables(object sender, EventArgs e)
+		{
+			Cursor.Current = Cursors.WaitCursor;
+			stopWatch = DateTime.Now;
+			Model.Vacuum();
+			Console.WriteLine(Lang.GetString("_vacuumTables", (DateTime.Now - stopWatch).TotalSeconds));
+			Cursor.Current = Cursors.Default;
+		}
+		
+		/// <summary>
+		/// Drop/Recreate database tables, with confirmation dialog
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void DropData(object sender, EventArgs e)
+		{
+			if(MessageBox.Show(Lang.GetString("_confirmDropData"), Lang.GetString("_confirmTitle"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+			{
+				Cursor.Current = Cursors.WaitCursor;
+				stopWatch = DateTime.Now;
+				Model.DropTables();
+				Model.Install();
+				Console.WriteLine(Lang.GetString("_dropData", (DateTime.Now - stopWatch).TotalSeconds));
+				Cursor.Current = Cursors.Default;
+				ShowCakeboxes(0, true);
+			}
+		}
+		
+		/// <summary>
+		/// Export xml database backup
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ExportXml(object sender, EventArgs e)
+		{
+			FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+			folderBrowserDialog.SelectedPath = Path.GetDirectoryName(Application.ExecutablePath);
+			if(folderBrowserDialog.ShowDialog() == DialogResult.OK)
+			{
+				Cursor.Current = Cursors.WaitCursor;
+				string file = folderBrowserDialog.SelectedPath + Path.DirectorySeparatorChar + DateTime.Now.ToString("yyyy-MM-dd-HHmmss") + ".xml";
+				stopWatch = DateTime.Now;
+				new XMLExport(file);
+				Console.WriteLine(Lang.GetString("_exportCompleted", (DateTime.Now - stopWatch).TotalSeconds));
+				Cursor.Current = Cursors.Default;
+			}
+		}
+		
+		/// <summary>
+		/// Import xml database backup
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ImportXml(object sender, EventArgs e)
+		{
+			OpenFileDialog openFileDialog = new OpenFileDialog();
+			openFileDialog.InitialDirectory = Path.GetDirectoryName(Application.ExecutablePath);
+			openFileDialog.Filter = Lang.GetString("_xmlFilesDesc");
+			openFileDialog.Title = Lang.GetString("_selectBackupFile");
+			
+			if (openFileDialog.ShowDialog() == DialogResult.OK)
+			{
+				Cursor.Current = Cursors.WaitCursor;
+				stopWatch = DateTime.Now;
+				XMLImport i = new XMLImport(openFileDialog.FileName);
+				Console.WriteLine(Lang.GetString("_importCompleted", (DateTime.Now - stopWatch).TotalSeconds));
+				foreach (KeyValuePair<string, int> pair in i.imported)
+				{
+					Console.Write(Lang.GetString("_importTableRows", pair.Key, pair.Value));
+				}
+				Cursor.Current = Cursors.Default;
+				ShowCakeboxes(0, true);
+			}
+		}
+		
+		/// <summary>
+		/// Toggle always on top window option
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void AlwaysOnTopMenuItemClick(object sender, EventArgs e)
+		{
+			Boolean check = !alwaysOnTopMenuItem.Checked;
+			this.TopMost = check;
+			alwaysOnTopMenuItem.Checked = check;
+		}
+		
+		/// <summary>
+		/// Reset window size/potion and split containers splitter distance
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ResetWindow(object sender, EventArgs e)
+		{
+			this.Size = Properties.Settings.Default.DefaultWindowSize;
+			cakeboxDiscSplitContainer.SplitterDistance = (cakeboxDiscSplitContainer.Width - cakeboxDiscSplitContainer.SplitterWidth) / 2;
+			FileListSplitContainer.SplitterDistance = 310;
+			this.CenterToScreen();
+		}
+		
+		/// <summary>
+		/// Show changelog dialog
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ChangelogToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			new Changelog().ShowDialog();
+		}
+		
+		/***********************************************************
+			UI Behavior things, small stuff to enhance experience
+		 ***********************************************************/
+
+		/// <summary>
+		/// Listbox select item on mouse down no matter what button
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ListBoxMouseDown(object sender, MouseEventArgs e)
+		{
+			ListBox listbox = (ListBox) sender;
+			listbox.SelectedIndex = listbox.IndexFromPoint(e.X, e.Y);
+		}
+
+		/// <summary>
+		/// Based on what tab is selected
+		/// - Change accept button to save new disc button or toggle scan path button
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void TabControlSelectedIndexChanged(object sender, EventArgs e)
+		{
+			switch(tabControl.SelectedIndex)
+			{
+				case 0:
+					AcceptButton = null;
+					break;
+					
+				case 1:
+					AcceptButton = saveNewDiscButton.Enabled ? saveNewDiscButton : toggleScanPathButton;
+					break;
+					
+				case 2:
+					AcceptButton = null;
+					break;
+			}
+		}
+		
+		/// <summary>
+		/// Hide delete option on cakeboxes listbox if it containns discs
+		/// or cancel menu opening if nothing is selected
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void CakeboxesActionsMenuOpening(object sender, CancelEventArgs e)
+		{
+			if(cakeboxesListBox.SelectedIndex > -1)
+			{
+				deleteCakeboxMenuItem.Enabled = discsListBox.Items.Count == 0;
+			}
+			else
+			{
+				e.Cancel = true;
+			}
+		}
+		
+		/// <summary>
+		/// Cancel files list action menu if nothing is selected
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void FilesListActionMenuOpening(object sender, CancelEventArgs e)
+		{
+			if(fileList.SelectedText.Trim().Length == 0)
+			{
+				e.Cancel = true;
+			}
+		}
+		
+		/// <summary>
+		/// Cancel discs list box action menu if nothing is selected
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void DiscsActionsMenuOpening(object sender, CancelEventArgs e)
+		{
+			if(discsListBox.SelectedIndex == -1)
+			{
+				e.Cancel = true;
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ConsoleActionsMenuOpening(object sender, CancelEventArgs e)
+		{
+			copyConsoleMenuItem.Enabled = console.SelectedText.Trim().Length > 0;
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ScanLogActionsMenuOpening(object sender, CancelEventArgs e)
+		{
+			copyScanFileListMenuItem.Enabled = scanFileList.SelectedText.Trim().Length > 0;
+		}
 	}
+}
