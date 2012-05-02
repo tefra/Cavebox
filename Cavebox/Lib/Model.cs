@@ -11,12 +11,12 @@ using System.Data.SQLite;
 namespace Cavebox.Lib
 {
 	/// <summary>
-	/// Description of Model.
+	/// Database model to do almost all db tasks
 	/// </summary>
 	static class Model
 	{
 		/// <summary>
-		/// 
+		/// Magic get set SQLiteConnection
 		/// </summary>
 		public static SQLiteConnection db {get; set;}
 

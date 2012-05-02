@@ -12,7 +12,7 @@ using Cavebox.Lib;
 namespace Cavebox.Forms
 {
 	/// <summary>
-	/// Description of EditCakebox.
+	/// Edit cakebox information
 	/// </summary>
 	public partial class EditCakebox : Form
 	{
@@ -21,7 +21,7 @@ namespace Cavebox.Forms
 		Main app;
 		
 		/// <summary>
-		/// 
+		/// Initialize components and their values from main form
 		/// </summary>
 		/// <param name="form"></param>
 		/// <param name="id"></param>
@@ -57,7 +57,7 @@ namespace Cavebox.Forms
 		}
 		
 		/// <summary>
-		/// 
+		/// Displose form
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -67,7 +67,7 @@ namespace Cavebox.Forms
 		}
 		
 		/// <summary>
-		/// 
+		/// Enable the save button when real changes were made
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>

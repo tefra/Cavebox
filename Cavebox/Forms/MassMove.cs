@@ -13,7 +13,7 @@ using Cavebox.Lib;
 namespace Cavebox.Forms
 {
 	/// <summary>
-	/// Description of MassMove.
+	/// Mass move discs from one cakebox to another
 	/// </summary>
 	public partial class MassMove : Form
 	{
@@ -22,7 +22,7 @@ namespace Cavebox.Forms
 		int source;
 		
 		/// <summary>
-		///
+		/// Initialize components and their values from main form
 		/// </summary>
 		/// <param name="form"></param>
 		/// <param name="cid"></param>
@@ -39,7 +39,7 @@ namespace Cavebox.Forms
 		}
 	
 		/// <summary>
-		/// 
+		/// Displose form
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -49,7 +49,7 @@ namespace Cavebox.Forms
 		}
 		
 		/// <summary>
-		/// 
+		/// Move selected discs to selected cakebox
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -73,7 +73,7 @@ namespace Cavebox.Forms
 		}
 		
 		/// <summary>
-		/// 
+		/// Enable the move button when we have something to move
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -83,7 +83,7 @@ namespace Cavebox.Forms
 		}
 		
 		/// <summary>
-		/// 
+		/// Shortcut method to get the cakebox Id from the listbox
 		/// </summary>
 		/// <returns></returns>
 		private int getTargetCakeboxId()
@@ -92,7 +92,7 @@ namespace Cavebox.Forms
 		}
 		
 		/// <summary>
-		/// 
+		/// Select/Deselect all items
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>

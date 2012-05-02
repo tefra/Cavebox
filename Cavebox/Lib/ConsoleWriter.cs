@@ -10,7 +10,7 @@ using System.IO;
 namespace Cavebox.Lib
 {
 	/// <summary>
-	/// Description of ConcoleWriter.
+	/// Write console input to a richtextbox, nothing fancy here
 	/// </summary>
 	public class ConsoleWriter : TextWriter
 	{

@@ -9,17 +9,17 @@ using System.Resources;
 namespace Cavebox.Lib
 {
 	/// <summary>
-	/// Description of Lang.
+	/// Lazy load of the custom strings resource
 	/// </summary>
 	public class Lang
 	{
 		/// <summary>
-		/// 
+		/// Magic get set ResourceManager
 		/// </summary>
 		public static ResourceManager Rm { get; set;}
 		
 		/// <summary>
-		/// 
+		/// Initialize ResourceManager Rm
 		/// </summary>
 		static Lang()
 		{
@@ -27,7 +27,7 @@ namespace Cavebox.Lib
 		}
 		
 		/// <summary>
-		/// 
+		/// Get string from the ResourceManager
 		/// </summary>
 		/// <param name="str"></param>
 		/// <returns></returns>
@@ -37,7 +37,7 @@ namespace Cavebox.Lib
 		}
 		
 		/// <summary>
-		/// 
+		/// Get string from the ResourceManager and format with one argument
 		/// </summary>
 		/// <param name="str"></param>
 		/// <param name="arg0"></param>
@@ -48,7 +48,7 @@ namespace Cavebox.Lib
 		}
 		
 		/// <summary>
-		/// 
+		/// Get string from the ResourceManager and format with two argument
 		/// </summary>
 		/// <param name="str"></param>
 		/// <param name="arg0"></param>
@@ -60,7 +60,7 @@ namespace Cavebox.Lib
 		}
 		
 		/// <summary>
-		/// 
+		/// Get string from the ResourceManager and format with three argument
 		/// </summary>
 		/// <param name="str"></param>
 		/// <param name="arg0"></param>

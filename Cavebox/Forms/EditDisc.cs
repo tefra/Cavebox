@@ -12,7 +12,7 @@ using Cavebox.Lib;
 namespace Cavebox.Forms
 {
 	/// <summary>
-	/// Description of EditDisc.
+	/// Edit disc information form
 	/// </summary>
 	public partial class EditDisc : Form
 	{
@@ -22,7 +22,7 @@ namespace Cavebox.Forms
 		Main app;
 		
 		/// <summary>
-		/// Initialize components and values
+		/// Initialize components and their values from main form
 		/// </summary>
 		/// <param name="form"></param>
 		/// <param name="id"></param>
@@ -77,8 +77,7 @@ namespace Cavebox.Forms
 		}
 		
 		/// <summary>
-		/// Enable the save button when changes were made
-		/// Disable otherwrise
+		/// Enable the save button when real changes were made
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
