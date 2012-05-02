@@ -1,5 +1,5 @@
 ﻿/**
- * @version	$Id: Index.cs 80 2012-04-27 22:22:39Z Tefra $
+ * @version	$Id$
  * @author	Christodoulos Tsoulloftas
  * @link	http://www.t3-design.com
  */
