@@ -49,11 +49,14 @@ namespace Cavebox.Forms
 			}
 		}
 
+<<<<<<< .mine
+=======
 		/// <summary>
 		/// Load session storage properties values and initialize lists
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+>>>>>>> .r102
 		private void MainFormLoad(object sender, EventArgs e)
 		{
 			controlBindings = new List<ControlBinding>();
