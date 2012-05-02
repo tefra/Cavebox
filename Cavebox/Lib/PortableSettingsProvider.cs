@@ -26,7 +26,6 @@ public class PortableSettingsProvider : SettingsProvider
 	/// <param name="col"></param>
 	public override void Initialize(string name, NameValueCollection col)
 	{
-		base.init
 		base.Initialize(this.ApplicationName, col);
 	}
 	
