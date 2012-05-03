@@ -135,18 +135,6 @@
   <data name="discLabelLabel.Text" xml:space="preserve">
     <value>Label:</value>
   </data>
-  <data name="&gt;&gt;discLabelLabel.Name" xml:space="preserve">
-    <value>discLabelLabel</value>
-  </data>
-  <data name="&gt;&gt;discLabelLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;discLabelLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;discLabelLabel.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
   <data name="selectCakeboxLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 40</value>
   </data>
@@ -159,18 +147,6 @@
   <data name="selectCakeboxLabel.Text" xml:space="preserve">
     <value>Cakebox:</value>
   </data>
-  <data name="&gt;&gt;selectCakeboxLabel.Name" xml:space="preserve">
-    <value>selectCakeboxLabel</value>
-  </data>
-  <data name="&gt;&gt;selectCakeboxLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;selectCakeboxLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;selectCakeboxLabel.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
   <data name="discLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>70, 11</value>
   </data>
@@ -179,18 +155,6 @@
   </data>
   <data name="discLabel.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
-  </data>
-  <data name="&gt;&gt;discLabel.Name" xml:space="preserve">
-    <value>discLabel</value>
-  </data>
-  <data name="&gt;&gt;discLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;discLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;discLabel.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="selectCakebox.IntegralHeight" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -203,18 +167,6 @@
   </data>
   <data name="selectCakebox.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
-  </data>
-  <data name="&gt;&gt;selectCakebox.Name" xml:space="preserve">
-    <value>selectCakebox</value>
-  </data>
-  <data name="&gt;&gt;selectCakebox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;selectCakebox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;selectCakebox.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <data name="saveButton.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -231,18 +183,6 @@
   <data name="saveButton.Text" xml:space="preserve">
     <value>Save</value>
   </data>
-  <data name="&gt;&gt;saveButton.Name" xml:space="preserve">
-    <value>saveButton</value>
-  </data>
-  <data name="&gt;&gt;saveButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;saveButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;saveButton.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>297, 64</value>
   </data>
@@ -255,21 +195,6 @@
   <data name="cancelButton.Text" xml:space="preserve">
     <value>Cancel</value>
   </data>
-  <data name="&gt;&gt;cancelButton.Name" xml:space="preserve">
-    <value>cancelButton</value>
-  </data>
-  <data name="&gt;&gt;cancelButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cancelButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;cancelButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
@@ -282,10 +207,7 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Edit Disc</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>EditDisc</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>
