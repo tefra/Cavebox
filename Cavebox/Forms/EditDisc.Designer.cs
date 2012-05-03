@@ -66,7 +66,7 @@ namespace Cavebox.Forms
 			this.selectCakebox.FormattingEnabled = true;
 			resources.ApplyResources(this.selectCakebox, "selectCakebox");
 			this.selectCakebox.Name = "selectCakebox";
-			this.selectCakebox.ValueMember = "Id";
+			this.selectCakebox.ValueMember = "Key";
 			this.selectCakebox.SelectedValueChanged += new System.EventHandler(this.enableSaveButton);
 			// 
 			// saveButton

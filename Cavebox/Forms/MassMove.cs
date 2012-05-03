@@ -32,7 +32,7 @@ namespace Cavebox.Forms
 			app = form;
 			source = cid;
 			selectDiscs.DisplayMember = "Value";
-			selectDiscs.ValueMember = "Id";
+			selectDiscs.ValueMember = "Key";
 			selectDiscs.DataSource = app.discsListBox.DataSource;
 			selectCakebox.DataSource = app.newDiscCakebox.DataSource;
 			selectCakebox.SelectedValue = source;

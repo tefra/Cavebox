@@ -66,7 +66,7 @@ namespace Cavebox.Forms
 			this.selectCakebox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.selectCakebox.FormattingEnabled = true;
 			this.selectCakebox.Name = "selectCakebox";
-			this.selectCakebox.ValueMember = "Id";
+			this.selectCakebox.ValueMember = "Key";
 			this.selectCakebox.SelectedIndexChanged += new System.EventHandler(this.enableMoveButton);
 			// 
 			// toggleButton

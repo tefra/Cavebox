@@ -135,6 +135,18 @@
   <data name="selectDiscs.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
+  <data name="&gt;&gt;selectDiscs.Name" xml:space="preserve">
+    <value>selectDiscs</value>
+  </data>
+  <data name="&gt;&gt;selectDiscs.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;selectDiscs.Parent" xml:space="preserve">
+    <value>selectDiscsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;selectDiscs.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="selectDiscsGroupBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 12</value>
   </data>
@@ -146,6 +158,18 @@
   </data>
   <data name="selectDiscsGroupBox.Text" xml:space="preserve">
     <value>Select Discs</value>
+  </data>
+  <data name="&gt;&gt;selectDiscsGroupBox.Name" xml:space="preserve">
+    <value>selectDiscsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;selectDiscsGroupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;selectDiscsGroupBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;selectDiscsGroupBox.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="selectCakebox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
@@ -162,6 +186,18 @@
   <data name="selectCakebox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
+  <data name="&gt;&gt;selectCakebox.Name" xml:space="preserve">
+    <value>selectCakebox</value>
+  </data>
+  <data name="&gt;&gt;selectCakebox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;selectCakebox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;selectCakebox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <data name="toggleButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
@@ -176,6 +212,18 @@
   </data>
   <data name="toggleButton.Text" xml:space="preserve">
     <value>Toggle</value>
+  </data>
+  <data name="&gt;&gt;toggleButton.Name" xml:space="preserve">
+    <value>toggleButton</value>
+  </data>
+  <data name="&gt;&gt;toggleButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toggleButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;toggleButton.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="moveButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -192,6 +240,18 @@
   <data name="moveButton.Text" xml:space="preserve">
     <value>Move</value>
   </data>
+  <data name="&gt;&gt;moveButton.Name" xml:space="preserve">
+    <value>moveButton</value>
+  </data>
+  <data name="&gt;&gt;moveButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;moveButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;moveButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="cancelButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
@@ -207,6 +267,21 @@
   <data name="cancelButton.Text" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="&gt;&gt;cancelButton.Name" xml:space="preserve">
+    <value>cancelButton</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
@@ -222,7 +297,10 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Mass Move</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>MassMove</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

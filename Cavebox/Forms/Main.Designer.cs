@@ -201,7 +201,7 @@ namespace Cavebox.Forms
 			resources.ApplyResources(this.cakeboxesListBox, "cakeboxesListBox");
 			this.cakeboxesListBox.FormattingEnabled = true;
 			this.cakeboxesListBox.Name = "cakeboxesListBox";
-			this.cakeboxesListBox.ValueMember = "Id";
+			this.cakeboxesListBox.ValueMember = "Key";
 			this.cakeboxesListBox.SelectedValueChanged += new System.EventHandler(this.ShowDiscs);
 			this.cakeboxesListBox.DoubleClick += new System.EventHandler(this.OpenEditCakeboxForm);
 			this.cakeboxesListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ListBoxMouseDown);
@@ -271,7 +271,7 @@ namespace Cavebox.Forms
 			resources.ApplyResources(this.discsListBox, "discsListBox");
 			this.discsListBox.FormattingEnabled = true;
 			this.discsListBox.Name = "discsListBox";
-			this.discsListBox.ValueMember = "Id";
+			this.discsListBox.ValueMember = "Key";
 			this.discsListBox.SelectedValueChanged += new System.EventHandler(this.ShowFiles);
 			this.discsListBox.DoubleClick += new System.EventHandler(this.OpenEditDiscForm);
 			this.discsListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ListBoxMouseDown);
@@ -680,7 +680,7 @@ namespace Cavebox.Forms
 			this.newDiscCakebox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.newDiscCakebox.FormattingEnabled = true;
 			this.newDiscCakebox.Name = "newDiscCakebox";
-			this.newDiscCakebox.ValueMember = "Id";
+			this.newDiscCakebox.ValueMember = "Key";
 			// 
 			// saveNewDiscButton
 			// 
