@@ -1,4 +1,9 @@
-﻿#region Using directives
+﻿/**
+ * @version	$Id$
+ * @author	Christodoulos Tsoulloftas
+ * @link	http://www.t3-design.com
+ */
+#region Using directives
 
 using System;
 using System.Reflection;
@@ -28,4 +33,4 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can use the default the Revision and 
 // Build Numbers by using the '*' as shown below:
-[assembly: AssemblyVersion("2.0.1.$Revision$")]
+[assembly: AssemblyVersion("2.0.1.*")]
