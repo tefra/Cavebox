@@ -71,6 +71,9 @@ namespace Cavebox.Forms
 				control.ReadValue();
 			}
 			alwaysOnTopMenuItem.Checked = this.TopMost;
+			
+
+			Console.WriteLine(Class1.getSe);
 		}
 		
 		/// <summary>
