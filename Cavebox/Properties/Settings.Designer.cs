@@ -5,6 +5,7 @@
  */
 namespace Cavebox.Properties {
 	
+	
 	[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
 	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("ICSharpCode.SettingsEditor.SettingsCodeGeneratorTool", "4.2.0.8774")]
 	internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
