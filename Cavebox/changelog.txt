@@ -1,4 +1,10 @@
-﻿v2.1.0 (4/5/2012)
+﻿v2.1.1
+- Update reset window to work with all component saved settings
+- Moved the changelog from the resources to dedicated txt file
+- Code cleanup/documentation
+-
+-------------------------------------------------------------
+v2.1.0 (4/5/2012)
 - Fixed bug in reset window procedure updating location before size
 - Fixed bug updating status bar twice when editing disc
 - Improved scan process performance (a lot)

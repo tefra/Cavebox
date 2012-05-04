@@ -140,7 +140,6 @@ public class PortableSettingsProvider : SettingsProvider
 	/// </summary>
 	private void SetValue(SettingsPropertyValue propVal)
 	{
-
 		XmlElement SettingNode = default(XmlElement);
 		try
 		{

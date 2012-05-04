@@ -20,7 +20,6 @@ namespace Cavebox.Forms
 		public Changelog()
 		{
 			InitializeComponent();
-			
 			try
 			{
 				changelogTextBox.Text = System.IO.File.ReadAllText("changelog.txt");
