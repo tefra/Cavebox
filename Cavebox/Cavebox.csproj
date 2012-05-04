@@ -142,6 +142,9 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="changelog.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\Icons\app.ico" />
     <None Include="Resources\Images\add.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>

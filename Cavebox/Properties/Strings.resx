@@ -214,4 +214,7 @@
   <data name="_confirmTitle" xml:space="preserve">
     <value>Are you sure ?</value>
   </data>
+  <data name="_readmeMissing" xml:space="preserve">
+    <value>The readme file is missing...</value>
+  </data>
 </root>
