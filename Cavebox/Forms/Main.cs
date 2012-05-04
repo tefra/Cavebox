@@ -5,6 +5,7 @@
  */
 using System;
 using System.ComponentModel;
+using System.Configuration;
 using System.IO;
 using System.Collections.Generic;
 using System.Drawing;
@@ -52,8 +53,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Restore previous session storage and initialize lists with data from database
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void MainFormLoad(object sender, EventArgs e)
 		{
 			controlBindings = new List<ControlBinding>();
@@ -64,30 +63,25 @@ namespace Cavebox.Forms
 			controlBindings.Add(new ControlBinding(cakeboxDiscSplitContainer, "SplitterDistance", "CakeboxDiscSplitterDistance"));
 			controlBindings.Add(new ControlBinding(tabControl, "SelectedIndex", "SelectedTabIndex"));
 			controlBindings.Add(new ControlBinding(scanPathComboBox, "Text", "LastScanPath"));
-			
+			scanPathComboBox.Items.AddRange(DriveInfo.GetDrives());
+			ShowCakeboxes(0, true);
+
 			foreach(ControlBinding control in controlBindings)
 			{
 				control.ReadValue();
 			}
-			
 			alwaysOnTopMenuItem.Checked = this.TopMost;
-			scanPathComboBox.Items.AddRange(DriveInfo.GetDrives());
-			ShowCakeboxes(0, true);
 		}
 		
 		/// <summary>
 		/// Close database connection, save session settings
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void MainFormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
 		{
 			foreach(ControlBinding control in controlBindings)
 			{
 				control.WriteValue();
 			}
-
-			Properties.Settings.Default.Restarts = Properties.Settings.Default.Restarts + 1;
 			Properties.Settings.Default.Save();
 			Model.Close();
 			Console.WriteLine(Lang.GetString("_applicationClosing"));
@@ -96,8 +90,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Exit application
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void ExitApplication(object sender, EventArgs e)
 		{
 			Dispose();
@@ -106,7 +98,7 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Get filter status
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>True or False for filter being active or not</returns>
 		public Boolean isFilterOn()
 		{
 			return _filter != null;
@@ -117,8 +109,8 @@ namespace Cavebox.Forms
 		/// - Cakebox add/edit/delete
 		/// - Filtering results
 		/// </summary>
-		/// <param name="selectValue"></param>
-		/// <param name="refreshCakeboxesCache"></param>
+		/// <param name="selectValue">Cakebox id to auto select</param>
+		/// <param name="refreshCakeboxesCache">Whether or not to refresh cakeboxes cache</param>
 		public void ShowCakeboxes(int selectValue = 0, Boolean refreshCakeboxesCache = false)
 		{
 			if(refreshCakeboxesCache)
@@ -147,8 +139,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Show discs based on the cakeboxes list box selection and filter
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		public void ShowDiscs(object sender, EventArgs e)
 		{
 			List<Identity> newDataSource = (cakeboxesListBox.SelectedIndex > -1) ? Model.FetchDiscsByCakeboxId(cakeboxesListBox.SelectedValue.ToString(), _filterLike, discsOrderBy, discsOrderWay) : new List<Identity>();
@@ -163,8 +153,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Show disc files based on discs list box selection and highlight filter strings
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void ShowFiles(object sender, EventArgs e)
 		{
 			fileList.Clear();
@@ -204,8 +192,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Start/Reset filter timer while typing to avoid useless db queries
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void FilterTextBoxTextChanged(object sender, EventArgs e)
 		{
 			if(filterTextChangedTimer.Enabled)
@@ -218,8 +204,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Stop filter timer, construct filterLike keywords and refresh cakeboxes if necessary
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void Filter(object sender, EventArgs e)
 		{
 			filterTextChangedTimer.Stop();
@@ -245,8 +229,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Immediately set filter off
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void FilterOff(object sender, EventArgs e)
 		{
 			filterTextBox.TextChanged -= FilterTextBoxTextChanged;
@@ -260,8 +242,8 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Refress cakeboxes, discs, files total status bar labels
 		/// </summary>
-		/// <param name="cakebox"></param>
-		/// <param name="disc"></param>
+		/// <param name="cakebox">True or False to update cakeboxes total counter</param>
+		/// <param name="disc">True or False to update discs and files total counter</param>
 		private void RefreshStatusBar(Boolean cakebox = false, Boolean disc = false)
 		{
 			if(cakebox)
@@ -276,34 +258,32 @@ namespace Cavebox.Forms
 		}
 
 		/// <summary>
-		/// Update total label
+		/// Update a ToolStripLabel with a number ex. Files: 26.756
 		/// </summary>
-		/// <param name="label"></param>
-		/// <param name="num"></param>
-		private void UpdateNumTitle(ToolStripLabel label, int num)
+		/// <param name="ctrl">The ToolStripLabel that needs update</param>
+		/// <param name="num">The total number</param>
+		private void UpdateNumTitle(ToolStripLabel ctrl, int num)
 		{
-			string title = label.Text.Split(':')[0].Trim();
+			string title = ctrl.Text.Split(':')[0].Trim();
 			title += (num > 0) ? ": " + String.Format("{0:n0}", num) : null;
-			label.Text = title;
+			ctrl.Text = title;
 		}
 
 		/// <summary>
-		/// Update total label
+		/// Update a GroupBox with a number ex. Files: 26.756
 		/// </summary>
-		/// <param name="groupBox"></param>
-		/// <param name="num"></param>
-		public void UpdateNumTitle(GroupBox groupBox, int num)
+		/// <param name="ctrl">The GroupBox that needs update</param>
+		/// <param name="num">The total number</param>
+		public void UpdateNumTitle(GroupBox ctrl, int num)
 		{
-			string title = groupBox.Text.Split(':')[0].Trim();
+			string title = ctrl.Text.Split(':')[0].Trim();
 			title += (num > 0) ? ": " + String.Format("{0:n0}", num) : null;
-			groupBox.Text = title;
+			ctrl.Text = title;
 		}
 		
 		/// <summary>
-		/// Open browse folder dialog to set the scan path
+		/// Open a folder browseer dialog to set the scan path
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void BrowseScanPath(object sender, EventArgs e)
 		{
 			FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
@@ -321,8 +301,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Start/Stop scan path procedure if path exists
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void ScanWorkerToggle(object sender, EventArgs e)
 		{
 			saveNewDiscButton.Enabled = false;
@@ -363,8 +341,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Reset scan controls
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void ScanWorkerReset(object sender, EventArgs e)
 		{
 			if(scanWorker.IsBusy)
@@ -384,8 +360,6 @@ namespace Cavebox.Forms
 		/// Scan worker start walking the dir tree with stack push/pop
 		/// Update UI every 100 found files
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="evt"></param>
 		private void ScanWorkerDoWork(object sender, System.ComponentModel.DoWorkEventArgs evt)
 		{
 			string root = evt.Argument as string;
@@ -438,8 +412,8 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Invoke update rtb with scanworker file lists
 		/// </summary>
-		/// <param name="buf"></param>
-		/// <param name="files"></param>
+		/// <param name="buf">StringBuilder with the batch of files listed</param>
+		/// <param name="files">Number of files listed</param>
 		private void ScanWorkerUpdateRTB(StringBuilder buf, int files)
 		{
 			scanFileList.Invoke(new MethodInvoker(delegate
@@ -452,8 +426,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Show scan worker cancelled/completed results
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void ScanWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
 		{
 			scanFileList.ScrollToCaret();
@@ -481,8 +453,6 @@ namespace Cavebox.Forms
 		/// Add new disc with the scan worker results
 		/// New disc label and cakebox are required fields
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void SaveNewDisc(object sender, EventArgs e)
 		{
 			string label = newDiscLabelTextBox.Text.Trim();
@@ -516,8 +486,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Delete cakebox, with confirmation dialog
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void DeleteCakebox(object sender, EventArgs e)
 		{
 			if(discsListBox.Items.Count > 0)
@@ -536,8 +504,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Open mass move discs dialog
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void OpenMassMoveForm(object sender, EventArgs e)
 		{
 			if(cakeboxesListBox.SelectedIndex > -1)
@@ -550,8 +516,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Open edit disc dialog
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void OpenEditDiscForm(object sender, EventArgs e)
 		{
 			if(discsListBox.SelectedIndex > -1 && cakeboxesListBox.SelectedIndex > -1)
@@ -566,8 +530,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Delete disc, with confirmation dialog
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void DeleteDisc(object sender, EventArgs e)
 		{
 			if(MessageBox.Show(Lang.GetString("_confirmDeleteDisc", discsListBox.Text), Lang.GetString("_confirmTitle"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
@@ -582,8 +544,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Change sorting rules on discs listbox and refresh
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void SortDiscs(object sender, EventArgs e)
 		{
 			ToolStripMenuItem source = (ToolStripMenuItem) sender;
@@ -632,8 +592,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Clear console text
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void ClearConsole(object sender, EventArgs e)
 		{
 			console.Clear();
@@ -642,8 +600,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Open search url with selected file list text
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void OpenSearchUrl(object sender, EventArgs e)
 		{
 			string link = null;
@@ -680,8 +636,6 @@ namespace Cavebox.Forms
 		/// Globalized Copy command
 		/// - So far only for richtextbox but it can be extended if such need appears
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void ContextCopyClick(object sender, EventArgs e)
 		{
 			ToolStripMenuItem source = sender as ToolStripMenuItem;
@@ -708,8 +662,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Open add new cakebox dialog
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void OpenAddCakeboxForm(object sender, EventArgs e)
 		{
 			new EditCakebox(this).ShowDialog();
@@ -733,8 +685,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Rebuild file counters (Deprecated)
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void RebuildFileCounters(object sender, EventArgs e)
 		{
 			Cursor.Current = Cursors.WaitCursor;
@@ -747,8 +697,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Run sqlite vacuum procedure to rebuild database to save database and speed up things
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void VacuumTables(object sender, EventArgs e)
 		{
 			Cursor.Current = Cursors.WaitCursor;
@@ -761,8 +709,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Drop/Recreate database tables, with confirmation dialog
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void DropData(object sender, EventArgs e)
 		{
 			if(MessageBox.Show(Lang.GetString("_confirmDropData"), Lang.GetString("_confirmTitle"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
@@ -780,8 +726,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Export xml database backup
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void ExportXml(object sender, EventArgs e)
 		{
 			FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
@@ -800,8 +744,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Import xml database backup
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void ImportXml(object sender, EventArgs e)
 		{
 			OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -827,8 +769,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Toggle always on top window option
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void AlwaysOnTopMenuItemClick(object sender, EventArgs e)
 		{
 			Boolean check = !alwaysOnTopMenuItem.Checked;
@@ -843,17 +783,16 @@ namespace Cavebox.Forms
 		/// <param name="e"></param>
 		private void ResetWindow(object sender, EventArgs e)
 		{
-			this.Size = Properties.Settings.Default.DefaultWindowSize;
-			cakeboxDiscSplitContainer.SplitterDistance = (cakeboxDiscSplitContainer.Width - cakeboxDiscSplitContainer.SplitterWidth) / 2;
-			FileListSplitContainer.SplitterDistance = 310;
-			this.CenterToScreen();
+			foreach(ControlBinding control in controlBindings)
+			{
+				control.ResetValue();
+			}
+			alwaysOnTopMenuItem.Checked = this.TopMost;
 		}
 		
 		/// <summary>
 		/// Show changelog dialog
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void ChangelogToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			new Changelog().ShowDialog();
@@ -866,8 +805,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Listbox select item on mouse down no matter what button
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void ListBoxMouseDown(object sender, MouseEventArgs e)
 		{
 			ListBox listbox = (ListBox) sender;
@@ -878,8 +815,6 @@ namespace Cavebox.Forms
 		/// Based on what tab is selected
 		/// - Change accept button to save new disc button or toggle scan path button
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void TabControlSelectedIndexChanged(object sender, EventArgs e)
 		{
 			switch(tabControl.SelectedIndex)
@@ -902,8 +837,6 @@ namespace Cavebox.Forms
 		/// Hide delete option on cakeboxes listbox if it containns discs
 		/// or cancel menu opening if nothing is selected
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void CakeboxesActionsMenuOpening(object sender, CancelEventArgs e)
 		{
 			if(cakeboxesListBox.SelectedIndex > -1)
@@ -919,8 +852,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Cancel files list action menu if nothing is selected
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void FilesListActionMenuOpening(object sender, CancelEventArgs e)
 		{
 			if(fileList.SelectedText.Trim().Length == 0)
@@ -932,8 +863,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Cancel discs list box action menu if nothing is selected
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void DiscsActionsMenuOpening(object sender, CancelEventArgs e)
 		{
 			if(discsListBox.SelectedIndex == -1)
@@ -943,20 +872,16 @@ namespace Cavebox.Forms
 		}
 		
 		/// <summary>
-		/// 
+		/// Set enabled status for copy menu item based on console selectedtext length
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void ConsoleActionsMenuOpening(object sender, CancelEventArgs e)
 		{
 			copyConsoleMenuItem.Enabled = console.SelectedText.Trim().Length > 0;
 		}
 		
 		/// <summary>
-		/// 
+		/// Set enabled status for copy menu item based on scan file list selectedtext length
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void ScanLogActionsMenuOpening(object sender, CancelEventArgs e)
 		{
 			copyScanFileListMenuItem.Enabled = scanFileList.SelectedText.Trim().Length > 0;

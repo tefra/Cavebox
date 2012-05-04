@@ -41,7 +41,7 @@ namespace Cavebox.Lib
 		///     <column name="label">Movies #01</column>
 		///   </table>
 		/// </summary>
-		/// <param name="table">the table name</param>
+		/// <param name="table">The table name</param>
 		/// <param name="writer">XmlWriter initialized istance</param>
 		public void writeTable(string table, XmlWriter writer)
 		{

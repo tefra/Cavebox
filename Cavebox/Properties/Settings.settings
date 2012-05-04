@@ -10,17 +10,11 @@
     <Setting Name="CakeboxDiscSplitterDistance" Type="System.Int32" Scope="User" Provider="PortableSettingsProvider" Roaming="false">
       <Value Profile="(Default)">258</Value>
     </Setting>
-    <Setting Name="DefaultWindowSize" Type="System.Drawing.Size" Scope="Application" Provider="PortableSettingsProvider">
-      <Value Profile="(Default)">550, 600</Value>
-    </Setting>
     <Setting Name="FileListSplitterDistance" Type="System.Int32" Scope="User" Provider="PortableSettingsProvider" Roaming="false">
       <Value Profile="(Default)">310</Value>
     </Setting>
     <Setting Name="LastScanPath" Type="System.String" Scope="User" Provider="PortableSettingsProvider" Roaming="false">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="Restarts" Type="System.Int32" Scope="User" Provider="PortableSettingsProvider" Roaming="false">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">C:\</Value>
     </Setting>
     <Setting Name="SelectedTabIndex" Type="System.Int32" Scope="User" Provider="PortableSettingsProvider" Roaming="false">
       <Value Profile="(Default)">0</Value>

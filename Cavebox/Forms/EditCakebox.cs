@@ -23,9 +23,9 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Initialize components and their values from main form
 		/// </summary>
-		/// <param name="form"></param>
-		/// <param name="id"></param>
-		/// <param name="label"></param>
+		/// <param name="form">Main form instance</param>
+		/// <param name="id">Cakebox id number (optional for edit/insert)</param>
+		/// <param name="label">Cakebox label text</param>
 		public EditCakebox(Main form, int id = 0, string label = null)
 		{
 			InitializeComponent();
@@ -42,8 +42,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Insert/Update cakebox label notify main form to update
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void SaveCakebox(object sender, EventArgs e)
 		{
 			String label = cakeboxLabel.Text.Trim();
@@ -59,8 +57,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Displose form
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void CloseForm(object sender, EventArgs e)
 		{
 			Dispose();
@@ -69,8 +65,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Enable the save button when real changes were made
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void CakeboxLabelTextChanged(object sender, EventArgs e)
 		{
 			string label = cakeboxLabel.Text.Trim();

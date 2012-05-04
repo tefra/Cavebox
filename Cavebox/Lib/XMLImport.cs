@@ -48,13 +48,10 @@ namespace Cavebox.Lib
 								values.Add(reader.ReadString());
 							}
 						}
-						else if(reader.NodeType == XmlNodeType.EndElement)
+						else if(reader.NodeType == XmlNodeType.EndElement && reader.Name == "table")
 						{
-							if(reader.Name == "table")
-							{
-								imported[table] = imported.ContainsKey(table) ? imported[table] + 1 : 1;
-								Model.Insert(table, columns, values);
-							}
+							imported[table] = imported.ContainsKey(table) ? imported[table] + 1 : 1;
+							Model.Insert(table, columns, values);
 						}
 					}
 				}

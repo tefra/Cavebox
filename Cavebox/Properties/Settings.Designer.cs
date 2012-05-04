@@ -48,16 +48,6 @@ namespace Cavebox.Properties {
 			}
 		}
 		
-		[global::System.Configuration.ApplicationScopedSettingAttribute()]
-		[global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
-		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-		[global::System.Configuration.DefaultSettingValueAttribute("550, 600")]
-		public global::System.Drawing.Size DefaultWindowSize {
-			get {
-				return ((global::System.Drawing.Size)(this["DefaultWindowSize"]));
-			}
-		}
-		
 		[global::System.Configuration.UserScopedSettingAttribute()]
 		[global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
 		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -74,26 +64,13 @@ namespace Cavebox.Properties {
 		[global::System.Configuration.UserScopedSettingAttribute()]
 		[global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
 		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-		[global::System.Configuration.DefaultSettingValueAttribute("")]
+		[global::System.Configuration.DefaultSettingValueAttribute("C:\\")]
 		public string LastScanPath {
 			get {
 				return ((string)(this["LastScanPath"]));
 			}
 			set {
 				this["LastScanPath"] = value;
-			}
-		}
-		
-		[global::System.Configuration.UserScopedSettingAttribute()]
-		[global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
-		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-		[global::System.Configuration.DefaultSettingValueAttribute("0")]
-		public int Restarts {
-			get {
-				return ((int)(this["Restarts"]));
-			}
-			set {
-				this["Restarts"] = value;
 			}
 		}
 		
