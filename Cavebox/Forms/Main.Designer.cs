@@ -85,6 +85,7 @@ namespace Cavebox.Forms
 			this.viewMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.alwaysOnTopMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.resetWindowMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.ffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.rebuildTotalFilesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.vacuumDatabaseMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -126,7 +127,6 @@ namespace Cavebox.Forms
 			this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.scanWorker = new System.ComponentModel.BackgroundWorker();
 			this.filterTextChangedTimer = new System.Windows.Forms.Timer(this.components);
-			this.ffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			((System.ComponentModel.ISupportInitialize)(this.FileListSplitContainer)).BeginInit();
 			this.FileListSplitContainer.Panel1.SuspendLayout();
 			this.FileListSplitContainer.Panel2.SuspendLayout();
@@ -557,6 +557,11 @@ namespace Cavebox.Forms
 			resources.ApplyResources(this.resetWindowMenuItem, "resetWindowMenuItem");
 			this.resetWindowMenuItem.Click += new System.EventHandler(this.ResetWindow);
 			// 
+			// ffToolStripMenuItem
+			// 
+			this.ffToolStripMenuItem.Name = "ffToolStripMenuItem";
+			resources.ApplyResources(this.ffToolStripMenuItem, "ffToolStripMenuItem");
+			// 
 			// toolsMenuItem
 			// 
 			this.toolsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -852,11 +857,6 @@ namespace Cavebox.Forms
 			// 
 			this.filterTextChangedTimer.Interval = 250;
 			this.filterTextChangedTimer.Tick += new System.EventHandler(this.Filter);
-			// 
-			// ffToolStripMenuItem
-			// 
-			this.ffToolStripMenuItem.Name = "ffToolStripMenuItem";
-			resources.ApplyResources(this.ffToolStripMenuItem, "ffToolStripMenuItem");
 			// 
 			// Main
 			// 
