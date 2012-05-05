@@ -4,7 +4,6 @@
  * @link	http://www.t3-design.com
  */
 using System;
-
 using System.Collections.Generic;
 using System.Data.SQLite;
 

@@ -4,7 +4,6 @@
  * @link	http://www.t3-design.com
  */
 using System;
-using System.Drawing;
 using System.IO;
 
 namespace Cavebox.Lib

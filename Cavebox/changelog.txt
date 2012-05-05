@@ -1,5 +1,5 @@
 ﻿v2.1.1
-- Update reset window to work with all component saved settings
+- Updated reset window to work with all component saved settings
 - Moved the changelog from the resources to dedicated txt file
 - Fixed bug not saving all settings localy
 - Cleaned up code

@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Cavebox.Lib;
 
@@ -580,8 +581,7 @@ namespace Cavebox.Forms
 		private void OpenSearchUrl(object sender, EventArgs e)
 		{
 			ToolStripMenuItem source = (ToolStripMenuItem) sender;
-			string link = source.Tag.ToString();
-			link  += String.Join("+", fileList.SelectedText.Trim().Replace("\n", " ").Split(' '));
+			string link = source.Tag.ToString() + Regex.Replace(fileList.SelectedText, @"\s+", "+");
 			System.Diagnostics.Process.Start(link);
 		}
 		

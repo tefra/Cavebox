@@ -4,12 +4,8 @@
  * @link	http://www.t3-design.com
  */
 using System;
-
-using System.ComponentModel;
-
 using System.Drawing;
 using System.Reflection;
-using System.Windows.Forms;
 using Cavebox.Properties;
 
 namespace Cavebox.Lib
