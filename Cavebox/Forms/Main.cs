@@ -22,7 +22,6 @@ namespace Cavebox.Forms
 	public partial class Main : Form
 	{
 		List<ControlBinding> controlBindings = null;
-		List<Identity> cakeboxes = null;
 		string _filter;
 		string _filterLike;
 		int scanTotalFiles = 0;
@@ -70,7 +69,7 @@ namespace Cavebox.Forms
 			{
 				control.ReadValue();
 			}
-			ShowCakeboxes(0, true);
+			ShowCakeboxes(0, true, true);
 		}
 		
 		/// <summary>
@@ -105,28 +104,35 @@ namespace Cavebox.Forms
 		}
 
 		/// <summary>
-		/// Refresh cakeboxes lists and status bar stats on
-		/// - Cakebox add/edit/delete
-		/// - Filtering results
+		/// On startup or if cakeboxes changed update the datasource of the newDiscCakebox
+		/// and the status bar stats labels. If filter is off cakeboxesListBox and newDiscCakebox
+		/// share the same datasource, if it's on a new list of filtered cakeboxes is generated.
+		/// To fix the way c# handles empty datasource and listbox selected value changed event
+		/// we have to also call manually the showdiscs event. Optionaly if the selected value is > 0
+		/// a cakebox is autoselected by the id number.
 		/// </summary>
 		/// <param name="selectValue">Cakebox id to auto select</param>
 		/// <param name="refreshCakeboxesCache">Whether or not to refresh cakeboxes cache</param>
-		public void ShowCakeboxes(int selectValue = 0, Boolean refreshCakeboxesCache = false)
+		/// <param name="firstCall">Only on the first call update the discs/files stats on the status bar</param>
+		public void ShowCakeboxes(int selectValue = 0, Boolean refreshCakeboxesCache = false, Boolean firstCall = false)
 		{
+			List<Identity> cakeboxes = null;
 			if(refreshCakeboxesCache)
 			{
-				cakeboxes = Model.FetchCakeboxes();
-				newDiscCakebox.DataSource = cakeboxes.ToList();
-				RefreshStatusBar(true, true);
+				newDiscCakebox.DataSource = cakeboxes = Model.FetchCakeboxes();
+				RefreshStatusBar(true, firstCall);
 			}
-			
-			List<Identity> newDataSource = (_filterLike == null) ? cakeboxes.ToList() : Model.FetchCakeboxes(_filterLike);
+			else
+			{
+				cakeboxes = (List<Identity>) newDiscCakebox.DataSource;
+			}
+
 			cakeboxesListBox.SelectedValueChanged -= ShowDiscs;
-			cakeboxesListBox.DataSource = newDataSource;
+			cakeboxesListBox.DataSource = (_filterLike == null) ? cakeboxes : Model.FetchCakeboxes(_filterLike);
 			cakeboxesListBox.SelectedValueChanged += ShowDiscs;
-			UpdateNumTitle(cakeboxesGroupBox, newDataSource.Count);
+			UpdateNumTitle(cakeboxesGroupBox, cakeboxesListBox.Items.Count);
 			
-			if(newDataSource.Count == 0)
+			if(cakeboxesListBox.Items.Count == 0)
 			{
 				ShowDiscs(null, EventArgs.Empty);
 			}
@@ -138,16 +144,17 @@ namespace Cavebox.Forms
 
 		/// <summary>
 		/// Show discs based on the cakeboxes list box selection and filter
+		/// To fix the way c# handles empty datasource and listbox selected value changed event
+		/// we have to also call manually the ShowFiles event.
 		/// </summary>
 		public void ShowDiscs(object sender, EventArgs e)
 		{
-			List<Identity> newDataSource = (cakeboxesListBox.SelectedIndex > -1) ? Model.FetchDiscsByCakeboxId(cakeboxesListBox.SelectedValue.ToString(), _filterLike, discsOrderBy, discsOrderWay) : new List<Identity>();
 			discsListBox.SelectedValueChanged -= ShowFiles;
-			discsListBox.DataSource = newDataSource;
+			discsListBox.DataSource = (cakeboxesListBox.SelectedIndex > -1) ? Model.FetchDiscsByCakeboxId(cakeboxesListBox.SelectedValue.ToString(), _filterLike, discsOrderBy, discsOrderWay) : new List<Identity>();
 			discsListBox.SelectedValue = 0;
 			discsListBox.SelectedValueChanged += ShowFiles;
 			ShowFiles(sender, e);
-			UpdateNumTitle(discsGroupBox, newDataSource.Count);
+			UpdateNumTitle(discsGroupBox, discsListBox.Items.Count);
 		}
 		
 		/// <summary>
