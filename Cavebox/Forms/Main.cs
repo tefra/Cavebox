@@ -180,7 +180,7 @@ namespace Cavebox.Forms
 					{
 						fileList.Select(pos, keyLength);
 						fileList.SelectionBackColor = Color.Yellow;
-						start = pos+keyLength;
+						start = pos + keyLength;
 					}
 				}
 				discAddedLabel.Visible = true;
