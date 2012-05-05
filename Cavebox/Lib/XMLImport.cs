@@ -27,8 +27,8 @@ namespace Cavebox.Lib
 			try
 			{
 				string table = null;
-				List<string> columns = null;
-				List<string> values = null;
+				Dictionary<string, string> data = new Dictionary<string, string>();
+
 				SQLiteTransaction transaction = Model.db.BeginTransaction();
 				using (XmlReader reader = new XmlTextReader(file))
 				{
@@ -39,19 +39,17 @@ namespace Cavebox.Lib
 							if(reader.Name == "table")
 							{
 								table = reader.GetAttribute("name");
-								columns = new List<string>();
-								values = new List<string>();
+								data = new Dictionary<string, string>();
 							}
 							else if(reader.Name == "column")
 							{
-								columns.Add(reader.GetAttribute("name"));
-								values.Add(reader.ReadString());
+								data.Add(reader.GetAttribute("name"), reader.ReadString());
 							}
 						}
 						else if(reader.NodeType == XmlNodeType.EndElement && reader.Name == "table")
 						{
 							imported[table] = imported.ContainsKey(table) ? imported[table] + 1 : 1;
-							Model.Insert(table, columns, values);
+							Model.Insert(table, data);
 						}
 					}
 				}

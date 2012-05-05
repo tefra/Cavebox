@@ -191,32 +191,24 @@ namespace Cavebox.Lib
 				string orderClause = null;
 				switch(orderBy)
 				{
-					case 0:
-						orderClause = "id";
-						break;
-					case 1:
-						orderClause = "label COLLATE NOCASE";
-						break;
-					case 2:
-						orderClause = "filesno";
-						break;
+						case 0: orderClause = "id"; 					break;
+						case 1: orderClause = "label COLLATE NOCASE"; 	break;
+						case 2: orderClause = "filesno";			 	break;
 				}
 				orderClause += (orderWay == 0) ? " ASC" : " DESC";
 				
 				string sql = (filter != null) ?
-					"SELECT id, label, filesno FROM disc WHERE cid = "+ cid+" AND ToLower(files) LIKE '" + filter + "' ORDER BY "+orderClause :
-					"SELECT id, label, filesno FROM disc WHERE cid = "+ cid+" ORDER BY "+orderClause;
+					"SELECT id, label, filesno FROM disc WHERE cid = " + cid + " AND ToLower(files) LIKE '" + filter + "' ORDER BY " + orderClause :
+					"SELECT id, label, filesno FROM disc WHERE cid = " + cid + " ORDER BY " + orderClause;
 
 				SQLiteCommand c = CreateCommand(sql);
 				SQLiteDataReader r = c.ExecuteReader();
-				string label;
-				int diskId;
 				while (r.Read())
 				{
-					label = r.GetString(1);
-					diskId = r.GetInt32(0);
+					string label = r.GetString(1);
+					int diskId = r.GetInt32(0);
 					
-					if(label.ToUpper().Equals("MOVIES") || orderBy == 0)
+					if(label.ToLower().Equals("movies") || orderBy == 0)
 					{
 						label = "#" + diskId + " - " + label;
 					}
@@ -387,7 +379,7 @@ namespace Cavebox.Lib
 		}
 		
 		/// <summary>
-		/// General update db table method
+		/// Update db table
 		/// </summary>
 		/// <param name="table">Table name</param>
 		/// <param name="data">A list of keys and values representing db data</param>
@@ -414,32 +406,26 @@ namespace Cavebox.Lib
 		}
 		
 		/// <summary>
-		/// Alternative method to insert data using a single list of data instead of two for columns and values
+		/// Insert single row of data in db table 
 		/// </summary>
 		/// <param name="table">Table name</param>
 		/// <param name="data">A list of keys and values representing db data</param>
 		public static void Insert(string table, Dictionary<string, string> data)
 		{
-			Insert(table, new List<string>(data.Keys), new List<string>(data.Values));
-		}
-		
-		/// <summary>
-		/// General insert new db table row method
-		/// </summary>
-		/// <param name="table">Table</param>
-		/// <param name="columns">Columns names</param>
-		/// <param name="values">Columns values</param>
-		public static void Insert(string table, List<string> columns, List<string> values)
-		{
-			SQLiteCommand c = CreateCommand(String.Format("INSERT INTO {0} ({1}) VALUES (@{2})", table, String.Join(", ", columns), String.Join(", @", columns)));
-			for(int i = 0; i < columns.Count; i++)
+			if(data.Count > 0)
 			{
-				c.Parameters.Add(new SQLiteParameter("@"+columns[i], values[i]));
+				List<string> columns = new List<string>(data.Keys);
+				List<string> values = new List<string>(data.Values);
+				SQLiteCommand c = CreateCommand(String.Format("INSERT INTO {0} ({1}) VALUES (@{2})", table, String.Join(", ", columns), String.Join(", @", columns)));
+				for(int i = 0; i < columns.Count; i++)
+				{
+					c.Parameters.Add(new SQLiteParameter("@"+columns[i], values[i]));
+				}
+				c.ExecuteNonQuery();
+				c.Dispose();
 			}
-			c.ExecuteNonQuery();
-			c.Dispose();
 		}
-		
+
 		/// <summary>
 		/// Execute non query
 		/// </summary>
