@@ -85,7 +85,6 @@ namespace Cavebox.Forms
 			this.viewMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.alwaysOnTopMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.resetWindowMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.ffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.rebuildTotalFilesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.vacuumDatabaseMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -218,7 +217,7 @@ namespace Cavebox.Forms
 									this.massMoveDiscsMenuItem});
 			this.cakeboxesMenu.Name = "cakeboxesActionsMenu";
 			resources.ApplyResources(this.cakeboxesMenu, "cakeboxesMenu");
-			this.cakeboxesMenu.Opening += new System.ComponentModel.CancelEventHandler(this.CakeboxesActionsMenuOpening);
+			this.cakeboxesMenu.Opening += new System.ComponentModel.CancelEventHandler(this.CakeboxesMenuOpening);
 			// 
 			// copyCakeboxLabelMenuItem
 			// 
@@ -255,7 +254,7 @@ namespace Cavebox.Forms
 			this.massMoveDiscsMenuItem.Image = global::Cavebox.Properties.Images.move;
 			this.massMoveDiscsMenuItem.Name = "massMoveDiscsMenuItem";
 			resources.ApplyResources(this.massMoveDiscsMenuItem, "massMoveDiscsMenuItem");
-			this.massMoveDiscsMenuItem.Click += new System.EventHandler(this.OpenMassMoveForm);
+			this.massMoveDiscsMenuItem.Click += new System.EventHandler(this.OpenMassMove);
 			// 
 			// discsGroupBox
 			// 
@@ -274,7 +273,7 @@ namespace Cavebox.Forms
 			this.discsListBox.Name = "discsListBox";
 			this.discsListBox.ValueMember = "Key";
 			this.discsListBox.SelectedValueChanged += new System.EventHandler(this.ShowFiles);
-			this.discsListBox.DoubleClick += new System.EventHandler(this.OpenEditDiscForm);
+			this.discsListBox.DoubleClick += new System.EventHandler(this.OpenEditDisc);
 			this.discsListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ListBoxMouseDown);
 			// 
 			// discsMenu
@@ -288,7 +287,7 @@ namespace Cavebox.Forms
 									this.DiscsOrderMenu});
 			this.discsMenu.Name = "discsActionsMenu";
 			resources.ApplyResources(this.discsMenu, "discsMenu");
-			this.discsMenu.Opening += new System.ComponentModel.CancelEventHandler(this.DiscsActionsMenuOpening);
+			this.discsMenu.Opening += new System.ComponentModel.CancelEventHandler(this.DiscsMenuOpening);
 			// 
 			// copyDiscLabelMenuItem
 			// 
@@ -306,7 +305,7 @@ namespace Cavebox.Forms
 			this.editDiscMenuItem.Image = global::Cavebox.Properties.Images.edit;
 			this.editDiscMenuItem.Name = "editDiscMenuItem";
 			resources.ApplyResources(this.editDiscMenuItem, "editDiscMenuItem");
-			this.editDiscMenuItem.Click += new System.EventHandler(this.OpenEditDiscForm);
+			this.editDiscMenuItem.Click += new System.EventHandler(this.OpenEditDisc);
 			// 
 			// deleteDiscMenuItem
 			// 
@@ -428,7 +427,7 @@ namespace Cavebox.Forms
 									this.youtubeToolStripMenuItem});
 			this.filesListMenu.Name = "filesListActionMenu";
 			resources.ApplyResources(this.filesListMenu, "filesListMenu");
-			this.filesListMenu.Opening += new System.ComponentModel.CancelEventHandler(this.FilesListActionMenuOpening);
+			this.filesListMenu.Opening += new System.ComponentModel.CancelEventHandler(this.FilesListMenuOpening);
 			// 
 			// copyFileListMenuItem
 			// 
@@ -546,8 +545,7 @@ namespace Cavebox.Forms
 			// 
 			this.viewMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
 									this.alwaysOnTopMenuItem,
-									this.resetWindowMenuItem,
-									this.ffToolStripMenuItem});
+									this.resetWindowMenuItem});
 			this.viewMenuItem.Name = "viewMenuItem";
 			resources.ApplyResources(this.viewMenuItem, "viewMenuItem");
 			// 
@@ -555,18 +553,13 @@ namespace Cavebox.Forms
 			// 
 			this.alwaysOnTopMenuItem.Name = "alwaysOnTopMenuItem";
 			resources.ApplyResources(this.alwaysOnTopMenuItem, "alwaysOnTopMenuItem");
-			this.alwaysOnTopMenuItem.Click += new System.EventHandler(this.AlwaysOnTopMenuItemClick);
+			this.alwaysOnTopMenuItem.Click += new System.EventHandler(this.ToggleAlwaysOnTop);
 			// 
 			// resetWindowMenuItem
 			// 
 			this.resetWindowMenuItem.Name = "resetWindowMenuItem";
 			resources.ApplyResources(this.resetWindowMenuItem, "resetWindowMenuItem");
 			this.resetWindowMenuItem.Click += new System.EventHandler(this.ResetWindow);
-			// 
-			// ffToolStripMenuItem
-			// 
-			this.ffToolStripMenuItem.Name = "ffToolStripMenuItem";
-			resources.ApplyResources(this.ffToolStripMenuItem, "ffToolStripMenuItem");
 			// 
 			// toolsMenuItem
 			// 
@@ -606,7 +599,7 @@ namespace Cavebox.Forms
 			// 
 			this.changelogMenuItem.Name = "changelogMenuItem";
 			resources.ApplyResources(this.changelogMenuItem, "changelogMenuItem");
-			this.changelogMenuItem.Click += new System.EventHandler(this.ChangelogToolStripMenuItemClick);
+			this.changelogMenuItem.Click += new System.EventHandler(this.OpenChangelog);
 			// 
 			// statusStrip
 			// 
@@ -746,7 +739,7 @@ namespace Cavebox.Forms
 									this.resetScanMenuItem});
 			this.scanFileListMenu.Name = "scanLogActionsMenu";
 			resources.ApplyResources(this.scanFileListMenu, "scanFileListMenu");
-			this.scanFileListMenu.Opening += new System.ComponentModel.CancelEventHandler(this.ScanLogActionsMenuOpening);
+			this.scanFileListMenu.Opening += new System.ComponentModel.CancelEventHandler(this.ScanLogMenuOpening);
 			// 
 			// copyScanFileListMenuItem
 			// 
@@ -834,7 +827,7 @@ namespace Cavebox.Forms
 									this.clearToolStripMenuItem});
 			this.consoleMenu.Name = "consoleActionsMenu";
 			resources.ApplyResources(this.consoleMenu, "consoleMenu");
-			this.consoleMenu.Opening += new System.ComponentModel.CancelEventHandler(this.ConsoleActionsMenuOpening);
+			this.consoleMenu.Opening += new System.ComponentModel.CancelEventHandler(this.ConsoleMenuOpening);
 			// 
 			// copyConsoleMenuItem
 			// 
@@ -910,7 +903,6 @@ namespace Cavebox.Forms
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
-		private System.Windows.Forms.ToolStripMenuItem ffToolStripMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
 		private System.Windows.Forms.ToolStripMenuItem copyDiscLabelMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;

@@ -468,14 +468,13 @@ namespace Cavebox.Forms
 			{
 				DateTime Jan1st1970 = new DateTime (1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 				int added =  (int) (DateTime.UtcNow - Jan1st1970).TotalSeconds;
-				string clabel = newDiscCakebox.Text;
 				string cid = newDiscCakebox.SelectedValue.ToString();
 				
 				Model.AddDisc(label, files, scanTotalFiles.ToString(), cid, added.ToString());
 				ShowCakeboxes();
 				RefreshStatusBar(false, true);
 				scanFileList.Clear();
-				scanFileList.Text = Lang.GetString("_newDiscAdded", label, clabel);
+				scanFileList.Text = Lang.GetString("_newDiscAdded", label, newDiscCakebox.Text);
 				newDiscLabelTextBox.Clear();
 				saveNewDiscButton.Enabled = false;
 			}
@@ -503,7 +502,7 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Open mass move discs dialog
 		/// </summary>
-		private void OpenMassMoveForm(object sender, EventArgs e)
+		private void OpenMassMove(object sender, EventArgs e)
 		{
 			if(cakeboxesListBox.SelectedIndex > -1)
 			{
@@ -515,7 +514,7 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Open edit disc dialog
 		/// </summary>
-		private void OpenEditDiscForm(object sender, EventArgs e)
+		private void OpenEditDisc(object sender, EventArgs e)
 		{
 			if(discsListBox.SelectedIndex > -1 && cakeboxesListBox.SelectedIndex > -1)
 			{
@@ -723,16 +722,14 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Toggle always on top window option
 		/// </summary>
-		private void AlwaysOnTopMenuItemClick(object sender, EventArgs e)
+		private void ToggleAlwaysOnTop(object sender, EventArgs e)
 		{
 			this.TopMost = alwaysOnTopMenuItem.Checked = !this.TopMost;
 		}
 		
 		/// <summary>
-		/// Reset window size/potion and split containers splitter distance
+		/// Get every control property binding are set value to the application default setting
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void ResetWindow(object sender, EventArgs e)
 		{
 			foreach(ControlBinding control in controlBindings)
@@ -744,7 +741,7 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Show changelog dialog
 		/// </summary>
-		private void ChangelogToolStripMenuItemClick(object sender, EventArgs e)
+		private void OpenChangelog(object sender, EventArgs e)
 		{
 			new Changelog().ShowDialog();
 		}
@@ -788,7 +785,7 @@ namespace Cavebox.Forms
 		/// Hide delete option on cakeboxes listbox if it containns discs
 		/// or cancel menu opening if nothing is selected
 		/// </summary>
-		private void CakeboxesActionsMenuOpening(object sender, CancelEventArgs e)
+		private void CakeboxesMenuOpening(object sender, CancelEventArgs e)
 		{
 			if(cakeboxesListBox.SelectedIndex > -1)
 			{
@@ -803,7 +800,7 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Cancel files list action menu if nothing is selected
 		/// </summary>
-		private void FilesListActionMenuOpening(object sender, CancelEventArgs e)
+		private void FilesListMenuOpening(object sender, CancelEventArgs e)
 		{
 			if(fileList.SelectedText.Trim().Length == 0)
 			{
@@ -814,7 +811,7 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Cancel discs list box action menu if nothing is selected
 		/// </summary>
-		private void DiscsActionsMenuOpening(object sender, CancelEventArgs e)
+		private void DiscsMenuOpening(object sender, CancelEventArgs e)
 		{
 			if(discsListBox.SelectedIndex == -1)
 			{
@@ -825,7 +822,7 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Set enabled status for copy menu item based on console selectedtext length
 		/// </summary>
-		private void ConsoleActionsMenuOpening(object sender, CancelEventArgs e)
+		private void ConsoleMenuOpening(object sender, CancelEventArgs e)
 		{
 			copyConsoleMenuItem.Enabled = console.SelectedText.Trim().Length > 0;
 		}
@@ -833,7 +830,7 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Set enabled status for copy menu item based on scan file list selectedtext length
 		/// </summary>
-		private void ScanLogActionsMenuOpening(object sender, CancelEventArgs e)
+		private void ScanLogMenuOpening(object sender, CancelEventArgs e)
 		{
 			copyScanFileListMenuItem.Enabled = scanFileList.SelectedText.Trim().Length > 0;
 		}
