@@ -5,7 +5,6 @@
  */
 using System;
 using System.ComponentModel;
-using System.Configuration;
 using System.IO;
 using System.Collections.Generic;
 using System.Drawing;
@@ -29,7 +28,7 @@ namespace Cavebox.Forms
 		int discsOrderBy = 1;
 		int discsOrderWay = 0;
 		DateTime stopWatch;
-
+		
 		/// <summary>
 		/// Initialize components and database connection
 		/// </summary>
@@ -59,21 +58,18 @@ namespace Cavebox.Forms
 			controlBindings.Add(new ControlBinding(this, "Size", "WindowSize"));
 			controlBindings.Add(new ControlBinding(this, "Location", "WindowLocation"));
 			controlBindings.Add(new ControlBinding(this, "TopMost", "AlwaysOnTop"));
+			controlBindings.Add(new ControlBinding(alwaysOnTopMenuItem, "Checked", "AlwaysOnTop"));
 			controlBindings.Add(new ControlBinding(FileListSplitContainer, "SplitterDistance", "FileListSplitterDistance"));
 			controlBindings.Add(new ControlBinding(cakeboxDiscSplitContainer, "SplitterDistance", "CakeboxDiscSplitterDistance"));
 			controlBindings.Add(new ControlBinding(tabControl, "SelectedIndex", "SelectedTabIndex"));
 			controlBindings.Add(new ControlBinding(scanPathComboBox, "Text", "LastScanPath"));
 			scanPathComboBox.Items.AddRange(DriveInfo.GetDrives());
-			ShowCakeboxes(0, true);
-
+			
 			foreach(ControlBinding control in controlBindings)
 			{
 				control.ReadValue();
 			}
-			alwaysOnTopMenuItem.Checked = this.TopMost;
-			
-
-			Console.WriteLine(Class1.getSe);
+			ShowCakeboxes(0, true);
 		}
 		
 		/// <summary>
@@ -545,51 +541,28 @@ namespace Cavebox.Forms
 		}
 
 		/// <summary>
-		/// Change sorting rules on discs listbox and refresh
+		/// Update the discs order by field and refresh discs list
 		/// </summary>
-		private void SortDiscs(object sender, EventArgs e)
+		private void DiscsOrderBy(object sender, EventArgs e)
 		{
 			ToolStripMenuItem source = (ToolStripMenuItem) sender;
-			int prevBy = discsOrderBy;
-			int prevWay = discsOrderWay;
-			if(source == sortDiscsByIdMenuItem)
-			{
-				discsOrderBy = 0;
-				sortDiscsByIdMenuItem.Checked = true;
-				sortDiscsByLabelMenuItem.Checked = false;
-				sortDiscsByFilesNoMenuItem.Checked = false;
-			}
-			else if(source == sortDiscsByLabelMenuItem)
-			{
-				discsOrderBy = 1;
-				sortDiscsByIdMenuItem.Checked = false;
-				sortDiscsByLabelMenuItem.Checked = true;
-				sortDiscsByFilesNoMenuItem.Checked = false;
-			}
-			else if(source == sortDiscsByFilesNoMenuItem)
-			{
-				discsOrderBy = 2;
-				sortDiscsByIdMenuItem.Checked = false;
-				sortDiscsByLabelMenuItem.Checked = false;
-				sortDiscsByFilesNoMenuItem.Checked = true;
-			}
-			else if(source == sortDiscsAscendingMenuItem)
-			{
-				discsOrderWay = 0;
-				sortDiscsAscendingMenuItem.Checked = true;
-				sortDiscsDescendingMenuItem.Checked = false;
-				
-			}
-			else if(source == sortDiscsDescendingMenuItem)
-			{
-				discsOrderWay = 1;
-				sortDiscsAscendingMenuItem.Checked = false;
-				sortDiscsDescendingMenuItem.Checked = true;
-			}
-			if(prevBy != discsOrderBy || prevWay != discsOrderWay)
-			{
-				ShowDiscs(sender, e);
-			}
+			sortDiscsByIdMenuItem.Checked = (source == sortDiscsByIdMenuItem);
+			sortDiscsByLabelMenuItem.Checked = (source == sortDiscsByLabelMenuItem);
+			sortDiscsByFilesNoMenuItem.Checked = (source == sortDiscsByFilesNoMenuItem);
+			discsOrderBy = Convert.ToInt32(source.Tag);
+			ShowDiscs(sender, e);
+		}
+		
+		/// <summary>
+		/// Update the discs order way and refresh discs list
+		/// </summary>
+		private void DiscsOrderWay(object sender, EventArgs e)
+		{
+			ToolStripMenuItem source = (ToolStripMenuItem) sender;
+			sortDiscsAscendingMenuItem.Checked = (source == sortDiscsAscendingMenuItem);
+			sortDiscsDescendingMenuItem.Checked  = (source == sortDiscsDescendingMenuItem);
+			discsOrderWay = Convert.ToInt32(source.Tag);
+			ShowDiscs(sender, e);
 		}
 		
 		/// <summary>
@@ -774,9 +747,7 @@ namespace Cavebox.Forms
 		/// </summary>
 		private void AlwaysOnTopMenuItemClick(object sender, EventArgs e)
 		{
-			Boolean check = !alwaysOnTopMenuItem.Checked;
-			this.TopMost = check;
-			alwaysOnTopMenuItem.Checked = check;
+			this.TopMost = alwaysOnTopMenuItem.Checked = !this.TopMost;
 		}
 		
 		/// <summary>
@@ -790,7 +761,6 @@ namespace Cavebox.Forms
 			{
 				control.ResetValue();
 			}
-			alwaysOnTopMenuItem.Checked = this.TopMost;
 		}
 		
 		/// <summary>
@@ -889,5 +859,6 @@ namespace Cavebox.Forms
 		{
 			copyScanFileListMenuItem.Enabled = scanFileList.SelectedText.Trim().Length > 0;
 		}
+
 	}
 }

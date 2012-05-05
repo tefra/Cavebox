@@ -27,21 +27,21 @@ namespace Cavebox.Lib
 		/// <summary>
 		/// Constructor initializing Control, Property name and Setting name
 		/// </summary>
-		/// <param name="ctrl">The control instance</param>
+		/// <param name="ctrl">The object instance</param>
 		/// <param name="property">The control's property title</param>
 		/// <param name="key">The settings key</param>
-		public ControlBinding(Control ctrl, string property, string key)
+		public ControlBinding(object obj, string property, string key)
 		{
-			Ctrl = ctrl;
-			Property = ctrl.GetType().GetProperty(property);
+			Obj = obj;
+			Property = obj.GetType().GetProperty(property);
 			Key = key;
 			_Settings = Properties.Settings.Default;
 		}
 		
 		/// <summary>
-		/// Magic get set for Control
+		/// Magic get set for Control/Object
 		/// </summary>
-		public Control Ctrl { get; set; }
+		public object Obj { get; set; }
 
 		/// <summary>
 		/// Magic get set for Settings Key
@@ -54,27 +54,27 @@ namespace Cavebox.Lib
 		public PropertyInfo Property { get; set; }
 		
 		/// <summary>
-		/// Sets the control property value from the application setting
+		/// Sets the object property value from the application setting
 		/// </summary>
 		public void ReadValue()
 		{
-			Property.SetValue(Ctrl, _Settings[Key], null);
+			Property.SetValue(Obj, _Settings[Key], null);
 		}
 
 		/// <summary>
-		/// Reads the current value of the control property and writes it to the application setting
+		/// Reads the current value of the object property and writes it to the application setting
 		/// </summary>
 		public void WriteValue()
 		{
-			_Settings[Key] = Property.GetValue(Ctrl, null);
+			_Settings[Key] = Property.GetValue(Obj, null);
 		}
 		
 		/// <summary>
-		/// Sets the control property value from the application settings defaul value
+		/// Sets the object property value from the application settings defaul value
 		/// </summary>
 		public void ResetValue()
 		{
-			Property.SetValue(Ctrl, GetDefaultValue(), null);
+			Property.SetValue(Obj, GetDefaultValue(), null);
 		}
 
 		/// <summary>
