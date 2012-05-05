@@ -22,6 +22,7 @@ namespace Cavebox.Lib
 		{
 			XmlWriterSettings settings = new XmlWriterSettings();
 			settings.Indent = true;
+			settings.NewLineChars = "\n";
 			using (XmlWriter writer = XmlWriter.Create(file, settings))
 			{
 				writer.WriteStartDocument();

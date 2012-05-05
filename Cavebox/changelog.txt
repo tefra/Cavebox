@@ -1,4 +1,8 @@
-﻿v2.1.1
+﻿v2.1.2
+- Change EOL to UNIX from Win format (~3% smaller backup and db size)
+
+-------------------------------------------------------------
+v2.1.1 (5/5/2012)
 - Updated reset window to work with all component saved settings
 - Moved the changelog from the resources to dedicated txt file
 - Fixed bug not saving all settings localy
