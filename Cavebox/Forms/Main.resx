@@ -222,43 +222,43 @@
   <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
     <value>149, 6</value>
   </data>
-  <data name="sortDiscsByIdMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="DiscsOrderByIdMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>136, 22</value>
   </data>
-  <data name="sortDiscsByIdMenuItem.Text" xml:space="preserve">
+  <data name="DiscsOrderByIdMenuItem.Text" xml:space="preserve">
     <value>Id</value>
   </data>
-  <data name="sortDiscsByLabelMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="DiscsOrderByLabelMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>136, 22</value>
   </data>
-  <data name="sortDiscsByLabelMenuItem.Text" xml:space="preserve">
+  <data name="DiscsOrderByLabelMenuItem.Text" xml:space="preserve">
     <value>Label</value>
   </data>
-  <data name="sortDiscsByFilesNoMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="DiscsOrderByFilesNoMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>136, 22</value>
   </data>
-  <data name="sortDiscsByFilesNoMenuItem.Text" xml:space="preserve">
+  <data name="DiscsOrderByFilesNoMenuItem.Text" xml:space="preserve">
     <value>No. Files</value>
   </data>
   <data name="toolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
     <value>133, 6</value>
   </data>
-  <data name="sortDiscsAscendingMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="DiscsOrderAscMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>136, 22</value>
   </data>
-  <data name="sortDiscsAscendingMenuItem.Text" xml:space="preserve">
+  <data name="DiscsOrderAscMenuItem.Text" xml:space="preserve">
     <value>Ascending</value>
   </data>
-  <data name="sortDiscsDescendingMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="DiscsOrderDescMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>136, 22</value>
   </data>
-  <data name="sortDiscsDescendingMenuItem.Text" xml:space="preserve">
+  <data name="DiscsOrderDescMenuItem.Text" xml:space="preserve">
     <value>Descending</value>
   </data>
-  <data name="sortDiscsMenu.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="DiscsOrderMenu.Size" type="System.Drawing.Size, System.Drawing">
     <value>152, 22</value>
   </data>
-  <data name="sortDiscsMenu.Text" xml:space="preserve">
+  <data name="DiscsOrderMenu.Text" xml:space="preserve">
     <value>Sort</value>
   </data>
   <data name="discsMenu.Size" type="System.Drawing.Size, System.Drawing">
@@ -352,52 +352,52 @@
     <value>No</value>
   </data>
   <data name="copyFileListMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="copyFileListMenuItem.Text" xml:space="preserve">
     <value>Copy</value>
   </data>
   <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 6</value>
+    <value>149, 6</value>
   </data>
   <data name="googleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="googleToolStripMenuItem.Text" xml:space="preserve">
     <value>Google</value>
   </data>
   <data name="wikipediaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="wikipediaToolStripMenuItem.Text" xml:space="preserve">
     <value>Wikipedia</value>
   </data>
   <data name="anidbToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="anidbToolStripMenuItem.Text" xml:space="preserve">
     <value>Anidb</value>
   </data>
   <data name="imdbToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="imdbToolStripMenuItem.Text" xml:space="preserve">
     <value>Imdb</value>
   </data>
   <data name="lastfmToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="lastfmToolStripMenuItem.Text" xml:space="preserve">
     <value>Last.fm</value>
   </data>
   <data name="youtubeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="youtubeToolStripMenuItem.Text" xml:space="preserve">
     <value>Youtube</value>
   </data>
   <data name="filesListMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 164</value>
+    <value>153, 186</value>
   </data>
   <data name="fileList.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -797,7 +797,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAACA
-        BwAAAk1TRnQBSQFMAgEBAgEAARQBAgEYAQIBEAEAARABAAT/AQkBEAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        BwAAAk1TRnQBSQFMAgEBAgEAASgBAgEsAQIBEAEAARABAAT/AQkBEAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAARADAAEBAQABCAYAAQQYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA

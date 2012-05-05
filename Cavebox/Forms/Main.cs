@@ -361,7 +361,7 @@ namespace Cavebox.Forms
 		/// </summary>
 		private void ScanWorkerDoWork(object sender, System.ComponentModel.DoWorkEventArgs evt)
 		{
-			string root = evt.Argument as string;
+			string root = evt.Argument.ToString();
 			int rootLength = root.Length;
 			int i = 0;
 			scanTotalFiles = 0;
@@ -546,9 +546,9 @@ namespace Cavebox.Forms
 		private void DiscsOrderBy(object sender, EventArgs e)
 		{
 			ToolStripMenuItem source = (ToolStripMenuItem) sender;
-			sortDiscsByIdMenuItem.Checked = (source == sortDiscsByIdMenuItem);
-			sortDiscsByLabelMenuItem.Checked = (source == sortDiscsByLabelMenuItem);
-			sortDiscsByFilesNoMenuItem.Checked = (source == sortDiscsByFilesNoMenuItem);
+			DiscsOrderByIdMenuItem.Checked = (source == DiscsOrderByIdMenuItem);
+			DiscsOrderByLabelMenuItem.Checked = (source == DiscsOrderByLabelMenuItem);
+			DiscsOrderByFilesNoMenuItem.Checked = (source == DiscsOrderByFilesNoMenuItem);
 			discsOrderBy = Convert.ToInt32(source.Tag);
 			ShowDiscs(sender, e);
 		}
@@ -559,8 +559,8 @@ namespace Cavebox.Forms
 		private void DiscsOrderWay(object sender, EventArgs e)
 		{
 			ToolStripMenuItem source = (ToolStripMenuItem) sender;
-			sortDiscsAscendingMenuItem.Checked = (source == sortDiscsAscendingMenuItem);
-			sortDiscsDescendingMenuItem.Checked  = (source == sortDiscsDescendingMenuItem);
+			DiscsOrderAscMenuItem.Checked = (source == DiscsOrderAscMenuItem);
+			DiscsOrderDescMenuItem.Checked  = (source == DiscsOrderDescMenuItem);
 			discsOrderWay = Convert.ToInt32(source.Tag);
 			ShowDiscs(sender, e);
 		}
@@ -574,36 +574,14 @@ namespace Cavebox.Forms
 		}
 		
 		/// <summary>
-		/// Open search url with selected file list text
+		/// Get the search engine url from the ToolStripMenuItem's Tag property
+		/// combine it with the file list processed selected text and open link in
+		/// the default browser
 		/// </summary>
 		private void OpenSearchUrl(object sender, EventArgs e)
 		{
-			string link = null;
 			ToolStripMenuItem source = (ToolStripMenuItem) sender;
-			if(source == googleToolStripMenuItem)
-			{
-				link = "http://www.google.com/search?site=&q=";
-			}
-			else if(source == imdbToolStripMenuItem)
-			{
-				link = "http://www.imdb.com/find?s=all&q=";
-			}
-			else if(source == wikipediaToolStripMenuItem)
-			{
-				link = "http://en.wikipedia.org/wiki/Special:Search?search=";
-			}
-			else if(source == anidbToolStripMenuItem)
-			{
-				link = "http://anidb.net/perl-bin/animedb.pl?show=animelist&do.search=search&adb.search=";
-			}
-			else if(source == lastfmToolStripMenuItem)
-			{
-				link = "http://www.last.fm/music/";
-			}
-			else if(source == youtubeToolStripMenuItem)
-			{
-				link = "http://www.youtube.com/results?search_query=";
-			}
+			string link = source.Tag.ToString();
 			link  += String.Join("+", fileList.SelectedText.Trim().Replace("\n", " ").Split(' '));
 			System.Diagnostics.Process.Start(link);
 		}
@@ -614,16 +592,16 @@ namespace Cavebox.Forms
 		/// </summary>
 		private void ContextCopyClick(object sender, EventArgs e)
 		{
-			ToolStripMenuItem source = sender as ToolStripMenuItem;
-			ContextMenuStrip parent = source.GetCurrentParent() as ContextMenuStrip;
+			ToolStripMenuItem source = (ToolStripMenuItem) sender;
+			ContextMenuStrip parent = (ContextMenuStrip) source.GetCurrentParent();
 			if(parent.SourceControl is RichTextBox)
 			{
-				RichTextBox rtb = parent.SourceControl as RichTextBox;
+				RichTextBox rtb = (RichTextBox) parent.SourceControl;
 				rtb.Copy();
 			}
 			else if(parent.SourceControl is ListBox)
 			{
-				ListBox lb = parent.SourceControl as ListBox;
+				ListBox lb = (ListBox) parent.SourceControl;
 				if(lb.SelectedIndex > -1)
 				{
 					Clipboard.SetText(lb.Text);
@@ -859,6 +837,5 @@ namespace Cavebox.Forms
 		{
 			copyScanFileListMenuItem.Enabled = scanFileList.SelectedText.Trim().Length > 0;
 		}
-
 	}
 }

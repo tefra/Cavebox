@@ -54,13 +54,13 @@ namespace Cavebox.Forms
 			this.editDiscMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.deleteDiscMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-			this.sortDiscsMenu = new System.Windows.Forms.ToolStripMenuItem();
-			this.sortDiscsByIdMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.sortDiscsByLabelMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.sortDiscsByFilesNoMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.DiscsOrderMenu = new System.Windows.Forms.ToolStripMenuItem();
+			this.DiscsOrderByIdMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.DiscsOrderByLabelMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.DiscsOrderByFilesNoMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-			this.sortDiscsAscendingMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.sortDiscsDescendingMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.DiscsOrderAscMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.DiscsOrderDescMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.filterGroupBox = new System.Windows.Forms.GroupBox();
 			this.clearFilterButton = new System.Windows.Forms.Button();
 			this.filterTextBox = new System.Windows.Forms.TextBox();
@@ -285,7 +285,7 @@ namespace Cavebox.Forms
 									this.editDiscMenuItem,
 									this.deleteDiscMenuItem,
 									this.toolStripSeparator3,
-									this.sortDiscsMenu});
+									this.DiscsOrderMenu});
 			this.discsMenu.Name = "discsActionsMenu";
 			resources.ApplyResources(this.discsMenu, "discsMenu");
 			this.discsMenu.Opening += new System.ComponentModel.CancelEventHandler(this.DiscsActionsMenuOpening);
@@ -320,62 +320,62 @@ namespace Cavebox.Forms
 			this.toolStripSeparator3.Name = "toolStripSeparator3";
 			resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
 			// 
-			// sortDiscsMenu
+			// DiscsOrderMenu
 			// 
-			this.sortDiscsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-									this.sortDiscsByIdMenuItem,
-									this.sortDiscsByLabelMenuItem,
-									this.sortDiscsByFilesNoMenuItem,
+			this.DiscsOrderMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.DiscsOrderByIdMenuItem,
+									this.DiscsOrderByLabelMenuItem,
+									this.DiscsOrderByFilesNoMenuItem,
 									this.toolStripSeparator4,
-									this.sortDiscsAscendingMenuItem,
-									this.sortDiscsDescendingMenuItem});
-			this.sortDiscsMenu.Image = global::Cavebox.Properties.Images.alt;
-			this.sortDiscsMenu.Name = "sortDiscsMenu";
-			resources.ApplyResources(this.sortDiscsMenu, "sortDiscsMenu");
+									this.DiscsOrderAscMenuItem,
+									this.DiscsOrderDescMenuItem});
+			this.DiscsOrderMenu.Image = global::Cavebox.Properties.Images.alt;
+			this.DiscsOrderMenu.Name = "DiscsOrderMenu";
+			resources.ApplyResources(this.DiscsOrderMenu, "DiscsOrderMenu");
 			// 
-			// sortDiscsByIdMenuItem
+			// DiscsOrderByIdMenuItem
 			// 
-			this.sortDiscsByIdMenuItem.Name = "sortDiscsByIdMenuItem";
-			resources.ApplyResources(this.sortDiscsByIdMenuItem, "sortDiscsByIdMenuItem");
-			this.sortDiscsByIdMenuItem.Tag = "0";
-			this.sortDiscsByIdMenuItem.Click += new System.EventHandler(this.DiscsOrderBy);
+			this.DiscsOrderByIdMenuItem.Name = "DiscsOrderByIdMenuItem";
+			resources.ApplyResources(this.DiscsOrderByIdMenuItem, "DiscsOrderByIdMenuItem");
+			this.DiscsOrderByIdMenuItem.Tag = "0";
+			this.DiscsOrderByIdMenuItem.Click += new System.EventHandler(this.DiscsOrderBy);
 			// 
-			// sortDiscsByLabelMenuItem
+			// DiscsOrderByLabelMenuItem
 			// 
-			this.sortDiscsByLabelMenuItem.Checked = true;
-			this.sortDiscsByLabelMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.sortDiscsByLabelMenuItem.Name = "sortDiscsByLabelMenuItem";
-			resources.ApplyResources(this.sortDiscsByLabelMenuItem, "sortDiscsByLabelMenuItem");
-			this.sortDiscsByLabelMenuItem.Tag = "1";
-			this.sortDiscsByLabelMenuItem.Click += new System.EventHandler(this.DiscsOrderBy);
+			this.DiscsOrderByLabelMenuItem.Checked = true;
+			this.DiscsOrderByLabelMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.DiscsOrderByLabelMenuItem.Name = "DiscsOrderByLabelMenuItem";
+			resources.ApplyResources(this.DiscsOrderByLabelMenuItem, "DiscsOrderByLabelMenuItem");
+			this.DiscsOrderByLabelMenuItem.Tag = "1";
+			this.DiscsOrderByLabelMenuItem.Click += new System.EventHandler(this.DiscsOrderBy);
 			// 
-			// sortDiscsByFilesNoMenuItem
+			// DiscsOrderByFilesNoMenuItem
 			// 
-			this.sortDiscsByFilesNoMenuItem.Name = "sortDiscsByFilesNoMenuItem";
-			resources.ApplyResources(this.sortDiscsByFilesNoMenuItem, "sortDiscsByFilesNoMenuItem");
-			this.sortDiscsByFilesNoMenuItem.Tag = "2";
-			this.sortDiscsByFilesNoMenuItem.Click += new System.EventHandler(this.DiscsOrderBy);
+			this.DiscsOrderByFilesNoMenuItem.Name = "DiscsOrderByFilesNoMenuItem";
+			resources.ApplyResources(this.DiscsOrderByFilesNoMenuItem, "DiscsOrderByFilesNoMenuItem");
+			this.DiscsOrderByFilesNoMenuItem.Tag = "2";
+			this.DiscsOrderByFilesNoMenuItem.Click += new System.EventHandler(this.DiscsOrderBy);
 			// 
 			// toolStripSeparator4
 			// 
 			this.toolStripSeparator4.Name = "toolStripSeparator4";
 			resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
 			// 
-			// sortDiscsAscendingMenuItem
+			// DiscsOrderAscMenuItem
 			// 
-			this.sortDiscsAscendingMenuItem.Checked = true;
-			this.sortDiscsAscendingMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.sortDiscsAscendingMenuItem.Name = "sortDiscsAscendingMenuItem";
-			resources.ApplyResources(this.sortDiscsAscendingMenuItem, "sortDiscsAscendingMenuItem");
-			this.sortDiscsAscendingMenuItem.Tag = "0";
-			this.sortDiscsAscendingMenuItem.Click += new System.EventHandler(this.DiscsOrderWay);
+			this.DiscsOrderAscMenuItem.Checked = true;
+			this.DiscsOrderAscMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.DiscsOrderAscMenuItem.Name = "DiscsOrderAscMenuItem";
+			resources.ApplyResources(this.DiscsOrderAscMenuItem, "DiscsOrderAscMenuItem");
+			this.DiscsOrderAscMenuItem.Tag = "0";
+			this.DiscsOrderAscMenuItem.Click += new System.EventHandler(this.DiscsOrderWay);
 			// 
-			// sortDiscsDescendingMenuItem
+			// DiscsOrderDescMenuItem
 			// 
-			this.sortDiscsDescendingMenuItem.Name = "sortDiscsDescendingMenuItem";
-			resources.ApplyResources(this.sortDiscsDescendingMenuItem, "sortDiscsDescendingMenuItem");
-			this.sortDiscsDescendingMenuItem.Tag = "1";
-			this.sortDiscsDescendingMenuItem.Click += new System.EventHandler(this.DiscsOrderWay);
+			this.DiscsOrderDescMenuItem.Name = "DiscsOrderDescMenuItem";
+			resources.ApplyResources(this.DiscsOrderDescMenuItem, "DiscsOrderDescMenuItem");
+			this.DiscsOrderDescMenuItem.Tag = "1";
+			this.DiscsOrderDescMenuItem.Click += new System.EventHandler(this.DiscsOrderWay);
 			// 
 			// filterGroupBox
 			// 
@@ -446,6 +446,7 @@ namespace Cavebox.Forms
 			this.googleToolStripMenuItem.Image = global::Cavebox.Properties.Images.google;
 			this.googleToolStripMenuItem.Name = "googleToolStripMenuItem";
 			resources.ApplyResources(this.googleToolStripMenuItem, "googleToolStripMenuItem");
+			this.googleToolStripMenuItem.Tag = "http://www.google.com/search?site=&q=";
 			this.googleToolStripMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
 			// 
 			// wikipediaToolStripMenuItem
@@ -453,6 +454,7 @@ namespace Cavebox.Forms
 			this.wikipediaToolStripMenuItem.Image = global::Cavebox.Properties.Images.wikipedia;
 			this.wikipediaToolStripMenuItem.Name = "wikipediaToolStripMenuItem";
 			resources.ApplyResources(this.wikipediaToolStripMenuItem, "wikipediaToolStripMenuItem");
+			this.wikipediaToolStripMenuItem.Tag = "http://en.wikipedia.org/wiki/Special:Search?search=";
 			this.wikipediaToolStripMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
 			// 
 			// anidbToolStripMenuItem
@@ -460,6 +462,7 @@ namespace Cavebox.Forms
 			this.anidbToolStripMenuItem.Image = global::Cavebox.Properties.Images.anidb;
 			this.anidbToolStripMenuItem.Name = "anidbToolStripMenuItem";
 			resources.ApplyResources(this.anidbToolStripMenuItem, "anidbToolStripMenuItem");
+			this.anidbToolStripMenuItem.Tag = "http://anidb.net/perl-bin/animedb.pl?show=animelist&do.search=search&adb.search=";
 			this.anidbToolStripMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
 			// 
 			// imdbToolStripMenuItem
@@ -467,6 +470,7 @@ namespace Cavebox.Forms
 			this.imdbToolStripMenuItem.Image = global::Cavebox.Properties.Images.imdb;
 			this.imdbToolStripMenuItem.Name = "imdbToolStripMenuItem";
 			resources.ApplyResources(this.imdbToolStripMenuItem, "imdbToolStripMenuItem");
+			this.imdbToolStripMenuItem.Tag = "http://www.imdb.com/find?s=all&q=";
 			this.imdbToolStripMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
 			// 
 			// lastfmToolStripMenuItem
@@ -474,6 +478,7 @@ namespace Cavebox.Forms
 			this.lastfmToolStripMenuItem.Image = global::Cavebox.Properties.Images.lastFM;
 			this.lastfmToolStripMenuItem.Name = "lastfmToolStripMenuItem";
 			resources.ApplyResources(this.lastfmToolStripMenuItem, "lastfmToolStripMenuItem");
+			this.lastfmToolStripMenuItem.Tag = "http://www.last.fm/music/";
 			this.lastfmToolStripMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
 			// 
 			// youtubeToolStripMenuItem
@@ -481,6 +486,7 @@ namespace Cavebox.Forms
 			this.youtubeToolStripMenuItem.Image = global::Cavebox.Properties.Images.youtube;
 			this.youtubeToolStripMenuItem.Name = "youtubeToolStripMenuItem";
 			resources.ApplyResources(this.youtubeToolStripMenuItem, "youtubeToolStripMenuItem");
+			this.youtubeToolStripMenuItem.Tag = "http://www.youtube.com/results?search_query=";
 			this.youtubeToolStripMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
 			// 
 			// menuStrip
@@ -938,13 +944,13 @@ namespace Cavebox.Forms
 		private System.Windows.Forms.ContextMenuStrip filesListMenu;
 		private System.Windows.Forms.ToolStripMenuItem clearToolStripMenuItem;
 		private System.Windows.Forms.ContextMenuStrip consoleMenu;
-		private System.Windows.Forms.ToolStripMenuItem sortDiscsDescendingMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem sortDiscsAscendingMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem DiscsOrderDescMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem DiscsOrderAscMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-		private System.Windows.Forms.ToolStripMenuItem sortDiscsByFilesNoMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem sortDiscsByLabelMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem sortDiscsByIdMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem sortDiscsMenu;
+		private System.Windows.Forms.ToolStripMenuItem DiscsOrderByFilesNoMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem DiscsOrderByLabelMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem DiscsOrderByIdMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem DiscsOrderMenu;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
 		private System.Windows.Forms.ToolStripMenuItem deleteDiscMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem editDiscMenuItem;
