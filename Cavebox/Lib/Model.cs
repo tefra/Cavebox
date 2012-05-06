@@ -5,6 +5,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SQLite;
 
 namespace Cavebox.Lib
@@ -61,6 +62,15 @@ namespace Cavebox.Lib
 		public static string SQLiteVersion()
 		{
 			return db.ServerVersion;
+		}
+		
+		/// <summary>
+		/// Compilation options for SQLite
+		/// </summary>
+		/// <returns></returns>
+		public static DataTable SQLiteOptions()
+		{
+			return Fetch("PRAGMA compile_options");
 		}
 		
 		/// <summary>
@@ -376,6 +386,29 @@ namespace Cavebox.Lib
 		public static int GetTotalFiles()
 		{
 			return Convert.ToInt32(ExecuteScalar("SELECT COALESCE(SUM(filesno), 0) AS total FROM disc"));
+		}
+		
+		/// <summary>
+		/// Execute a query and retun a datatable with all results
+		/// </summary>
+		/// <param name="sql">The query string to execute</param>
+		/// <returns></returns>
+		public static DataTable Fetch(string sql)
+		{
+			DataTable data = new DataTable();
+			try
+			{
+				SQLiteCommand c = CreateCommand(sql);
+				SQLiteDataReader r = c.ExecuteReader();
+				data.Load(r);
+				r.Close();
+				c.Dispose();
+			}
+			catch(SQLiteException e)
+			{
+				Console.WriteLine(e.Message);
+			}
+			return data;
 		}
 		
 		/// <summary>
