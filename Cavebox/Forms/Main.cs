@@ -28,6 +28,7 @@ namespace Cavebox.Forms
 		int scanTotalFiles = 0;
 		int discsOrderBy = 1;
 		int discsOrderWay = 0;
+		int ListBoxLastTip;
 		DateTime stopWatch;
 		
 		/// <summary>
@@ -844,6 +845,28 @@ namespace Cavebox.Forms
 		private void ScanLogMenuOpening(object sender, CancelEventArgs e)
 		{
 			copyScanFileListMenuItem.Enabled = scanFileList.SelectedText.Trim().Length > 0;
+		}
+		
+		/// <summary>
+		/// Display in a tooltip the Identity Key when you mouse over listboxes
+		/// </summary>
+		private void IdentityMouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
+		{
+			ListBox source = (ListBox) sender;
+			int index = source.IndexFromPoint(e.X, e.Y);
+			if (index >= 0)
+			{
+				if(ListBoxLastTip != index)
+				{
+					Identity item = (Identity) source.Items[index];
+					toolTip.SetToolTip(source, "ID #"+item.Key);
+					ListBoxLastTip = index;
+				}
+			}
+			else
+			{
+				toolTip.Hide(source);
+			}
 		}
 	}
 }

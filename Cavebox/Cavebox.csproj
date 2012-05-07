@@ -149,6 +149,8 @@
     <None Include="Resources\app.ico" />
     <None Include="Resources\browse.png" />
     <None Include="Resources\cancel.png" />
+    <None Include="Resources\checkbox0.png" />
+    <None Include="Resources\checkbox1.png" />
     <None Include="Resources\copy.png" />
     <None Include="Resources\delete.png" />
     <None Include="Resources\drop.png" />

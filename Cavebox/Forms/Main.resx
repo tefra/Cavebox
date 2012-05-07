@@ -366,6 +366,9 @@
   <data name="clearFilterButton.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
+  <data name="clearFilterButton.ToolTip" xml:space="preserve">
+    <value>Clear Filter</value>
+  </data>
   <data name="filterTextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
@@ -609,113 +612,8 @@
   <data name="mainTabPage.Text" xml:space="preserve">
     <value>Main</value>
   </data>
-  <data name="scanTabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="scanTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="scanTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>526, 488</value>
-  </data>
-  <data name="scanTabPage.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="scanTabPage.Text" xml:space="preserve">
-    <value>Scan</value>
-  </data>
-  <data name="copyConsoleMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
-  </data>
-  <data name="copyConsoleMenuItem.Text" xml:space="preserve">
-    <value>Copy</value>
-  </data>
-  <data name="toolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 6</value>
-  </data>
-  <data name="clearToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>102, 22</value>
-  </data>
-  <data name="clearToolStripMenuItem.Text" xml:space="preserve">
-    <value>Clear</value>
-  </data>
-  <data name="consoleMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 76</value>
-  </data>
-  <data name="console.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="console.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 16</value>
-  </data>
-  <data name="console.Size" type="System.Drawing.Size, System.Drawing">
-    <value>514, 463</value>
-  </data>
-  <data name="console.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="console.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="console.WordWrap" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="consoleGroupBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="consoleGroupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="consoleGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>520, 482</value>
-  </data>
-  <data name="consoleGroupBox.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="consoleGroupBox.Text" xml:space="preserve">
-    <value>Console</value>
-  </data>
-  <data name="consoleTabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="consoleTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="consoleTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>526, 488</value>
-  </data>
-  <data name="consoleTabPage.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="consoleTabPage.Text" xml:space="preserve">
-    <value>Console</value>
-  </data>
-  <data name="tabControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="tabControl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 24</value>
-  </data>
-  <data name="tabControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>534, 514</value>
-  </data>
-  <data name="tabControl.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
   <data name="saveNewDiscGroupBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
-  </data>
-  <data name="saveNewDiscGroupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 409</value>
-  </data>
-  <data name="saveNewDiscGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>520, 76</value>
-  </data>
-  <data name="saveNewDiscGroupBox.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="saveNewDiscGroupBox.Text" xml:space="preserve">
-    <value>Save</value>
   </data>
   <data name="newDiscCakebox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -749,6 +647,9 @@
   </data>
   <data name="saveNewDiscButton.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
+  </data>
+  <data name="saveNewDiscButton.ToolTip" xml:space="preserve">
+    <value>Add new Disc</value>
   </data>
   <data name="newDiscLabelTextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -795,6 +696,18 @@
   <data name="newDiscLabelLabel.Text" xml:space="preserve">
     <value>Label:</value>
   </data>
+  <data name="saveNewDiscGroupBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 409</value>
+  </data>
+  <data name="saveNewDiscGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>520, 76</value>
+  </data>
+  <data name="saveNewDiscGroupBox.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="saveNewDiscGroupBox.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
   <data name="scanFileListGroupBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
@@ -810,56 +723,8 @@
   <data name="scanFileListGroupBox.Text" xml:space="preserve">
     <value>File List</value>
   </data>
-  <data name="copyScanFileListMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
-  </data>
-  <data name="copyScanFileListMenuItem.Text" xml:space="preserve">
-    <value>Copy</value>
-  </data>
-  <data name="toolStripSeparator7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 6</value>
-  </data>
-  <data name="resetScanMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>102, 22</value>
-  </data>
-  <data name="resetScanMenuItem.Text" xml:space="preserve">
-    <value>Reset</value>
-  </data>
-  <data name="scanFileListMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 54</value>
-  </data>
-  <data name="scanFileList.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="scanFileList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 16</value>
-  </data>
-  <data name="scanFileList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>514, 320</value>
-  </data>
-  <data name="scanFileList.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="scanFileList.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="scanFileList.WordWrap" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="scanPathGroupBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
-  </data>
-  <data name="scanPathGroupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="scanPathGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>520, 55</value>
-  </data>
-  <data name="scanPathGroupBox.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="scanPathGroupBox.Text" xml:space="preserve">
-    <value>Scan Path</value>
   </data>
   <data name="scanPathComboBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -885,6 +750,9 @@
   <data name="browseScanPathButton.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
+  <data name="browseScanPathButton.ToolTip" xml:space="preserve">
+    <value>Browse Folder</value>
+  </data>
   <data name="toggleScanPathButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
@@ -896,7 +764,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAACA
-        BwAAAk1TRnQBSQFMAgEBAgEAAWABAgFkAQIBEAEAARABAAT/AQkBEAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        BwAAAk1TRnQBSQFMAgEBAgEAAbABAgG0AQIBEAEAARABAAT/AQkBEAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAARADAAEBAQABCAYAAQQYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -943,6 +811,150 @@
   <data name="toggleScanPathButton.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
+  <data name="toggleScanPathButton.ToolTip" xml:space="preserve">
+    <value>Start/Stop Scan</value>
+  </data>
+  <data name="scanPathGroupBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="scanPathGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>520, 55</value>
+  </data>
+  <data name="scanPathGroupBox.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="scanPathGroupBox.Text" xml:space="preserve">
+    <value>Scan Path</value>
+  </data>
+  <data name="scanTabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="scanTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="scanTabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>526, 488</value>
+  </data>
+  <data name="scanTabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="scanTabPage.Text" xml:space="preserve">
+    <value>Scan</value>
+  </data>
+  <data name="consoleTabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="consoleTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="consoleTabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>526, 488</value>
+  </data>
+  <data name="consoleTabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="consoleTabPage.Text" xml:space="preserve">
+    <value>Console</value>
+  </data>
+  <data name="tabControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tabControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 24</value>
+  </data>
+  <data name="tabControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>534, 514</value>
+  </data>
+  <data name="tabControl.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="scanFileListMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 54</value>
+  </data>
+  <data name="scanFileList.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="scanFileList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 16</value>
+  </data>
+  <data name="scanFileList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>514, 320</value>
+  </data>
+  <data name="scanFileList.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="scanFileList.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="scanFileList.WordWrap" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="copyScanFileListMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="copyScanFileListMenuItem.Text" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="toolStripSeparator7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>99, 6</value>
+  </data>
+  <data name="resetScanMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>102, 22</value>
+  </data>
+  <data name="resetScanMenuItem.Text" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="consoleGroupBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="consoleGroupBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="consoleGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>520, 482</value>
+  </data>
+  <data name="consoleGroupBox.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="consoleGroupBox.Text" xml:space="preserve">
+    <value>Console</value>
+  </data>
+  <data name="consoleMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 76</value>
+  </data>
+  <data name="console.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="console.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 16</value>
+  </data>
+  <data name="console.Size" type="System.Drawing.Size, System.Drawing">
+    <value>514, 463</value>
+  </data>
+  <data name="console.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="console.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="console.WordWrap" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="copyConsoleMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="copyConsoleMenuItem.Text" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="toolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>99, 6</value>
+  </data>
+  <data name="clearToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>102, 22</value>
+  </data>
+  <data name="clearToolStripMenuItem.Text" xml:space="preserve">
+    <value>Clear</value>
+  </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
@@ -958,6 +970,9 @@
   <metadata name="discsMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>380, 21</value>
   </metadata>
+  <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>609, 58</value>
+  </metadata>
   <metadata name="filesListMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>677, 15</value>
   </metadata>
@@ -967,14 +982,14 @@
   <metadata name="statusStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>126, 17</value>
   </metadata>
-  <metadata name="consoleMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>517, 17</value>
+  <metadata name="stopStartImageList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>463, 58</value>
   </metadata>
   <metadata name="scanFileListMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>129, 58</value>
   </metadata>
-  <metadata name="stopStartImageList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>463, 58</value>
+  <metadata name="consoleMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>517, 17</value>
   </metadata>
   <metadata name="scanWorker.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 58</value>

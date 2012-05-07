@@ -126,6 +126,7 @@ namespace Cavebox.Forms
 			this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.scanWorker = new System.ComponentModel.BackgroundWorker();
 			this.filterTextChangedTimer = new System.Windows.Forms.Timer(this.components);
+			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.FileListSplitContainer)).BeginInit();
 			this.FileListSplitContainer.Panel1.SuspendLayout();
 			this.FileListSplitContainer.Panel2.SuspendLayout();
@@ -205,6 +206,7 @@ namespace Cavebox.Forms
 			this.cakeboxesListBox.SelectedValueChanged += new System.EventHandler(this.ShowDiscs);
 			this.cakeboxesListBox.DoubleClick += new System.EventHandler(this.OpenEditCakeboxForm);
 			this.cakeboxesListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ListBoxMouseDown);
+			this.cakeboxesListBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.IdentityMouseMove);
 			// 
 			// cakeboxesMenu
 			// 
@@ -276,6 +278,7 @@ namespace Cavebox.Forms
 			this.discsListBox.SelectedValueChanged += new System.EventHandler(this.ShowFiles);
 			this.discsListBox.DoubleClick += new System.EventHandler(this.OpenEditDisc);
 			this.discsListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ListBoxMouseDown);
+			this.discsListBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.IdentityMouseMove);
 			// 
 			// discsMenu
 			// 
@@ -391,7 +394,7 @@ namespace Cavebox.Forms
 			resources.ApplyResources(this.clearFilterButton, "clearFilterButton");
 			this.clearFilterButton.Image = global::Cavebox.Properties.Images.cancel;
 			this.clearFilterButton.Name = "clearFilterButton";
-			this.clearFilterButton.UseVisualStyleBackColor = true;
+			this.toolTip.SetToolTip(this.clearFilterButton, resources.GetString("clearFilterButton.ToolTip"));
 			this.clearFilterButton.Click += new System.EventHandler(this.FilterOff);
 			// 
 			// filterTextBox
@@ -704,7 +707,7 @@ namespace Cavebox.Forms
 			resources.ApplyResources(this.saveNewDiscButton, "saveNewDiscButton");
 			this.saveNewDiscButton.Image = global::Cavebox.Properties.Images.new32;
 			this.saveNewDiscButton.Name = "saveNewDiscButton";
-			this.saveNewDiscButton.UseVisualStyleBackColor = true;
+			this.toolTip.SetToolTip(this.saveNewDiscButton, resources.GetString("saveNewDiscButton.ToolTip"));
 			this.saveNewDiscButton.Click += new System.EventHandler(this.SaveNewDisc);
 			// 
 			// newDiscLabelTextBox
@@ -786,7 +789,7 @@ namespace Cavebox.Forms
 			resources.ApplyResources(this.browseScanPathButton, "browseScanPathButton");
 			this.browseScanPathButton.Image = global::Cavebox.Properties.Images.browse;
 			this.browseScanPathButton.Name = "browseScanPathButton";
-			this.browseScanPathButton.UseVisualStyleBackColor = true;
+			this.toolTip.SetToolTip(this.browseScanPathButton, resources.GetString("browseScanPathButton.ToolTip"));
 			this.browseScanPathButton.Click += new System.EventHandler(this.BrowseScanPath);
 			// 
 			// toggleScanPathButton
@@ -794,7 +797,7 @@ namespace Cavebox.Forms
 			resources.ApplyResources(this.toggleScanPathButton, "toggleScanPathButton");
 			this.toggleScanPathButton.ImageList = this.stopStartImageList;
 			this.toggleScanPathButton.Name = "toggleScanPathButton";
-			this.toggleScanPathButton.UseVisualStyleBackColor = true;
+			this.toolTip.SetToolTip(this.toggleScanPathButton, resources.GetString("toggleScanPathButton.ToolTip"));
 			this.toggleScanPathButton.Click += new System.EventHandler(this.ScanWorkerToggle);
 			// 
 			// stopStartImageList
@@ -911,6 +914,7 @@ namespace Cavebox.Forms
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolTip toolTip;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
 		private System.Windows.Forms.ToolStripMenuItem copyDiscLabelMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
@@ -1001,6 +1005,6 @@ namespace Cavebox.Forms
 		private System.Windows.Forms.SplitContainer cakeboxDiscSplitContainer;
 		private System.Windows.Forms.SplitContainer FileListSplitContainer;
 		private System.Windows.Forms.TabPage mainTabPage;
-		private System.Windows.Forms.TabControl tabControl;
+		private System.Windows.Forms.TabControl tabControl;		
 	}
 }

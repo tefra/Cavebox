@@ -1,6 +1,7 @@
 ﻿v2.1.2
-- Small UI changes icons and form default sizes
-- Change EOL to UNIX from Win format (~3% smaller backup and db size)
+- All icons except the app's are now from the defaulticon library
+- Added buttons and listboxes help/info tooltips
+- Changed EOL to UNIX from Win format (~3% smaller backup and db size)
 - Cleaned up code
 -------------------------------------------------------------
 v2.1.1 (5/5/2012)

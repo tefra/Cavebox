@@ -33,13 +33,16 @@ namespace Cavebox.Forms
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MassMove));
 			this.selectDiscsGroupBox = new System.Windows.Forms.GroupBox();
 			this.selectDiscs = new System.Windows.Forms.CheckedListBox();
 			this.selectCakebox = new System.Windows.Forms.ComboBox();
 			this.toggleButton = new System.Windows.Forms.Button();
+			this.selectImageList = new System.Windows.Forms.ImageList(this.components);
 			this.moveButton = new System.Windows.Forms.Button();
 			this.cancelButton = new System.Windows.Forms.Button();
+			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
 			this.selectDiscsGroupBox.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -72,9 +75,17 @@ namespace Cavebox.Forms
 			// toggleButton
 			// 
 			resources.ApplyResources(this.toggleButton, "toggleButton");
+			this.toggleButton.ImageList = this.selectImageList;
 			this.toggleButton.Name = "toggleButton";
-			this.toggleButton.UseVisualStyleBackColor = true;
+			this.toolTip.SetToolTip(this.toggleButton, resources.GetString("toggleButton.ToolTip"));
 			this.toggleButton.Click += new System.EventHandler(this.ToggleButtonClick);
+			// 
+			// selectImageList
+			// 
+			this.selectImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("selectImageList.ImageStream")));
+			this.selectImageList.TransparentColor = System.Drawing.Color.Transparent;
+			this.selectImageList.Images.SetKeyName(0, "check0");
+			this.selectImageList.Images.SetKeyName(1, "check1");
 			// 
 			// moveButton
 			// 
@@ -110,6 +121,8 @@ namespace Cavebox.Forms
 			this.selectDiscsGroupBox.ResumeLayout(false);
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.ToolTip toolTip;
+		private System.Windows.Forms.ImageList selectImageList;
 		private System.Windows.Forms.Button cancelButton;
 		private System.Windows.Forms.Button moveButton;
 		private System.Windows.Forms.Button toggleButton;

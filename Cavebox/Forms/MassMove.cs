@@ -93,6 +93,9 @@ namespace Cavebox.Forms
 			{
 				selectDiscs.SetItemChecked(i, checkFlag);
 			}
+			
+			toggleButton.ImageKey = checkFlag ? "check1" : "check0";
+			
 			enableMoveButton(sender, e);
 		}
 	}
