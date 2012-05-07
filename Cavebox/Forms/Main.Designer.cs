@@ -221,6 +221,7 @@ namespace Cavebox.Forms
 			// 
 			// copyCakeboxLabelMenuItem
 			// 
+			this.copyCakeboxLabelMenuItem.Image = global::Cavebox.Properties.Images.copy;
 			this.copyCakeboxLabelMenuItem.Name = "copyCakeboxLabelMenuItem";
 			resources.ApplyResources(this.copyCakeboxLabelMenuItem, "copyCakeboxLabelMenuItem");
 			this.copyCakeboxLabelMenuItem.Click += new System.EventHandler(this.ContextCopyClick);
@@ -291,6 +292,7 @@ namespace Cavebox.Forms
 			// 
 			// copyDiscLabelMenuItem
 			// 
+			this.copyDiscLabelMenuItem.Image = global::Cavebox.Properties.Images.copy;
 			this.copyDiscLabelMenuItem.Name = "copyDiscLabelMenuItem";
 			resources.ApplyResources(this.copyDiscLabelMenuItem, "copyDiscLabelMenuItem");
 			this.copyDiscLabelMenuItem.Click += new System.EventHandler(this.ContextCopyClick);
@@ -431,6 +433,7 @@ namespace Cavebox.Forms
 			// 
 			// copyFileListMenuItem
 			// 
+			this.copyFileListMenuItem.Image = global::Cavebox.Properties.Images.copy;
 			this.copyFileListMenuItem.Name = "copyFileListMenuItem";
 			resources.ApplyResources(this.copyFileListMenuItem, "copyFileListMenuItem");
 			this.copyFileListMenuItem.Click += new System.EventHandler(this.ContextCopyClick);
@@ -699,7 +702,7 @@ namespace Cavebox.Forms
 			// saveNewDiscButton
 			// 
 			resources.ApplyResources(this.saveNewDiscButton, "saveNewDiscButton");
-			this.saveNewDiscButton.Image = global::Cavebox.Properties.Images.addalt;
+			this.saveNewDiscButton.Image = global::Cavebox.Properties.Images.new32;
 			this.saveNewDiscButton.Name = "saveNewDiscButton";
 			this.saveNewDiscButton.UseVisualStyleBackColor = true;
 			this.saveNewDiscButton.Click += new System.EventHandler(this.SaveNewDisc);
@@ -746,6 +749,7 @@ namespace Cavebox.Forms
 			// 
 			// copyScanFileListMenuItem
 			// 
+			this.copyScanFileListMenuItem.Image = global::Cavebox.Properties.Images.copy;
 			this.copyScanFileListMenuItem.Name = "copyScanFileListMenuItem";
 			resources.ApplyResources(this.copyScanFileListMenuItem, "copyScanFileListMenuItem");
 			this.copyScanFileListMenuItem.Click += new System.EventHandler(this.ContextCopyClick);
@@ -834,6 +838,7 @@ namespace Cavebox.Forms
 			// 
 			// copyConsoleMenuItem
 			// 
+			this.copyConsoleMenuItem.Image = global::Cavebox.Properties.Images.copy;
 			this.copyConsoleMenuItem.Name = "copyConsoleMenuItem";
 			resources.ApplyResources(this.copyConsoleMenuItem, "copyConsoleMenuItem");
 			this.copyConsoleMenuItem.Click += new System.EventHandler(this.ContextCopyClick);

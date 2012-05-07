@@ -67,20 +67,6 @@ namespace Cavebox.Properties {
 			}
 		}
 		
-		internal static System.Drawing.Bitmap add {
-			get {
-				object obj = ResourceManager.GetObject("add", resourceCulture);
-				return ((System.Drawing.Bitmap)(obj));
-			}
-		}
-		
-		internal static System.Drawing.Bitmap addalt {
-			get {
-				object obj = ResourceManager.GetObject("addalt", resourceCulture);
-				return ((System.Drawing.Bitmap)(obj));
-			}
-		}
-		
 		internal static System.Drawing.Bitmap alt {
 			get {
 				object obj = ResourceManager.GetObject("alt", resourceCulture);
@@ -112,6 +98,13 @@ namespace Cavebox.Properties {
 		internal static System.Drawing.Bitmap cancel {
 			get {
 				object obj = ResourceManager.GetObject("cancel", resourceCulture);
+				return ((System.Drawing.Bitmap)(obj));
+			}
+		}
+		
+		internal static System.Drawing.Bitmap copy {
+			get {
+				object obj = ResourceManager.GetObject("copy", resourceCulture);
 				return ((System.Drawing.Bitmap)(obj));
 			}
 		}
@@ -179,16 +172,16 @@ namespace Cavebox.Properties {
 			}
 		}
 		
-		internal static System.Drawing.Bitmap reload {
+		internal static System.Drawing.Bitmap new32 {
 			get {
-				object obj = ResourceManager.GetObject("reload", resourceCulture);
+				object obj = ResourceManager.GetObject("new32", resourceCulture);
 				return ((System.Drawing.Bitmap)(obj));
 			}
 		}
 		
-		internal static System.Drawing.Bitmap save {
+		internal static System.Drawing.Bitmap reload {
 			get {
-				object obj = ResourceManager.GetObject("save", resourceCulture);
+				object obj = ResourceManager.GetObject("reload", resourceCulture);
 				return ((System.Drawing.Bitmap)(obj));
 			}
 		}

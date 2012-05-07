@@ -20,7 +20,7 @@
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <RunCodeAnalysis>False</RunCodeAnalysis>
     <RunSourceAnalysis>False</RunSourceAnalysis>
-    <ApplicationIcon>Resources\Icons\app.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\app.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Platform)' == 'x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -132,8 +132,6 @@
     <Folder Include="Forms" />
     <Folder Include="Lib" />
     <Folder Include="Resources" />
-    <Folder Include="Resources\Images" />
-    <Folder Include="Resources\Icons" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">
@@ -146,23 +144,29 @@
     <None Include="changelog.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Icons\app.ico" />
-    <None Include="Resources\Images\add.png" />
-    <None Include="Resources\Images\alt.png" />
-    <None Include="Resources\Images\anidb.png" />
-    <None Include="Resources\Images\browse.png" />
-    <None Include="Resources\Images\cancel.png" />
-    <None Include="Resources\Images\delete.png" />
-    <None Include="Resources\Images\edit.png" />
-    <None Include="Resources\Images\google.png" />
-    <None Include="Resources\Images\imdb.png" />
-    <None Include="Resources\Images\lastFM.png" />
-    <None Include="Resources\Images\move.png" />
-    <None Include="Resources\Images\sort.png" />
-    <None Include="Resources\Images\start.png" />
-    <None Include="Resources\Images\stop.png" />
-    <None Include="Resources\Images\wikipedia.png" />
-    <None Include="Resources\Images\youtube.png" />
+    <None Include="Resources\alt.png" />
+    <None Include="Resources\anidb.png" />
+    <None Include="Resources\app.ico" />
+    <None Include="Resources\browse.png" />
+    <None Include="Resources\cancel.png" />
+    <None Include="Resources\copy.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\drop.png" />
+    <None Include="Resources\edit.png" />
+    <None Include="Resources\export.png" />
+    <None Include="Resources\google.png" />
+    <None Include="Resources\imdb.png" />
+    <None Include="Resources\import.png" />
+    <None Include="Resources\lastFM.png" />
+    <None Include="Resources\move.png" />
+    <None Include="Resources\new.png" />
+    <None Include="Resources\new32.png" />
+    <None Include="Resources\reload.png" />
+    <None Include="Resources\sort.png" />
+    <None Include="Resources\start.png" />
+    <None Include="Resources\stop.png" />
+    <None Include="Resources\wikipedia.png" />
+    <None Include="Resources\youtube.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
 </Project>
