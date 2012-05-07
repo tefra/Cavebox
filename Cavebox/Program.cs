@@ -10,9 +10,10 @@ using Cavebox.Forms;
 
 namespace Cavebox.Lib
 {
-
 	internal sealed class Program
 	{
+		static Mutex _m;
+
 		/// <summary>
 		/// Check for single application instance and open the main form
 		/// </summary>
@@ -30,8 +31,6 @@ namespace Cavebox.Lib
 				Application.Run(new Main());
 			}
 		}
-		
-		static Mutex _m;
 
 		/// <summary>
 		/// Check if the application is already running or not based on a named mutext
