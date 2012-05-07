@@ -25,7 +25,7 @@ public class PortableSettingsProvider : SettingsProvider
 	public override void Initialize(string name, NameValueCollection col)
 	{
 		base.Initialize(this.ApplicationName, col);
-	} 
+	}
 	
 	/// <summary>
 	/// Magic get set for the application name

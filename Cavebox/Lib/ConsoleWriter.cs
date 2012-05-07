@@ -22,21 +22,20 @@ namespace Cavebox.Lib
 		/// <param name="textBox">The RichTextBox which will be our visual console</param>
 		public ConsoleWriter(System.Windows.Forms.RichTextBox textBox)
 		{
-			
 			console = textBox;
 		}
 		
 		/// <summary>
-		/// Append a text line to the console
+		/// Append a text to the console
 		/// </summary>
-		/// <param name="str"></param>
+		/// <param name="str">The message to append to console</param>
 		public override void Write(string str)
 		{
 			console.AppendText(str);
 		}
 
 		/// <summary>
-		/// Append a text line plus add new line to the console with the timestamp the 
+		/// Append text and new line to the console with the current timestamp 
 		/// </summary>
 		/// <param name="str">The message to append to console</param>
 		public override void WriteLine(string str)

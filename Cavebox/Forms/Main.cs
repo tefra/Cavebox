@@ -98,7 +98,7 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Get filter status
 		/// </summary>
-		/// <returns>True or False for filter being active or not</returns>
+		/// <returns>True or False if filter is on or off</returns>
 		public Boolean isFilterOn()
 		{
 			return _filter != null;
@@ -594,8 +594,8 @@ namespace Cavebox.Forms
 		}
 		
 		/// <summary>
-		/// Globalized Copy command
-		/// - So far only for richtextbox but it can be extended if such need appears
+		/// Globalized Copy command for richtextboxes and listboxes
+		/// It can be extended to work with more controls if needed
 		/// </summary>
 		private void ContextCopyClick(object sender, EventArgs e)
 		{
@@ -643,6 +643,14 @@ namespace Cavebox.Forms
 			}
 		}
 
+		/// <summary>
+		/// Open changelog dialog
+		/// </summary>
+		private void OpenChangelog(object sender, EventArgs e)
+		{
+			new Changelog().ShowDialog();
+		}
+		
 		/// <summary>
 		/// Rebuild file counters (Deprecated)
 		/// </summary>
@@ -717,13 +725,16 @@ namespace Cavebox.Forms
 				Cursor.Current = Cursors.WaitCursor;
 				stopWatch = DateTime.Now;
 				XMLImport i = new XMLImport(openFileDialog.FileName);
-				Console.WriteLine(Lang.GetString("_importCompleted", (DateTime.Now - stopWatch).TotalSeconds));
-				foreach (KeyValuePair<string, int> pair in i.imported)
+				if(i.imported.Count > 0)
 				{
-					Console.Write(Lang.GetString("_importTableRows", pair.Key, pair.Value));
+					Console.WriteLine(Lang.GetString("_importCompleted", (DateTime.Now - stopWatch).TotalSeconds));
+					foreach (KeyValuePair<string, int> pair in i.imported)
+					{
+						Console.Write(Lang.GetString("_importTableRows", pair.Key, pair.Value));
+					}
+					ShowCakeboxes(0, true);
 				}
 				Cursor.Current = Cursors.Default;
-				ShowCakeboxes(0, true);
 			}
 		}
 		
@@ -744,14 +755,6 @@ namespace Cavebox.Forms
 			{
 				control.ResetValue();
 			}
-		}
-		
-		/// <summary>
-		/// Show changelog dialog
-		/// </summary>
-		private void OpenChangelog(object sender, EventArgs e)
-		{
-			new Changelog().ShowDialog();
 		}
 		
 		/***********************************************************

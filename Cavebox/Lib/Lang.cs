@@ -16,7 +16,7 @@ namespace Cavebox.Lib
 		/// <summary>
 		/// Magic get set ResourceManager
 		/// </summary>
-		public static ResourceManager Rm { get; set;}
+		public static ResourceManager Rm { get; set; }
 		
 		/// <summary>
 		/// Initialize ResourceManager Rm

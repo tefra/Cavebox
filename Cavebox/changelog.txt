@@ -1,6 +1,7 @@
 ﻿v2.1.2
+- Small UI changes icons and form default sizes
 - Change EOL to UNIX from Win format (~3% smaller backup and db size)
-- More cleaned up code
+- Cleaned up code
 -------------------------------------------------------------
 v2.1.1 (5/5/2012)
 - Updated reset window to work with all component saved settings

@@ -28,32 +28,33 @@ namespace Cavebox.Lib
 			{
 				string table = null;
 				Dictionary<string, string> data = new Dictionary<string, string>();
-
-				SQLiteTransaction transaction = Model.db.BeginTransaction();
-				using (XmlReader reader = new XmlTextReader(file))
+				using(SQLiteTransaction transaction = Model.db.BeginTransaction())
 				{
-					while (reader.Read())
+					using (XmlReader reader = new XmlTextReader(file))
 					{
-						if(reader.NodeType == XmlNodeType.Element)
+						while (reader.Read())
 						{
-							if(reader.Name == "table")
+							if(reader.NodeType == XmlNodeType.Element)
 							{
-								table = reader.GetAttribute("name");
-								data = new Dictionary<string, string>();
+								if(reader.Name == "table")
+								{
+									table = reader.GetAttribute("name");
+									data = new Dictionary<string, string>();
+								}
+								else if(reader.Name == "column")
+								{
+									data.Add(reader.GetAttribute("name"), reader.ReadString());
+								}
 							}
-							else if(reader.Name == "column")
+							else if(reader.NodeType == XmlNodeType.EndElement && reader.Name == "table")
 							{
-								data.Add(reader.GetAttribute("name"), reader.ReadString());
+								imported[table] = imported.ContainsKey(table) ? imported[table] + 1 : 1;
+								Model.Insert(table, data);
 							}
-						}
-						else if(reader.NodeType == XmlNodeType.EndElement && reader.Name == "table")
-						{
-							imported[table] = imported.ContainsKey(table) ? imported[table] + 1 : 1;
-							Model.Insert(table, data);
 						}
 					}
+					transaction.Commit();
 				}
-				transaction.Commit();
 			}
 			catch(SQLiteException e)
 			{
