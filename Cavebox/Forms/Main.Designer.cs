@@ -69,12 +69,13 @@ namespace Cavebox.Forms
 			this.filesListMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.copyFileListMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-			this.googleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.wikipediaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.anidbToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.imdbToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.lastfmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.youtubeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.googleMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.wikipediaMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.anidbMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.imdbMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.lastfmMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.youtubeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.metacriticMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip = new System.Windows.Forms.MenuStrip();
 			this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.newCakeboxMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -424,12 +425,13 @@ namespace Cavebox.Forms
 			this.filesListMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
 									this.copyFileListMenuItem,
 									this.toolStripSeparator5,
-									this.googleToolStripMenuItem,
-									this.wikipediaToolStripMenuItem,
-									this.anidbToolStripMenuItem,
-									this.imdbToolStripMenuItem,
-									this.lastfmToolStripMenuItem,
-									this.youtubeToolStripMenuItem});
+									this.googleMenuItem,
+									this.wikipediaMenuItem,
+									this.anidbMenuItem,
+									this.imdbMenuItem,
+									this.lastfmMenuItem,
+									this.youtubeMenuItem,
+									this.metacriticMenuItem});
 			this.filesListMenu.Name = "filesListActionMenu";
 			resources.ApplyResources(this.filesListMenu, "filesListMenu");
 			this.filesListMenu.Opening += new System.ComponentModel.CancelEventHandler(this.FilesListMenuOpening);
@@ -446,53 +448,62 @@ namespace Cavebox.Forms
 			this.toolStripSeparator5.Name = "toolStripSeparator5";
 			resources.ApplyResources(this.toolStripSeparator5, "toolStripSeparator5");
 			// 
-			// googleToolStripMenuItem
+			// googleMenuItem
 			// 
-			this.googleToolStripMenuItem.Image = global::Cavebox.Properties.Images.google;
-			this.googleToolStripMenuItem.Name = "googleToolStripMenuItem";
-			resources.ApplyResources(this.googleToolStripMenuItem, "googleToolStripMenuItem");
-			this.googleToolStripMenuItem.Tag = "http://www.google.com/search?site=&q=";
-			this.googleToolStripMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
+			this.googleMenuItem.Image = global::Cavebox.Properties.Images.google;
+			this.googleMenuItem.Name = "googleMenuItem";
+			resources.ApplyResources(this.googleMenuItem, "googleMenuItem");
+			this.googleMenuItem.Tag = "http://www.google.com/search?site=&q={0}";
+			this.googleMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
 			// 
-			// wikipediaToolStripMenuItem
+			// wikipediaMenuItem
 			// 
-			this.wikipediaToolStripMenuItem.Image = global::Cavebox.Properties.Images.wikipedia;
-			this.wikipediaToolStripMenuItem.Name = "wikipediaToolStripMenuItem";
-			resources.ApplyResources(this.wikipediaToolStripMenuItem, "wikipediaToolStripMenuItem");
-			this.wikipediaToolStripMenuItem.Tag = "http://en.wikipedia.org/wiki/Special:Search?search=";
-			this.wikipediaToolStripMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
+			this.wikipediaMenuItem.Image = global::Cavebox.Properties.Images.wikipedia;
+			this.wikipediaMenuItem.Name = "wikipediaMenuItem";
+			resources.ApplyResources(this.wikipediaMenuItem, "wikipediaMenuItem");
+			this.wikipediaMenuItem.Tag = "http://en.wikipedia.org/wiki/Special:Search?search={0}";
+			this.wikipediaMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
 			// 
-			// anidbToolStripMenuItem
+			// anidbMenuItem
 			// 
-			this.anidbToolStripMenuItem.Image = global::Cavebox.Properties.Images.anidb;
-			this.anidbToolStripMenuItem.Name = "anidbToolStripMenuItem";
-			resources.ApplyResources(this.anidbToolStripMenuItem, "anidbToolStripMenuItem");
-			this.anidbToolStripMenuItem.Tag = "http://anidb.net/perl-bin/animedb.pl?show=animelist&do.search=search&adb.search=";
-			this.anidbToolStripMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
+			this.anidbMenuItem.Image = global::Cavebox.Properties.Images.anidb;
+			this.anidbMenuItem.Name = "anidbMenuItem";
+			resources.ApplyResources(this.anidbMenuItem, "anidbMenuItem");
+			this.anidbMenuItem.Tag = "http://anidb.net/perl-bin/animedb.pl?show=animelist&do.search=search&adb.search={" +
+			"0}";
+			this.anidbMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
 			// 
-			// imdbToolStripMenuItem
+			// imdbMenuItem
 			// 
-			this.imdbToolStripMenuItem.Image = global::Cavebox.Properties.Images.imdb;
-			this.imdbToolStripMenuItem.Name = "imdbToolStripMenuItem";
-			resources.ApplyResources(this.imdbToolStripMenuItem, "imdbToolStripMenuItem");
-			this.imdbToolStripMenuItem.Tag = "http://www.imdb.com/find?s=all&q=";
-			this.imdbToolStripMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
+			this.imdbMenuItem.Image = global::Cavebox.Properties.Images.imdb;
+			this.imdbMenuItem.Name = "imdbMenuItem";
+			resources.ApplyResources(this.imdbMenuItem, "imdbMenuItem");
+			this.imdbMenuItem.Tag = "http://www.imdb.com/find?s=all&q={0}";
+			this.imdbMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
 			// 
-			// lastfmToolStripMenuItem
+			// lastfmMenuItem
 			// 
-			this.lastfmToolStripMenuItem.Image = global::Cavebox.Properties.Images.lastFM;
-			this.lastfmToolStripMenuItem.Name = "lastfmToolStripMenuItem";
-			resources.ApplyResources(this.lastfmToolStripMenuItem, "lastfmToolStripMenuItem");
-			this.lastfmToolStripMenuItem.Tag = "http://www.last.fm/music/";
-			this.lastfmToolStripMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
+			this.lastfmMenuItem.Image = global::Cavebox.Properties.Images.lastFM;
+			this.lastfmMenuItem.Name = "lastfmMenuItem";
+			resources.ApplyResources(this.lastfmMenuItem, "lastfmMenuItem");
+			this.lastfmMenuItem.Tag = "http://www.last.fm/music/{0}";
+			this.lastfmMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
 			// 
-			// youtubeToolStripMenuItem
+			// youtubeMenuItem
 			// 
-			this.youtubeToolStripMenuItem.Image = global::Cavebox.Properties.Images.youtube;
-			this.youtubeToolStripMenuItem.Name = "youtubeToolStripMenuItem";
-			resources.ApplyResources(this.youtubeToolStripMenuItem, "youtubeToolStripMenuItem");
-			this.youtubeToolStripMenuItem.Tag = "http://www.youtube.com/results?search_query=";
-			this.youtubeToolStripMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
+			this.youtubeMenuItem.Image = global::Cavebox.Properties.Images.youtube;
+			this.youtubeMenuItem.Name = "youtubeMenuItem";
+			resources.ApplyResources(this.youtubeMenuItem, "youtubeMenuItem");
+			this.youtubeMenuItem.Tag = "http://www.youtube.com/results?search_query={0}";
+			this.youtubeMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
+			// 
+			// metacriticMenuItem
+			// 
+			this.metacriticMenuItem.Image = global::Cavebox.Properties.Images.metacritic;
+			this.metacriticMenuItem.Name = "metacriticMenuItem";
+			resources.ApplyResources(this.metacriticMenuItem, "metacriticMenuItem");
+			this.metacriticMenuItem.Tag = "http://www.metacritic.com/search/all/{0}/results";
+			this.metacriticMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
 			// 
 			// menuStrip
 			// 
@@ -914,6 +925,7 @@ namespace Cavebox.Forms
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripMenuItem metacriticMenuItem;
 		private System.Windows.Forms.ToolTip toolTip;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
 		private System.Windows.Forms.ToolStripMenuItem copyDiscLabelMenuItem;
@@ -937,12 +949,12 @@ namespace Cavebox.Forms
 		private System.Windows.Forms.ToolStripStatusLabel discAddedLabel;
 		private System.Windows.Forms.ToolStripMenuItem resetScanMenuItem;
 		private System.Windows.Forms.ContextMenuStrip scanFileListMenu;
-		private System.Windows.Forms.ToolStripMenuItem youtubeToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem lastfmToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem imdbToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem anidbToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem wikipediaToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem googleToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem youtubeMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem lastfmMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem imdbMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem anidbMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem wikipediaMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem googleMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
 		private System.Windows.Forms.ToolStripMenuItem copyFileListMenuItem;
 		private System.Windows.Forms.ContextMenuStrip filesListMenu;

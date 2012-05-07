@@ -590,7 +590,7 @@ namespace Cavebox.Forms
 		private void OpenSearchUrl(object sender, EventArgs e)
 		{
 			ToolStripMenuItem source = (ToolStripMenuItem) sender;
-			string link = source.Tag.ToString() + Regex.Replace(fileList.SelectedText, @"\s+", "+");
+			string link = String.Format(source.Tag.ToString(), Regex.Replace(fileList.SelectedText.Trim(), @"\s+", "+"));
 			System.Diagnostics.Process.Start(link);
 		}
 		

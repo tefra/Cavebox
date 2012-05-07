@@ -131,7 +131,7 @@
   <data name="imdb" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAGYktHRAD/AP8A/6C9p5MAAAAHdElNRQfaBBwRIiOIDyUb
+        YQUAAAAJcEhZcwAACxEAAAsRAX9kX5EAAAAGYktHRAD/AP8A/6C9p5MAAAAHdElNRQfaBBwRIiOIDyUb
         AAAB/0lEQVQ4T52P30sUURTHr2va7szsL5vVnFkjZnoQAjUSzRA1g2RLSRFkNfYhgkoUwiiRAqFgDSp6
         8EElfSgpTa0kEWHBWmN11Z1KgqSHoMSSXvwfvt1zR6HX3Ycv37nnnM/3zGGbsQL8XNEzErHsx0cdu9/M
         jEQs+76o4++GmZGIZZsxHTuWiT+p9EQMsezrvI7tNQ6vm/jNfYcHbSVtpzr5/vf+HPVJxLKNd0E8fXAY
@@ -233,7 +233,7 @@
   <data name="youtube" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAGYktHRAD/AP8A/6C9p5MAAAAHdElNRQfbBBwSMiJ80Gog
+        YQUAAAAJcEhZcwAACxEAAAsRAX9kX5EAAAAGYktHRAD/AP8A/6C9p5MAAAAHdElNRQfbBBwSMiJ80Gog
         AAABH0lEQVQ4T2P4DwRX1+X9r/fiATH/u6St+b/o6GMwmxjAAFPEwMDw//3K//9BNCkArvra+jywZpjt
         uya5g/lpnSfB5sEMRrcAbsDXZ6vAim78+ff/G5QN0wgSo9iAuQXCYMNxuuDb89UQF/z+C3byTrgXToD5
         V6FeBAUyMiAtxLCELsP/mzf//1cWgmJhJDZMDAetBBS/dfM/A1gzMoAbBtIINBAEUMRQDYQYgE8hcQZA
@@ -371,6 +371,16 @@
         YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAAV0lEQVQ4T2NgGMzgP9BxyJgs
         t85HMgRkAIiPE+CyEWYISCNIDU5DsBkAU4zXZpiTsBmAbCOyd0DiGICYQMMbqOgG4HIRTJygC4apAXhT
         IzGBSFZypq0mAJ4+X57k1f+0AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="metacritic" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAADlSURBVDhPtZOxDYNADEVvBEZgBKQskAUyQKaBDahTUaVGYgEWiESdiio1Uha45AUMPuu4FFEs
+        XYE4P3/7+5xzB//b+Scgy46+bXtPTNPTV9UlojahoGm6T7KOvr95wFvbCYAkkqRjGO4KEgEUxdlziLKc
+        ZfNNosQGMQBbra6vq1ykW4jTFlItFlSXexoCbAXk+clLdapqJThgIQx4Hua7BT64xME2qaZdsJBVOZX5
+        KTGOj8Dr75BlwhpCkp6NQEL75AksLtBjCsKAwwUyAPE6BYk/OrMHVoks0v6L3dlElMR7Dp//C74xDmB1
+        ceHSAAAAAElFTkSuQmCC
 </value>
   </data>
 </root>

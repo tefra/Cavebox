@@ -160,6 +160,7 @@
     <None Include="Resources\imdb.png" />
     <None Include="Resources\import.png" />
     <None Include="Resources\lastFM.png" />
+    <None Include="Resources\metacritic.png" />
     <None Include="Resources\move.png" />
     <None Include="Resources\new.png" />
     <None Include="Resources\new32.png" />

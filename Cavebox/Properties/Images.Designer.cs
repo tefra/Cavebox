@@ -165,6 +165,13 @@ namespace Cavebox.Properties {
 			}
 		}
 		
+		internal static System.Drawing.Bitmap metacritic {
+			get {
+				object obj = ResourceManager.GetObject("metacritic", resourceCulture);
+				return ((System.Drawing.Bitmap)(obj));
+			}
+		}
+		
 		internal static System.Drawing.Bitmap move {
 			get {
 				object obj = ResourceManager.GetObject("move", resourceCulture);
