@@ -147,17 +147,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Resources\Icons\app.ico" />
-    <None Include="Resources\Images\add.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\Images\add.png" />
     <None Include="Resources\Images\alt.png" />
     <None Include="Resources\Images\anidb.png" />
     <None Include="Resources\Images\browse.png" />
     <None Include="Resources\Images\cancel.png" />
-    <None Include="Resources\Images\database.png" />
-    <None Include="Resources\Images\database_gear.png" />
-    <None Include="Resources\Images\database_go.png" />
-    <None Include="Resources\Images\database_save.png" />
     <None Include="Resources\Images\delete.png" />
     <None Include="Resources\Images\edit.png" />
     <None Include="Resources\Images\google.png" />

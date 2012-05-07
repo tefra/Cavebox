@@ -511,21 +511,21 @@ namespace Cavebox.Forms
 			// 
 			// newCakeboxMenuItem
 			// 
-			this.newCakeboxMenuItem.Image = global::Cavebox.Properties.Images.database;
+			this.newCakeboxMenuItem.Image = global::Cavebox.Properties.Images._new;
 			this.newCakeboxMenuItem.Name = "newCakeboxMenuItem";
 			resources.ApplyResources(this.newCakeboxMenuItem, "newCakeboxMenuItem");
 			this.newCakeboxMenuItem.Click += new System.EventHandler(this.OpenAddCakeboxForm);
 			// 
 			// importMenuItem
 			// 
-			this.importMenuItem.Image = global::Cavebox.Properties.Images.database_go;
+			this.importMenuItem.Image = global::Cavebox.Properties.Images.import;
 			this.importMenuItem.Name = "importMenuItem";
 			resources.ApplyResources(this.importMenuItem, "importMenuItem");
 			this.importMenuItem.Click += new System.EventHandler(this.ImportXml);
 			// 
 			// exportMenuItem
 			// 
-			this.exportMenuItem.Image = global::Cavebox.Properties.Images.database_save;
+			this.exportMenuItem.Image = global::Cavebox.Properties.Images.export;
 			this.exportMenuItem.Name = "exportMenuItem";
 			resources.ApplyResources(this.exportMenuItem, "exportMenuItem");
 			this.exportMenuItem.Click += new System.EventHandler(this.ExportXml);
@@ -572,18 +572,21 @@ namespace Cavebox.Forms
 			// 
 			// rebuildTotalFilesMenuItem
 			// 
+			this.rebuildTotalFilesMenuItem.Image = global::Cavebox.Properties.Images.reload;
 			this.rebuildTotalFilesMenuItem.Name = "rebuildTotalFilesMenuItem";
 			resources.ApplyResources(this.rebuildTotalFilesMenuItem, "rebuildTotalFilesMenuItem");
 			this.rebuildTotalFilesMenuItem.Click += new System.EventHandler(this.RebuildFileCounters);
 			// 
 			// vacuumDatabaseMenuItem
 			// 
+			this.vacuumDatabaseMenuItem.Image = global::Cavebox.Properties.Images.reload;
 			this.vacuumDatabaseMenuItem.Name = "vacuumDatabaseMenuItem";
 			resources.ApplyResources(this.vacuumDatabaseMenuItem, "vacuumDatabaseMenuItem");
 			this.vacuumDatabaseMenuItem.Click += new System.EventHandler(this.VacuumTables);
 			// 
 			// dropDataMenuItem
 			// 
+			this.dropDataMenuItem.Image = global::Cavebox.Properties.Images.drop;
 			this.dropDataMenuItem.Name = "dropDataMenuItem";
 			resources.ApplyResources(this.dropDataMenuItem, "dropDataMenuItem");
 			this.dropDataMenuItem.Click += new System.EventHandler(this.DropData);
@@ -696,7 +699,7 @@ namespace Cavebox.Forms
 			// saveNewDiscButton
 			// 
 			resources.ApplyResources(this.saveNewDiscButton, "saveNewDiscButton");
-			this.saveNewDiscButton.Image = global::Cavebox.Properties.Images.add;
+			this.saveNewDiscButton.Image = global::Cavebox.Properties.Images.addalt;
 			this.saveNewDiscButton.Name = "saveNewDiscButton";
 			this.saveNewDiscButton.UseVisualStyleBackColor = true;
 			this.saveNewDiscButton.Click += new System.EventHandler(this.SaveNewDisc);

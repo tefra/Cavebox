@@ -60,9 +60,23 @@ namespace Cavebox.Properties {
 			}
 		}
 		
+		internal static System.Drawing.Bitmap _new {
+			get {
+				object obj = ResourceManager.GetObject("new", resourceCulture);
+				return ((System.Drawing.Bitmap)(obj));
+			}
+		}
+		
 		internal static System.Drawing.Bitmap add {
 			get {
 				object obj = ResourceManager.GetObject("add", resourceCulture);
+				return ((System.Drawing.Bitmap)(obj));
+			}
+		}
+		
+		internal static System.Drawing.Bitmap addalt {
+			get {
+				object obj = ResourceManager.GetObject("addalt", resourceCulture);
 				return ((System.Drawing.Bitmap)(obj));
 			}
 		}
@@ -102,34 +116,6 @@ namespace Cavebox.Properties {
 			}
 		}
 		
-		internal static System.Drawing.Bitmap database {
-			get {
-				object obj = ResourceManager.GetObject("database", resourceCulture);
-				return ((System.Drawing.Bitmap)(obj));
-			}
-		}
-		
-		internal static System.Drawing.Bitmap database_gear {
-			get {
-				object obj = ResourceManager.GetObject("database_gear", resourceCulture);
-				return ((System.Drawing.Bitmap)(obj));
-			}
-		}
-		
-		internal static System.Drawing.Bitmap database_go {
-			get {
-				object obj = ResourceManager.GetObject("database_go", resourceCulture);
-				return ((System.Drawing.Bitmap)(obj));
-			}
-		}
-		
-		internal static System.Drawing.Bitmap database_save {
-			get {
-				object obj = ResourceManager.GetObject("database_save", resourceCulture);
-				return ((System.Drawing.Bitmap)(obj));
-			}
-		}
-		
 		internal static System.Drawing.Bitmap delete {
 			get {
 				object obj = ResourceManager.GetObject("delete", resourceCulture);
@@ -137,9 +123,23 @@ namespace Cavebox.Properties {
 			}
 		}
 		
+		internal static System.Drawing.Bitmap drop {
+			get {
+				object obj = ResourceManager.GetObject("drop", resourceCulture);
+				return ((System.Drawing.Bitmap)(obj));
+			}
+		}
+		
 		internal static System.Drawing.Bitmap edit {
 			get {
 				object obj = ResourceManager.GetObject("edit", resourceCulture);
+				return ((System.Drawing.Bitmap)(obj));
+			}
+		}
+		
+		internal static System.Drawing.Bitmap export {
+			get {
+				object obj = ResourceManager.GetObject("export", resourceCulture);
 				return ((System.Drawing.Bitmap)(obj));
 			}
 		}
@@ -158,6 +158,13 @@ namespace Cavebox.Properties {
 			}
 		}
 		
+		internal static System.Drawing.Bitmap import {
+			get {
+				object obj = ResourceManager.GetObject("import", resourceCulture);
+				return ((System.Drawing.Bitmap)(obj));
+			}
+		}
+		
 		internal static System.Drawing.Bitmap lastFM {
 			get {
 				object obj = ResourceManager.GetObject("lastFM", resourceCulture);
@@ -172,9 +179,37 @@ namespace Cavebox.Properties {
 			}
 		}
 		
+		internal static System.Drawing.Bitmap reload {
+			get {
+				object obj = ResourceManager.GetObject("reload", resourceCulture);
+				return ((System.Drawing.Bitmap)(obj));
+			}
+		}
+		
+		internal static System.Drawing.Bitmap save {
+			get {
+				object obj = ResourceManager.GetObject("save", resourceCulture);
+				return ((System.Drawing.Bitmap)(obj));
+			}
+		}
+		
 		internal static System.Drawing.Bitmap sort {
 			get {
 				object obj = ResourceManager.GetObject("sort", resourceCulture);
+				return ((System.Drawing.Bitmap)(obj));
+			}
+		}
+		
+		internal static System.Drawing.Bitmap start {
+			get {
+				object obj = ResourceManager.GetObject("start", resourceCulture);
+				return ((System.Drawing.Bitmap)(obj));
+			}
+		}
+		
+		internal static System.Drawing.Bitmap stop {
+			get {
+				object obj = ResourceManager.GetObject("stop", resourceCulture);
 				return ((System.Drawing.Bitmap)(obj));
 			}
 		}
