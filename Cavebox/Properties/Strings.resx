@@ -217,4 +217,10 @@
   <data name="_readmeMissing" xml:space="preserve">
     <value>The readme file is missing...</value>
   </data>
+  <data name="_editCakebox" xml:space="preserve">
+    <value>Edit Cakebox #{0}</value>
+  </data>
+  <data name="_addNewCakebox" xml:space="preserve">
+    <value>Add new Cakebox</value>
+  </data>
 </root>

@@ -4,6 +4,7 @@
  * @link	http://www.t3-design.com
  */
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using Cavebox.Lib;
@@ -18,7 +19,7 @@ namespace Cavebox.Forms
 		int _id;
 		string _label;
 		Main app;
-		
+
 		/// <summary>
 		/// Initialize components and their values from main form
 		/// </summary>
@@ -28,10 +29,11 @@ namespace Cavebox.Forms
 		public EditCakebox(Main form, int id = 0, string label = null)
 		{
 			InitializeComponent();
-			if(id > 0)
-			{
-				this.Text += " #"+id;
-			}
+			
+
+			
+			this.Text = (id > 0) ? Lang.GetString("_editCakebox", id.ToString()) : Lang.GetString("_addNewCakebox");
+			
 			app = form;
 			_id = id;
 			_label = label;

@@ -456,29 +456,32 @@
   <data name="FileListSplitContainer.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
+  <data name="newCakeboxMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+N</value>
+  </data>
   <data name="newCakeboxMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 22</value>
+    <value>189, 22</value>
   </data>
   <data name="newCakeboxMenuItem.Text" xml:space="preserve">
     <value>New Cakebox</value>
   </data>
   <data name="importMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 22</value>
+    <value>189, 22</value>
   </data>
   <data name="importMenuItem.Text" xml:space="preserve">
     <value>Import Data</value>
   </data>
   <data name="exportMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 22</value>
+    <value>189, 22</value>
   </data>
   <data name="exportMenuItem.Text" xml:space="preserve">
     <value>Export Data</value>
   </data>
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 6</value>
+    <value>186, 6</value>
   </data>
   <data name="exitMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 22</value>
+    <value>189, 22</value>
   </data>
   <data name="exitMenuItem.Text" xml:space="preserve">
     <value>Exit</value>
@@ -489,14 +492,20 @@
   <data name="fileMenuItem.Text" xml:space="preserve">
     <value>File</value>
   </data>
+  <data name="alwaysOnTopMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+T</value>
+  </data>
   <data name="alwaysOnTopMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>193, 22</value>
   </data>
   <data name="alwaysOnTopMenuItem.Text" xml:space="preserve">
     <value>Always on Top</value>
   </data>
+  <data name="resetWindowMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+R</value>
+  </data>
   <data name="resetWindowMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>193, 22</value>
   </data>
   <data name="resetWindowMenuItem.Text" xml:space="preserve">
     <value>Reset Window</value>
@@ -534,8 +543,11 @@
   <data name="toolsMenuItem.Text" xml:space="preserve">
     <value>Tools</value>
   </data>
+  <data name="changelogMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>F1</value>
+  </data>
   <data name="changelogMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 22</value>
+    <value>151, 22</value>
   </data>
   <data name="changelogMenuItem.Text" xml:space="preserve">
     <value>Changelog</value>
@@ -809,7 +821,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAACA
-        BwAAAk1TRnQBSQFMAgEBAgEAAfABAgH0AQIBEAEAARABAAT/AQkBEAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        BwAAAk1TRnQBSQFMAgEBAgEAAQQBAwEIAQMBEAEAARABAAT/AQkBEAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAARADAAEBAQABCAYAAQQYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA

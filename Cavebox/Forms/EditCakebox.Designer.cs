@@ -6,7 +6,7 @@
 namespace Cavebox.Forms
 {
 	partial class EditCakebox
-	{
+	{			
 		/// <summary>
 		/// Designer variable used to keep track of non-visual components.
 		/// </summary>
@@ -50,7 +50,6 @@ namespace Cavebox.Forms
 			// 
 			resources.ApplyResources(this.saveButton, "saveButton");
 			this.saveButton.Name = "saveButton";
-			this.saveButton.UseVisualStyleBackColor = true;
 			this.saveButton.Click += new System.EventHandler(this.SaveCakebox);
 			// 
 			// Cancel
@@ -58,7 +57,6 @@ namespace Cavebox.Forms
 			this.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			resources.ApplyResources(this.Cancel, "Cancel");
 			this.Cancel.Name = "Cancel";
-			this.Cancel.UseVisualStyleBackColor = true;
 			this.Cancel.Click += new System.EventHandler(this.CloseForm);
 			// 
 			// cakeboxLabelLabel
