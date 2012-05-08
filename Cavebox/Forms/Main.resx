@@ -355,61 +355,64 @@
     <value>No</value>
   </data>
   <data name="copyFileListMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>127, 22</value>
   </data>
   <data name="copyFileListMenuItem.Text" xml:space="preserve">
     <value>Copy</value>
   </data>
   <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 6</value>
+    <value>124, 6</value>
   </data>
   <data name="googleMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>127, 22</value>
   </data>
   <data name="googleMenuItem.Text" xml:space="preserve">
     <value>Google</value>
   </data>
   <data name="wikipediaMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>127, 22</value>
   </data>
   <data name="wikipediaMenuItem.Text" xml:space="preserve">
     <value>Wikipedia</value>
   </data>
   <data name="anidbMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>127, 22</value>
   </data>
   <data name="anidbMenuItem.Text" xml:space="preserve">
     <value>Anidb</value>
   </data>
   <data name="imdbMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>127, 22</value>
   </data>
   <data name="imdbMenuItem.Text" xml:space="preserve">
     <value>Imdb</value>
   </data>
   <data name="lastfmMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>127, 22</value>
   </data>
   <data name="lastfmMenuItem.Text" xml:space="preserve">
     <value>Last.fm</value>
   </data>
   <data name="youtubeMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>127, 22</value>
   </data>
   <data name="youtubeMenuItem.Text" xml:space="preserve">
     <value>Youtube</value>
   </data>
   <data name="metacriticMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>127, 22</value>
   </data>
   <data name="metacriticMenuItem.Text" xml:space="preserve">
     <value>Metacritic</value>
   </data>
-  <data name="filesListMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 208</value>
+  <data name="tvcomMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 22</value>
   </data>
-  <data name="fileList.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="tvcomMenuItem.Text" xml:space="preserve">
+    <value>Tv.com</value>
+  </data>
+  <data name="filesListMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 208</value>
   </data>
   <data name="fileList.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 16</value>
@@ -718,7 +721,7 @@
     <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="copyScanFileListMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>102, 22</value>
   </data>
   <data name="copyScanFileListMenuItem.Text" xml:space="preserve">
     <value>Copy</value>
@@ -806,7 +809,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAACA
-        BwAAAk1TRnQBSQFMAgEBAgEAAdABAgHUAQIBEAEAARABAAT/AQkBEAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        BwAAAk1TRnQBSQFMAgEBAgEAAfABAgH0AQIBEAEAARABAAT/AQkBEAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAARADAAEBAQABCAYAAQQYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -884,7 +887,7 @@
     <value>Scan</value>
   </data>
   <data name="copyConsoleMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>102, 22</value>
   </data>
   <data name="copyConsoleMenuItem.Text" xml:space="preserve">
     <value>Copy</value>
@@ -899,7 +902,7 @@
     <value>Clear</value>
   </data>
   <data name="consoleMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 76</value>
+    <value>103, 54</value>
   </data>
   <data name="console.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -971,16 +974,16 @@
     <value>Cavebox 2.1.2</value>
   </data>
   <metadata name="cakeboxesMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>222, 21</value>
+    <value>393, 17</value>
   </metadata>
   <metadata name="discsMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>380, 21</value>
+    <value>393, 44</value>
   </metadata>
   <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>609, 58</value>
+    <value>128, 58</value>
   </metadata>
   <metadata name="filesListMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>677, 15</value>
+    <value>394, 66</value>
   </metadata>
   <metadata name="menuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -989,19 +992,19 @@
     <value>126, 17</value>
   </metadata>
   <metadata name="scanFileListMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>129, 58</value>
+    <value>513, 46</value>
   </metadata>
   <metadata name="stopStartImageList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>463, 58</value>
+    <value>239, 59</value>
   </metadata>
   <metadata name="consoleMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>517, 17</value>
+    <value>515, 20</value>
   </metadata>
   <metadata name="scanWorker.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 58</value>
   </metadata>
   <metadata name="filterTextChangedTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>289, 58</value>
+    <value>231, 18</value>
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

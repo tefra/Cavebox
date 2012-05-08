@@ -76,6 +76,7 @@ namespace Cavebox.Forms
 			this.lastfmMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.youtubeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.metacriticMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.tvcomMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip = new System.Windows.Forms.MenuStrip();
 			this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.newCakeboxMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -431,7 +432,8 @@ namespace Cavebox.Forms
 									this.imdbMenuItem,
 									this.lastfmMenuItem,
 									this.youtubeMenuItem,
-									this.metacriticMenuItem});
+									this.metacriticMenuItem,
+									this.tvcomMenuItem});
 			this.filesListMenu.Name = "filesListActionMenu";
 			resources.ApplyResources(this.filesListMenu, "filesListMenu");
 			this.filesListMenu.Opening += new System.ComponentModel.CancelEventHandler(this.FilesListMenuOpening);
@@ -504,6 +506,14 @@ namespace Cavebox.Forms
 			resources.ApplyResources(this.metacriticMenuItem, "metacriticMenuItem");
 			this.metacriticMenuItem.Tag = "http://www.metacritic.com/search/all/{0}/results";
 			this.metacriticMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
+			// 
+			// tvcomMenuItem
+			// 
+			this.tvcomMenuItem.Image = global::Cavebox.Properties.Images.tvcom;
+			this.tvcomMenuItem.Name = "tvcomMenuItem";
+			resources.ApplyResources(this.tvcomMenuItem, "tvcomMenuItem");
+			this.tvcomMenuItem.Tag = "http://www.tv.com/search?q={0}";
+			this.tvcomMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
 			// 
 			// menuStrip
 			// 
@@ -925,6 +935,7 @@ namespace Cavebox.Forms
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripMenuItem tvcomMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem metacriticMenuItem;
 		private System.Windows.Forms.ToolTip toolTip;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;

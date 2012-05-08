@@ -118,7 +118,7 @@ namespace Cavebox.Lib
 		{
 			try
 			{
-				SQLiteTransaction transaction = db.BeginTransaction();
+				SQLiteTransaction t = db.BeginTransaction();
 				SQLiteCommand c = CreateCommand("SELECT id, files FROM disc WHERE 1");
 				SQLiteCommand u = CreateCommand("Update disc SET filesno = ? WHERE id = ?");
 				SQLiteParameter id = new SQLiteParameter();
@@ -132,7 +132,7 @@ namespace Cavebox.Lib
 					filesno.Value = r.GetString(1).Split('\n').Length;
 					u.ExecuteNonQuery();
 				}
-				transaction.Commit();
+				t.Commit();
 				r.Close();
 				c.Dispose();
 				u.Dispose();
@@ -190,7 +190,7 @@ namespace Cavebox.Lib
 		/// </summary>
 		/// <param name="cid">Cakebox id number</param>
 		/// <param name="filter">A prepared string to filter results ex: %criminal%</param>
-		/// <param name="orderBy">0-2 for sorting fields id, label, filesno</param>
+		/// <param name="orderBy">0-2 for sorting fields id, label and filesno</param>
 		/// <param name="orderWay">0: Ascending, 2: Descending</param>
 		/// <returns>A list of matched discs</returns>
 		public static List<Identity> FetchDiscsByCakeboxId(string cid, string filter = null, int orderBy = 1, int orderWay = 0)
@@ -205,12 +205,11 @@ namespace Cavebox.Lib
 						case 1: orderClause = "label COLLATE NOCASE"; 	break;
 						case 2: orderClause = "filesno";			 	break;
 				}
-				orderClause += (orderWay == 0) ? " ASC" : " DESC";
-				
-				string sql = (filter != null) ?
-					"SELECT id, label, filesno FROM disc WHERE cid = " + cid + " AND ToLower(files) LIKE '" + filter + "' ORDER BY " + orderClause :
-					"SELECT id, label, filesno FROM disc WHERE cid = " + cid + " ORDER BY " + orderClause;
 
+				string sql = "SELECT id, label, filesno FROM disc WHERE cid = " + cid;
+				sql += (filter != null) ? " AND ToLower(files) LIKE '" + filter + "'" : "";
+				sql += " ORDER BY " + orderClause + " " + ((orderWay == 0) ? " ASC" : " DESC");
+				
 				SQLiteCommand c = CreateCommand(sql);
 				SQLiteDataReader r = c.ExecuteReader();
 				while (r.Read())
@@ -439,7 +438,7 @@ namespace Cavebox.Lib
 		}
 		
 		/// <summary>
-		/// Insert single row of data in db table 
+		/// Insert single row of data in db table
 		/// </summary>
 		/// <param name="table">Table name</param>
 		/// <param name="data">A list of keys and values representing db data</param>

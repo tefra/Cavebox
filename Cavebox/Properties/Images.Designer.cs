@@ -214,6 +214,13 @@ namespace Cavebox.Properties {
 			}
 		}
 		
+		internal static System.Drawing.Bitmap tvcom {
+			get {
+				object obj = ResourceManager.GetObject("tvcom", resourceCulture);
+				return ((System.Drawing.Bitmap)(obj));
+			}
+		}
+		
 		internal static System.Drawing.Bitmap wikipedia {
 			get {
 				object obj = ResourceManager.GetObject("wikipedia", resourceCulture);
