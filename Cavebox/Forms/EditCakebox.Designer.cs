@@ -33,7 +33,6 @@ namespace Cavebox.Forms
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditCakebox));
 			this.cakeboxLabel = new System.Windows.Forms.TextBox();
 			this.saveButton = new System.Windows.Forms.Button();
 			this.Cancel = new System.Windows.Forms.Button();
@@ -42,34 +41,47 @@ namespace Cavebox.Forms
 			// 
 			// cakeboxLabel
 			// 
-			resources.ApplyResources(this.cakeboxLabel, "cakeboxLabel");
+			this.cakeboxLabel.Location = new System.Drawing.Point(54, 12);
 			this.cakeboxLabel.Name = "cakeboxLabel";
+			this.cakeboxLabel.Size = new System.Drawing.Size(318, 20);
+			this.cakeboxLabel.TabIndex = 0;
 			this.cakeboxLabel.TextChanged += new System.EventHandler(this.CakeboxLabelTextChanged);
 			// 
 			// saveButton
 			// 
-			resources.ApplyResources(this.saveButton, "saveButton");
+			this.saveButton.Enabled = false;
+			this.saveButton.Location = new System.Drawing.Point(216, 38);
 			this.saveButton.Name = "saveButton";
+			this.saveButton.Size = new System.Drawing.Size(75, 23);
+			this.saveButton.TabIndex = 1;
+			this.saveButton.Text = "Save";
 			this.saveButton.Click += new System.EventHandler(this.SaveCakebox);
 			// 
 			// Cancel
 			// 
 			this.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			resources.ApplyResources(this.Cancel, "Cancel");
+			this.Cancel.Location = new System.Drawing.Point(297, 38);
 			this.Cancel.Name = "Cancel";
+			this.Cancel.Size = new System.Drawing.Size(75, 23);
+			this.Cancel.TabIndex = 3;
+			this.Cancel.Text = "Cancel";
 			this.Cancel.Click += new System.EventHandler(this.CloseForm);
 			// 
 			// cakeboxLabelLabel
 			// 
-			resources.ApplyResources(this.cakeboxLabelLabel, "cakeboxLabelLabel");
+			this.cakeboxLabelLabel.Location = new System.Drawing.Point(12, 15);
 			this.cakeboxLabelLabel.Name = "cakeboxLabelLabel";
+			this.cakeboxLabelLabel.Size = new System.Drawing.Size(36, 23);
+			this.cakeboxLabelLabel.TabIndex = 4;
+			this.cakeboxLabelLabel.Text = "Label:";
 			// 
 			// EditCakebox
 			// 
 			this.AcceptButton = this.saveButton;
-			resources.ApplyResources(this, "$this");
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.Cancel;
+			this.ClientSize = new System.Drawing.Size(384, 67);
 			this.Controls.Add(this.cakeboxLabelLabel);
 			this.Controls.Add(this.Cancel);
 			this.Controls.Add(this.saveButton);
@@ -79,6 +91,7 @@ namespace Cavebox.Forms
 			this.MinimizeBox = false;
 			this.Name = "EditCakebox";
 			this.ShowInTaskbar = false;
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}

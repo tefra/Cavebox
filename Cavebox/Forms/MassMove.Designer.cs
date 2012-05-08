@@ -48,36 +48,54 @@ namespace Cavebox.Forms
 			// 
 			// selectDiscsGroupBox
 			// 
-			resources.ApplyResources(this.selectDiscsGroupBox, "selectDiscsGroupBox");
+			this.selectDiscsGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+									| System.Windows.Forms.AnchorStyles.Left) 
+									| System.Windows.Forms.AnchorStyles.Right)));
 			this.selectDiscsGroupBox.Controls.Add(this.selectDiscs);
+			this.selectDiscsGroupBox.Location = new System.Drawing.Point(12, 12);
 			this.selectDiscsGroupBox.Name = "selectDiscsGroupBox";
+			this.selectDiscsGroupBox.Size = new System.Drawing.Size(290, 266);
+			this.selectDiscsGroupBox.TabIndex = 0;
 			this.selectDiscsGroupBox.TabStop = false;
+			this.selectDiscsGroupBox.Text = "Select Discs";
 			// 
 			// selectDiscs
 			// 
 			this.selectDiscs.CheckOnClick = true;
-			resources.ApplyResources(this.selectDiscs, "selectDiscs");
+			this.selectDiscs.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.selectDiscs.FormattingEnabled = true;
+			this.selectDiscs.Location = new System.Drawing.Point(3, 16);
 			this.selectDiscs.Name = "selectDiscs";
+			this.selectDiscs.Size = new System.Drawing.Size(284, 247);
+			this.selectDiscs.TabIndex = 0;
 			this.selectDiscs.SelectedIndexChanged += new System.EventHandler(this.enableMoveButton);
 			// 
 			// selectCakebox
 			// 
-			resources.ApplyResources(this.selectCakebox, "selectCakebox");
+			this.selectCakebox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+									| System.Windows.Forms.AnchorStyles.Right)));
 			this.selectCakebox.DisplayMember = "Value";
 			this.selectCakebox.DropDownHeight = 150;
 			this.selectCakebox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.selectCakebox.FormattingEnabled = true;
+			this.selectCakebox.IntegralHeight = false;
+			this.selectCakebox.Location = new System.Drawing.Point(12, 284);
 			this.selectCakebox.Name = "selectCakebox";
+			this.selectCakebox.Size = new System.Drawing.Size(290, 21);
+			this.selectCakebox.TabIndex = 1;
 			this.selectCakebox.ValueMember = "Key";
 			this.selectCakebox.SelectedIndexChanged += new System.EventHandler(this.enableMoveButton);
 			// 
 			// toggleButton
 			// 
-			resources.ApplyResources(this.toggleButton, "toggleButton");
+			this.toggleButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.toggleButton.ImageKey = "check0";
 			this.toggleButton.ImageList = this.selectImageList;
+			this.toggleButton.Location = new System.Drawing.Point(12, 311);
 			this.toggleButton.Name = "toggleButton";
-			this.toolTip.SetToolTip(this.toggleButton, resources.GetString("toggleButton.ToolTip"));
+			this.toggleButton.Size = new System.Drawing.Size(50, 23);
+			this.toggleButton.TabIndex = 2;
+			this.toolTip.SetToolTip(this.toggleButton, "Select/Deselect All");
 			this.toggleButton.Click += new System.EventHandler(this.ToggleButtonClick);
 			// 
 			// selectImageList
@@ -89,25 +107,34 @@ namespace Cavebox.Forms
 			// 
 			// moveButton
 			// 
-			resources.ApplyResources(this.moveButton, "moveButton");
+			this.moveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.moveButton.Location = new System.Drawing.Point(146, 311);
 			this.moveButton.Name = "moveButton";
+			this.moveButton.Size = new System.Drawing.Size(75, 23);
+			this.moveButton.TabIndex = 3;
+			this.moveButton.Text = "Move";
 			this.moveButton.UseVisualStyleBackColor = true;
 			this.moveButton.Click += new System.EventHandler(this.MoveButtonClick);
 			// 
 			// cancelButton
 			// 
-			resources.ApplyResources(this.cancelButton, "cancelButton");
+			this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.cancelButton.Location = new System.Drawing.Point(227, 311);
 			this.cancelButton.Name = "cancelButton";
+			this.cancelButton.Size = new System.Drawing.Size(75, 23);
+			this.cancelButton.TabIndex = 4;
+			this.cancelButton.Text = "Cancel";
 			this.cancelButton.UseVisualStyleBackColor = true;
 			this.cancelButton.Click += new System.EventHandler(this.closeForm);
 			// 
 			// MassMove
 			// 
 			this.AcceptButton = this.moveButton;
-			resources.ApplyResources(this, "$this");
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.cancelButton;
+			this.ClientSize = new System.Drawing.Size(314, 346);
 			this.Controls.Add(this.cancelButton);
 			this.Controls.Add(this.moveButton);
 			this.Controls.Add(this.toggleButton);
@@ -116,8 +143,11 @@ namespace Cavebox.Forms
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
+			this.MinimumSize = new System.Drawing.Size(330, 380);
 			this.Name = "MassMove";
 			this.ShowInTaskbar = false;
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			this.Text = "Mass Move";
 			this.selectDiscsGroupBox.ResumeLayout(false);
 			this.ResumeLayout(false);
 		}

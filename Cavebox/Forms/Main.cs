@@ -5,7 +5,6 @@
  */
 using System;
 using System.ComponentModel;
-using System.Data;
 using System.IO;
 using System.Collections.Generic;
 using System.Drawing;
@@ -14,6 +13,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Cavebox.Lib;
+
 
 namespace Cavebox.Forms
 {
@@ -50,7 +50,7 @@ namespace Cavebox.Forms
 				this.Dispose();
 			}
 		}
-
+		
 		/// <summary>
 		/// Restore previous session storage and initialize lists with data from database
 		/// </summary>
