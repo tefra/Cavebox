@@ -50,7 +50,7 @@ namespace Cavebox.Forms
 				this.Dispose();
 			}
 		}
-		
+
 		/// <summary>
 		/// Restore previous session storage and initialize lists with data from database
 		/// </summary>

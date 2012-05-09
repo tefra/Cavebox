@@ -473,6 +473,7 @@ namespace Cavebox.Forms
 			this.fileList.BackColor = System.Drawing.SystemColors.Window;
 			this.fileList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.fileList.ContextMenuStrip = this.filesListMenu;
+			this.fileList.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.fileList.Location = new System.Drawing.Point(3, 16);
 			this.fileList.Name = "fileList";
 			this.fileList.ReadOnly = true;
