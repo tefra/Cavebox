@@ -11,7 +11,7 @@ namespace Cavebox.Lib
 	/// <summary>
 	/// Lazy load of the custom strings resource
 	/// </summary>
-	public class Lang
+	static class Lang
 	{
 		/// <summary>
 		/// Magic get set ResourceManager
@@ -27,49 +27,13 @@ namespace Cavebox.Lib
 		}
 		
 		/// <summary>
-		/// Get string from the ResourceManager
+		/// Get a string by key from the resources and format text if args is not empty
 		/// </summary>
-		/// <param name="str">Phrase key</param>
-		/// <returns>Phrase text</returns>
-		public static string GetString(string str)
+		/// <param name="str">The phrase key</param>
+		/// <param name="args">Arguments to format text</param>
+		public static string GetString(string str, params object[] args)
 		{
-			return Rm.GetString(str);
-		}
-		
-		/// <summary>
-		/// Get string from the ResourceManager and format with one argument
-		/// </summary>
-		/// <param name="str">Phrase key</param>
-		/// <param name="arg0">Param to string format</param>
-		/// <returns>Phrase text</returns>
-		public static string GetString(string str, object arg0)
-		{
-			return String.Format(GetString(str), arg0);
-		}
-		
-		/// <summary>
-		/// Get string from the ResourceManager and format with two argument
-		/// </summary>
-		/// <param name="str">Phrase key</param>
-		/// <param name="arg0">Param to string format</param>
-		/// <param name="arg1">Param to string format</param>
-		/// <returns>Phrase text</returns>
-		public static string GetString(string str, object arg0, object arg1)
-		{
-			return String.Format(GetString(str), arg0, arg1);
-		}
-		
-		/// <summary>
-		/// Get string from the ResourceManager and format with three argument
-		/// </summary>
-		/// <param name="str">Phrase key</param>
-		/// <param name="arg0">Param to string format</param>
-		/// <param name="arg1">Param to string format</param>
-		/// <param name="arg2">Param to string format</param>
-		/// <returns>Phrase text</returns>
-		public static string GetString(string str, object arg0, object arg1, object arg2)
-		{
-			return String.Format(GetString(str), arg0, arg1, arg2);
+			return (args.Length == 0) ? Rm.GetString(str) : String.Format(Rm.GetString(str), args);
 		}
 	}
 }
