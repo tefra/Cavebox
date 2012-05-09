@@ -704,7 +704,7 @@ namespace Cavebox.Forms
 			{
 				Cursor.Current = Cursors.WaitCursor;
 				stopWatch = DateTime.Now;
-				XmlFile.Save(Path.Combine(folderBrowserDialog.SelectedPath, DateTime.Now.ToString("yyyy-MM-dd-HHmmss") + ".xml"));
+				SQLiteXmlFile.Save(Path.Combine(folderBrowserDialog.SelectedPath, DateTime.Now.ToString("yyyy-MM-dd-HHmmss") + ".xml"));
 				Console.WriteLine(Lang.GetString("_exportCompleted", (DateTime.Now - stopWatch).TotalSeconds));
 				Cursor.Current = Cursors.Default;
 			}
@@ -724,7 +724,7 @@ namespace Cavebox.Forms
 			{
 				Cursor.Current = Cursors.WaitCursor;
 				stopWatch = DateTime.Now;
-				int records = XmlFile.Load(openFileDialog.FileName);
+				int records = SQLiteXmlFile.Load(openFileDialog.FileName);
 				Console.WriteLine(Lang.GetString("_importCompleted", records, (DateTime.Now - stopWatch).TotalSeconds));
 				ShowCakeboxes(0, true);
 				Cursor.Current = Cursors.Default;

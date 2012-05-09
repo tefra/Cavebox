@@ -13,7 +13,7 @@ namespace Cavebox.Lib
 	/// <summary>
 	/// Load/Save sql records from/to xml file
 	/// </summary>
-	static class XmlFile
+	static class SQLiteXmlFile
 	{
 		/// <summary>
 		/// Read table data and insert it.
