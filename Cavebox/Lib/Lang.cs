@@ -6,6 +6,7 @@
 using System;
 using System.Resources;
 
+
 namespace Cavebox.Lib
 {
 	/// <summary>
