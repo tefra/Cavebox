@@ -52,7 +52,7 @@ namespace Cavebox.Forms
 		}
 		
 		/// <summary>
-		/// Restore previous session storage and initialize lists with data from database
+		/// Restore previous local session storage and initialize lists with data from database
 		/// </summary>
 		private void MainFormLoad(object sender, EventArgs e)
 		{
