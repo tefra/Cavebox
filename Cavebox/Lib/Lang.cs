@@ -6,7 +6,6 @@
 using System;
 using System.Resources;
 
-
 namespace Cavebox.Lib
 {
 	/// <summary>
@@ -34,7 +33,7 @@ namespace Cavebox.Lib
 		/// <param name="args">Arguments to format text</param>
 		public static string GetString(string str, params object[] args)
 		{
-			return (args.Length == 0) ? Rm.GetString(str) : String.Format(Rm.GetString(str), args);
+			return (args.Length > 0) ? String.Format(Rm.GetString(str), args) : Rm.GetString(str);
 		}
 	}
 }
