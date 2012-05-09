@@ -11,16 +11,15 @@ using System.Xml;
 namespace Cavebox.Lib
 {
 	/// <summary>
-	/// Load or Save sql records from/to xml file
+	/// Load/Save sql records from/to xml file
 	/// </summary>
 	static class XmlFile
 	{
-		
 		/// <summary>
-		/// Read table data and insert it. Expect an exception in case
-		/// of bad schmema or missing table structures.
+		/// Read table data and insert it.
 		/// </summary>
 		/// <param name="file">Filename of the xml backup</param>
+		/// <returns>The number of records imported</returns>
 		public static int Load(string file)
 		{
 			int records = 0;
@@ -73,6 +72,7 @@ namespace Cavebox.Lib
 		/// <param name="file">filename where to open write and save backup</param>
 		public static void Save(string file)
 		{
+			string[] tables = {"cakebox", "disc"};
 			XmlWriterSettings settings = new XmlWriterSettings();
 			settings.Indent = true;
 			settings.NewLineChars = "\n";
@@ -80,8 +80,6 @@ namespace Cavebox.Lib
 			{
 				xml.WriteStartDocument();
 				xml.WriteStartElement("DATA");
-				
-				string[] tables = {"cakebox", "disc"};
 				foreach(string table in tables)
 				{
 					try

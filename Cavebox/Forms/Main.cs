@@ -703,9 +703,8 @@ namespace Cavebox.Forms
 			if(folderBrowserDialog.ShowDialog() == DialogResult.OK)
 			{
 				Cursor.Current = Cursors.WaitCursor;
-				string file = folderBrowserDialog.SelectedPath + Path.DirectorySeparatorChar + DateTime.Now.ToString("yyyy-MM-dd-HHmmss") + ".xml";
 				stopWatch = DateTime.Now;
-				new XMLExport(file);
+				XmlFile.Save(Path.Combine(folderBrowserDialog.SelectedPath, DateTime.Now.ToString("yyyy-MM-dd-HHmmss") + ".xml"));
 				Console.WriteLine(Lang.GetString("_exportCompleted", (DateTime.Now - stopWatch).TotalSeconds));
 				Cursor.Current = Cursors.Default;
 			}
@@ -725,16 +724,9 @@ namespace Cavebox.Forms
 			{
 				Cursor.Current = Cursors.WaitCursor;
 				stopWatch = DateTime.Now;
-				XMLImport i = new XMLImport(openFileDialog.FileName);
-				if(i.imported.Count > 0)
-				{
-					Console.WriteLine(Lang.GetString("_importCompleted", (DateTime.Now - stopWatch).TotalSeconds));
-					foreach (KeyValuePair<string, int> pair in i.imported)
-					{
-						Console.Write(Lang.GetString("_importTableRows", pair.Key, pair.Value));
-					}
-					ShowCakeboxes(0, true);
-				}
+				int records = XmlFile.Load(openFileDialog.FileName);
+				Console.WriteLine(Lang.GetString("_importCompleted", records, (DateTime.Now - stopWatch).TotalSeconds));
+				ShowCakeboxes(0, true);
 				Cursor.Current = Cursors.Default;
 			}
 		}
