@@ -33,16 +33,12 @@ namespace Cavebox.Forms
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MassMove));
 			this.selectDiscsGroupBox = new System.Windows.Forms.GroupBox();
 			this.selectDiscs = new System.Windows.Forms.CheckedListBox();
 			this.selectCakebox = new System.Windows.Forms.ComboBox();
-			this.toggleButton = new System.Windows.Forms.Button();
-			this.selectImageList = new System.Windows.Forms.ImageList(this.components);
 			this.moveButton = new System.Windows.Forms.Button();
 			this.cancelButton = new System.Windows.Forms.Button();
-			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+			this.checkAll = new System.Windows.Forms.CheckBox();
 			this.selectDiscsGroupBox.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -86,25 +82,6 @@ namespace Cavebox.Forms
 			this.selectCakebox.ValueMember = "Key";
 			this.selectCakebox.SelectedIndexChanged += new System.EventHandler(this.enableMoveButton);
 			// 
-			// toggleButton
-			// 
-			this.toggleButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.toggleButton.ImageKey = "check0";
-			this.toggleButton.ImageList = this.selectImageList;
-			this.toggleButton.Location = new System.Drawing.Point(12, 311);
-			this.toggleButton.Name = "toggleButton";
-			this.toggleButton.Size = new System.Drawing.Size(50, 23);
-			this.toggleButton.TabIndex = 2;
-			this.toolTip.SetToolTip(this.toggleButton, "Select/Deselect All");
-			this.toggleButton.Click += new System.EventHandler(this.ToggleButtonClick);
-			// 
-			// selectImageList
-			// 
-			this.selectImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("selectImageList.ImageStream")));
-			this.selectImageList.TransparentColor = System.Drawing.Color.Transparent;
-			this.selectImageList.Images.SetKeyName(0, "check0");
-			this.selectImageList.Images.SetKeyName(1, "check1");
-			// 
 			// moveButton
 			// 
 			this.moveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -128,6 +105,18 @@ namespace Cavebox.Forms
 			this.cancelButton.UseVisualStyleBackColor = true;
 			this.cancelButton.Click += new System.EventHandler(this.closeForm);
 			// 
+			// checkAll
+			// 
+			this.checkAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.checkAll.AutoSize = true;
+			this.checkAll.Location = new System.Drawing.Point(12, 314);
+			this.checkAll.Name = "checkAll";
+			this.checkAll.Size = new System.Drawing.Size(71, 17);
+			this.checkAll.TabIndex = 5;
+			this.checkAll.Tag = "Uncheck All";
+			this.checkAll.Text = "Check All";
+			this.checkAll.Click += new System.EventHandler(this.ToggleButtonClick);
+			// 
 			// MassMove
 			// 
 			this.AcceptButton = this.moveButton;
@@ -135,27 +124,25 @@ namespace Cavebox.Forms
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.cancelButton;
 			this.ClientSize = new System.Drawing.Size(314, 346);
+			this.Controls.Add(this.checkAll);
 			this.Controls.Add(this.cancelButton);
 			this.Controls.Add(this.moveButton);
-			this.Controls.Add(this.toggleButton);
 			this.Controls.Add(this.selectCakebox);
 			this.Controls.Add(this.selectDiscsGroupBox);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
-			this.MinimumSize = new System.Drawing.Size(330, 380);
 			this.Name = "MassMove";
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Mass Move";
 			this.selectDiscsGroupBox.ResumeLayout(false);
 			this.ResumeLayout(false);
+			this.PerformLayout();
 		}
-		private System.Windows.Forms.ToolTip toolTip;
-		private System.Windows.Forms.ImageList selectImageList;
+		private System.Windows.Forms.CheckBox checkAll;
 		private System.Windows.Forms.Button cancelButton;
 		private System.Windows.Forms.Button moveButton;
-		private System.Windows.Forms.Button toggleButton;
 		private System.Windows.Forms.ComboBox selectCakebox;
 		private System.Windows.Forms.CheckedListBox selectDiscs;
 		private System.Windows.Forms.GroupBox selectDiscsGroupBox;

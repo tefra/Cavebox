@@ -331,7 +331,7 @@ namespace Cavebox.Forms
 					scanFileList.Clear();
 					newDiscLabelTextBox.Clear();
 					newDiscLabelTextBox.Enabled = false;
-					toggleScanPathButton.ImageKey = "stop";
+					toggleScanPathButton.Image = Properties.Images.ui_stop;
 					browseScanPathButton.Enabled = false;
 				}
 				else
@@ -342,7 +342,7 @@ namespace Cavebox.Forms
 			else
 			{
 				scanWorker.CancelAsync();
-				toggleScanPathButton.ImageKey = "start";
+				toggleScanPathButton.Image = Properties.Images.ui_play;
 				browseScanPathButton.Enabled = true;
 			}
 		}
@@ -440,7 +440,7 @@ namespace Cavebox.Forms
 			scanFileList.ScrollToCaret();
 			scanPathComboBox.Enabled = true;
 			browseScanPathButton.Enabled = true;
-			toggleScanPathButton.ImageKey = "start";
+			toggleScanPathButton.Image = Properties.Images.ui_play;
 			if(e.Cancelled)
 			{
 				scanFileList.Clear();

@@ -34,7 +34,6 @@ namespace Cavebox.Forms
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
 			this.FileListSplitContainer = new System.Windows.Forms.SplitContainer();
 			this.cakeboxDiscSplitContainer = new System.Windows.Forms.SplitContainer();
 			this.cakeboxesGroupBox = new System.Windows.Forms.GroupBox();
@@ -118,7 +117,6 @@ namespace Cavebox.Forms
 			this.scanPathComboBox = new System.Windows.Forms.ComboBox();
 			this.browseScanPathButton = new System.Windows.Forms.Button();
 			this.toggleScanPathButton = new System.Windows.Forms.Button();
-			this.stopStartImageList = new System.Windows.Forms.ImageList(this.components);
 			this.consoleTabPage = new System.Windows.Forms.TabPage();
 			this.consoleGroupBox = new System.Windows.Forms.GroupBox();
 			this.console = new System.Windows.Forms.RichTextBox();
@@ -243,9 +241,9 @@ namespace Cavebox.Forms
 			// 
 			// copyCakeboxLabelMenuItem
 			// 
-			this.copyCakeboxLabelMenuItem.Image = global::Cavebox.Properties.Images.copy;
+			this.copyCakeboxLabelMenuItem.Image = global::Cavebox.Properties.Images.ui_copy;
 			this.copyCakeboxLabelMenuItem.Name = "copyCakeboxLabelMenuItem";
-			this.copyCakeboxLabelMenuItem.Size = new System.Drawing.Size(134, 22);
+			this.copyCakeboxLabelMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.copyCakeboxLabelMenuItem.Text = "Copy";
 			this.copyCakeboxLabelMenuItem.Click += new System.EventHandler(this.ContextCopyClick);
 			// 
@@ -256,17 +254,17 @@ namespace Cavebox.Forms
 			// 
 			// editCakeboxMenuItem
 			// 
-			this.editCakeboxMenuItem.Image = global::Cavebox.Properties.Images.edit;
+			this.editCakeboxMenuItem.Image = global::Cavebox.Properties.Images.ui_edit;
 			this.editCakeboxMenuItem.Name = "editCakeboxMenuItem";
-			this.editCakeboxMenuItem.Size = new System.Drawing.Size(134, 22);
+			this.editCakeboxMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.editCakeboxMenuItem.Text = "Edit";
 			this.editCakeboxMenuItem.Click += new System.EventHandler(this.OpenEditCakeboxForm);
 			// 
 			// deleteCakeboxMenuItem
 			// 
-			this.deleteCakeboxMenuItem.Image = global::Cavebox.Properties.Images.delete;
+			this.deleteCakeboxMenuItem.Image = global::Cavebox.Properties.Images.ui_delete;
 			this.deleteCakeboxMenuItem.Name = "deleteCakeboxMenuItem";
-			this.deleteCakeboxMenuItem.Size = new System.Drawing.Size(134, 22);
+			this.deleteCakeboxMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.deleteCakeboxMenuItem.Text = "Delete";
 			this.deleteCakeboxMenuItem.Click += new System.EventHandler(this.DeleteCakebox);
 			// 
@@ -277,7 +275,6 @@ namespace Cavebox.Forms
 			// 
 			// massMoveDiscsMenuItem
 			// 
-			this.massMoveDiscsMenuItem.Image = global::Cavebox.Properties.Images.move;
 			this.massMoveDiscsMenuItem.Name = "massMoveDiscsMenuItem";
 			this.massMoveDiscsMenuItem.Size = new System.Drawing.Size(134, 22);
 			this.massMoveDiscsMenuItem.Text = "Mass Move";
@@ -326,37 +323,37 @@ namespace Cavebox.Forms
 			// 
 			// copyDiscLabelMenuItem
 			// 
-			this.copyDiscLabelMenuItem.Image = global::Cavebox.Properties.Images.copy;
+			this.copyDiscLabelMenuItem.Image = global::Cavebox.Properties.Images.ui_copy;
 			this.copyDiscLabelMenuItem.Name = "copyDiscLabelMenuItem";
-			this.copyDiscLabelMenuItem.Size = new System.Drawing.Size(107, 22);
+			this.copyDiscLabelMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.copyDiscLabelMenuItem.Text = "Copy";
 			this.copyDiscLabelMenuItem.Click += new System.EventHandler(this.ContextCopyClick);
 			// 
 			// toolStripSeparator9
 			// 
 			this.toolStripSeparator9.Name = "toolStripSeparator9";
-			this.toolStripSeparator9.Size = new System.Drawing.Size(104, 6);
+			this.toolStripSeparator9.Size = new System.Drawing.Size(149, 6);
 			// 
 			// editDiscMenuItem
 			// 
-			this.editDiscMenuItem.Image = global::Cavebox.Properties.Images.edit;
+			this.editDiscMenuItem.Image = global::Cavebox.Properties.Images.ui_edit;
 			this.editDiscMenuItem.Name = "editDiscMenuItem";
-			this.editDiscMenuItem.Size = new System.Drawing.Size(107, 22);
+			this.editDiscMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.editDiscMenuItem.Text = "Edit";
 			this.editDiscMenuItem.Click += new System.EventHandler(this.OpenEditDisc);
 			// 
 			// deleteDiscMenuItem
 			// 
-			this.deleteDiscMenuItem.Image = global::Cavebox.Properties.Images.delete;
+			this.deleteDiscMenuItem.Image = global::Cavebox.Properties.Images.ui_delete;
 			this.deleteDiscMenuItem.Name = "deleteDiscMenuItem";
-			this.deleteDiscMenuItem.Size = new System.Drawing.Size(107, 22);
+			this.deleteDiscMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.deleteDiscMenuItem.Text = "Delete";
 			this.deleteDiscMenuItem.Click += new System.EventHandler(this.DeleteDisc);
 			// 
 			// toolStripSeparator3
 			// 
 			this.toolStripSeparator3.Name = "toolStripSeparator3";
-			this.toolStripSeparator3.Size = new System.Drawing.Size(104, 6);
+			this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
 			// 
 			// DiscsOrderMenu
 			// 
@@ -367,9 +364,9 @@ namespace Cavebox.Forms
 									this.toolStripSeparator4,
 									this.DiscsOrderAscMenuItem,
 									this.DiscsOrderDescMenuItem});
-			this.DiscsOrderMenu.Image = global::Cavebox.Properties.Images.alt;
+			this.DiscsOrderMenu.Image = global::Cavebox.Properties.Images.ui_sort;
 			this.DiscsOrderMenu.Name = "DiscsOrderMenu";
-			this.DiscsOrderMenu.Size = new System.Drawing.Size(107, 22);
+			this.DiscsOrderMenu.Size = new System.Drawing.Size(152, 22);
 			this.DiscsOrderMenu.Text = "Sort";
 			// 
 			// DiscsOrderByIdMenuItem
@@ -438,7 +435,7 @@ namespace Cavebox.Forms
 			// 
 			this.clearFilterButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.clearFilterButton.Enabled = false;
-			this.clearFilterButton.Image = global::Cavebox.Properties.Images.cancel;
+			this.clearFilterButton.Image = global::Cavebox.Properties.Images.ui_delete;
 			this.clearFilterButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
 			this.clearFilterButton.Location = new System.Drawing.Point(464, 20);
 			this.clearFilterButton.Name = "clearFilterButton";
@@ -501,7 +498,7 @@ namespace Cavebox.Forms
 			// 
 			// copyFileListMenuItem
 			// 
-			this.copyFileListMenuItem.Image = global::Cavebox.Properties.Images.copy;
+			this.copyFileListMenuItem.Image = global::Cavebox.Properties.Images.ui_copy;
 			this.copyFileListMenuItem.Name = "copyFileListMenuItem";
 			this.copyFileListMenuItem.Size = new System.Drawing.Size(127, 22);
 			this.copyFileListMenuItem.Text = "Copy";
@@ -612,7 +609,7 @@ namespace Cavebox.Forms
 			// 
 			// newCakeboxMenuItem
 			// 
-			this.newCakeboxMenuItem.Image = global::Cavebox.Properties.Images._new;
+			this.newCakeboxMenuItem.Image = global::Cavebox.Properties.Images.ui_add;
 			this.newCakeboxMenuItem.Name = "newCakeboxMenuItem";
 			this.newCakeboxMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
 			this.newCakeboxMenuItem.Size = new System.Drawing.Size(189, 22);
@@ -621,7 +618,7 @@ namespace Cavebox.Forms
 			// 
 			// importMenuItem
 			// 
-			this.importMenuItem.Image = global::Cavebox.Properties.Images.import;
+			this.importMenuItem.Image = global::Cavebox.Properties.Images.ui_import;
 			this.importMenuItem.Name = "importMenuItem";
 			this.importMenuItem.Size = new System.Drawing.Size(189, 22);
 			this.importMenuItem.Text = "Import Data";
@@ -629,7 +626,7 @@ namespace Cavebox.Forms
 			// 
 			// exportMenuItem
 			// 
-			this.exportMenuItem.Image = global::Cavebox.Properties.Images.export;
+			this.exportMenuItem.Image = global::Cavebox.Properties.Images.ui_export;
 			this.exportMenuItem.Name = "exportMenuItem";
 			this.exportMenuItem.Size = new System.Drawing.Size(189, 22);
 			this.exportMenuItem.Text = "Export Data";
@@ -685,7 +682,6 @@ namespace Cavebox.Forms
 			// 
 			// rebuildTotalFilesMenuItem
 			// 
-			this.rebuildTotalFilesMenuItem.Image = global::Cavebox.Properties.Images.reload;
 			this.rebuildTotalFilesMenuItem.Name = "rebuildTotalFilesMenuItem";
 			this.rebuildTotalFilesMenuItem.Size = new System.Drawing.Size(170, 22);
 			this.rebuildTotalFilesMenuItem.Text = "Rebuild Total Files";
@@ -693,7 +689,6 @@ namespace Cavebox.Forms
 			// 
 			// vacuumDatabaseMenuItem
 			// 
-			this.vacuumDatabaseMenuItem.Image = global::Cavebox.Properties.Images.reload;
 			this.vacuumDatabaseMenuItem.Name = "vacuumDatabaseMenuItem";
 			this.vacuumDatabaseMenuItem.Size = new System.Drawing.Size(170, 22);
 			this.vacuumDatabaseMenuItem.Text = "Vacuum Database";
@@ -702,7 +697,6 @@ namespace Cavebox.Forms
 			// 
 			// dropDataMenuItem
 			// 
-			this.dropDataMenuItem.Image = global::Cavebox.Properties.Images.drop;
 			this.dropDataMenuItem.Name = "dropDataMenuItem";
 			this.dropDataMenuItem.Size = new System.Drawing.Size(170, 22);
 			this.dropDataMenuItem.Text = "Drop Data";
@@ -720,7 +714,7 @@ namespace Cavebox.Forms
 			// 
 			this.changelogMenuItem.Name = "changelogMenuItem";
 			this.changelogMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-			this.changelogMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.changelogMenuItem.Size = new System.Drawing.Size(151, 22);
 			this.changelogMenuItem.Text = "Changelog";
 			this.changelogMenuItem.Click += new System.EventHandler(this.OpenChangelog);
 			// 
@@ -851,7 +845,7 @@ namespace Cavebox.Forms
 			// 
 			this.saveNewDiscButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.saveNewDiscButton.Enabled = false;
-			this.saveNewDiscButton.Image = global::Cavebox.Properties.Images.new32;
+			this.saveNewDiscButton.Image = global::Cavebox.Properties.Images.ui_save;
 			this.saveNewDiscButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
 			this.saveNewDiscButton.Location = new System.Drawing.Point(464, 19);
 			this.saveNewDiscButton.Name = "saveNewDiscButton";
@@ -921,14 +915,14 @@ namespace Cavebox.Forms
 									this.toolStripSeparator7,
 									this.resetScanMenuItem});
 			this.scanFileListMenu.Name = "scanLogActionsMenu";
-			this.scanFileListMenu.Size = new System.Drawing.Size(103, 54);
+			this.scanFileListMenu.Size = new System.Drawing.Size(153, 76);
 			this.scanFileListMenu.Opening += new System.ComponentModel.CancelEventHandler(this.ScanLogMenuOpening);
 			// 
 			// copyScanFileListMenuItem
 			// 
-			this.copyScanFileListMenuItem.Image = global::Cavebox.Properties.Images.copy;
+			this.copyScanFileListMenuItem.Image = global::Cavebox.Properties.Images.ui_copy;
 			this.copyScanFileListMenuItem.Name = "copyScanFileListMenuItem";
-			this.copyScanFileListMenuItem.Size = new System.Drawing.Size(102, 22);
+			this.copyScanFileListMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.copyScanFileListMenuItem.Text = "Copy";
 			this.copyScanFileListMenuItem.Click += new System.EventHandler(this.ContextCopyClick);
 			// 
@@ -966,25 +960,24 @@ namespace Cavebox.Forms
 			this.scanPathComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.FileSystemDirectories;
 			this.scanPathComboBox.Location = new System.Drawing.Point(7, 20);
 			this.scanPathComboBox.Name = "scanPathComboBox";
-			this.scanPathComboBox.Size = new System.Drawing.Size(395, 21);
+			this.scanPathComboBox.Size = new System.Drawing.Size(419, 21);
 			this.scanPathComboBox.TabIndex = 0;
 			// 
 			// browseScanPathButton
 			// 
 			this.browseScanPathButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.browseScanPathButton.Image = global::Cavebox.Properties.Images.browse;
-			this.browseScanPathButton.Location = new System.Drawing.Point(408, 20);
+			this.browseScanPathButton.Location = new System.Drawing.Point(432, 20);
 			this.browseScanPathButton.Name = "browseScanPathButton";
-			this.browseScanPathButton.Size = new System.Drawing.Size(50, 21);
+			this.browseScanPathButton.Size = new System.Drawing.Size(26, 21);
 			this.browseScanPathButton.TabIndex = 0;
+			this.browseScanPathButton.Text = "...";
 			this.toolTip.SetToolTip(this.browseScanPathButton, "Browse Folder");
 			this.browseScanPathButton.Click += new System.EventHandler(this.BrowseScanPath);
 			// 
 			// toggleScanPathButton
 			// 
 			this.toggleScanPathButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.toggleScanPathButton.ImageKey = "start";
-			this.toggleScanPathButton.ImageList = this.stopStartImageList;
+			this.toggleScanPathButton.Image = global::Cavebox.Properties.Images.ui_play;
 			this.toggleScanPathButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
 			this.toggleScanPathButton.Location = new System.Drawing.Point(464, 20);
 			this.toggleScanPathButton.Name = "toggleScanPathButton";
@@ -992,13 +985,6 @@ namespace Cavebox.Forms
 			this.toggleScanPathButton.TabIndex = 0;
 			this.toolTip.SetToolTip(this.toggleScanPathButton, "Start/Stop Scan");
 			this.toggleScanPathButton.Click += new System.EventHandler(this.ScanWorkerToggle);
-			// 
-			// stopStartImageList
-			// 
-			this.stopStartImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("stopStartImageList.ImageStream")));
-			this.stopStartImageList.TransparentColor = System.Drawing.Color.Transparent;
-			this.stopStartImageList.Images.SetKeyName(0, "start");
-			this.stopStartImageList.Images.SetKeyName(1, "stop");
 			// 
 			// consoleTabPage
 			// 
@@ -1047,7 +1033,7 @@ namespace Cavebox.Forms
 			// 
 			// copyConsoleMenuItem
 			// 
-			this.copyConsoleMenuItem.Image = global::Cavebox.Properties.Images.copy;
+			this.copyConsoleMenuItem.Image = global::Cavebox.Properties.Images.ui_copy;
 			this.copyConsoleMenuItem.Name = "copyConsoleMenuItem";
 			this.copyConsoleMenuItem.Size = new System.Drawing.Size(102, 22);
 			this.copyConsoleMenuItem.Text = "Copy";
@@ -1137,7 +1123,6 @@ namespace Cavebox.Forms
 		private System.Windows.Forms.ToolStripMenuItem copyConsoleMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem dropDataMenuItem;
 		private System.Windows.Forms.Button browseScanPathButton;
-		private System.Windows.Forms.ImageList stopStartImageList;
 		private System.Windows.Forms.ToolStripMenuItem resetWindowMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem vacuumDatabaseMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem toolsMenuItem;
