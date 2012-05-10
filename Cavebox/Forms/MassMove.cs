@@ -23,19 +23,16 @@ namespace Cavebox.Forms
 		/// Initialize components and their values from main form
 		/// </summary>
 		/// <param name="form">Main form instance</param>
-		/// <param name="cid">Cakebox id number</param>
-		public MassMove(Main form, int cid)
+		/// <param name="source">Cakebox id number</param>
+		public MassMove(Main form, int source)
 		{
 			InitializeComponent();
-			app = form;
-			source = cid;
-			selectDiscs.DisplayMember = "Value";
-			selectDiscs.ValueMember = "Key";
+			this.app = form;
 			selectDiscs.DataSource = app.discsListBox.DataSource;
 			selectCakebox.DataSource = app.newDiscCakebox.DataSource;
-			selectCakebox.SelectedValue = source;
+			selectCakebox.SelectedValue = this.source = source;
 		}
-	
+		
 		/// <summary>
 		/// Displose form
 		/// </summary>
@@ -49,7 +46,8 @@ namespace Cavebox.Forms
 		/// </summary>
 		private void MoveButtonClick(object sender, EventArgs e)
 		{
-			int target = getTargetCakeboxId();
+			// The selectCakebox.SelectedValue."ToString()" is necessary because c# checklistbox doesn't support databinding
+			int target = Convert.ToInt32(selectCakebox.SelectedValue.ToString());
 			if(target != source && selectDiscs.CheckedItems.Count > 0)
 			{
 				Console.WriteLine(Lang.GetString("_movingDiscs", selectCakebox.SelectedItem));
@@ -71,17 +69,9 @@ namespace Cavebox.Forms
 		/// </summary>
 		private void enableMoveButton(object sender, EventArgs e)
 		{
-			moveButton.Enabled = (selectDiscs.CheckedItems.Count > 0 && getTargetCakeboxId() != source);
+			moveButton.Enabled = (selectDiscs.CheckedItems.Count > 0 && Convert.ToInt32(selectCakebox.SelectedValue.ToString()) != source);
 		}
-		
-		/// <summary>
-		/// Fetch the cakebox Id from the listbox
-		/// </summary>
-		private int getTargetCakeboxId()
-		{
-			return Convert.ToInt32(selectCakebox.SelectedValue.ToString());
-		}
-		
+				
 		/// <summary>
 		/// Select/Deselect all items
 		/// </summary>
@@ -92,13 +82,9 @@ namespace Cavebox.Forms
 			{
 				selectDiscs.SetItemChecked(i, checkFlag);
 			}
-			
-
 			string tmp = checkAll.Text;
 			checkAll.Text = checkAll.Tag.ToString();
 			checkAll.Tag = tmp;
-			
-
 			enableMoveButton(sender, e);
 		}
 	}

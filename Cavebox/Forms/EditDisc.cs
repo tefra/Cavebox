@@ -14,9 +14,9 @@ namespace Cavebox.Forms
 	/// </summary>
 	public partial class EditDisc : Form
 	{
-		int _id;
-		int _cid;
-		string _label;
+		int id;
+		int cid;
+		string label;
 		Main app;
 		
 		/// <summary>
@@ -25,17 +25,15 @@ namespace Cavebox.Forms
 		/// <param name="form">Main form instance</param>
 		/// <param name="id">Disc id number</param>
 		/// <param name="cid">Disc's cakebox id number</param>
-		/// <param name="label">Disc label</param>
-		public EditDisc(Main form, int id, int cid, string label)
+		public EditDisc(Main form, int id, int cid)
 		{
 			InitializeComponent();
 			app = form;
 			this.Text += " #" + id;
-			_id = id;
-			_cid = cid;
-			_label = label;
+			this.id = id;
+			this.cid = cid;
 			selectCakebox.DataSource = app.newDiscCakebox.DataSource;
-			discLabel.Text = label;
+			discLabel.Text = this.label = Model.FetchDiscLabelById(id);
 			selectCakebox.SelectedValue = cid;
 		}
 		
@@ -44,12 +42,12 @@ namespace Cavebox.Forms
 		/// </summary>
 		private void SaveDisc(object sender, EventArgs e)
 		{
-			String label = discLabel.Text.Trim();
-			int cid = getTargetCakeboxId();
-			if((label != _label && label.Length > 0) || getTargetCakeboxId() != _cid)
+			string newLabel = discLabel.Text.Trim();
+			int newCid = Convert.ToInt32(selectCakebox.SelectedValue);
+			if((label != newLabel && newLabel.Length > 0) || cid != newCid)
 			{
-				Model.UpdateDisc(_id, cid, label);
-				Console.WriteLine(Lang.GetString("_updatedDisc", _id));
+				Model.UpdateDisc(id, newCid, newLabel);
+				Console.WriteLine(Lang.GetString("_updatedDisc", id));
 				if(app.isFilterOn())
 				{
 					app.ShowCakeboxes();
@@ -75,17 +73,8 @@ namespace Cavebox.Forms
 		/// </summary>
 		private void enableSaveButton(object sender, EventArgs e)
 		{
-			string label = discLabel.Text.Trim();
-			saveButton.Enabled = ((label != _label && label.Length > 0) || getTargetCakeboxId() != _cid);
+			string newLabel = discLabel.Text.Trim();
+			saveButton.Enabled = ((label != newLabel && newLabel.Length > 0) || Convert.ToInt32(selectCakebox.SelectedValue) != cid);
 		}
-		
-		/// <summary>
-		/// Get the id of the selected cakebox
-		/// </summary>
-		private int getTargetCakeboxId()
-		{
-			return Convert.ToInt32(selectCakebox.SelectedValue.ToString());
-		}
-		
 	}
 }

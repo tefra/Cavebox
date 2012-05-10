@@ -318,7 +318,7 @@ namespace Cavebox.Forms
 									this.toolStripSeparator3,
 									this.DiscsOrderMenu});
 			this.discsMenu.Name = "discsActionsMenu";
-			this.discsMenu.Size = new System.Drawing.Size(108, 104);
+			this.discsMenu.Size = new System.Drawing.Size(153, 126);
 			this.discsMenu.Opening += new System.ComponentModel.CancelEventHandler(this.DiscsMenuOpening);
 			// 
 			// copyDiscLabelMenuItem
@@ -372,17 +372,15 @@ namespace Cavebox.Forms
 			// DiscsOrderByIdMenuItem
 			// 
 			this.DiscsOrderByIdMenuItem.Name = "DiscsOrderByIdMenuItem";
-			this.DiscsOrderByIdMenuItem.Size = new System.Drawing.Size(136, 22);
+			this.DiscsOrderByIdMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.DiscsOrderByIdMenuItem.Tag = "0";
 			this.DiscsOrderByIdMenuItem.Text = "Id";
 			this.DiscsOrderByIdMenuItem.Click += new System.EventHandler(this.DiscsOrderBy);
 			// 
 			// DiscsOrderByLabelMenuItem
 			// 
-			this.DiscsOrderByLabelMenuItem.Checked = true;
-			this.DiscsOrderByLabelMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.DiscsOrderByLabelMenuItem.Name = "DiscsOrderByLabelMenuItem";
-			this.DiscsOrderByLabelMenuItem.Size = new System.Drawing.Size(136, 22);
+			this.DiscsOrderByLabelMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.DiscsOrderByLabelMenuItem.Tag = "1";
 			this.DiscsOrderByLabelMenuItem.Text = "Label";
 			this.DiscsOrderByLabelMenuItem.Click += new System.EventHandler(this.DiscsOrderBy);
@@ -390,7 +388,7 @@ namespace Cavebox.Forms
 			// DiscsOrderByFilesNoMenuItem
 			// 
 			this.DiscsOrderByFilesNoMenuItem.Name = "DiscsOrderByFilesNoMenuItem";
-			this.DiscsOrderByFilesNoMenuItem.Size = new System.Drawing.Size(136, 22);
+			this.DiscsOrderByFilesNoMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.DiscsOrderByFilesNoMenuItem.Tag = "2";
 			this.DiscsOrderByFilesNoMenuItem.Text = "No. Files";
 			this.DiscsOrderByFilesNoMenuItem.Click += new System.EventHandler(this.DiscsOrderBy);
@@ -398,14 +396,12 @@ namespace Cavebox.Forms
 			// toolStripSeparator4
 			// 
 			this.toolStripSeparator4.Name = "toolStripSeparator4";
-			this.toolStripSeparator4.Size = new System.Drawing.Size(133, 6);
+			this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
 			// 
 			// DiscsOrderAscMenuItem
 			// 
-			this.DiscsOrderAscMenuItem.Checked = true;
-			this.DiscsOrderAscMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.DiscsOrderAscMenuItem.Name = "DiscsOrderAscMenuItem";
-			this.DiscsOrderAscMenuItem.Size = new System.Drawing.Size(136, 22);
+			this.DiscsOrderAscMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.DiscsOrderAscMenuItem.Tag = "0";
 			this.DiscsOrderAscMenuItem.Text = "Ascending";
 			this.DiscsOrderAscMenuItem.Click += new System.EventHandler(this.DiscsOrderWay);
@@ -413,7 +409,7 @@ namespace Cavebox.Forms
 			// DiscsOrderDescMenuItem
 			// 
 			this.DiscsOrderDescMenuItem.Name = "DiscsOrderDescMenuItem";
-			this.DiscsOrderDescMenuItem.Size = new System.Drawing.Size(136, 22);
+			this.DiscsOrderDescMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.DiscsOrderDescMenuItem.Tag = "1";
 			this.DiscsOrderDescMenuItem.Text = "Descending";
 			this.DiscsOrderDescMenuItem.Click += new System.EventHandler(this.DiscsOrderWay);
@@ -714,7 +710,7 @@ namespace Cavebox.Forms
 			// 
 			this.changelogMenuItem.Name = "changelogMenuItem";
 			this.changelogMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-			this.changelogMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.changelogMenuItem.Size = new System.Drawing.Size(151, 22);
 			this.changelogMenuItem.Text = "Changelog";
 			this.changelogMenuItem.Click += new System.EventHandler(this.OpenChangelog);
 			// 

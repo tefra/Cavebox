@@ -14,8 +14,8 @@ namespace Cavebox.Forms
 	/// </summary>
 	public partial class EditCakebox : Form
 	{
-		int _id;
-		string _label;
+		int id;
+		string label;
 		Main app;
 
 		/// <summary>
@@ -27,14 +27,10 @@ namespace Cavebox.Forms
 		public EditCakebox(Main form, int id = 0, string label = null)
 		{
 			InitializeComponent();
-			
-
-			
 			this.Text = (id > 0) ? Lang.GetString("_editCakebox", id.ToString()) : Lang.GetString("_addNewCakebox");
-			
-			app = form;
-			_id = id;
-			_label = label;
+			this.app = form;
+			this.id = id;
+			this.label = label;
 			cakeboxLabel.Text = label;
 		}
 		
@@ -43,12 +39,12 @@ namespace Cavebox.Forms
 		/// </summary>
 		private void SaveCakebox(object sender, EventArgs e)
 		{
-			String label = cakeboxLabel.Text.Trim();
-			if(label != _label && label.Length > 0)
+			String newLabel = cakeboxLabel.Text.Trim();
+			if(label != newLabel && newLabel.Length > 0)
 			{
-				Console.WriteLine((_id > 0) ? Lang.GetString("_updatedCakebox", _id) : Lang.GetString("_addedNewCakebox", label));
-				Model.SaveCakebox(label, _id);
-				app.ShowCakeboxes(_id, true);
+				Console.WriteLine((id > 0) ? Lang.GetString("_updatedCakebox", id) : Lang.GetString("_addedNewCakebox", newLabel));
+				Model.SaveCakebox(newLabel, id);
+				app.ShowCakeboxes(id, true);
 				CloseForm(sender, e);
 			}
 		}
@@ -66,8 +62,8 @@ namespace Cavebox.Forms
 		/// </summary>
 		private void CakeboxLabelTextChanged(object sender, EventArgs e)
 		{
-			string label = cakeboxLabel.Text.Trim();
-			saveButton.Enabled = (label != _label && label.Length > 0);
+			string newLabel = cakeboxLabel.Text.Trim();
+			saveButton.Enabled = (newLabel != label && newLabel.Length > 0);
 		}
 	}
 }

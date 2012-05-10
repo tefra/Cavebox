@@ -26,7 +26,7 @@ namespace Cavebox.Lib
 			try
 			{
 				string table = null;
-				Dictionary<string, string> data = new Dictionary<string, string>();
+				Dictionary<string, object> data = new Dictionary<string, object>();
 				using(SQLiteTransaction transaction = Model.db.BeginTransaction())
 				{
 					using (XmlReader reader = new XmlTextReader(file))
@@ -38,7 +38,7 @@ namespace Cavebox.Lib
 								if(reader.Name == "table")
 								{
 									table = reader.GetAttribute("name");
-									data = new Dictionary<string, string>();
+									data.Clear();
 								}
 								else if(reader.Name == "column")
 								{

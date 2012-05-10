@@ -193,7 +193,7 @@ namespace Cavebox.Lib
 		/// <param name="orderBy">0-2 for sorting fields id, label and filesno</param>
 		/// <param name="orderWay">0: Ascending, 2: Descending</param>
 		/// <returns>A list of matched discs</returns>
-		public static List<Identity> FetchDiscsByCakeboxId(string cid, string filter = null, int orderBy = 1, int orderWay = 0)
+		public static List<Identity> FetchDiscsByCakeboxId(int cid, string filter = null, int orderBy = 1, int orderWay = 0)
 		{
 			List<Identity> list = new List<Identity>();
 			try
@@ -252,7 +252,7 @@ namespace Cavebox.Lib
 		/// </summary>
 		/// <param name="id">Disc id number</param>
 		/// <returns>File list, total files and added date</returns>
-		public static object[] FetchFilesListByDiscId(string id)
+		public static object[] FetchFilesListByDiscId(int id)
 		{
 			object[] result = new object[3];
 			try
@@ -282,7 +282,7 @@ namespace Cavebox.Lib
 		/// <param name="id">Cakebox id number (Optional)</param>
 		public static void SaveCakebox(string label, int id = 0)
 		{
-			Dictionary<string, string> data = new Dictionary<string, string>();
+			Dictionary<string, object> data = new Dictionary<string, object>();
 			data.Add("label", label);
 			if(id > 0)
 			{
@@ -314,7 +314,7 @@ namespace Cavebox.Lib
 		/// <param name="label">Disc label</param>
 		public static void UpdateDisc(int id, int cid, string label)
 		{
-			Dictionary<string, string> data = new Dictionary<string, string>();
+			Dictionary<string, object> data = new Dictionary<string, object>();
 			data.Add("cid", cid.ToString());
 			data.Add("label", label);
 			Update("disc", data, "id = " + id);
@@ -328,9 +328,9 @@ namespace Cavebox.Lib
 		/// <param name="filesno">File list length</param>
 		/// <param name="cid">Disc's cakebox id number</param>
 		/// <param name="added">Current Unixtimestamp</param>
-		public static void AddDisc(string label, string files, string filesno, string cid, string added)
+		public static void AddDisc(string label, string files, int filesno, int cid, int added)
 		{
-			Dictionary<string, string> data = new Dictionary<string, string>();
+			Dictionary<string, object> data = new Dictionary<string, object>();
 			data.Add("cid", cid);
 			data.Add("label", label);
 			data.Add("files", files);
@@ -358,7 +358,7 @@ namespace Cavebox.Lib
 		/// <param name="discs">List of disc id numbers</param>
 		public static void MoveDiscs(int target, List<int> discs)
 		{
-			Dictionary<string, string> data = new Dictionary<string, string>();
+			Dictionary<string, object> data = new Dictionary<string, object>();
 			data.Add("cid", target.ToString());
 			Update("disc", data, "id IN (" + String.Join(", ", discs) + ")");
 		}
@@ -416,13 +416,13 @@ namespace Cavebox.Lib
 		/// <param name="table">Table name</param>
 		/// <param name="data">A list of keys and values representing db data</param>
 		/// <param name="where">Where clause to update records</param>
-		public static void Update(string table, Dictionary<string, string> data, string where)
+		public static void Update(string table, Dictionary<string, object> data, string where)
 		{
 			try
 			{
 				List<string> sets = new List<string>();
 				SQLiteCommand c = db.CreateCommand();
-				foreach (KeyValuePair<string, string> pair in data)
+				foreach (KeyValuePair<string, object> pair in data)
 				{
 					sets.Add(String.Format("{0} = @{0}", pair.Key));
 					c.Parameters.Add(new SQLiteParameter("@"+pair.Key, pair.Value));
@@ -442,12 +442,12 @@ namespace Cavebox.Lib
 		/// </summary>
 		/// <param name="table">Table name</param>
 		/// <param name="data">A list of keys and values representing db data</param>
-		public static void Insert(string table, Dictionary<string, string> data)
+		public static void Insert(string table, Dictionary<string, object> data)
 		{
 			if(data.Count > 0)
 			{
 				List<string> columns = new List<string>(data.Keys);
-				List<string> values = new List<string>(data.Values);
+				List<object> values = new List<object>(data.Values);
 				SQLiteCommand c = CreateCommand(String.Format("INSERT INTO {0} ({1}) VALUES (@{2})", table, String.Join(", ", columns), String.Join(", @", columns)));
 				for(int i = 0; i < columns.Count; i++)
 				{

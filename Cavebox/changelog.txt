@@ -1,6 +1,8 @@
 ﻿v2.1.3 (Codename: bored)
 - Replaced icons from Fugue library
 - Small UI updates
+- Added sort discs options to the local session storage
+- Cleaned up code (keeps things floating)
 -------------------------------------------------------------
 v2.1.2
 - All icons except the app's are now from the defaulticon library
