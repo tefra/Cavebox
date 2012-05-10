@@ -714,7 +714,7 @@ namespace Cavebox.Forms
 			// 
 			this.changelogMenuItem.Name = "changelogMenuItem";
 			this.changelogMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-			this.changelogMenuItem.Size = new System.Drawing.Size(151, 22);
+			this.changelogMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.changelogMenuItem.Text = "Changelog";
 			this.changelogMenuItem.Click += new System.EventHandler(this.OpenChangelog);
 			// 
@@ -1202,6 +1202,6 @@ namespace Cavebox.Forms
 		private System.Windows.Forms.SplitContainer cakeboxDiscSplitContainer;
 		private System.Windows.Forms.SplitContainer FileListSplitContainer;
 		private System.Windows.Forms.TabPage mainTabPage;
-		private System.Windows.Forms.TabControl tabControl;		
+		private System.Windows.Forms.TabControl tabControl;
 	}
 }

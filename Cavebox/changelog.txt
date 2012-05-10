@@ -1,5 +1,5 @@
 ﻿v2.1.3
-- Replaced icons from Fugue library
+- Replaced icons from Fugue library (bored... again)
 - Small UI updates
 -------------------------------------------------------------
 v2.1.2
