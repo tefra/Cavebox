@@ -643,6 +643,7 @@ namespace Cavebox.Forms
 			// exitMenuItem
 			// 
 			this.exitMenuItem.Name = "exitMenuItem";
+			this.exitMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
 			this.exitMenuItem.Size = new System.Drawing.Size(189, 22);
 			this.exitMenuItem.Text = "Exit";
 			this.exitMenuItem.Click += new System.EventHandler(this.ExitApplication);
@@ -719,7 +720,7 @@ namespace Cavebox.Forms
 			// 
 			this.changelogMenuItem.Name = "changelogMenuItem";
 			this.changelogMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-			this.changelogMenuItem.Size = new System.Drawing.Size(151, 22);
+			this.changelogMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.changelogMenuItem.Text = "Changelog";
 			this.changelogMenuItem.Click += new System.EventHandler(this.OpenChangelog);
 			// 
