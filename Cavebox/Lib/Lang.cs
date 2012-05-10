@@ -4,7 +4,6 @@
  * @link	http://www.t3-design.com
  */
 using System;
-using System.Resources;
 
 namespace Cavebox.Lib
 {
@@ -16,14 +15,14 @@ namespace Cavebox.Lib
 		/// <summary>
 		/// Magic get set ResourceManager
 		/// </summary>
-		public static ResourceManager Rm { get; set; }
+		public static System.Resources.ResourceManager Rm { get; set; }
 		
 		/// <summary>
 		/// Initialize ResourceManager Rm
 		/// </summary>
 		static Lang()
 		{
-			Rm = new ResourceManager("Cavebox.Properties.Strings", System.Reflection.Assembly.GetExecutingAssembly());
+			Rm = new System.Resources.ResourceManager("Cavebox.Properties.Strings", System.Reflection.Assembly.GetExecutingAssembly());
 		}
 		
 		/// <summary>

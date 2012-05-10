@@ -32,13 +32,5 @@ namespace Cavebox.Lib
 		/// Magic get set Key
 		/// </summary>
 		public int Key {get; set;}
-		
-		/// <summary>
-		/// Return the Value of the identity
-		/// </summary>
-		public override string ToString()
-		{
-			return Value;
-		}
 	}
 }

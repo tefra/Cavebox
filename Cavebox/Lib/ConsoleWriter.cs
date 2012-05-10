@@ -19,10 +19,10 @@ namespace Cavebox.Lib
 		/// <summary>
 		/// Constructor
 		/// </summary>
-		/// <param name="textBox">The RichTextBox which will be our visual console</param>
-		public ConsoleWriter(System.Windows.Forms.RichTextBox textBox)
+		/// <param name="rtb">The RichTextBox which will be our visual console</param>
+		public ConsoleWriter(System.Windows.Forms.RichTextBox rtb)
 		{
-			console = textBox;
+			console = rtb;
 		}
 		
 		/// <summary>
@@ -35,7 +35,7 @@ namespace Cavebox.Lib
 		}
 
 		/// <summary>
-		/// Append text and new line to the console with the current timestamp 
+		/// Append text and new line to the console with the current timestamp
 		/// </summary>
 		/// <param name="str">The message to append to console</param>
 		public override void WriteLine(string str)

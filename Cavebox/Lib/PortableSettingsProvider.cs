@@ -3,11 +3,11 @@
  * @author	Christodoulos Tsoulloftas
  * @link	http://www.t3-design.com
  */
-using System.Configuration;
-using System.Windows.Forms;
 using System.Collections.Specialized;
-using System.Xml;
+using System.Configuration;
 using System.IO;
+using System.Windows.Forms;
+using System.Xml;
 
 /// <summary>
 /// Custom settings provider

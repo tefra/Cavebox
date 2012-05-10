@@ -4,16 +4,15 @@
  * @link	http://www.t3-design.com
  */
 using System;
-using System.ComponentModel;
-using System.IO;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Cavebox.Lib;
-
 
 namespace Cavebox.Forms
 {
@@ -22,10 +21,10 @@ namespace Cavebox.Forms
 	/// </summary>
 	public partial class Main : Form
 	{
-		List<ControlBinding> controlBindings = null;
+		List<ControlBinding> controlBindings;
 		string _filter;
 		string _filterLike;
-		int scanTotalFiles = 0;
+		int scanTotalFiles;
 		int discsOrderBy = 1;
 		int discsOrderWay = 0;
 		int ListBoxLastTip;
@@ -490,7 +489,6 @@ namespace Cavebox.Forms
 			}
 		}
 		
-
 		/// <summary>
 		/// Delete cakebox, with confirmation dialog
 		/// </summary>

@@ -4,8 +4,6 @@
  * @link	http://www.t3-design.com
  */
 using System;
-using System.ComponentModel;
-using System.Drawing;
 using System.Windows.Forms;
 using Cavebox.Lib;
 
