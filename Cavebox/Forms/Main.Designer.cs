@@ -757,7 +757,8 @@ namespace Cavebox.Forms
 			this.discAddedLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
 			this.discAddedLabel.Margin = new System.Windows.Forms.Padding(0, 3, -5, 2);
 			this.discAddedLabel.Name = "discAddedLabel";
-			this.discAddedLabel.Size = new System.Drawing.Size(63, 19);
+			this.discAddedLabel.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
+			this.discAddedLabel.Size = new System.Drawing.Size(68, 19);
 			this.discAddedLabel.Text = "Added on";
 			this.discAddedLabel.Visible = false;
 			// 
