@@ -88,7 +88,6 @@ namespace Cavebox.Forms
 			this.saveButton.Size = new System.Drawing.Size(75, 23);
 			this.saveButton.TabIndex = 4;
 			this.saveButton.Text = "Save";
-			this.saveButton.UseVisualStyleBackColor = true;
 			this.saveButton.Click += new System.EventHandler(this.SaveDisc);
 			// 
 			// cancelButton
@@ -99,7 +98,6 @@ namespace Cavebox.Forms
 			this.cancelButton.Size = new System.Drawing.Size(75, 23);
 			this.cancelButton.TabIndex = 5;
 			this.cancelButton.Text = "Cancel";
-			this.cancelButton.UseVisualStyleBackColor = true;
 			this.cancelButton.Click += new System.EventHandler(this.CloseForm);
 			// 
 			// EditDisc

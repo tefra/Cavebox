@@ -90,7 +90,6 @@ namespace Cavebox.Forms
 			this.moveButton.Size = new System.Drawing.Size(75, 23);
 			this.moveButton.TabIndex = 3;
 			this.moveButton.Text = "Move";
-			this.moveButton.UseVisualStyleBackColor = true;
 			this.moveButton.Click += new System.EventHandler(this.MoveButtonClick);
 			// 
 			// cancelButton
@@ -102,7 +101,6 @@ namespace Cavebox.Forms
 			this.cancelButton.Size = new System.Drawing.Size(75, 23);
 			this.cancelButton.TabIndex = 4;
 			this.cancelButton.Text = "Cancel";
-			this.cancelButton.UseVisualStyleBackColor = true;
 			this.cancelButton.Click += new System.EventHandler(this.closeForm);
 			// 
 			// checkAll
