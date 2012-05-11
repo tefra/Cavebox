@@ -90,7 +90,7 @@ namespace Cavebox.Forms
 			// Save session storage of the discs sort menus/flags
 			Options.DiscsOrderBy = discsOrderBy;
 			Options.DiscsOrderWay = discsOrderWay;
-			Options.Default.Save();
+			Options.Save();
 			Model.Close();
 			Console.WriteLine(Lang.GetString("_applicationClosing"));
 		}

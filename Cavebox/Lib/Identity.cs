@@ -35,9 +35,8 @@ namespace Cavebox.Lib
 		
 		/// <summary>
 		/// We don't really need this but that stupid checklistbox doesn't support databinding so
-		/// we must add this to display propertly the list's display member
+		/// we must add this to display properly the list's display member
 		/// </summary>
-		/// <returns></returns>
 		public override string ToString()
 		{
 			return Value;

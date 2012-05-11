@@ -27,7 +27,7 @@ namespace Cavebox.Forms
 		public EditCakebox(Main form, int id = 0, string label = null)
 		{
 			InitializeComponent();
-			this.Text = (id > 0) ? Lang.GetString("_editCakebox", id.ToString()) : Lang.GetString("_addNewCakebox");
+			this.Text = (id > 0) ? Lang.GetString("_editCakebox", id) : Lang.GetString("_addNewCakebox");
 			this.app = form;
 			this.id = id;
 			this.label = label;
