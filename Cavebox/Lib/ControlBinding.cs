@@ -6,7 +6,6 @@
 using System;
 using System.Drawing;
 using System.Reflection;
-using Cavebox.Properties;
 
 namespace Cavebox.Lib
 {
@@ -18,7 +17,7 @@ namespace Cavebox.Lib
 	/// </summary>
 	public class ControlBinding
 	{
-		Settings _Settings;
+		Cavebox.Properties.Settings Options = Properties.Settings.Default;
 		
 		/// <summary>
 		/// Constructor initializing Control, Property name and Setting name
@@ -31,7 +30,6 @@ namespace Cavebox.Lib
 			Obj = obj;
 			Property = obj.GetType().GetProperty(property);
 			Key = key;
-			_Settings = Properties.Settings.Default;
 		}
 		
 		/// <summary>
@@ -54,7 +52,7 @@ namespace Cavebox.Lib
 		/// </summary>
 		public void ReadValue()
 		{
-			Property.SetValue(Obj, _Settings[Key], null);
+			Property.SetValue(Obj, Options[Key], null);
 		}
 
 		/// <summary>
@@ -62,7 +60,7 @@ namespace Cavebox.Lib
 		/// </summary>
 		public void WriteValue()
 		{
-			_Settings[Key] = Property.GetValue(Obj, null);
+			Options[Key] = Property.GetValue(Obj, null);
 		}
 		
 		/// <summary>
@@ -80,18 +78,18 @@ namespace Cavebox.Lib
 		/// </summary>
 		public object GetDefaultValue()
 		{
-			Type t = _Settings[Key].GetType();
+			Type t = Options[Key].GetType();
 			if(t == typeof(System.Drawing.Size))
 			{
-				return new Size(ParsePoint(_Settings.Properties[Key].DefaultValue.ToString()));
+				return new Size(ParsePoint(Options.Properties[Key].DefaultValue.ToString()));
 			}
 			else if(t == typeof(System.Drawing.Point))
 			{
-				return ParsePoint(_Settings.Properties[Key].DefaultValue.ToString());
+				return ParsePoint(Options.Properties[Key].DefaultValue.ToString());
 			}
 			else
 			{
-				return Convert.ChangeType(_Settings.Properties[Key].DefaultValue, _Settings[Key].GetType());
+				return Convert.ChangeType(Options.Properties[Key].DefaultValue, Options[Key].GetType());
 			}
 		}
 		

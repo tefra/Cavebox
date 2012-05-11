@@ -56,7 +56,7 @@ namespace Cavebox.Forms
 				{
 					Identity item = (Identity) itemChecked;
 					discs.Add(item.Key);
-					Console.Write(item.Value+"\n");
+					Console.Write(item.Value + "\n");
 				}
 				
 				Model.MoveDiscs(target, discs);

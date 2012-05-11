@@ -18,6 +18,7 @@ namespace Cavebox.Forms
 {
 	public partial class Main : Form
 	{
+		Cavebox.Properties.Settings Options = Cavebox.Properties.Settings.Default;
 		List<ControlBinding> controlBindings;
 		string _filter;
 		string _filterLike;
@@ -68,11 +69,11 @@ namespace Cavebox.Forms
 				control.ReadValue();
 			}
 			
-			// Apply session storage to the discs sort menus/flags
-			discsOrderBy = Properties.Settings.Default.DiscsOrderBy;
-			discsOrderWay = Properties.Settings.Default.DiscsOrderWay;
-			((ToolStripMenuItem) DiscsOrderMenu.DropDownItems[Properties.Settings.Default.DiscsOrderBy]).Checked = true;
-			((ToolStripMenuItem) DiscsOrderMenu.DropDownItems[Properties.Settings.Default.DiscsOrderWay + 4]).Checked = true;
+			// Apply session storage to the discs sort menus/flags and prevent user mischief in the settings
+			discsOrderBy = (Options.DiscsOrderBy > 2 || Options.DiscsOrderBy < 0) ? 1 : Options.DiscsOrderBy;
+			discsOrderWay = (Options.DiscsOrderWay > 1 || Options.DiscsOrderWay < 0) ? 0 : Options.DiscsOrderWay;
+			((ToolStripMenuItem) DiscsOrderMenu.DropDownItems[discsOrderBy]).Checked = true;
+			((ToolStripMenuItem) DiscsOrderMenu.DropDownItems[discsOrderWay + 4]).Checked = true;
 			ShowCakeboxes(0, true, true);
 		}
 		
@@ -87,9 +88,9 @@ namespace Cavebox.Forms
 			}
 			
 			// Save session storage of the discs sort menus/flags
-			Properties.Settings.Default.DiscsOrderBy = discsOrderBy;
-			Properties.Settings.Default.DiscsOrderWay = discsOrderWay;
-			Properties.Settings.Default.Save();
+			Options.DiscsOrderBy = discsOrderBy;
+			Options.DiscsOrderWay = discsOrderWay;
+			Options.Default.Save();
 			Model.Close();
 			Console.WriteLine(Lang.GetString("_applicationClosing"));
 		}
@@ -206,7 +207,7 @@ namespace Cavebox.Forms
 				fileListGroupBox.InsertTitle(0);
 			}
 		}
-	
+		
 
 		/// <summary>
 		/// Start/Reset filter timer while typing to avoid useless db queries
