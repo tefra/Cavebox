@@ -48,7 +48,7 @@ namespace Cavebox.Forms
 			{
 				Model.UpdateDisc(id, newCid, newLabel);
 				Console.WriteLine(Lang.GetString("_updatedDisc", id));
-				if(app.isFilterOn())
+				if(app._filter != null)
 				{
 					app.ShowCakeboxes();
 				}

@@ -18,15 +18,15 @@ namespace Cavebox.Forms
 {
 	public partial class Main : Form
 	{
-		Cavebox.Properties.Settings Options = Cavebox.Properties.Settings.Default;
-		List<ControlBinding> controlBindings;
-		string _filter;
-		string _filterLike;
-		int scanTotalFiles;
-		int discsOrderBy;
-		int discsOrderWay;
-		int ListBoxLastTip;
-		DateTime stopWatch;
+		private Cavebox.Properties.Settings Options = Cavebox.Properties.Settings.Default;
+		private List<ControlBinding> controlBindings = new List<ControlBinding>();
+		public string _filter;
+		private string _filterLike;
+		private int scanTotalFiles;
+		private int discsOrderBy;
+		private int discsOrderWay;
+		private int ListBoxLastTip;
+		private DateTime stopWatch;
 		
 		/// <summary>
 		/// Initialize components and database connection
@@ -38,7 +38,7 @@ namespace Cavebox.Forms
 			Console.WriteLine(Lang.GetString("_applicationStartingUp"));
 			if(Model.Connect("Data Source=data.db"))
 			{
-				Console.WriteLine(Lang.GetString("_sqliteStartinUp", Model.SQLiteVersion(), Model.Status()));
+				Console.WriteLine(Lang.GetString("_sqliteStartinUp", Model.SQLiteVersion()));
 				Model.Install();
 			}
 			else
@@ -53,7 +53,6 @@ namespace Cavebox.Forms
 		/// </summary>
 		private void MainFormLoad(object sender, EventArgs e)
 		{
-			controlBindings = new List<ControlBinding>();
 			controlBindings.Add(new ControlBinding(this, "Size", "WindowSize"));
 			controlBindings.Add(new ControlBinding(this, "Location", "WindowLocation"));
 			controlBindings.Add(new ControlBinding(this, "TopMost", "AlwaysOnTop"));
@@ -101,15 +100,6 @@ namespace Cavebox.Forms
 		private void ExitApplication(object sender, EventArgs e)
 		{
 			Dispose();
-		}
-
-		/// <summary>
-		/// Get filter status
-		/// </summary>
-		/// <returns>True or False if filter is on or off</returns>
-		public Boolean isFilterOn()
-		{
-			return _filter != null;
 		}
 
 		/// <summary>
@@ -176,14 +166,16 @@ namespace Cavebox.Forms
 			{
 				Cursor.Current = Cursors.WaitCursor;
 				object[] result = Model.FetchFilesListByDiscId(discsListBox.SelectedIntValue());
-				string files = result[0].ToString();
 				int added = Convert.ToInt32(result[2]);
-				int filesno = Convert.ToInt32(result[1]);
-				fileList.Text = files;
-				int start, pos, keyLength;
-				int end = fileList.Text.Length;
-				if(isFilterOn())
+				discAddedLabel.InsertTitle((added > 0) ? added.Date() : Lang.GetString("_unknownDate"));
+				discAddedLabel.Visible = true;
+				fileListGroupBox.InsertTitle(Convert.ToInt32(result[1]));
+				fileList.Text = result[0].ToString();
+
+				if(_filter != null)
 				{
+					int start, pos, keyLength;
+					int end = fileList.Text.Length;
 					foreach(string key in filterTextBox.Text.Split(' '))
 					{
 						keyLength = key.Length;
@@ -197,9 +189,6 @@ namespace Cavebox.Forms
 					}
 				}
 				Cursor.Current = Cursors.Default;
-				discAddedLabel.Visible = true;
-				discAddedLabel.InsertTitle((added > 0) ? added.Date() : Lang.GetString("_unknownDate"));
-				fileListGroupBox.InsertTitle(filesno);
 			}
 			else
 			{
@@ -313,11 +302,11 @@ namespace Cavebox.Forms
 					stopWatch = DateTime.Now;
 					scanFileList.Focus();
 					scanWorker.RunWorkerAsync(path);
-					scanPathComboBox.Enabled = false;
 					scanFileList.Clear();
 					newDiscLabelTextBox.Clear();
-					newDiscLabelTextBox.Enabled = false;
 					toggleScanPathButton.Image = Properties.Images.ui_stop;
+					scanPathComboBox.Enabled = false;
+					newDiscLabelTextBox.Enabled = false;
 					browseScanPathButton.Enabled = false;
 				}
 				else
@@ -345,9 +334,9 @@ namespace Cavebox.Forms
 			else
 			{
 				newDiscLabelTextBox.Clear();
+				scanFileList.Clear();
 				newDiscLabelTextBox.Enabled = false;
 				saveNewDiscButton.Enabled = false;
-				scanFileList.Clear();
 			}
 		}
 		
@@ -355,9 +344,9 @@ namespace Cavebox.Forms
 		/// Scan worker start walking the dir tree with stack push/pop
 		/// Update UI every 100 found files
 		/// </summary>
-		private void ScanWorkerDoWork(object sender, System.ComponentModel.DoWorkEventArgs evt)
+		private void ScanWorkerDoWork(object sender, DoWorkEventArgs e)
 		{
-			string root = evt.Argument.ToString();
+			string root = e.Argument.ToString();
 			int rootLength = root.Length;
 			int i = 0;
 			scanTotalFiles = 0;
@@ -368,7 +357,7 @@ namespace Cavebox.Forms
 			{
 				if(scanWorker.CancellationPending)
 				{
-					evt.Cancel = true;
+					e.Cancel = true;
 					return;
 				}
 				
@@ -377,12 +366,12 @@ namespace Cavebox.Forms
 				string[] dirs = null;
 				try
 				{
+					files = Directory.GetFiles(path);
 					dirs = Directory.GetDirectories(path);
 					foreach(string dir in dirs.Reverse())
 					{
 						pending.Push(dir);
 					}
-					files = Directory.GetFiles(path);
 					foreach(string file in files)
 					{
 						i++;
@@ -451,7 +440,6 @@ namespace Cavebox.Forms
 		private void SaveNewDisc(object sender, EventArgs e)
 		{
 			string label = newDiscLabelTextBox.Text.Trim();
-			string files = scanFileList.Text.Trim();
 			if(newDiscCakebox.SelectedIndex == -1)
 			{
 				MessageBox.Show(Lang.GetString("_newDiscMissingCakebox"), Lang.GetString("_error"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
@@ -463,15 +451,13 @@ namespace Cavebox.Forms
 			else
 			{
 				Cursor.Current = Cursors.WaitCursor;
-				DateTime Jan1st1970 = new DateTime (1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-				int added =  (int) (DateTime.UtcNow - Jan1st1970).TotalSeconds;
-				Model.AddDisc(label, files, scanTotalFiles, newDiscCakebox.SelectedIntValue(), added);
+				Model.AddDisc(label, scanFileList.Text.Trim(), scanTotalFiles, newDiscCakebox.SelectedIntValue(), DateTime.UtcNow.ToUnix());
 				Cursor.Current = Cursors.Default;
 				ShowCakeboxes();
 				RefreshStatusBar(false, true);
+				newDiscLabelTextBox.Clear();
 				scanFileList.Clear();
 				scanFileList.Text = Lang.GetString("_newDiscAdded", label, newDiscCakebox.Text);
-				newDiscLabelTextBox.Clear();
 				saveNewDiscButton.Enabled = false;
 			}
 		}
@@ -525,9 +511,9 @@ namespace Cavebox.Forms
 			if(MessageBox.Show(Lang.GetString("_confirmDeleteDisc", discsListBox.Text), Lang.GetString("_confirmTitle"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
 			{
 				Model.DeleteDisc(discsListBox.SelectedIntValue());
-				Console.WriteLine(Lang.GetString("_discDeleted", discsListBox.Text));
 				ShowDiscs(sender, e);
 				RefreshStatusBar(false, true);
+				Console.WriteLine(Lang.GetString("_discDeleted", discsListBox.Text));
 			}
 		}
 
@@ -667,9 +653,9 @@ namespace Cavebox.Forms
 				stopWatch = DateTime.Now;
 				Model.DropTables();
 				Model.Install();
-				Console.WriteLine(Lang.GetString("_dropData", (DateTime.Now - stopWatch).TotalSeconds));
-				Cursor.Current = Cursors.Default;
 				ShowCakeboxes(0, true);
+				Cursor.Current = Cursors.Default;
+				Console.WriteLine(Lang.GetString("_dropData", (DateTime.Now - stopWatch).TotalSeconds));
 			}
 		}
 		
@@ -685,8 +671,8 @@ namespace Cavebox.Forms
 				Cursor.Current = Cursors.WaitCursor;
 				stopWatch = DateTime.Now;
 				SQLiteXmlFile.Save(Path.Combine(folderBrowserDialog.SelectedPath, DateTime.Now.ToString("yyyy-MM-dd-HHmmss") + ".xml"));
-				Console.WriteLine(Lang.GetString("_exportCompleted", (DateTime.Now - stopWatch).TotalSeconds));
 				Cursor.Current = Cursors.Default;
+				Console.WriteLine(Lang.GetString("_exportCompleted", (DateTime.Now - stopWatch).TotalSeconds));
 			}
 		}
 		
@@ -705,9 +691,9 @@ namespace Cavebox.Forms
 				Cursor.Current = Cursors.WaitCursor;
 				stopWatch = DateTime.Now;
 				int records = SQLiteXmlFile.Load(openFileDialog.FileName);
-				Console.WriteLine(Lang.GetString("_importCompleted", records, (DateTime.Now - stopWatch).TotalSeconds));
 				ShowCakeboxes(0, true);
 				Cursor.Current = Cursors.Default;
+				Console.WriteLine(Lang.GetString("_importCompleted", records, (DateTime.Now - stopWatch).TotalSeconds));
 			}
 		}
 		
@@ -832,7 +818,7 @@ namespace Cavebox.Forms
 				if(ListBoxLastTip != index)
 				{
 					Identity item = (Identity) source.Items[index];
-					toolTip.SetToolTip(source, "ID #"+item.Key);
+					toolTip.SetToolTip(source, "ID #" + item.Key);
 					ListBoxLastTip = index;
 				}
 			}

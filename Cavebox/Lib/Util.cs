@@ -74,5 +74,16 @@ namespace Cavebox.Lib
 		{
 			return Convert.ToInt32(source.SelectedValue);
 		}
+		
+		private static readonly DateTime Jan1st1970 = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+		/// <summary>
+		/// Return the datetime in unix timestamp
+		/// </summary>
+		/// <param name="dt">The datetime you need to convert</param>
+		/// <returns></returns>
+		public static long ToUnix(this DateTime dt)
+		{
+			return (long) (dt - Jan1st1970).TotalSeconds;
+		}
 	}
 }

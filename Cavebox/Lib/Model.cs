@@ -47,30 +47,12 @@ namespace Cavebox.Lib
 		}
 		
 		/// <summary>
-		/// Run integrity check and return result
-		/// </summary>
-		/// <returns>Ok: If everything looks right a catastrophic exception i guess if not</returns>
-		public static string Status()
-		{
-			return ExecuteScalar("PRAGMA integrity_check");
-		}
-		
-		/// <summary>
 		/// Return sqlite version
 		/// </summary>
 		/// <returns>SQLite Server Version ex: 3.7.11</returns>
 		public static string SQLiteVersion()
 		{
 			return db.ServerVersion;
-		}
-		
-		/// <summary>
-		/// Compilation options for SQLite
-		/// </summary>
-		/// <returns></returns>
-		public static DataTable SQLiteOptions()
-		{
-			return Fetch("PRAGMA compile_options");
 		}
 		
 		/// <summary>
@@ -328,7 +310,7 @@ namespace Cavebox.Lib
 		/// <param name="filesno">File list length</param>
 		/// <param name="cid">Disc's cakebox id number</param>
 		/// <param name="added">Current Unixtimestamp</param>
-		public static void AddDisc(string label, string files, int filesno, int cid, int added)
+		public static void AddDisc(string label, string files, int filesno, int cid, long added)
 		{
 			Dictionary<string, object> data = new Dictionary<string, object>();
 			data.Add("cid", cid);

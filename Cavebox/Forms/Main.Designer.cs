@@ -724,7 +724,6 @@ namespace Cavebox.Forms
 			this.statusStrip.Name = "statusStrip";
 			this.statusStrip.Size = new System.Drawing.Size(534, 24);
 			this.statusStrip.TabIndex = 3;
-			this.statusStrip.Text = "statusStrip1";
 			// 
 			// cakeboxStatsLabel
 			// 

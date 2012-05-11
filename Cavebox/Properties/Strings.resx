@@ -166,7 +166,7 @@
     <value>Disk "{0}" was deleted</value>
   </data>
   <data name="_sqliteStartinUp" xml:space="preserve">
-    <value>Starting up SQLite {0}: {1}</value>
+    <value>Starting up SQLite {0}</value>
   </data>
   <data name="_dbConnectionFailed" xml:space="preserve">
     <value>Databased connection failed...</value>
