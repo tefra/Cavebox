@@ -97,7 +97,6 @@ namespace Cavebox.Forms
 			this.discStatsLabel = new System.Windows.Forms.ToolStripStatusLabel();
 			this.fileStatsLabel = new System.Windows.Forms.ToolStripStatusLabel();
 			this.discAddedLabel = new System.Windows.Forms.ToolStripStatusLabel();
-			this.discAddedValueLabel = new System.Windows.Forms.ToolStripStatusLabel();
 			this.tabControl = new System.Windows.Forms.TabControl();
 			this.mainTabPage = new System.Windows.Forms.TabPage();
 			this.scanTabPage = new System.Windows.Forms.TabPage();
@@ -372,7 +371,7 @@ namespace Cavebox.Forms
 			// DiscsOrderByIdMenuItem
 			// 
 			this.DiscsOrderByIdMenuItem.Name = "DiscsOrderByIdMenuItem";
-			this.DiscsOrderByIdMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.DiscsOrderByIdMenuItem.Size = new System.Drawing.Size(136, 22);
 			this.DiscsOrderByIdMenuItem.Tag = "0";
 			this.DiscsOrderByIdMenuItem.Text = "Id";
 			this.DiscsOrderByIdMenuItem.Click += new System.EventHandler(this.DiscsOrderBy);
@@ -380,7 +379,7 @@ namespace Cavebox.Forms
 			// DiscsOrderByLabelMenuItem
 			// 
 			this.DiscsOrderByLabelMenuItem.Name = "DiscsOrderByLabelMenuItem";
-			this.DiscsOrderByLabelMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.DiscsOrderByLabelMenuItem.Size = new System.Drawing.Size(136, 22);
 			this.DiscsOrderByLabelMenuItem.Tag = "1";
 			this.DiscsOrderByLabelMenuItem.Text = "Label";
 			this.DiscsOrderByLabelMenuItem.Click += new System.EventHandler(this.DiscsOrderBy);
@@ -388,7 +387,7 @@ namespace Cavebox.Forms
 			// DiscsOrderByFilesNoMenuItem
 			// 
 			this.DiscsOrderByFilesNoMenuItem.Name = "DiscsOrderByFilesNoMenuItem";
-			this.DiscsOrderByFilesNoMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.DiscsOrderByFilesNoMenuItem.Size = new System.Drawing.Size(136, 22);
 			this.DiscsOrderByFilesNoMenuItem.Tag = "2";
 			this.DiscsOrderByFilesNoMenuItem.Text = "No. Files";
 			this.DiscsOrderByFilesNoMenuItem.Click += new System.EventHandler(this.DiscsOrderBy);
@@ -396,12 +395,12 @@ namespace Cavebox.Forms
 			// toolStripSeparator4
 			// 
 			this.toolStripSeparator4.Name = "toolStripSeparator4";
-			this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
+			this.toolStripSeparator4.Size = new System.Drawing.Size(133, 6);
 			// 
 			// DiscsOrderAscMenuItem
 			// 
 			this.DiscsOrderAscMenuItem.Name = "DiscsOrderAscMenuItem";
-			this.DiscsOrderAscMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.DiscsOrderAscMenuItem.Size = new System.Drawing.Size(136, 22);
 			this.DiscsOrderAscMenuItem.Tag = "0";
 			this.DiscsOrderAscMenuItem.Text = "Ascending";
 			this.DiscsOrderAscMenuItem.Click += new System.EventHandler(this.DiscsOrderWay);
@@ -409,7 +408,7 @@ namespace Cavebox.Forms
 			// DiscsOrderDescMenuItem
 			// 
 			this.DiscsOrderDescMenuItem.Name = "DiscsOrderDescMenuItem";
-			this.DiscsOrderDescMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.DiscsOrderDescMenuItem.Size = new System.Drawing.Size(136, 22);
 			this.DiscsOrderDescMenuItem.Tag = "1";
 			this.DiscsOrderDescMenuItem.Text = "Descending";
 			this.DiscsOrderDescMenuItem.Click += new System.EventHandler(this.DiscsOrderWay);
@@ -720,8 +719,7 @@ namespace Cavebox.Forms
 									this.cakeboxStatsLabel,
 									this.discStatsLabel,
 									this.fileStatsLabel,
-									this.discAddedLabel,
-									this.discAddedValueLabel});
+									this.discAddedLabel});
 			this.statusStrip.Location = new System.Drawing.Point(0, 538);
 			this.statusStrip.Name = "statusStrip";
 			this.statusStrip.Size = new System.Drawing.Size(534, 24);
@@ -759,16 +757,9 @@ namespace Cavebox.Forms
 			this.discAddedLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
 			this.discAddedLabel.Margin = new System.Windows.Forms.Padding(0, 3, -5, 2);
 			this.discAddedLabel.Name = "discAddedLabel";
-			this.discAddedLabel.Size = new System.Drawing.Size(66, 19);
-			this.discAddedLabel.Text = "Added on:";
+			this.discAddedLabel.Size = new System.Drawing.Size(63, 19);
+			this.discAddedLabel.Text = "Added on";
 			this.discAddedLabel.Visible = false;
-			// 
-			// discAddedValueLabel
-			// 
-			this.discAddedValueLabel.Name = "discAddedValueLabel";
-			this.discAddedValueLabel.Size = new System.Drawing.Size(12, 19);
-			this.discAddedValueLabel.Text = "-";
-			this.discAddedValueLabel.Visible = false;
 			// 
 			// tabControl
 			// 
@@ -1139,7 +1130,6 @@ namespace Cavebox.Forms
 		private System.Windows.Forms.Timer filterTextChangedTimer;
 		private System.Windows.Forms.RichTextBox console;
 		private System.ComponentModel.BackgroundWorker scanWorker;
-		private System.Windows.Forms.ToolStripStatusLabel discAddedValueLabel;
 		private System.Windows.Forms.ToolStripStatusLabel discAddedLabel;
 		private System.Windows.Forms.ToolStripMenuItem resetScanMenuItem;
 		private System.Windows.Forms.ContextMenuStrip scanFileListMenu;

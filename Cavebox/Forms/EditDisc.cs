@@ -43,7 +43,7 @@ namespace Cavebox.Forms
 		private void SaveDisc(object sender, EventArgs e)
 		{
 			string newLabel = discLabel.Text.Trim();
-			int newCid = Convert.ToInt32(selectCakebox.SelectedValue);
+			int newCid = selectCakebox.SelectedIntValue();
 			if((label != newLabel && newLabel.Length > 0) || cid != newCid)
 			{
 				Model.UpdateDisc(id, newCid, newLabel);
@@ -74,7 +74,7 @@ namespace Cavebox.Forms
 		private void enableSaveButton(object sender, EventArgs e)
 		{
 			string newLabel = discLabel.Text.Trim();
-			saveButton.Enabled = ((label != newLabel && newLabel.Length > 0) || Convert.ToInt32(selectCakebox.SelectedValue) != cid);
+			saveButton.Enabled = ((label != newLabel && newLabel.Length > 0) || selectCakebox.SelectedIntValue() != cid);
 		}
 	}
 }

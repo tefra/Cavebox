@@ -8,7 +8,7 @@ using System;
 namespace Cavebox.Lib
 {
 	/// <summary>
-	/// General util functions for cavebox, used throughout the project
+	/// General extension methods used throughout the project
 	/// </summary>
 	static class Util
 	{
@@ -58,13 +58,21 @@ namespace Cavebox.Lib
 		}
 		
 		/// <summary>
-		/// Get the int key of an Identity filled listbox
+		/// Get the ListBox selected value converted to integer
 		/// </summary>
-		/// <param name="source">Listbox with Identity Items</param>
-		public static int SelectedIdentity(this System.Windows.Forms.ListBox source)
+		/// <param name="source">The source Listbox</param>
+		public static int SelectedIntValue(this System.Windows.Forms.ListBox source)
 		{
 			return Convert.ToInt32(source.SelectedValue);
 		}
-
+		
+		/// <summary>
+		/// Get the ComboBox selected value converted to integer
+		/// </summary>
+		/// <param name="source">The source ComboBox</param>
+		public static int SelectedIntValue(this System.Windows.Forms.ComboBox source)
+		{
+			return Convert.ToInt32(source.SelectedValue);
+		}
 	}
 }

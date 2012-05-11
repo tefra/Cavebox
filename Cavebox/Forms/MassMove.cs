@@ -46,10 +46,10 @@ namespace Cavebox.Forms
 		/// </summary>
 		private void MoveButtonClick(object sender, EventArgs e)
 		{
-			// The selectCakebox.SelectedValue."ToString()" is necessary because c# checklistbox doesn't support databinding
-			int target = Convert.ToInt32(selectCakebox.SelectedValue.ToString());
+			int target = selectCakebox.SelectedIntValue();
 			if(target != source && selectDiscs.CheckedItems.Count > 0)
 			{
+				this.UseWaitCursor = true;
 				Console.WriteLine(Lang.GetString("_movingDiscs", selectCakebox.SelectedItem));
 				List<int> discs = new List<int>();
 				foreach(object itemChecked in selectDiscs.CheckedItems)
@@ -58,6 +58,7 @@ namespace Cavebox.Forms
 					discs.Add(item.Key);
 					Console.Write(item.Value+"\n");
 				}
+				
 				Model.MoveDiscs(target, discs);
 				app.ShowCakeboxes();
 				closeForm(sender, e);
@@ -69,7 +70,7 @@ namespace Cavebox.Forms
 		/// </summary>
 		private void enableMoveButton(object sender, EventArgs e)
 		{
-			moveButton.Enabled = (selectDiscs.CheckedItems.Count > 0 && Convert.ToInt32(selectCakebox.SelectedValue.ToString()) != source);
+			moveButton.Enabled = (selectDiscs.CheckedItems.Count > 0 && selectCakebox.SelectedIntValue() != source);
 		}
 				
 		/// <summary>

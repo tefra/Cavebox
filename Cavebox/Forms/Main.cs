@@ -47,16 +47,6 @@ namespace Cavebox.Forms
 			}
 		}
 		
-		public int selectedCakeboxId()
-		{
-			return Convert.ToInt32(cakeboxesListBox.SelectedValue);
-		}
-		
-		public int selectedDiscId()
-		{
-			return Convert.ToInt32(discsListBox.SelectedValue);
-		}
-		
 		/// <summary>
 		/// Restore previous local session storage and initialize lists with data from database
 		/// </summary>
@@ -72,7 +62,7 @@ namespace Cavebox.Forms
 			controlBindings.Add(new ControlBinding(tabControl, "SelectedIndex", "SelectedTabIndex"));
 			controlBindings.Add(new ControlBinding(scanPathComboBox, "Text", "LastScanPath"));
 			scanPathComboBox.Items.AddRange(DriveInfo.GetDrives());
-						
+			
 			foreach(ControlBinding control in controlBindings)
 			{
 				control.ReadValue();
@@ -98,7 +88,7 @@ namespace Cavebox.Forms
 			
 			// Save session storage of the discs sort menus/flags
 			Properties.Settings.Default.DiscsOrderBy = discsOrderBy;
-			Properties.Settings.Default.DiscsOrderWay = discsOrderWay;		
+			Properties.Settings.Default.DiscsOrderWay = discsOrderWay;
 			Properties.Settings.Default.Save();
 			Model.Close();
 			Console.WriteLine(Lang.GetString("_applicationClosing"));
@@ -148,7 +138,7 @@ namespace Cavebox.Forms
 			cakeboxesListBox.SelectedValueChanged -= ShowDiscs;
 			cakeboxesListBox.DataSource = (_filterLike == null) ? cakeboxes : Model.FetchCakeboxes(_filterLike);
 			cakeboxesListBox.SelectedValueChanged += ShowDiscs;
-			UpdateNumTitle(cakeboxesGroupBox, cakeboxesListBox.Items.Count);
+			cakeboxesGroupBox.InsertTitle(cakeboxesListBox.Items.Count);
 			
 			if(cakeboxesListBox.Items.Count == 0)
 			{
@@ -168,11 +158,11 @@ namespace Cavebox.Forms
 		public void ShowDiscs(object sender, EventArgs e)
 		{
 			discsListBox.SelectedValueChanged -= ShowFiles;
-			discsListBox.DataSource = (cakeboxesListBox.SelectedIndex > -1) ? Model.FetchDiscsByCakeboxId(selectedCakeboxId(), _filterLike, discsOrderBy, discsOrderWay) : new List<Identity>();
+			discsListBox.DataSource = (cakeboxesListBox.SelectedIndex > -1) ? Model.FetchDiscsByCakeboxId(cakeboxesListBox.SelectedIntValue(), _filterLike, discsOrderBy, discsOrderWay) : new List<Identity>();
 			discsListBox.SelectedValue = 0;
 			discsListBox.SelectedValueChanged += ShowFiles;
 			ShowFiles(sender, e);
-			UpdateNumTitle(discsGroupBox, discsListBox.Items.Count);
+			discsGroupBox.InsertTitle(discsListBox.Items.Count);
 		}
 		
 		/// <summary>
@@ -183,36 +173,40 @@ namespace Cavebox.Forms
 			fileList.Clear();
 			if(discsListBox.SelectedIndex > -1)
 			{
-				object[] result = Model.FetchFilesListByDiscId(selectedDiscId());
+				Cursor.Current = Cursors.WaitCursor;
+				object[] result = Model.FetchFilesListByDiscId(discsListBox.SelectedIntValue());
 				string files = result[0].ToString();
 				int added = Convert.ToInt32(result[2]);
 				int filesno = Convert.ToInt32(result[1]);
 				fileList.Text = files;
 				int start, pos, keyLength;
 				int end = fileList.Text.Length;
-				foreach(string key in filterTextBox.Text.Split(' '))
+				if(isFilterOn())
 				{
-					keyLength = key.Length;
-					start = pos = 0;
-					while((pos = fileList.Find(key, start, -1, RichTextBoxFinds.None)) > -1)
+					foreach(string key in filterTextBox.Text.Split(' '))
 					{
-						fileList.Select(pos, keyLength);
-						fileList.SelectionBackColor = Color.Yellow;
-						start = pos + keyLength;
+						keyLength = key.Length;
+						start = pos = 0;
+						while((pos = fileList.Find(key, start, -1, RichTextBoxFinds.None)) > -1)
+						{
+							fileList.Select(pos, keyLength);
+							fileList.SelectionBackColor = Color.Yellow;
+							start = pos + keyLength;
+						}
 					}
 				}
+				Cursor.Current = Cursors.Default;
 				discAddedLabel.Visible = true;
-				discAddedValueLabel.Visible = true;
-				discAddedValueLabel.Text = (added > 0) ? new DateTime(1970, 1, 1).AddSeconds(added).ToLocalTime().ToString("dd/MM/yyyy HH:mm:ss") : Lang.GetString("_unknownDate");
-				UpdateNumTitle(fileListGroupBox, filesno);
+				discAddedLabel.InsertTitle((added > 0) ? added.Date() : Lang.GetString("_unknownDate"));
+				fileListGroupBox.InsertTitle(filesno);
 			}
 			else
 			{
 				discAddedLabel.Visible = false;
-				discAddedValueLabel.Visible = false;
-				UpdateNumTitle(fileListGroupBox, 0);
+				fileListGroupBox.InsertTitle(0);
 			}
 		}
+	
 
 		/// <summary>
 		/// Start/Reset filter timer while typing to avoid useless db queries
@@ -273,39 +267,15 @@ namespace Cavebox.Forms
 		{
 			if(cakebox)
 			{
-				UpdateNumTitle(cakeboxStatsLabel, Model.GetTotalCakeboxes());
+				cakeboxStatsLabel.InsertTitle(Model.GetTotalCakeboxes());
 			}
 			if(disc)
 			{
-				UpdateNumTitle(discStatsLabel, Model.GetTotalDiscs());
-				UpdateNumTitle(fileStatsLabel, Model.GetTotalFiles());
+				discStatsLabel.InsertTitle(Model.GetTotalDiscs());
+				fileStatsLabel.InsertTitle(Model.GetTotalFiles());
 			}
 		}
 
-		/// <summary>
-		/// Update a ToolStripLabel with a number ex. Files: 26.756
-		/// </summary>
-		/// <param name="ctrl">The ToolStripLabel that needs update</param>
-		/// <param name="num">The total number</param>
-		private void UpdateNumTitle(ToolStripLabel ctrl, int num)
-		{
-			string title = ctrl.Text.Split(':')[0].Trim();
-			title += (num > 0) ? ": " + String.Format("{0:n0}", num) : null;
-			ctrl.Text = title;
-		}
-
-		/// <summary>
-		/// Update a GroupBox with a number ex. Files: 26.756
-		/// </summary>
-		/// <param name="ctrl">The GroupBox that needs update</param>
-		/// <param name="num">The total number</param>
-		public void UpdateNumTitle(GroupBox ctrl, int num)
-		{
-			string title = ctrl.Text.Split(':')[0].Trim();
-			title += (num > 0) ? ": " + String.Format("{0:n0}", num) : null;
-			ctrl.Text = title;
-		}
-		
 		/// <summary>
 		/// Open a folder browseer dialog to set the scan path
 		/// </summary>
@@ -336,7 +306,6 @@ namespace Cavebox.Forms
 				{
 					path += Path.DirectorySeparatorChar;
 				}
-				
 				if(Directory.Exists(path))
 				{
 					Console.WriteLine(Lang.GetString("_scanStarting", path));
@@ -416,7 +385,7 @@ namespace Cavebox.Forms
 					foreach(string file in files)
 					{
 						i++;
-						buf.AppendLine(file.Substring(rootLength));
+						buf.Append(file.Substring(rootLength) + "\n");
 					}
 					
 					if(i > 100)
@@ -492,10 +461,11 @@ namespace Cavebox.Forms
 			}
 			else
 			{
+				Cursor.Current = Cursors.WaitCursor;
 				DateTime Jan1st1970 = new DateTime (1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 				int added =  (int) (DateTime.UtcNow - Jan1st1970).TotalSeconds;
-				int cid = Convert.ToInt32(newDiscCakebox.SelectedValue);
-				Model.AddDisc(label, files, scanTotalFiles, cid, added);
+				Model.AddDisc(label, files, scanTotalFiles, newDiscCakebox.SelectedIntValue(), added);
+				Cursor.Current = Cursors.Default;
 				ShowCakeboxes();
 				RefreshStatusBar(false, true);
 				scanFileList.Clear();
@@ -516,7 +486,7 @@ namespace Cavebox.Forms
 			}
 			else if(MessageBox.Show(Lang.GetString("_confirmDeleteCakebox", cakeboxesListBox.Text), Lang.GetString("_confirmTitle"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
 			{
-				Model.DeleteCakebox(selectedCakeboxId());
+				Model.DeleteCakebox(cakeboxesListBox.SelectedIntValue());
 				Console.WriteLine(Lang.GetString("_cakeboxDeleted", cakeboxesListBox.Text));
 				ShowCakeboxes(0, true);
 				RefreshStatusBar(true, false);
@@ -530,7 +500,7 @@ namespace Cavebox.Forms
 		{
 			if(cakeboxesListBox.SelectedIndex > -1)
 			{
-				new MassMove(this, selectedCakeboxId()).ShowDialog();
+				new MassMove(this, cakeboxesListBox.SelectedIntValue()).ShowDialog();
 			}
 		}
 		
@@ -542,7 +512,7 @@ namespace Cavebox.Forms
 			// Just making sure we have a disc list with a selected cakebox
 			if(discsListBox.SelectedIndex > -1 && cakeboxesListBox.SelectedIndex > -1)
 			{
-				new EditDisc(this, selectedDiscId(), selectedCakeboxId()).ShowDialog();
+				new EditDisc(this, discsListBox.SelectedIntValue(), cakeboxesListBox.SelectedIntValue()).ShowDialog();
 			}
 		}
 
@@ -553,7 +523,7 @@ namespace Cavebox.Forms
 		{
 			if(MessageBox.Show(Lang.GetString("_confirmDeleteDisc", discsListBox.Text), Lang.GetString("_confirmTitle"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
 			{
-				Model.DeleteDisc(selectedDiscId());
+				Model.DeleteDisc(discsListBox.SelectedIntValue());
 				Console.WriteLine(Lang.GetString("_discDeleted", discsListBox.Text));
 				ShowDiscs(sender, e);
 				RefreshStatusBar(false, true);
@@ -649,7 +619,7 @@ namespace Cavebox.Forms
 		{
 			if(cakeboxesListBox.SelectedIndex > -1)
 			{
-				new EditCakebox(this, selectedCakeboxId(), cakeboxesListBox.Text).ShowDialog();
+				new EditCakebox(this, cakeboxesListBox.SelectedIntValue(), cakeboxesListBox.Text).ShowDialog();
 			}
 		}
 

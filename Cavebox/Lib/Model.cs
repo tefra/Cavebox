@@ -223,7 +223,7 @@ namespace Cavebox.Lib
 					}
 					if(orderBy == 2)
 					{
-						label += " (" + r.GetInt32(2) + ")";
+						label += String.Format(" ({0:n0})", r.GetInt32(2));
 					}
 					list.Add(new Identity(diskId, label));
 				}
