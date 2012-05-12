@@ -57,6 +57,7 @@ namespace Cavebox.Forms
 			// 
 			// selectDiscs
 			// 
+			this.selectDiscs.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.selectDiscs.CheckOnClick = true;
 			this.selectDiscs.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.selectDiscs.FormattingEnabled = true;
@@ -73,7 +74,6 @@ namespace Cavebox.Forms
 			this.selectCakebox.DisplayMember = "Value";
 			this.selectCakebox.DropDownHeight = 150;
 			this.selectCakebox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.selectCakebox.FormattingEnabled = true;
 			this.selectCakebox.IntegralHeight = false;
 			this.selectCakebox.Location = new System.Drawing.Point(12, 284);
 			this.selectCakebox.Name = "selectCakebox";

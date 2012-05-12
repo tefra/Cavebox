@@ -502,7 +502,7 @@ namespace Cavebox.Forms
 			this.filterMenuItem.Name = "filterMenuItem";
 			this.filterMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.filterMenuItem.Text = "Filter";
-			this.filterMenuItem.Click += new System.EventHandler(this.FilterToolStripMenuItemClick);
+			this.filterMenuItem.Click += new System.EventHandler(this.FilterMenuItemClick);
 			// 
 			// toolStripSeparator5
 			// 
@@ -529,7 +529,7 @@ namespace Cavebox.Forms
 			// 
 			this.anidbMenuItem.Image = global::Cavebox.Properties.Images.anidb;
 			this.anidbMenuItem.Name = "anidbMenuItem";
-			this.anidbMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.anidbMenuItem.Size = new System.Drawing.Size(127, 22);
 			this.anidbMenuItem.Tag = "http://anidb.net/perl-bin/animedb.pl?show=animelist&do.search=search&adb.search={" +
 			"0}";
 			this.anidbMenuItem.Text = "Anidb";
@@ -539,7 +539,7 @@ namespace Cavebox.Forms
 			// 
 			this.googleMenuItem.Image = global::Cavebox.Properties.Images.google;
 			this.googleMenuItem.Name = "googleMenuItem";
-			this.googleMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.googleMenuItem.Size = new System.Drawing.Size(127, 22);
 			this.googleMenuItem.Tag = "http://www.google.com/search?site=&q={0}";
 			this.googleMenuItem.Text = "Google";
 			this.googleMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
@@ -548,7 +548,7 @@ namespace Cavebox.Forms
 			// 
 			this.imdbMenuItem.Image = global::Cavebox.Properties.Images.imdb;
 			this.imdbMenuItem.Name = "imdbMenuItem";
-			this.imdbMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.imdbMenuItem.Size = new System.Drawing.Size(127, 22);
 			this.imdbMenuItem.Tag = "http://www.imdb.com/find?s=all&q={0}";
 			this.imdbMenuItem.Text = "Imdb";
 			this.imdbMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
@@ -557,7 +557,7 @@ namespace Cavebox.Forms
 			// 
 			this.lastfmMenuItem.Image = global::Cavebox.Properties.Images.lastFM;
 			this.lastfmMenuItem.Name = "lastfmMenuItem";
-			this.lastfmMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.lastfmMenuItem.Size = new System.Drawing.Size(127, 22);
 			this.lastfmMenuItem.Tag = "http://www.last.fm/music/{0}";
 			this.lastfmMenuItem.Text = "Last.fm";
 			this.lastfmMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
@@ -566,7 +566,7 @@ namespace Cavebox.Forms
 			// 
 			this.metacriticMenuItem.Image = global::Cavebox.Properties.Images.metacritic;
 			this.metacriticMenuItem.Name = "metacriticMenuItem";
-			this.metacriticMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.metacriticMenuItem.Size = new System.Drawing.Size(127, 22);
 			this.metacriticMenuItem.Tag = "http://www.metacritic.com/search/all/{0}/results";
 			this.metacriticMenuItem.Text = "Metacritic";
 			this.metacriticMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
@@ -575,7 +575,7 @@ namespace Cavebox.Forms
 			// 
 			this.tvcomMenuItem.Image = global::Cavebox.Properties.Images.tvcom;
 			this.tvcomMenuItem.Name = "tvcomMenuItem";
-			this.tvcomMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.tvcomMenuItem.Size = new System.Drawing.Size(127, 22);
 			this.tvcomMenuItem.Tag = "http://www.tv.com/search?q={0}";
 			this.tvcomMenuItem.Text = "Tv.com";
 			this.tvcomMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
@@ -584,7 +584,7 @@ namespace Cavebox.Forms
 			// 
 			this.wikipediaMenuItem.Image = global::Cavebox.Properties.Images.wikipedia;
 			this.wikipediaMenuItem.Name = "wikipediaMenuItem";
-			this.wikipediaMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.wikipediaMenuItem.Size = new System.Drawing.Size(127, 22);
 			this.wikipediaMenuItem.Tag = "http://en.wikipedia.org/wiki/Special:Search?search={0}";
 			this.wikipediaMenuItem.Text = "Wikipedia";
 			this.wikipediaMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
@@ -593,7 +593,7 @@ namespace Cavebox.Forms
 			// 
 			this.youtubeMenuItem.Image = global::Cavebox.Properties.Images.youtube;
 			this.youtubeMenuItem.Name = "youtubeMenuItem";
-			this.youtubeMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.youtubeMenuItem.Size = new System.Drawing.Size(127, 22);
 			this.youtubeMenuItem.Tag = "http://www.youtube.com/results?search_query={0}";
 			this.youtubeMenuItem.Text = "Youtube";
 			this.youtubeMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
@@ -656,7 +656,7 @@ namespace Cavebox.Forms
 			// exitMenuItem
 			// 
 			this.exitMenuItem.Name = "exitMenuItem";
-			this.exitMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
+			this.exitMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
 			this.exitMenuItem.Size = new System.Drawing.Size(189, 22);
 			this.exitMenuItem.Text = "Exit";
 			this.exitMenuItem.Click += new System.EventHandler(this.ExitApplication);
@@ -749,36 +749,32 @@ namespace Cavebox.Forms
 			// cakeboxStatsLabel
 			// 
 			this.cakeboxStatsLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
-			this.cakeboxStatsLabel.Margin = new System.Windows.Forms.Padding(0, 3, 5, 2);
 			this.cakeboxStatsLabel.Name = "cakeboxStatsLabel";
-			this.cakeboxStatsLabel.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-			this.cakeboxStatsLabel.Size = new System.Drawing.Size(72, 19);
+			this.cakeboxStatsLabel.Padding = new System.Windows.Forms.Padding(0, 0, 4, 0);
+			this.cakeboxStatsLabel.Size = new System.Drawing.Size(71, 19);
 			this.cakeboxStatsLabel.Text = "Cakeboxes";
 			// 
 			// discStatsLabel
 			// 
 			this.discStatsLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
-			this.discStatsLabel.Margin = new System.Windows.Forms.Padding(0, 3, 5, 2);
 			this.discStatsLabel.Name = "discStatsLabel";
-			this.discStatsLabel.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-			this.discStatsLabel.Size = new System.Drawing.Size(43, 19);
+			this.discStatsLabel.Padding = new System.Windows.Forms.Padding(0, 0, 4, 0);
+			this.discStatsLabel.Size = new System.Drawing.Size(42, 19);
 			this.discStatsLabel.Text = "Discs";
 			// 
 			// fileStatsLabel
 			// 
-			this.fileStatsLabel.Margin = new System.Windows.Forms.Padding(0, 3, 5, 2);
 			this.fileStatsLabel.Name = "fileStatsLabel";
-			this.fileStatsLabel.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-			this.fileStatsLabel.Size = new System.Drawing.Size(35, 19);
+			this.fileStatsLabel.Padding = new System.Windows.Forms.Padding(0, 0, 4, 0);
+			this.fileStatsLabel.Size = new System.Drawing.Size(34, 19);
 			this.fileStatsLabel.Text = "Files";
 			// 
 			// discAddedLabel
 			// 
 			this.discAddedLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
-			this.discAddedLabel.Margin = new System.Windows.Forms.Padding(0, 3, -5, 2);
 			this.discAddedLabel.Name = "discAddedLabel";
-			this.discAddedLabel.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-			this.discAddedLabel.Size = new System.Drawing.Size(68, 19);
+			this.discAddedLabel.Padding = new System.Windows.Forms.Padding(0, 0, 4, 0);
+			this.discAddedLabel.Size = new System.Drawing.Size(67, 19);
 			this.discAddedLabel.Text = "Added on";
 			this.discAddedLabel.Visible = false;
 			// 
@@ -841,7 +837,6 @@ namespace Cavebox.Forms
 			this.newDiscCakebox.DisplayMember = "Value";
 			this.newDiscCakebox.DropDownHeight = 150;
 			this.newDiscCakebox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.newDiscCakebox.FormattingEnabled = true;
 			this.newDiscCakebox.IntegralHeight = false;
 			this.newDiscCakebox.Location = new System.Drawing.Point(66, 47);
 			this.newDiscCakebox.Name = "newDiscCakebox";
@@ -906,6 +901,7 @@ namespace Cavebox.Forms
 			// scanFileList
 			// 
 			this.scanFileList.BackColor = System.Drawing.SystemColors.Window;
+			this.scanFileList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.scanFileList.ContextMenuStrip = this.scanFileListMenu;
 			this.scanFileList.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.scanFileList.Location = new System.Drawing.Point(3, 16);

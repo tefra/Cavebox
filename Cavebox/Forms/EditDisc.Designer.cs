@@ -71,7 +71,6 @@ namespace Cavebox.Forms
 			this.selectCakebox.DisplayMember = "Value";
 			this.selectCakebox.DropDownHeight = 150;
 			this.selectCakebox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.selectCakebox.FormattingEnabled = true;
 			this.selectCakebox.IntegralHeight = false;
 			this.selectCakebox.Location = new System.Drawing.Point(70, 37);
 			this.selectCakebox.Name = "selectCakebox";

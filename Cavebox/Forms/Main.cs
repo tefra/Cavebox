@@ -209,7 +209,15 @@ namespace Cavebox.Forms
 			}
 			filterTextChangedTimer.Start();
 		}
-
+		
+		/// <summary>
+		/// Set the filelist selected text as the filter text
+		/// </summary>
+		private void FilterMenuItemClick(object sender, EventArgs e)
+		{
+			filterTextBox.Text = fileList.SelectedText.Trim();
+		}
+		
 		/// <summary>
 		/// Stop filter timer, construct filterLike keywords and refresh cakeboxes if necessary
 		/// </summary>
@@ -560,12 +568,6 @@ namespace Cavebox.Forms
 			ToolStripMenuItem source = (ToolStripMenuItem) sender;
 			string link = String.Format(source.Tag.ToString(), Regex.Replace(fileList.SelectedText.Trim(), @"\s+", "+"));
 			System.Diagnostics.Process.Start(link);
-		}
-		
-		
-		private void FilterToolStripMenuItemClick(object sender, EventArgs e)
-		{
-			filterTextBox.Text = fileList.SelectedText.Trim();
 		}
 		
 		/// <summary>
