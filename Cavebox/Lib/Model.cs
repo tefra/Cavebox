@@ -297,7 +297,7 @@ namespace Cavebox.Lib
 		public static void UpdateDisc(int id, int cid, string label)
 		{
 			Dictionary<string, object> data = new Dictionary<string, object>();
-			data.Add("cid", cid.ToString());
+			data.Add("cid", cid);
 			data.Add("label", label);
 			Update("disc", data, "id = " + id);
 		}
@@ -341,7 +341,7 @@ namespace Cavebox.Lib
 		public static void MoveDiscs(int target, List<int> discs)
 		{
 			Dictionary<string, object> data = new Dictionary<string, object>();
-			data.Add("cid", target.ToString());
+			data.Add("cid", target);
 			Update("disc", data, "id IN (" + String.Join(", ", discs) + ")");
 		}
 
@@ -407,7 +407,7 @@ namespace Cavebox.Lib
 				foreach (KeyValuePair<string, object> pair in data)
 				{
 					sets.Add(String.Format("{0} = @{0}", pair.Key));
-					c.Parameters.Add(new SQLiteParameter("@"+pair.Key, pair.Value));
+					c.Parameters.Add(new SQLiteParameter("@" + pair.Key, pair.Value));
 				}
 				c.CommandText = String.Format("UPDATE {0} SET {1} WHERE {2}", table, String.Join(", ", sets), where);
 				c.ExecuteNonQuery();
@@ -428,15 +428,20 @@ namespace Cavebox.Lib
 		{
 			if(data.Count > 0)
 			{
-				List<string> columns = new List<string>(data.Keys);
-				List<object> values = new List<object>(data.Values);
-				SQLiteCommand c = CreateCommand(String.Format("INSERT INTO {0} ({1}) VALUES (@{2})", table, String.Join(", ", columns), String.Join(", @", columns)));
-				for(int i = 0; i < columns.Count; i++)
+				try
 				{
-					c.Parameters.Add(new SQLiteParameter("@"+columns[i], values[i]));
+					SQLiteCommand c = CreateCommand(String.Format("INSERT INTO {0} ({1}) VALUES (@{2})", table, String.Join(", ", data.Keys), String.Join(", @", data.Keys)));
+					foreach(KeyValuePair<string, object> pair in data)
+					{
+						c.Parameters.Add(new SQLiteParameter("@" + pair.Key, pair.Value));
+					}
+					c.ExecuteNonQuery();
+					c.Dispose();
 				}
-				c.ExecuteNonQuery();
-				c.Dispose();
+				catch(SQLiteException e)
+				{
+					Console.WriteLine(e.Message);
+				}
 			}
 		}
 

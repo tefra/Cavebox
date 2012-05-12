@@ -112,14 +112,14 @@ namespace Cavebox.Forms
 		/// </summary>
 		/// <param name="selectValue">Cakebox id to auto select</param>
 		/// <param name="refreshCakeboxesCache">Whether or not to refresh cakeboxes cache</param>
-		/// <param name="firstCall">Only on the first call update the discs/files stats on the status bar</param>
-		public void ShowCakeboxes(int selectValue = 0, Boolean refreshCakeboxesCache = false, Boolean firstCall = false)
+		/// <param name="refreshDiscStats">Refresh or not the discs/files stats</param>
+		public void ShowCakeboxes(int selectValue = 0, Boolean refreshCakeboxesCache = false, Boolean refreshDiscStats = false)
 		{
 			List<Identity> cakeboxes = null;
 			if(refreshCakeboxesCache)
 			{
 				newDiscCakebox.DataSource = cakeboxes = Model.FetchCakeboxes();
-				RefreshStatusBar(true, firstCall);
+				RefreshStatusBar(true, refreshDiscStats);
 			}
 			else
 			{
@@ -129,7 +129,7 @@ namespace Cavebox.Forms
 			cakeboxesListBox.SelectedValueChanged -= ShowDiscs;
 			cakeboxesListBox.DataSource = (_filterLike == null) ? cakeboxes : Model.FetchCakeboxes(_filterLike);
 			cakeboxesListBox.SelectedValueChanged += ShowDiscs;
-			cakeboxesGroupBox.InsertTitle(cakeboxesListBox.Items.Count);
+			cakeboxesGroupBox.InsertDesc(cakeboxesListBox.Items.Count);
 			
 			if(cakeboxesListBox.Items.Count == 0)
 			{
@@ -153,7 +153,7 @@ namespace Cavebox.Forms
 			discsListBox.SelectedValue = 0;
 			discsListBox.SelectedValueChanged += ShowFiles;
 			ShowFiles(sender, e);
-			discsGroupBox.InsertTitle(discsListBox.Items.Count);
+			discsGroupBox.InsertDesc(discsListBox.Items.Count);
 		}
 		
 		/// <summary>
@@ -167,9 +167,9 @@ namespace Cavebox.Forms
 				Cursor.Current = Cursors.WaitCursor;
 				object[] result = Model.FetchFilesListByDiscId(discsListBox.SelectedIntValue());
 				int added = Convert.ToInt32(result[2]);
-				discAddedLabel.InsertTitle((added > 0) ? added.Date() : Lang.GetString("_unknownDate"));
+				discAddedLabel.InsertDesc((added > 0) ? added.Date() : Lang.GetString("_unknownDate"));
 				discAddedLabel.Visible = true;
-				fileListGroupBox.InsertTitle(Convert.ToInt32(result[1]));
+				fileListGroupBox.InsertDesc(Convert.ToInt32(result[1]));
 				fileList.Text = result[0].ToString();
 
 				if(_filter != null)
@@ -193,7 +193,7 @@ namespace Cavebox.Forms
 			else
 			{
 				discAddedLabel.Visible = false;
-				fileListGroupBox.InsertTitle(0);
+				fileListGroupBox.InsertDesc(0);
 			}
 		}
 		
@@ -257,12 +257,12 @@ namespace Cavebox.Forms
 		{
 			if(cakebox)
 			{
-				cakeboxStatsLabel.InsertTitle(Model.GetTotalCakeboxes());
+				cakeboxStatsLabel.InsertDesc(Model.GetTotalCakeboxes());
 			}
 			if(disc)
 			{
-				discStatsLabel.InsertTitle(Model.GetTotalDiscs());
-				fileStatsLabel.InsertTitle(Model.GetTotalFiles());
+				discStatsLabel.InsertDesc(Model.GetTotalDiscs());
+				fileStatsLabel.InsertDesc(Model.GetTotalFiles());
 			}
 		}
 
@@ -385,7 +385,7 @@ namespace Cavebox.Forms
 						i = 0;
 					}
 				}
-				catch { }
+				catch {}
 			}
 			if(i > 0)
 			{
@@ -562,6 +562,12 @@ namespace Cavebox.Forms
 			System.Diagnostics.Process.Start(link);
 		}
 		
+		
+		private void FilterToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			filterTextBox.Text = fileList.SelectedText.Trim();
+		}
+		
 		/// <summary>
 		/// Globalized Copy command for richtextboxes and listboxes
 		/// It can be extended to work with more controls if needed
@@ -600,8 +606,6 @@ namespace Cavebox.Forms
 		/// <summary>
 		/// Open edit cakebox dialog
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void OpenEditCakeboxForm(object sender, EventArgs e)
 		{
 			if(cakeboxesListBox.SelectedIndex > -1)
@@ -653,7 +657,7 @@ namespace Cavebox.Forms
 				stopWatch = DateTime.Now;
 				Model.DropTables();
 				Model.Install();
-				ShowCakeboxes(0, true);
+				ShowCakeboxes(0, true, true);
 				Cursor.Current = Cursors.Default;
 				Console.WriteLine(Lang.GetString("_dropData", (DateTime.Now - stopWatch).TotalSeconds));
 			}
@@ -691,7 +695,7 @@ namespace Cavebox.Forms
 				Cursor.Current = Cursors.WaitCursor;
 				stopWatch = DateTime.Now;
 				int records = SQLiteXmlFile.Load(openFileDialog.FileName);
-				ShowCakeboxes(0, true);
+				ShowCakeboxes(0, true, true);
 				Cursor.Current = Cursors.Default;
 				Console.WriteLine(Lang.GetString("_importCompleted", records, (DateTime.Now - stopWatch).TotalSeconds));
 			}

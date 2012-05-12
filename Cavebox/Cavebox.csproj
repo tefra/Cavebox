@@ -155,12 +155,15 @@
     <None Include="Resources\search\tvcom.png" />
     <None Include="Resources\search\wikipedia.png" />
     <None Include="Resources\search\youtube.png" />
+    <None Include="Resources\ui\ui.browser.png" />
+    <None Include="Resources\ui\ui.filter.png" />
     <None Include="Resources\ui\ui.add.png" />
     <None Include="Resources\ui\ui.copy.png" />
     <None Include="Resources\ui\ui.delete.png" />
     <None Include="Resources\ui\ui.edit.png" />
     <None Include="Resources\ui\ui.export.png" />
     <None Include="Resources\ui\ui.import.png" />
+    <None Include="Resources\ui\ui.move.png" />
     <None Include="Resources\ui\ui.play.png" />
     <None Include="Resources\ui\ui.save.png" />
     <None Include="Resources\ui\ui.sort.png" />

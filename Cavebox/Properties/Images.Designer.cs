@@ -116,6 +116,13 @@ namespace Cavebox.Properties {
 			}
 		}
 		
+		internal static System.Drawing.Bitmap ui_browser {
+			get {
+				object obj = ResourceManager.GetObject("ui.browser", resourceCulture);
+				return ((System.Drawing.Bitmap)(obj));
+			}
+		}
+		
 		internal static System.Drawing.Bitmap ui_copy {
 			get {
 				object obj = ResourceManager.GetObject("ui.copy", resourceCulture);
@@ -144,9 +151,23 @@ namespace Cavebox.Properties {
 			}
 		}
 		
+		internal static System.Drawing.Bitmap ui_filter {
+			get {
+				object obj = ResourceManager.GetObject("ui.filter", resourceCulture);
+				return ((System.Drawing.Bitmap)(obj));
+			}
+		}
+		
 		internal static System.Drawing.Bitmap ui_import {
 			get {
 				object obj = ResourceManager.GetObject("ui.import", resourceCulture);
+				return ((System.Drawing.Bitmap)(obj));
+			}
+		}
+		
+		internal static System.Drawing.Bitmap ui_move {
+			get {
+				object obj = ResourceManager.GetObject("ui.move", resourceCulture);
 				return ((System.Drawing.Bitmap)(obj));
 			}
 		}
