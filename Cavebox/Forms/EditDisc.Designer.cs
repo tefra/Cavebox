@@ -43,7 +43,6 @@ namespace Cavebox.Forms
 			// 
 			// discLabelLabel
 			// 
-			this.discLabelLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
 			this.discLabelLabel.Location = new System.Drawing.Point(12, 14);
 			this.discLabelLabel.Name = "discLabelLabel";
 			this.discLabelLabel.Size = new System.Drawing.Size(52, 23);

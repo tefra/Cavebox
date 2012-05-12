@@ -428,7 +428,6 @@ namespace Cavebox.Forms
 			this.clearFilterButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.clearFilterButton.Enabled = false;
 			this.clearFilterButton.Image = global::Cavebox.Properties.Images.ui_delete;
-			this.clearFilterButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
 			this.clearFilterButton.Location = new System.Drawing.Point(464, 20);
 			this.clearFilterButton.Name = "clearFilterButton";
 			this.clearFilterButton.Size = new System.Drawing.Size(50, 21);
@@ -843,7 +842,6 @@ namespace Cavebox.Forms
 			this.saveNewDiscButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.saveNewDiscButton.Enabled = false;
 			this.saveNewDiscButton.Image = global::Cavebox.Properties.Images.ui_save;
-			this.saveNewDiscButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
 			this.saveNewDiscButton.Location = new System.Drawing.Point(464, 19);
 			this.saveNewDiscButton.Name = "saveNewDiscButton";
 			this.saveNewDiscButton.Size = new System.Drawing.Size(50, 50);
@@ -863,7 +861,6 @@ namespace Cavebox.Forms
 			// 
 			// newDiscCakeboxLabel
 			// 
-			this.newDiscCakeboxLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
 			this.newDiscCakeboxLabel.Location = new System.Drawing.Point(4, 50);
 			this.newDiscCakeboxLabel.Name = "newDiscCakeboxLabel";
 			this.newDiscCakeboxLabel.Size = new System.Drawing.Size(56, 21);
@@ -872,7 +869,6 @@ namespace Cavebox.Forms
 			// 
 			// newDiscLabelLabel
 			// 
-			this.newDiscLabelLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
 			this.newDiscLabelLabel.Location = new System.Drawing.Point(4, 23);
 			this.newDiscLabelLabel.Name = "newDiscLabelLabel";
 			this.newDiscLabelLabel.Size = new System.Drawing.Size(55, 20);
@@ -976,7 +972,6 @@ namespace Cavebox.Forms
 			// 
 			this.toggleScanPathButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.toggleScanPathButton.Image = global::Cavebox.Properties.Images.ui_play;
-			this.toggleScanPathButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
 			this.toggleScanPathButton.Location = new System.Drawing.Point(464, 20);
 			this.toggleScanPathButton.Name = "toggleScanPathButton";
 			this.toggleScanPathButton.Size = new System.Drawing.Size(50, 21);

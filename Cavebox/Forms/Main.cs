@@ -519,9 +519,9 @@ namespace Cavebox.Forms
 			if(MessageBox.Show(Lang.GetString("_confirmDeleteDisc", discsListBox.Text), Lang.GetString("_confirmTitle"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
 			{
 				Model.DeleteDisc(discsListBox.SelectedValue.ToInt());
+				Console.WriteLine(Lang.GetString("_discDeleted", discsListBox.Text));
 				ShowDiscs(sender, e);
 				RefreshStatusBar(false, true);
-				Console.WriteLine(Lang.GetString("_discDeleted", discsListBox.Text));
 			}
 		}
 
