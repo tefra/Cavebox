@@ -33,7 +33,6 @@ namespace Cavebox.Forms
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Changelog));
 			this.changelogTextBox = new System.Windows.Forms.RichTextBox();
 			this.SuspendLayout();
 			// 
@@ -41,20 +40,28 @@ namespace Cavebox.Forms
 			// 
 			this.changelogTextBox.BackColor = System.Drawing.SystemColors.Window;
 			this.changelogTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			resources.ApplyResources(this.changelogTextBox, "changelogTextBox");
+			this.changelogTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.changelogTextBox.Location = new System.Drawing.Point(0, 0);
 			this.changelogTextBox.Name = "changelogTextBox";
 			this.changelogTextBox.ReadOnly = true;
+			this.changelogTextBox.Size = new System.Drawing.Size(394, 276);
+			this.changelogTextBox.TabIndex = 0;
+			this.changelogTextBox.Text = "";
+			this.changelogTextBox.WordWrap = false;
 			// 
 			// Changelog
 			// 
-			resources.ApplyResources(this, "$this");
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(394, 276);
 			this.Controls.Add(this.changelogTextBox);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "Changelog";
 			this.ShowInTaskbar = false;
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			this.Text = "Changelog";
 			this.ResumeLayout(false);
 		}
 		private System.Windows.Forms.RichTextBox changelogTextBox;
