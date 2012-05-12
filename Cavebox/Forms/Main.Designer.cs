@@ -168,12 +168,10 @@ namespace Cavebox.Forms
 			// 
 			this.FileListSplitContainer.Panel1.Controls.Add(this.cakeboxDiscSplitContainer);
 			this.FileListSplitContainer.Panel1.Controls.Add(this.filterGroupBox);
-			this.FileListSplitContainer.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			// 
 			// FileListSplitContainer.Panel2
 			// 
 			this.FileListSplitContainer.Panel2.Controls.Add(this.fileListGroupBox);
-			this.FileListSplitContainer.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.FileListSplitContainer.Size = new System.Drawing.Size(520, 482);
 			this.FileListSplitContainer.SplitterDistance = 310;
 			this.FileListSplitContainer.TabIndex = 0;
@@ -189,12 +187,10 @@ namespace Cavebox.Forms
 			// cakeboxDiscSplitContainer.Panel1
 			// 
 			this.cakeboxDiscSplitContainer.Panel1.Controls.Add(this.cakeboxesGroupBox);
-			this.cakeboxDiscSplitContainer.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			// 
 			// cakeboxDiscSplitContainer.Panel2
 			// 
 			this.cakeboxDiscSplitContainer.Panel2.Controls.Add(this.discsGroupBox);
-			this.cakeboxDiscSplitContainer.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.cakeboxDiscSplitContainer.Size = new System.Drawing.Size(520, 249);
 			this.cakeboxDiscSplitContainer.SplitterDistance = 258;
 			this.cakeboxDiscSplitContainer.TabIndex = 1;
@@ -216,7 +212,6 @@ namespace Cavebox.Forms
 			this.cakeboxesListBox.ContextMenuStrip = this.cakeboxesMenu;
 			this.cakeboxesListBox.DisplayMember = "Value";
 			this.cakeboxesListBox.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.cakeboxesListBox.FormattingEnabled = true;
 			this.cakeboxesListBox.Location = new System.Drawing.Point(3, 16);
 			this.cakeboxesListBox.Name = "cakeboxesListBox";
 			this.cakeboxesListBox.Size = new System.Drawing.Size(252, 230);
@@ -299,7 +294,6 @@ namespace Cavebox.Forms
 			this.discsListBox.ContextMenuStrip = this.discsMenu;
 			this.discsListBox.DisplayMember = "Value";
 			this.discsListBox.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.discsListBox.FormattingEnabled = true;
 			this.discsListBox.Location = new System.Drawing.Point(3, 16);
 			this.discsListBox.Name = "discsListBox";
 			this.discsListBox.Size = new System.Drawing.Size(252, 230);
