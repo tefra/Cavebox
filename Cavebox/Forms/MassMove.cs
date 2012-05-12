@@ -29,7 +29,7 @@ namespace Cavebox.Forms
 			InitializeComponent();
 			this.app = form;
 			selectDiscs.DataSource = app.discsListBox.DataSource;
-			selectCakebox.DataSource = app.newDiscCakebox.DataSource;
+			selectCakebox.DataSource = app.discCakeboxComboBox.DataSource;
 			selectCakebox.SelectedValue = this.source = source;
 		}
 		

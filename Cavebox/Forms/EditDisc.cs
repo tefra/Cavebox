@@ -32,7 +32,7 @@ namespace Cavebox.Forms
 			this.Text += " #" + id;
 			this.id = id;
 			discLabel.Text = this.label = Model.FetchDiscLabelById(id);
-			selectCakebox.DataSource = app.newDiscCakebox.DataSource;
+			selectCakebox.DataSource = app.discCakeboxComboBox.DataSource;
 			selectCakebox.SelectedValue = this.cid = cid;
 		}
 		
