@@ -46,7 +46,7 @@ namespace Cavebox.Forms
 		/// </summary>
 		private void MoveButtonClick(object sender, EventArgs e)
 		{
-			int target = selectCakebox.SelectedIntValue();
+			int target = selectCakebox.SelectedValue.ToInt();
 			if(target != source && selectDiscs.CheckedItems.Count > 0)
 			{
 				this.UseWaitCursor = true;
@@ -70,7 +70,7 @@ namespace Cavebox.Forms
 		/// </summary>
 		private void enableMoveButton(object sender, EventArgs e)
 		{
-			moveButton.Enabled = (selectDiscs.CheckedItems.Count > 0 && selectCakebox.SelectedIntValue() != source);
+			moveButton.Enabled = (selectDiscs.CheckedItems.Count > 0 && selectCakebox.SelectedValue.ToInt() != source);
 		}
 				
 		/// <summary>

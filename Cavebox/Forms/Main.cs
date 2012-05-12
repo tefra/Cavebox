@@ -149,7 +149,7 @@ namespace Cavebox.Forms
 		public void ShowDiscs(object sender, EventArgs e)
 		{
 			discsListBox.SelectedValueChanged -= ShowFiles;
-			discsListBox.DataSource = (cakeboxesListBox.SelectedIndex > -1) ? Model.FetchDiscsByCakeboxId(cakeboxesListBox.SelectedIntValue(), _filterLike, discsOrderBy, discsOrderWay) : new List<Identity>();
+			discsListBox.DataSource = (cakeboxesListBox.SelectedIndex > -1) ? Model.FetchDiscsByCakeboxId(cakeboxesListBox.SelectedValue.ToInt(), _filterLike, discsOrderBy, discsOrderWay) : new List<Identity>();
 			discsListBox.SelectedValue = 0;
 			discsListBox.SelectedValueChanged += ShowFiles;
 			ShowFiles(sender, e);
@@ -165,11 +165,11 @@ namespace Cavebox.Forms
 			if(discsListBox.SelectedIndex > -1)
 			{
 				Cursor.Current = Cursors.WaitCursor;
-				object[] result = Model.FetchFilesListByDiscId(discsListBox.SelectedIntValue());
-				int added = Convert.ToInt32(result[2]);
+				object[] result = Model.FetchFilesListByDiscId(discsListBox.SelectedValue.ToInt());
+				int added = result[2].ToInt();
 				discAddedLabel.InsertDesc((added > 0) ? added.Date() : Lang.GetString("_unknownDate"));
 				discAddedLabel.Visible = true;
-				fileListGroupBox.InsertDesc(Convert.ToInt32(result[1]));
+				fileListGroupBox.InsertDesc(result[1].ToInt());
 				fileList.Text = result[0].ToString();
 
 				if(_filter != null)
@@ -459,7 +459,7 @@ namespace Cavebox.Forms
 			else
 			{
 				Cursor.Current = Cursors.WaitCursor;
-				Model.AddDisc(label, scanFileList.Text.Trim(), scanTotalFiles, newDiscCakebox.SelectedIntValue(), DateTime.UtcNow.ToUnix());
+				Model.AddDisc(label, scanFileList.Text.Trim(), scanTotalFiles, newDiscCakebox.SelectedValue.ToInt(), DateTime.UtcNow.ToUnix());
 				Cursor.Current = Cursors.Default;
 				ShowCakeboxes();
 				RefreshStatusBar(false, true);
@@ -481,7 +481,7 @@ namespace Cavebox.Forms
 			}
 			else if(MessageBox.Show(Lang.GetString("_confirmDeleteCakebox", cakeboxesListBox.Text), Lang.GetString("_confirmTitle"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
 			{
-				Model.DeleteCakebox(cakeboxesListBox.SelectedIntValue());
+				Model.DeleteCakebox(cakeboxesListBox.SelectedValue.ToInt());
 				Console.WriteLine(Lang.GetString("_cakeboxDeleted", cakeboxesListBox.Text));
 				ShowCakeboxes(0, true);
 				RefreshStatusBar(true, false);
@@ -495,7 +495,7 @@ namespace Cavebox.Forms
 		{
 			if(cakeboxesListBox.SelectedIndex > -1)
 			{
-				new MassMove(this, cakeboxesListBox.SelectedIntValue()).ShowDialog();
+				new MassMove(this, cakeboxesListBox.SelectedValue.ToInt()).ShowDialog();
 			}
 		}
 		
@@ -507,7 +507,7 @@ namespace Cavebox.Forms
 			// Just making sure we have a disc list with a selected cakebox
 			if(discsListBox.SelectedIndex > -1 && cakeboxesListBox.SelectedIndex > -1)
 			{
-				new EditDisc(this, discsListBox.SelectedIntValue(), cakeboxesListBox.SelectedIntValue()).ShowDialog();
+				new EditDisc(this, discsListBox.SelectedValue.ToInt(), cakeboxesListBox.SelectedValue.ToInt()).ShowDialog();
 			}
 		}
 
@@ -518,7 +518,7 @@ namespace Cavebox.Forms
 		{
 			if(MessageBox.Show(Lang.GetString("_confirmDeleteDisc", discsListBox.Text), Lang.GetString("_confirmTitle"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
 			{
-				Model.DeleteDisc(discsListBox.SelectedIntValue());
+				Model.DeleteDisc(discsListBox.SelectedValue.ToInt());
 				ShowDiscs(sender, e);
 				RefreshStatusBar(false, true);
 				Console.WriteLine(Lang.GetString("_discDeleted", discsListBox.Text));
@@ -534,7 +534,7 @@ namespace Cavebox.Forms
 			DiscsOrderByIdMenuItem.Checked = (source == DiscsOrderByIdMenuItem);
 			DiscsOrderByLabelMenuItem.Checked = (source == DiscsOrderByLabelMenuItem);
 			DiscsOrderByFilesNoMenuItem.Checked = (source == DiscsOrderByFilesNoMenuItem);
-			discsOrderBy = Convert.ToInt32(source.Tag);
+			discsOrderBy = source.Tag.ToInt();
 			ShowDiscs(sender, e);
 		}
 		
@@ -546,7 +546,7 @@ namespace Cavebox.Forms
 			ToolStripMenuItem source = (ToolStripMenuItem) sender;
 			DiscsOrderAscMenuItem.Checked = (source == DiscsOrderAscMenuItem);
 			DiscsOrderDescMenuItem.Checked  = (source == DiscsOrderDescMenuItem);
-			discsOrderWay = Convert.ToInt32(source.Tag);
+			discsOrderWay = source.Tag.ToInt();
 			ShowDiscs(sender, e);
 		}
 		
@@ -612,7 +612,7 @@ namespace Cavebox.Forms
 		{
 			if(cakeboxesListBox.SelectedIndex > -1)
 			{
-				new EditCakebox(this, cakeboxesListBox.SelectedIntValue(), cakeboxesListBox.Text).ShowDialog();
+				new EditCakebox(this, cakeboxesListBox.SelectedValue.ToInt(), cakeboxesListBox.Text).ShowDialog();
 			}
 		}
 

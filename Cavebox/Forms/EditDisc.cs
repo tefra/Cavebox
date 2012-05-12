@@ -31,10 +31,9 @@ namespace Cavebox.Forms
 			app = form;
 			this.Text += " #" + id;
 			this.id = id;
-			this.cid = cid;
-			selectCakebox.DataSource = app.newDiscCakebox.DataSource;
 			discLabel.Text = this.label = Model.FetchDiscLabelById(id);
-			selectCakebox.SelectedValue = cid;
+			selectCakebox.DataSource = app.newDiscCakebox.DataSource;
+			selectCakebox.SelectedValue = this.cid = cid;
 		}
 		
 		/// <summary>
@@ -43,7 +42,7 @@ namespace Cavebox.Forms
 		private void SaveDisc(object sender, EventArgs e)
 		{
 			string newLabel = discLabel.Text.Trim();
-			int newCid = selectCakebox.SelectedIntValue();
+			int newCid = selectCakebox.SelectedValue.ToInt();
 			if((label != newLabel && newLabel.Length > 0) || cid != newCid)
 			{
 				Model.UpdateDisc(id, newCid, newLabel);
@@ -74,7 +73,7 @@ namespace Cavebox.Forms
 		private void enableSaveButton(object sender, EventArgs e)
 		{
 			string newLabel = discLabel.Text.Trim();
-			saveButton.Enabled = ((label != newLabel && newLabel.Length > 0) || selectCakebox.SelectedIntValue() != cid);
+			saveButton.Enabled = ((label != newLabel && newLabel.Length > 0) || selectCakebox.SelectedValue.ToInt() != cid);
 		}
 	}
 }

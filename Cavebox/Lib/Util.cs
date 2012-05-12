@@ -45,23 +45,14 @@ namespace Cavebox.Lib
 		{
 			ctrl.Text = ctrl.Text.Split(':')[0].Trim() + ": " + str;
 		}
-		
+				
 		/// <summary>
-		/// Get the ListBox selected value converted to integer
+		/// Convert object to integer
 		/// </summary>
-		/// <param name="source">The source Listbox</param>
-		public static int SelectedIntValue(this System.Windows.Forms.ListBox source)
+		/// <param name="obj">Object to convert</param>
+		public static int ToInt(this object obj)
 		{
-			return Convert.ToInt32(source.SelectedValue);
-		}
-		
-		/// <summary>
-		/// Get the ComboBox selected value converted to integer
-		/// </summary>
-		/// <param name="source">The source ComboBox</param>
-		public static int SelectedIntValue(this System.Windows.Forms.ComboBox source)
-		{
-			return Convert.ToInt32(source.SelectedValue);
+			return Convert.ToInt32(obj);
 		}
 		
 		private static readonly DateTime Jan1st1970 = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);

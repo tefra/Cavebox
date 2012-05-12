@@ -100,7 +100,7 @@ namespace Cavebox.Lib
 		private static Point ParsePoint(string text)
 		{
 			string[] parts = text.Split(',');
-			return new Point(Convert.ToInt32(parts[0]), Convert.ToInt32(parts[1]));
+			return new Point(parts[0].ToInt(), parts[1].ToInt());
 		}
 	}
 }

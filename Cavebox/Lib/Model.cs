@@ -350,7 +350,7 @@ namespace Cavebox.Lib
 		/// </summary>
 		public static int GetTotalCakeboxes()
 		{
-			return Convert.ToInt32(ExecuteScalar("SELECT COUNT(*) AS total FROM cakebox"));
+			return ExecuteScalar("SELECT COUNT(*) AS total FROM cakebox").ToInt();
 		}
 		
 		/// <summary>
@@ -358,7 +358,7 @@ namespace Cavebox.Lib
 		/// </summary>
 		public static int GetTotalDiscs()
 		{
-			return Convert.ToInt32(ExecuteScalar("SELECT COUNT(*) AS total FROM disc"));
+			return ExecuteScalar("SELECT COUNT(*) AS total FROM disc").ToInt();
 		}
 		
 		/// <summary>
@@ -366,7 +366,7 @@ namespace Cavebox.Lib
 		/// </summary>
 		public static int GetTotalFiles()
 		{
-			return Convert.ToInt32(ExecuteScalar("SELECT COALESCE(SUM(filesno), 0) AS total FROM disc"));
+			return ExecuteScalar("SELECT COALESCE(SUM(filesno), 0) AS total FROM disc").ToInt();
 		}
 		
 		/// <summary>
