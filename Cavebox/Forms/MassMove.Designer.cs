@@ -85,6 +85,7 @@ namespace Cavebox.Forms
 			// moveButton
 			// 
 			this.moveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.moveButton.DialogResult = System.Windows.Forms.DialogResult.OK;
 			this.moveButton.Location = new System.Drawing.Point(146, 311);
 			this.moveButton.Name = "moveButton";
 			this.moveButton.Size = new System.Drawing.Size(75, 23);

@@ -161,6 +161,7 @@ namespace Cavebox.Forms
 		/// </summary>
 		private void ShowFiles(object sender, EventArgs e)
 		{
+			Console.WriteLine("ShowFiles");
 			filesTextBox.Clear();
 			if(discsListBox.SelectedIndex > -1)
 			{
@@ -409,10 +410,10 @@ namespace Cavebox.Forms
 		private void ScanWorkerUpdateRTB(StringBuilder buf, int files)
 		{
 			scanFilesTextBox.Invoke(new MethodInvoker(delegate
-			                                      {
-			                                      	scanFilesTextBox.AppendText(buf.ToString());
-			                                      	scanTotalFiles += files;
-			                                      }));
+			                                          {
+			                                          	scanFilesTextBox.AppendText(buf.ToString());
+			                                          	scanTotalFiles += files;
+			                                          }));
 		}
 		
 		/// <summary>
@@ -495,7 +496,11 @@ namespace Cavebox.Forms
 		{
 			if(cakeboxesListBox.SelectedIndex > -1)
 			{
-				new MassMove(this, cakeboxesListBox.SelectedValue.ToInt()).ShowDialog();
+				int source = cakeboxesListBox.SelectedValue.ToInt();
+				if(new MassMove(source, discsListBox.DataSource, discCakeboxComboBox.DataSource).ShowDialog(this) == DialogResult.OK)
+				{
+					ShowCakeboxes();
+				}
 			}
 		}
 		
@@ -507,7 +512,19 @@ namespace Cavebox.Forms
 			// Just making sure we have a disc list with a selected cakebox
 			if(discsListBox.SelectedIndex > -1 && cakeboxesListBox.SelectedIndex > -1)
 			{
-				new EditDisc(this, discsListBox.SelectedValue.ToInt(), cakeboxesListBox.SelectedValue.ToInt()).ShowDialog();
+				int id = discsListBox.SelectedValue.ToInt();
+				int boxId = cakeboxesListBox.SelectedValue.ToInt();
+				if(new EditDisc(id, boxId, discCakeboxComboBox.DataSource).ShowDialog(this) == DialogResult.OK)
+				{
+					if(_filter != null)
+					{
+						ShowCakeboxes();
+					}
+					else
+					{
+						ShowDiscs(sender, e);
+					}
+				}
 			}
 		}
 
@@ -602,7 +619,10 @@ namespace Cavebox.Forms
 		/// </summary>
 		private void OpenAddCakeboxForm(object sender, EventArgs e)
 		{
-			new EditCakebox(this).ShowDialog();
+			if(new EditCakebox().ShowDialog(this) == DialogResult.OK)
+			{
+				ShowCakeboxes(0, true);
+			}
 		}
 		
 		/// <summary>
@@ -612,7 +632,11 @@ namespace Cavebox.Forms
 		{
 			if(cakeboxesListBox.SelectedIndex > -1)
 			{
-				new EditCakebox(this, cakeboxesListBox.SelectedValue.ToInt(), cakeboxesListBox.Text).ShowDialog();
+				int id = cakeboxesListBox.SelectedValue.ToInt();
+				if(new EditCakebox(id, cakeboxesListBox.Text).ShowDialog(this) == DialogResult.OK)
+				{
+					ShowCakeboxes(id, true);
+				}
 			}
 		}
 
@@ -621,7 +645,7 @@ namespace Cavebox.Forms
 		/// </summary>
 		private void OpenChangelog(object sender, EventArgs e)
 		{
-			new Changelog().ShowDialog();
+			new Changelog().ShowDialog(this);
 		}
 		
 		/// <summary>

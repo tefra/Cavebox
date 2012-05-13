@@ -17,22 +17,19 @@ namespace Cavebox.Forms
 		int id;
 		int cid;
 		string label;
-		Main app;
 		
 		/// <summary>
 		/// Initialize components and their values from main form
 		/// </summary>
-		/// <param name="form">Main form instance</param>
 		/// <param name="id">Disc id number</param>
-		/// <param name="cid">Disc's cakebox id number</param>
-		public EditDisc(Main form, int id, int cid)
+		/// <param name="cakeboxes">Cakeboxes Identity List</param>
+		public EditDisc(int id, int cid, object cakeboxes)
 		{
 			InitializeComponent();
-			app = form;
 			this.Text += " #" + id;
 			this.id = id;
 			discLabel.Text = this.label = Model.FetchDiscLabelById(id);
-			selectCakebox.DataSource = app.discCakeboxComboBox.DataSource;
+			selectCakebox.DataSource = cakeboxes;
 			selectCakebox.SelectedValue = this.cid = cid;
 		}
 		
@@ -47,14 +44,6 @@ namespace Cavebox.Forms
 			{
 				Model.UpdateDisc(id, newCid, newLabel);
 				Console.WriteLine(Lang.GetString("_updatedDisc", id));
-				if(app._filter != null)
-				{
-					app.ShowCakeboxes();
-				}
-				else
-				{
-					app.ShowDiscs(sender, e);
-				}
 				CloseForm(sender, e);
 			}
 		}

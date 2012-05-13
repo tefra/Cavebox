@@ -15,7 +15,6 @@ namespace Cavebox.Forms
 	/// </summary>
 	public partial class MassMove : Form
 	{
-		Main app;
 		Boolean checkFlag = false;
 		int source;
 		
@@ -24,12 +23,11 @@ namespace Cavebox.Forms
 		/// </summary>
 		/// <param name="form">Main form instance</param>
 		/// <param name="source">Cakebox id number</param>
-		public MassMove(Main form, int source)
+		public MassMove(int source, object discs, object cakeboxes)
 		{
 			InitializeComponent();
-			this.app = form;
-			selectDiscs.DataSource = app.discsListBox.DataSource;
-			selectCakebox.DataSource = app.discCakeboxComboBox.DataSource;
+			selectDiscs.DataSource = discs;
+			selectCakebox.DataSource = cakeboxes;
 			selectCakebox.SelectedValue = this.source = source;
 		}
 		
@@ -58,9 +56,7 @@ namespace Cavebox.Forms
 					discs.Add(item.Key);
 					Console.Write(item.Value + "\n");
 				}
-				
 				Model.MoveDiscs(target, discs);
-				app.ShowCakeboxes();
 				closeForm(sender, e);
 			}
 		}

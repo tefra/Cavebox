@@ -3,8 +3,8 @@
 - Replaced Check/Uncheck All button in the mass move form with an actual checkbox
 - Added filter shortcut in the file list context menu
 - Added sort discs options to the local session storage
+- Fixed bug with invisible dialog forms when always on top is checked
 - Cleaned up code (i discovered C# extensions)
-
 * The application icon is still from the famfam silk library
 -------------------------------------------------------------
 v2.1.2

@@ -49,6 +49,7 @@ namespace Cavebox.Forms
 			// 
 			// saveButton
 			// 
+			this.saveButton.DialogResult = System.Windows.Forms.DialogResult.OK;
 			this.saveButton.Enabled = false;
 			this.saveButton.Location = new System.Drawing.Point(216, 38);
 			this.saveButton.Name = "saveButton";
