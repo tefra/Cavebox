@@ -758,28 +758,6 @@ namespace Cavebox.Forms
 			ListBox listbox = (ListBox) sender;
 			listbox.SelectedIndex = listbox.IndexFromPoint(e.X, e.Y);
 		}
-
-		/// <summary>
-		/// Based on what tab is selected
-		/// - Change accept button to save new disc button or toggle scan path button
-		/// </summary>
-		private void TabControlSelectedIndexChanged(object sender, EventArgs e)
-		{
-			switch(tabControl.SelectedIndex)
-			{
-				case 0:
-					AcceptButton = null;
-					break;
-					
-				case 1:
-					AcceptButton = saveDiscButton.Enabled ? saveDiscButton : toggleScanPathButton;
-					break;
-					
-				case 2:
-					AcceptButton = null;
-					break;
-			}
-		}
 		
 		/// <summary>
 		/// Hide delete option on cakeboxes listbox if it containns discs
