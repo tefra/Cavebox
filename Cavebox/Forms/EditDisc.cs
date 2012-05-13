@@ -19,7 +19,7 @@ namespace Cavebox.Forms
 		string label;
 		
 		/// <summary>
-		/// Initialize components and their values from main form
+		/// Initialize components and their values
 		/// </summary>
 		/// <param name="id">Disc id number</param>
 		/// <param name="cakeboxes">Cakeboxes Identity List</param>

@@ -19,10 +19,11 @@ namespace Cavebox.Forms
 		int source;
 		
 		/// <summary>
-		/// Initialize components and their values from main form
+		/// Initialize components and their values
 		/// </summary>
-		/// <param name="form">Main form instance</param>
-		/// <param name="source">Cakebox id number</param>
+		/// <param name="source">Source Cakebox id number</param>
+		/// <param name="cakeboxes">Discs Identity List</param>
+		/// <param name="cakeboxes">Cakeboxes Identity List</param>
 		public MassMove(int source, object discs, object cakeboxes)
 		{
 			InitializeComponent();
