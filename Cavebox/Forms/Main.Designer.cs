@@ -232,27 +232,27 @@ namespace Cavebox.Forms
 									this.toolStripSeparator2,
 									this.massMoveDiscsMenuItem});
 			this.cakeboxesMenu.Name = "cakeboxesActionsMenu";
-			this.cakeboxesMenu.Size = new System.Drawing.Size(153, 126);
+			this.cakeboxesMenu.Size = new System.Drawing.Size(135, 104);
 			this.cakeboxesMenu.Opening += new System.ComponentModel.CancelEventHandler(this.CakeboxesMenuOpening);
 			// 
 			// copyCakeboxLabelMenuItem
 			// 
 			this.copyCakeboxLabelMenuItem.Image = global::Cavebox.Properties.Images.ui_copy;
 			this.copyCakeboxLabelMenuItem.Name = "copyCakeboxLabelMenuItem";
-			this.copyCakeboxLabelMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.copyCakeboxLabelMenuItem.Size = new System.Drawing.Size(134, 22);
 			this.copyCakeboxLabelMenuItem.Text = "Copy";
 			this.copyCakeboxLabelMenuItem.Click += new System.EventHandler(this.ContextCopyClick);
 			// 
 			// toolStripSeparator8
 			// 
 			this.toolStripSeparator8.Name = "toolStripSeparator8";
-			this.toolStripSeparator8.Size = new System.Drawing.Size(149, 6);
+			this.toolStripSeparator8.Size = new System.Drawing.Size(131, 6);
 			// 
 			// editCakeboxMenuItem
 			// 
 			this.editCakeboxMenuItem.Image = global::Cavebox.Properties.Images.ui_edit;
 			this.editCakeboxMenuItem.Name = "editCakeboxMenuItem";
-			this.editCakeboxMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.editCakeboxMenuItem.Size = new System.Drawing.Size(134, 22);
 			this.editCakeboxMenuItem.Text = "Edit";
 			this.editCakeboxMenuItem.Click += new System.EventHandler(this.OpenEditCakeboxForm);
 			// 
@@ -260,20 +260,20 @@ namespace Cavebox.Forms
 			// 
 			this.deleteCakeboxMenuItem.Image = global::Cavebox.Properties.Images.ui_delete;
 			this.deleteCakeboxMenuItem.Name = "deleteCakeboxMenuItem";
-			this.deleteCakeboxMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.deleteCakeboxMenuItem.Size = new System.Drawing.Size(134, 22);
 			this.deleteCakeboxMenuItem.Text = "Delete";
 			this.deleteCakeboxMenuItem.Click += new System.EventHandler(this.DeleteCakebox);
 			// 
 			// toolStripSeparator2
 			// 
 			this.toolStripSeparator2.Name = "toolStripSeparator2";
-			this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+			this.toolStripSeparator2.Size = new System.Drawing.Size(131, 6);
 			// 
 			// massMoveDiscsMenuItem
 			// 
 			this.massMoveDiscsMenuItem.Image = global::Cavebox.Properties.Images.ui_move;
 			this.massMoveDiscsMenuItem.Name = "massMoveDiscsMenuItem";
-			this.massMoveDiscsMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.massMoveDiscsMenuItem.Size = new System.Drawing.Size(134, 22);
 			this.massMoveDiscsMenuItem.Text = "Mass Move";
 			this.massMoveDiscsMenuItem.Click += new System.EventHandler(this.OpenMassMove);
 			// 
@@ -314,27 +314,27 @@ namespace Cavebox.Forms
 									this.toolStripSeparator3,
 									this.DiscsOrderMenu});
 			this.discsMenu.Name = "discsActionsMenu";
-			this.discsMenu.Size = new System.Drawing.Size(153, 126);
+			this.discsMenu.Size = new System.Drawing.Size(108, 104);
 			this.discsMenu.Opening += new System.ComponentModel.CancelEventHandler(this.DiscsMenuOpening);
 			// 
 			// copyDiscLabelMenuItem
 			// 
 			this.copyDiscLabelMenuItem.Image = global::Cavebox.Properties.Images.ui_copy;
 			this.copyDiscLabelMenuItem.Name = "copyDiscLabelMenuItem";
-			this.copyDiscLabelMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.copyDiscLabelMenuItem.Size = new System.Drawing.Size(107, 22);
 			this.copyDiscLabelMenuItem.Text = "Copy";
 			this.copyDiscLabelMenuItem.Click += new System.EventHandler(this.ContextCopyClick);
 			// 
 			// toolStripSeparator9
 			// 
 			this.toolStripSeparator9.Name = "toolStripSeparator9";
-			this.toolStripSeparator9.Size = new System.Drawing.Size(149, 6);
+			this.toolStripSeparator9.Size = new System.Drawing.Size(104, 6);
 			// 
 			// editDiscMenuItem
 			// 
 			this.editDiscMenuItem.Image = global::Cavebox.Properties.Images.ui_edit;
 			this.editDiscMenuItem.Name = "editDiscMenuItem";
-			this.editDiscMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.editDiscMenuItem.Size = new System.Drawing.Size(107, 22);
 			this.editDiscMenuItem.Text = "Edit";
 			this.editDiscMenuItem.Click += new System.EventHandler(this.OpenEditDisc);
 			// 
@@ -342,14 +342,14 @@ namespace Cavebox.Forms
 			// 
 			this.deleteDiscMenuItem.Image = global::Cavebox.Properties.Images.ui_delete;
 			this.deleteDiscMenuItem.Name = "deleteDiscMenuItem";
-			this.deleteDiscMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.deleteDiscMenuItem.Size = new System.Drawing.Size(107, 22);
 			this.deleteDiscMenuItem.Text = "Delete";
 			this.deleteDiscMenuItem.Click += new System.EventHandler(this.DeleteDisc);
 			// 
 			// toolStripSeparator3
 			// 
 			this.toolStripSeparator3.Name = "toolStripSeparator3";
-			this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
+			this.toolStripSeparator3.Size = new System.Drawing.Size(104, 6);
 			// 
 			// DiscsOrderMenu
 			// 
@@ -362,7 +362,7 @@ namespace Cavebox.Forms
 									this.DiscsOrderDescMenuItem});
 			this.DiscsOrderMenu.Image = global::Cavebox.Properties.Images.ui_sort;
 			this.DiscsOrderMenu.Name = "DiscsOrderMenu";
-			this.DiscsOrderMenu.Size = new System.Drawing.Size(152, 22);
+			this.DiscsOrderMenu.Size = new System.Drawing.Size(107, 22);
 			this.DiscsOrderMenu.Text = "Sort";
 			// 
 			// DiscsOrderByIdMenuItem
@@ -908,26 +908,26 @@ namespace Cavebox.Forms
 									this.toolStripSeparator7,
 									this.resetScanMenuItem});
 			this.scanFilesMenu.Name = "scanLogActionsMenu";
-			this.scanFilesMenu.Size = new System.Drawing.Size(153, 76);
+			this.scanFilesMenu.Size = new System.Drawing.Size(103, 54);
 			this.scanFilesMenu.Opening += new System.ComponentModel.CancelEventHandler(this.ScanLogMenuOpening);
 			// 
 			// copyScanFileListMenuItem
 			// 
 			this.copyScanFileListMenuItem.Image = global::Cavebox.Properties.Images.ui_copy;
 			this.copyScanFileListMenuItem.Name = "copyScanFileListMenuItem";
-			this.copyScanFileListMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.copyScanFileListMenuItem.Size = new System.Drawing.Size(102, 22);
 			this.copyScanFileListMenuItem.Text = "Copy";
 			this.copyScanFileListMenuItem.Click += new System.EventHandler(this.ContextCopyClick);
 			// 
 			// toolStripSeparator7
 			// 
 			this.toolStripSeparator7.Name = "toolStripSeparator7";
-			this.toolStripSeparator7.Size = new System.Drawing.Size(149, 6);
+			this.toolStripSeparator7.Size = new System.Drawing.Size(99, 6);
 			// 
 			// resetScanMenuItem
 			// 
 			this.resetScanMenuItem.Name = "resetScanMenuItem";
-			this.resetScanMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.resetScanMenuItem.Size = new System.Drawing.Size(102, 22);
 			this.resetScanMenuItem.Text = "Reset";
 			this.resetScanMenuItem.Click += new System.EventHandler(this.ScanWorkerReset);
 			// 
