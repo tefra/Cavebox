@@ -181,7 +181,7 @@ namespace Cavebox.Forms
 			this.cakeboxDiscSplitContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
 									| System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
-			this.cakeboxDiscSplitContainer.Location = new System.Drawing.Point(0, 61);
+			this.cakeboxDiscSplitContainer.Location = new System.Drawing.Point(0, 60);
 			this.cakeboxDiscSplitContainer.Name = "cakeboxDiscSplitContainer";
 			// 
 			// cakeboxDiscSplitContainer.Panel1
@@ -418,7 +418,7 @@ namespace Cavebox.Forms
 			this.filterGroupBox.Controls.Add(this.filterTextBox);
 			this.filterGroupBox.Location = new System.Drawing.Point(0, 0);
 			this.filterGroupBox.Name = "filterGroupBox";
-			this.filterGroupBox.Size = new System.Drawing.Size(520, 55);
+			this.filterGroupBox.Size = new System.Drawing.Size(520, 54);
 			this.filterGroupBox.TabIndex = 0;
 			this.filterGroupBox.TabStop = false;
 			this.filterGroupBox.Text = "Filter";
@@ -880,7 +880,7 @@ namespace Cavebox.Forms
 									| System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
 			this.scanFilesGroupBox.Controls.Add(this.scanFilesTextBox);
-			this.scanFilesGroupBox.Location = new System.Drawing.Point(3, 64);
+			this.scanFilesGroupBox.Location = new System.Drawing.Point(3, 63);
 			this.scanFilesGroupBox.Name = "scanFilesGroupBox";
 			this.scanFilesGroupBox.Size = new System.Drawing.Size(520, 339);
 			this.scanFilesGroupBox.TabIndex = 1;
@@ -940,7 +940,7 @@ namespace Cavebox.Forms
 			this.scanPathGroupBox.Controls.Add(this.toggleScanPathButton);
 			this.scanPathGroupBox.Location = new System.Drawing.Point(3, 3);
 			this.scanPathGroupBox.Name = "scanPathGroupBox";
-			this.scanPathGroupBox.Size = new System.Drawing.Size(520, 55);
+			this.scanPathGroupBox.Size = new System.Drawing.Size(520, 54);
 			this.scanPathGroupBox.TabIndex = 0;
 			this.scanPathGroupBox.TabStop = false;
 			this.scanPathGroupBox.Text = "Scan Path";

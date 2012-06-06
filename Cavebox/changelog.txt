@@ -1,7 +1,8 @@
 ﻿v2.1.4
 - Added last import/export path used to session storage
-- Fixed bug in scaning empty path
+- Fixed bug in scaning empty path (resulting in the exception)
 - Fixed bug in save new disc (wrong cakebox name on the result msg)
+- Tiny UI Update
 -------------------------------------------------------------
 v2.1.3 (Codename: GA)
 - Updated to SQLite 3.7.12.1
