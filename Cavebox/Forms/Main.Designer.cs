@@ -1065,7 +1065,7 @@ namespace Cavebox.Forms
 			this.Icon = global::Cavebox.Properties.Images.app;
 			this.MainMenuStrip = this.menuStrip;
 			this.Name = "Main";
-			this.Text = "Cavebox 2.1.3";
+			this.Text = "Cavebox 2.1.4";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainFormClosing);
 			this.Load += new System.EventHandler(this.MainFormLoad);
 			this.FileListSplitContainer.Panel1.ResumeLayout(false);

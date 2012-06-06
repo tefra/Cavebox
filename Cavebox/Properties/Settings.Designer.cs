@@ -91,7 +91,20 @@ namespace Cavebox.Properties {
 		[global::System.Configuration.UserScopedSettingAttribute()]
 		[global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
 		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-		[global::System.Configuration.DefaultSettingValueAttribute("C:\\")]
+		[global::System.Configuration.DefaultSettingValueAttribute("")]
+		public string LastBackupDir {
+			get {
+				return ((string)(this["LastBackupDir"]));
+			}
+			set {
+				this["LastBackupDir"] = value;
+			}
+		}
+		
+		[global::System.Configuration.UserScopedSettingAttribute()]
+		[global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+		[global::System.Configuration.DefaultSettingValueAttribute("")]
 		public string LastScanPath {
 			get {
 				return ((string)(this["LastScanPath"]));

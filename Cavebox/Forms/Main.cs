@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+
 using Cavebox.Lib;
 
 namespace Cavebox.Forms
@@ -68,6 +69,7 @@ namespace Cavebox.Forms
 				control.ReadValue();
 			}
 			
+			Options.LastBackupDir = (Options.LastBackupDir == String.Empty) ? Path.GetDirectoryName(Application.ExecutablePath) : Options.LastBackupDir;
 			// Apply session storage to the discs sort menus/flags and prevent user mischief in the settings
 			discsOrderBy = (Options.DiscsOrderBy > 2 || Options.DiscsOrderBy < 0) ? 1 : Options.DiscsOrderBy;
 			discsOrderWay = (Options.DiscsOrderWay > 1 || Options.DiscsOrderWay < 0) ? 0 : Options.DiscsOrderWay;
@@ -115,19 +117,16 @@ namespace Cavebox.Forms
 		/// <param name="refreshDiscStats">Refresh or not the discs/files stats</param>
 		public void ShowCakeboxes(int selectValue = 0, Boolean refreshCakeboxesCache = false, Boolean refreshDiscStats = false)
 		{
-			List<Identity> cakeboxes = null;
 			if(refreshCakeboxesCache)
 			{
-				discCakeboxComboBox.DataSource = cakeboxes = Model.FetchCakeboxes();
+				discCakeboxComboBox.DataSource = Model.FetchCakeboxes();
 				RefreshStatusBar(true, refreshDiscStats);
-			}
-			else
-			{
-				cakeboxes = (List<Identity>) discCakeboxComboBox.DataSource;
 			}
 
 			cakeboxesListBox.SelectedValueChanged -= ShowDiscs;
-			cakeboxesListBox.DataSource = (_filterLike == null) ? cakeboxes : Model.FetchCakeboxes(_filterLike);
+			// Stupid controls sharing datasource behavior fix
+			cakeboxesListBox.BindingContext = new BindingContext();
+			cakeboxesListBox.DataSource = (_filterLike == null) ? (List<Identity>) discCakeboxComboBox.DataSource : Model.FetchCakeboxes(_filterLike);
 			cakeboxesListBox.SelectedValueChanged += ShowDiscs;
 			cakeboxesGroupBox.InsertDesc(cakeboxesListBox.Items.Count);
 			
@@ -299,13 +298,11 @@ namespace Cavebox.Forms
 			saveDiscButton.Enabled = false;
 			if(!scanWorker.IsBusy)
 			{
-				string path = scanPathComboBox.Text;
-				if(!path.EndsWith(Path.DirectorySeparatorChar.ToString()))
-				{
-					path += Path.DirectorySeparatorChar;
-				}
+				string path = scanPathComboBox.Text.Trim().TrimEnd(Path.DirectorySeparatorChar);
 				if(Directory.Exists(path))
 				{
+					path = Path.GetFullPath(path + Path.DirectorySeparatorChar);
+					scanPathComboBox.Text = path;
 					Console.WriteLine(Lang.GetString("_scanStarting", path));
 					stopWatch = DateTime.Now;
 					scanFilesTextBox.Focus();
@@ -694,12 +691,13 @@ namespace Cavebox.Forms
 		private void ExportXml(object sender, EventArgs e)
 		{
 			FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
-			folderBrowserDialog.SelectedPath = Path.GetDirectoryName(Application.ExecutablePath);
+			folderBrowserDialog.SelectedPath = Options.LastBackupDir;
 			if(folderBrowserDialog.ShowDialog() == DialogResult.OK)
 			{
 				Cursor.Current = Cursors.WaitCursor;
 				stopWatch = DateTime.Now;
 				SQLiteXmlFile.Save(Path.Combine(folderBrowserDialog.SelectedPath, DateTime.Now.ToString("yyyy-MM-dd-HHmmss") + ".xml"));
+				Options.LastBackupDir = folderBrowserDialog.SelectedPath;
 				Cursor.Current = Cursors.Default;
 				Console.WriteLine(Lang.GetString("_exportCompleted", (DateTime.Now - stopWatch).TotalSeconds));
 			}
@@ -711,7 +709,7 @@ namespace Cavebox.Forms
 		private void ImportXml(object sender, EventArgs e)
 		{
 			OpenFileDialog openFileDialog = new OpenFileDialog();
-			openFileDialog.InitialDirectory = Path.GetDirectoryName(Application.ExecutablePath);
+			openFileDialog.InitialDirectory = Options.LastBackupDir;
 			openFileDialog.Filter = Lang.GetString("_xmlFilesDesc");
 			openFileDialog.Title = Lang.GetString("_selectBackupFile");
 			
@@ -721,6 +719,7 @@ namespace Cavebox.Forms
 				stopWatch = DateTime.Now;
 				int records = SQLiteXmlFile.Load(openFileDialog.FileName);
 				ShowCakeboxes(0, true, true);
+				Options.LastBackupDir = Path.GetDirectoryName(openFileDialog.FileName);
 				Cursor.Current = Cursors.Default;
 				Console.WriteLine(Lang.GetString("_importCompleted", records, (DateTime.Now - stopWatch).TotalSeconds));
 			}

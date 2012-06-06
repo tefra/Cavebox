@@ -19,8 +19,11 @@
     <Setting Name="FileListSplitterDistance" Type="System.Int32" Scope="User" Provider="PortableSettingsProvider" Roaming="false">
       <Value Profile="(Default)">310</Value>
     </Setting>
+    <Setting Name="LastBackupDir" Type="System.String" Scope="User" Provider="PortableSettingsProvider" Roaming="false">
+      <Value Profile="(Default)" />
+    </Setting>
     <Setting Name="LastScanPath" Type="System.String" Scope="User" Provider="PortableSettingsProvider" Roaming="false">
-      <Value Profile="(Default)">C:\</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="SelectedTabIndex" Type="System.Int32" Scope="User" Provider="PortableSettingsProvider" Roaming="false">
       <Value Profile="(Default)">0</Value>
