@@ -161,7 +161,6 @@ namespace Cavebox.Forms
 		/// </summary>
 		private void ShowFiles(object sender, EventArgs e)
 		{
-			Console.WriteLine("ShowFiles");
 			filesTextBox.Clear();
 			if(discsListBox.SelectedIndex > -1)
 			{
