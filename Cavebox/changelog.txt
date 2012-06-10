@@ -1,7 +1,8 @@
 ﻿v2.1.5
-- Added cakeboxes sort options
+- Added cakeboxes sort options (id and label)
 - Added discs counter for cakeboxes
 - Added command to rebuild discs counters
+- Removed deprecated procedure "Rebuild file counters"
 - Code Cleanup
 -------------------------------------------------------------
 v2.1.4

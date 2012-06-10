@@ -18,14 +18,15 @@ namespace Cavebox.Lib
 	public class ControlBinding
 	{
 		Cavebox.Properties.Settings Options = Properties.Settings.Default;
-		
+
 		/// <summary>
 		/// Constructor initializing Control, Property name and Setting name
 		/// </summary>
 		/// <param name="ctrl">The object instance</param>
 		/// <param name="property">The control's property title</param>
 		/// <param name="key">The settings key</param>
-		public ControlBinding(object obj, string property, string key, bool allowReset = false)
+		/// <param name="allowReset">Allow user to reset value</param>
+		public ControlBinding(object obj, string property, string key, bool allowReset = true)
 		{
 			Obj = obj;
 			Property = obj.GetType().GetProperty(property);

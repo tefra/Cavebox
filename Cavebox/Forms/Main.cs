@@ -60,8 +60,8 @@ namespace Cavebox.Forms
 			controlBindings.Add(new ControlBinding(cakeboxDiscSplitContainer, "SplitterDistance", "CakeboxDiscSplitterDistance"));
 			controlBindings.Add(new ControlBinding(tabControl, "SelectedIndex", "SelectedTabIndex"));
 			controlBindings.Add(new ControlBinding(scanPathComboBox, "Text", "LastScanPath"));
-			controlBindings.Add(new ControlBinding(SortDiscsMenu, "Tag", "SortDiscs"));
-			controlBindings.Add(new ControlBinding(SortCakeboxesMenu, "Tag", "SortCakeboxes"));
+			controlBindings.Add(new ControlBinding(SortDiscsMenu, "Tag", "SortDiscs", false));
+			controlBindings.Add(new ControlBinding(SortCakeboxesMenu, "Tag", "SortCakeboxes", false));
 			scanPathComboBox.Items.AddRange(DriveInfo.GetDrives());
 			
 			foreach(ControlBinding control in controlBindings)
@@ -549,22 +549,20 @@ namespace Cavebox.Forms
 			}
 		}
 		
-		
 		/// <summary>
-		/// 
+		/// Apply radio group behavior to menu items by unchecking all except the source item.
+		/// Store the tags of the 2 selected values (sort by field & sort way) to parent menu item tag as
+		/// a point. Refresh cakeboxes or discs listboxes depending the source's parent.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void SortMenuChanged(object sender, EventArgs e)
+		private void SortMenuItemClicked(object sender, EventArgs e)
 		{
 			ToolStripMenuItem source = (ToolStripMenuItem) sender;
 			ToolStripMenuItem parent = (ToolStripMenuItem) source.OwnerItem;
 			
-			int total = parent.DropDownItems.Count;
-			int separator = total - 3;
+			int separator = parent.DropDownItems.Count - 3;
 			int index = parent.DropDownItems.IndexOf(source);
 			int start = (index < separator) ? 0 : separator + 1;
-			int end = (index < separator) ? separator : total;
+			int end = (index < separator) ? separator : parent.DropDownItems.Count;
 			
 			for(int i = start; i < end; i++)
 			{
@@ -673,19 +671,7 @@ namespace Cavebox.Forms
 		{
 			new Changelog().ShowDialog(this);
 		}
-		
-		/// <summary>
-		/// Rebuild file counters (Deprecated)
-		/// </summary>
-		private void RebuildFileCounters(object sender, EventArgs e)
-		{
-			Cursor.Current = Cursors.WaitCursor;
-			stopWatch = DateTime.Now;
-			Model.RebuildFileCounters();
-			Console.WriteLine(Lang.GetString("_rebuildingFileCountersCompleted", (DateTime.Now - stopWatch).TotalSeconds));
-			Cursor.Current = Cursors.Default;
-		}
-		
+						
 		/// <summary>
 		/// Run sqlite vacuum procedure to rebuild database to save database and speed up things
 		/// </summary>
@@ -863,15 +849,5 @@ namespace Cavebox.Forms
 				toolTip.Hide(source);
 			}
 		}
-		
-		private void RebuildDiscCounters(object sender, EventArgs e)
-		{
-			Cursor.Current = Cursors.WaitCursor;
-			stopWatch = DateTime.Now;
-			Model.RebuildDiscCounters();
-			Console.WriteLine(Lang.GetString("_rebuildingFileCountersCompleted", (DateTime.Now - stopWatch).TotalSeconds));
-			Cursor.Current = Cursors.Default;
-		}
-
 	}
 }

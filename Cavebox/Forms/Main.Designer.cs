@@ -48,7 +48,6 @@ namespace Cavebox.Forms
 			this.SortCakeboxesMenu = new System.Windows.Forms.ToolStripMenuItem();
 			this.SortCakeboxesByIdMenu = new System.Windows.Forms.ToolStripMenuItem();
 			this.SortCakeboxesByLabelMenu = new System.Windows.Forms.ToolStripMenuItem();
-			this.SortCakeboxesByDiscsNoMenu = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
 			this.SortCakeboxesAscMenu = new System.Windows.Forms.ToolStripMenuItem();
 			this.SortCakeboxesDescMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -96,10 +95,8 @@ namespace Cavebox.Forms
 			this.alwaysOnTopMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.resetWindowMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.rebuildTotalFilesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.vacuumDatabaseMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.dropDataMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.rebuildTotalDiscsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.changelogMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.statusStrip = new System.Windows.Forms.StatusStrip();
@@ -248,20 +245,20 @@ namespace Cavebox.Forms
 			// 
 			this.copyCakeboxLabelMenuItem.Image = global::Cavebox.Properties.Images.ui_copy;
 			this.copyCakeboxLabelMenuItem.Name = "copyCakeboxLabelMenuItem";
-			this.copyCakeboxLabelMenuItem.Size = new System.Drawing.Size(134, 22);
+			this.copyCakeboxLabelMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.copyCakeboxLabelMenuItem.Text = "Copy";
 			this.copyCakeboxLabelMenuItem.Click += new System.EventHandler(this.ContextCopyClick);
 			// 
 			// toolStripSeparator8
 			// 
 			this.toolStripSeparator8.Name = "toolStripSeparator8";
-			this.toolStripSeparator8.Size = new System.Drawing.Size(131, 6);
+			this.toolStripSeparator8.Size = new System.Drawing.Size(149, 6);
 			// 
 			// editCakeboxMenuItem
 			// 
 			this.editCakeboxMenuItem.Image = global::Cavebox.Properties.Images.ui_edit;
 			this.editCakeboxMenuItem.Name = "editCakeboxMenuItem";
-			this.editCakeboxMenuItem.Size = new System.Drawing.Size(134, 22);
+			this.editCakeboxMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.editCakeboxMenuItem.Text = "Edit";
 			this.editCakeboxMenuItem.Click += new System.EventHandler(this.OpenEditCakeboxForm);
 			// 
@@ -269,20 +266,20 @@ namespace Cavebox.Forms
 			// 
 			this.deleteCakeboxMenuItem.Image = global::Cavebox.Properties.Images.ui_delete;
 			this.deleteCakeboxMenuItem.Name = "deleteCakeboxMenuItem";
-			this.deleteCakeboxMenuItem.Size = new System.Drawing.Size(134, 22);
+			this.deleteCakeboxMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.deleteCakeboxMenuItem.Text = "Delete";
 			this.deleteCakeboxMenuItem.Click += new System.EventHandler(this.DeleteCakebox);
 			// 
 			// toolStripSeparator2
 			// 
 			this.toolStripSeparator2.Name = "toolStripSeparator2";
-			this.toolStripSeparator2.Size = new System.Drawing.Size(131, 6);
+			this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
 			// 
 			// massMoveDiscsMenuItem
 			// 
 			this.massMoveDiscsMenuItem.Image = global::Cavebox.Properties.Images.ui_move;
 			this.massMoveDiscsMenuItem.Name = "massMoveDiscsMenuItem";
-			this.massMoveDiscsMenuItem.Size = new System.Drawing.Size(134, 22);
+			this.massMoveDiscsMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.massMoveDiscsMenuItem.Text = "Mass Move";
 			this.massMoveDiscsMenuItem.Click += new System.EventHandler(this.OpenMassMove);
 			// 
@@ -291,59 +288,50 @@ namespace Cavebox.Forms
 			this.SortCakeboxesMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
 									this.SortCakeboxesByIdMenu,
 									this.SortCakeboxesByLabelMenu,
-									this.SortCakeboxesByDiscsNoMenu,
 									this.toolStripSeparator10,
 									this.SortCakeboxesAscMenu,
 									this.SortCakeboxesDescMenu});
 			this.SortCakeboxesMenu.Image = global::Cavebox.Properties.Images.ui_sort;
 			this.SortCakeboxesMenu.Name = "SortCakeboxesMenu";
-			this.SortCakeboxesMenu.Size = new System.Drawing.Size(134, 22);
+			this.SortCakeboxesMenu.Size = new System.Drawing.Size(152, 22);
 			this.SortCakeboxesMenu.Text = "Sort";
 			// 
 			// SortCakeboxesByIdMenu
 			// 
 			this.SortCakeboxesByIdMenu.Name = "SortCakeboxesByIdMenu";
-			this.SortCakeboxesByIdMenu.Size = new System.Drawing.Size(152, 22);
+			this.SortCakeboxesByIdMenu.Size = new System.Drawing.Size(136, 22);
 			this.SortCakeboxesByIdMenu.Tag = "0";
 			this.SortCakeboxesByIdMenu.Text = "Id";
-			this.SortCakeboxesByIdMenu.Click += new System.EventHandler(this.SortMenuChanged);
+			this.SortCakeboxesByIdMenu.Click += new System.EventHandler(this.SortMenuItemClicked);
 			// 
 			// SortCakeboxesByLabelMenu
 			// 
 			this.SortCakeboxesByLabelMenu.Name = "SortCakeboxesByLabelMenu";
-			this.SortCakeboxesByLabelMenu.Size = new System.Drawing.Size(152, 22);
+			this.SortCakeboxesByLabelMenu.Size = new System.Drawing.Size(136, 22);
 			this.SortCakeboxesByLabelMenu.Tag = "1";
 			this.SortCakeboxesByLabelMenu.Text = "Label";
-			this.SortCakeboxesByLabelMenu.Click += new System.EventHandler(this.SortMenuChanged);
-			// 
-			// SortCakeboxesByDiscsNoMenu
-			// 
-			this.SortCakeboxesByDiscsNoMenu.Name = "SortCakeboxesByDiscsNoMenu";
-			this.SortCakeboxesByDiscsNoMenu.Size = new System.Drawing.Size(152, 22);
-			this.SortCakeboxesByDiscsNoMenu.Tag = "2";
-			this.SortCakeboxesByDiscsNoMenu.Text = "No. Discs";
-			this.SortCakeboxesByDiscsNoMenu.Click += new System.EventHandler(this.SortMenuChanged);
+			this.SortCakeboxesByLabelMenu.Click += new System.EventHandler(this.SortMenuItemClicked);
 			// 
 			// toolStripSeparator10
 			// 
 			this.toolStripSeparator10.Name = "toolStripSeparator10";
-			this.toolStripSeparator10.Size = new System.Drawing.Size(149, 6);
+			this.toolStripSeparator10.Size = new System.Drawing.Size(133, 6);
 			// 
 			// SortCakeboxesAscMenu
 			// 
 			this.SortCakeboxesAscMenu.Name = "SortCakeboxesAscMenu";
-			this.SortCakeboxesAscMenu.Size = new System.Drawing.Size(152, 22);
+			this.SortCakeboxesAscMenu.Size = new System.Drawing.Size(136, 22);
 			this.SortCakeboxesAscMenu.Tag = "0";
 			this.SortCakeboxesAscMenu.Text = "Ascending";
-			this.SortCakeboxesAscMenu.Click += new System.EventHandler(this.SortMenuChanged);
+			this.SortCakeboxesAscMenu.Click += new System.EventHandler(this.SortMenuItemClicked);
 			// 
 			// SortCakeboxesDescMenu
 			// 
 			this.SortCakeboxesDescMenu.Name = "SortCakeboxesDescMenu";
-			this.SortCakeboxesDescMenu.Size = new System.Drawing.Size(152, 22);
+			this.SortCakeboxesDescMenu.Size = new System.Drawing.Size(136, 22);
 			this.SortCakeboxesDescMenu.Tag = "1";
 			this.SortCakeboxesDescMenu.Text = "Descending";
-			this.SortCakeboxesDescMenu.Click += new System.EventHandler(this.SortMenuChanged);
+			this.SortCakeboxesDescMenu.Click += new System.EventHandler(this.SortMenuItemClicked);
 			// 
 			// discsGroupBox
 			// 
@@ -436,47 +424,47 @@ namespace Cavebox.Forms
 			// SortDiscsByIdMenu
 			// 
 			this.SortDiscsByIdMenu.Name = "SortDiscsByIdMenu";
-			this.SortDiscsByIdMenu.Size = new System.Drawing.Size(152, 22);
+			this.SortDiscsByIdMenu.Size = new System.Drawing.Size(136, 22);
 			this.SortDiscsByIdMenu.Tag = "0";
 			this.SortDiscsByIdMenu.Text = "Id";
-			this.SortDiscsByIdMenu.Click += new System.EventHandler(this.SortMenuChanged);
+			this.SortDiscsByIdMenu.Click += new System.EventHandler(this.SortMenuItemClicked);
 			// 
 			// SortDiscsByLabelMenu
 			// 
 			this.SortDiscsByLabelMenu.Name = "SortDiscsByLabelMenu";
-			this.SortDiscsByLabelMenu.Size = new System.Drawing.Size(152, 22);
+			this.SortDiscsByLabelMenu.Size = new System.Drawing.Size(136, 22);
 			this.SortDiscsByLabelMenu.Tag = "1";
 			this.SortDiscsByLabelMenu.Text = "Label";
-			this.SortDiscsByLabelMenu.Click += new System.EventHandler(this.SortMenuChanged);
+			this.SortDiscsByLabelMenu.Click += new System.EventHandler(this.SortMenuItemClicked);
 			// 
 			// SortDiscsByFilesNoMenu
 			// 
 			this.SortDiscsByFilesNoMenu.Name = "SortDiscsByFilesNoMenu";
-			this.SortDiscsByFilesNoMenu.Size = new System.Drawing.Size(152, 22);
+			this.SortDiscsByFilesNoMenu.Size = new System.Drawing.Size(136, 22);
 			this.SortDiscsByFilesNoMenu.Tag = "2";
 			this.SortDiscsByFilesNoMenu.Text = "No. Files";
-			this.SortDiscsByFilesNoMenu.Click += new System.EventHandler(this.SortMenuChanged);
+			this.SortDiscsByFilesNoMenu.Click += new System.EventHandler(this.SortMenuItemClicked);
 			// 
 			// toolStripSeparator4
 			// 
 			this.toolStripSeparator4.Name = "toolStripSeparator4";
-			this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
+			this.toolStripSeparator4.Size = new System.Drawing.Size(133, 6);
 			// 
 			// SortDiscsAscMenu
 			// 
 			this.SortDiscsAscMenu.Name = "SortDiscsAscMenu";
-			this.SortDiscsAscMenu.Size = new System.Drawing.Size(152, 22);
+			this.SortDiscsAscMenu.Size = new System.Drawing.Size(136, 22);
 			this.SortDiscsAscMenu.Tag = "0";
 			this.SortDiscsAscMenu.Text = "Ascending";
-			this.SortDiscsAscMenu.Click += new System.EventHandler(this.SortMenuChanged);
+			this.SortDiscsAscMenu.Click += new System.EventHandler(this.SortMenuItemClicked);
 			// 
 			// SortDiscsDescMenu
 			// 
 			this.SortDiscsDescMenu.Name = "SortDiscsDescMenu";
-			this.SortDiscsDescMenu.Size = new System.Drawing.Size(152, 22);
+			this.SortDiscsDescMenu.Size = new System.Drawing.Size(136, 22);
 			this.SortDiscsDescMenu.Tag = "1";
 			this.SortDiscsDescMenu.Text = "Descending";
-			this.SortDiscsDescMenu.Click += new System.EventHandler(this.SortMenuChanged);
+			this.SortDiscsDescMenu.Click += new System.EventHandler(this.SortMenuItemClicked);
 			// 
 			// filterGroupBox
 			// 
@@ -751,25 +739,16 @@ namespace Cavebox.Forms
 			// toolsMenuItem
 			// 
 			this.toolsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-									this.rebuildTotalFilesMenuItem,
 									this.vacuumDatabaseMenuItem,
-									this.dropDataMenuItem,
-									this.rebuildTotalDiscsToolStripMenuItem});
+									this.dropDataMenuItem});
 			this.toolsMenuItem.Name = "toolsMenuItem";
 			this.toolsMenuItem.Size = new System.Drawing.Size(48, 20);
 			this.toolsMenuItem.Text = "Tools";
 			// 
-			// rebuildTotalFilesMenuItem
-			// 
-			this.rebuildTotalFilesMenuItem.Name = "rebuildTotalFilesMenuItem";
-			this.rebuildTotalFilesMenuItem.Size = new System.Drawing.Size(174, 22);
-			this.rebuildTotalFilesMenuItem.Text = "Rebuild Total Files";
-			this.rebuildTotalFilesMenuItem.Click += new System.EventHandler(this.RebuildFileCounters);
-			// 
 			// vacuumDatabaseMenuItem
 			// 
 			this.vacuumDatabaseMenuItem.Name = "vacuumDatabaseMenuItem";
-			this.vacuumDatabaseMenuItem.Size = new System.Drawing.Size(174, 22);
+			this.vacuumDatabaseMenuItem.Size = new System.Drawing.Size(169, 22);
 			this.vacuumDatabaseMenuItem.Text = "Vacuum Database";
 			this.vacuumDatabaseMenuItem.ToolTipText = "Rebuild the entire database";
 			this.vacuumDatabaseMenuItem.Click += new System.EventHandler(this.VacuumTables);
@@ -777,16 +756,9 @@ namespace Cavebox.Forms
 			// dropDataMenuItem
 			// 
 			this.dropDataMenuItem.Name = "dropDataMenuItem";
-			this.dropDataMenuItem.Size = new System.Drawing.Size(174, 22);
+			this.dropDataMenuItem.Size = new System.Drawing.Size(169, 22);
 			this.dropDataMenuItem.Text = "Drop Data";
 			this.dropDataMenuItem.Click += new System.EventHandler(this.DropData);
-			// 
-			// rebuildTotalDiscsToolStripMenuItem
-			// 
-			this.rebuildTotalDiscsToolStripMenuItem.Name = "rebuildTotalDiscsToolStripMenuItem";
-			this.rebuildTotalDiscsToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
-			this.rebuildTotalDiscsToolStripMenuItem.Text = "Rebuild Total Discs";
-			this.rebuildTotalDiscsToolStripMenuItem.Click += new System.EventHandler(this.RebuildDiscCounters);
 			// 
 			// helpMenuItem
 			// 
@@ -1179,11 +1151,9 @@ namespace Cavebox.Forms
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
-		private System.Windows.Forms.ToolStripMenuItem rebuildTotalDiscsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem SortCakeboxesDescMenu;
 		private System.Windows.Forms.ToolStripMenuItem SortCakeboxesAscMenu;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
-		private System.Windows.Forms.ToolStripMenuItem SortCakeboxesByDiscsNoMenu;
 		private System.Windows.Forms.ToolStripMenuItem SortCakeboxesByLabelMenu;
 		private System.Windows.Forms.ToolStripMenuItem SortCakeboxesByIdMenu;
 		private System.Windows.Forms.ToolStripMenuItem SortCakeboxesMenu;
@@ -1260,7 +1230,6 @@ namespace Cavebox.Forms
 		private System.Windows.Forms.ToolStripMenuItem helpMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem alwaysOnTopMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem viewMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem rebuildTotalFilesMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
 		private System.Windows.Forms.ToolStripMenuItem exportMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem importMenuItem;
