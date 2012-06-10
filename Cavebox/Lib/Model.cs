@@ -138,18 +138,20 @@ namespace Cavebox.Lib
 		}
 		
 		/// <summary>
-		/// Fetch cakeboxes list with or without filter
+		/// Fetch a sorted cakeboxes list with or without filter
 		/// </summary>
 		/// <param name="filter">A prepared string to filter results ex: %criminal%</param>
-		/// <returns>A list of the matched cakeboxes</returns>
-		public static List<Identity> FetchCakeboxes(string filter = null, int orderBy = 1, int orderWay = 0)
+		/// <param name="sortBy">0-1 for sort by fields id, label</param>
+		/// <param name="sortWay">0: Ascending, 2: Descending</param>
+		/// <returns>A sorted list of the matched cakeboxes</returns>
+		public static List<Identity> FetchCakeboxes(string filter = null, int sortBy = 1, int sortWay = 0)
 		{
 			List<Identity> list = new List<Identity>();
 			try
 			{
 				string sql = "SELECT c.id, c.label FROM cakebox AS c";
 				sql += (filter != null) ? " LEFT JOIN disc AS d on d.cid = c.id WHERE ToLower(d.files) LIKE '" + filter + "' GROUP BY c.id" : "";
-				sql += " ORDER BY " + ((orderBy == 0) ? "c.id" : "c.label COLLATE NOCASE") + " " + ((orderWay == 0) ? " ASC" : " DESC");
+				sql += " ORDER BY " + ((sortBy == 0) ? "c.id" : "c.label COLLATE NOCASE") + " " + ((sortWay == 0) ? " ASC" : " DESC");
 	
 				SQLiteCommand c = CreateCommand(sql);
 				SQLiteDataReader r = c.ExecuteReader();
@@ -157,7 +159,7 @@ namespace Cavebox.Lib
 				{
 					string label = r.GetString(1);
 					int id = r.GetInt32(0);
-					if(orderBy == 0)
+					if(sortBy == 0)
 					{
 						label = "#" + id + " - " + label;
 					}			
@@ -174,20 +176,20 @@ namespace Cavebox.Lib
 		}
 		
 		/// <summary>
-		/// Fetch discs list with or without filter with custom sort
+		/// Fetch a sorted discs list with or without filter with custom sort
 		/// </summary>
 		/// <param name="cid">Cakebox id number</param>
 		/// <param name="filter">A prepared string to filter results ex: %criminal%</param>
-		/// <param name="orderBy">0-2 for sorting fields id, label and filesno</param>
-		/// <param name="orderWay">0: Ascending, 2: Descending</param>
-		/// <returns>A list of matched discs</returns>
-		public static List<Identity> FetchDiscsByCakeboxId(int cid, string filter = null, int orderBy = 1, int orderWay = 0)
+		/// <param name="sortBy">0-2 for sorting fields id, label and filesno</param>
+		/// <param name="sortWay">0: Ascending, 2: Descending</param>
+		/// <returns>A sorted list of matched discs</returns>
+		public static List<Identity> FetchDiscsByCakeboxId(int cid, string filter = null, int sortBy = 1, int sortWay = 0)
 		{
 			List<Identity> list = new List<Identity>();
 			try
 			{
 				string orderClause = null;
-				switch(orderBy)
+				switch(sortBy)
 				{
 						case 0: orderClause = "id"; 					break;
 						case 1: orderClause = "label COLLATE NOCASE"; 	break;
@@ -196,7 +198,7 @@ namespace Cavebox.Lib
 
 				string sql = "SELECT id, label, filesno FROM disc WHERE cid = " + cid;
 				sql += (filter != null) ? " AND ToLower(files) LIKE '" + filter + "'" : "";
-				sql += " ORDER BY " + orderClause + " " + ((orderWay == 0) ? " ASC" : " DESC");
+				sql += " ORDER BY " + orderClause + " " + ((sortWay == 0) ? " ASC" : " DESC");
 				
 				SQLiteCommand c = CreateCommand(sql);
 				SQLiteDataReader r = c.ExecuteReader();
@@ -205,11 +207,11 @@ namespace Cavebox.Lib
 					string label = r.GetString(1);
 					int diskId = r.GetInt32(0);
 					
-					if(label.ToLower().Equals("movies") || orderBy == 0)
+					if(label.ToLower().Equals("movies") || sortBy == 0)
 					{
 						label = "#" + diskId + " - " + label;
 					}
-					if(orderBy == 2)
+					if(sortBy == 2)
 					{
 						label += String.Format(" ({0:n0})", r.GetInt32(2));
 					}

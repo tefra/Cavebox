@@ -147,12 +147,14 @@
     </None>
     <None Include="Resources\app.ico" />
     <None Include="Resources\search\anidb.png" />
+    <None Include="Resources\search\bing.png" />
     <None Include="Resources\search\google.png" />
     <None Include="Resources\search\imdb.png" />
     <None Include="Resources\search\lastFM.png" />
     <None Include="Resources\search\metacritic.png" />
     <None Include="Resources\search\tvcom.png" />
     <None Include="Resources\search\wikipedia.png" />
+    <None Include="Resources\search\yahoo.png" />
     <None Include="Resources\search\youtube.png" />
     <None Include="Resources\ui\ui.browser.png" />
     <None Include="Resources\ui\ui.filter.png" />

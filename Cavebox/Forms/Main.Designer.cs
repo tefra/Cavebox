@@ -133,6 +133,8 @@ namespace Cavebox.Forms
 			this.scanWorker = new System.ComponentModel.BackgroundWorker();
 			this.filterTextChangedTimer = new System.Windows.Forms.Timer(this.components);
 			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+			this.bingMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.yahooMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			((System.ComponentModel.ISupportInitialize)(this.FileListSplitContainer)).BeginInit();
 			this.FileListSplitContainer.Panel1.SuspendLayout();
 			this.FileListSplitContainer.Panel2.SuspendLayout();
@@ -534,14 +536,14 @@ namespace Cavebox.Forms
 									this.toolStripSeparator5,
 									this.searchToolStripMenuItem});
 			this.filesMenu.Name = "filesListActionMenu";
-			this.filesMenu.Size = new System.Drawing.Size(110, 76);
+			this.filesMenu.Size = new System.Drawing.Size(153, 98);
 			this.filesMenu.Opening += new System.ComponentModel.CancelEventHandler(this.FilesListMenuOpening);
 			// 
 			// copyFileListMenuItem
 			// 
 			this.copyFileListMenuItem.Image = global::Cavebox.Properties.Images.ui_copy;
 			this.copyFileListMenuItem.Name = "copyFileListMenuItem";
-			this.copyFileListMenuItem.Size = new System.Drawing.Size(109, 22);
+			this.copyFileListMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.copyFileListMenuItem.Text = "Copy";
 			this.copyFileListMenuItem.Click += new System.EventHandler(this.ContextCopyClick);
 			// 
@@ -549,20 +551,22 @@ namespace Cavebox.Forms
 			// 
 			this.filterMenuItem.Image = global::Cavebox.Properties.Images.ui_filter;
 			this.filterMenuItem.Name = "filterMenuItem";
-			this.filterMenuItem.Size = new System.Drawing.Size(109, 22);
+			this.filterMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.filterMenuItem.Text = "Filter";
 			this.filterMenuItem.Click += new System.EventHandler(this.FilterMenuItemClick);
 			// 
 			// toolStripSeparator5
 			// 
 			this.toolStripSeparator5.Name = "toolStripSeparator5";
-			this.toolStripSeparator5.Size = new System.Drawing.Size(106, 6);
+			this.toolStripSeparator5.Size = new System.Drawing.Size(149, 6);
 			// 
 			// searchToolStripMenuItem
 			// 
 			this.searchToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
 									this.anidbMenuItem,
 									this.googleMenuItem,
+									this.yahooMenuItem,
+									this.bingMenuItem,
 									this.imdbMenuItem,
 									this.lastfmMenuItem,
 									this.metacriticMenuItem,
@@ -571,14 +575,14 @@ namespace Cavebox.Forms
 									this.youtubeMenuItem});
 			this.searchToolStripMenuItem.Image = global::Cavebox.Properties.Images.ui_browser;
 			this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-			this.searchToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+			this.searchToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.searchToolStripMenuItem.Text = "Search";
 			// 
 			// anidbMenuItem
 			// 
 			this.anidbMenuItem.Image = global::Cavebox.Properties.Images.anidb;
 			this.anidbMenuItem.Name = "anidbMenuItem";
-			this.anidbMenuItem.Size = new System.Drawing.Size(127, 22);
+			this.anidbMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.anidbMenuItem.Tag = "http://anidb.net/perl-bin/animedb.pl?show=animelist&do.search=search&adb.search={" +
 			"0}";
 			this.anidbMenuItem.Text = "Anidb";
@@ -588,7 +592,7 @@ namespace Cavebox.Forms
 			// 
 			this.googleMenuItem.Image = global::Cavebox.Properties.Images.google;
 			this.googleMenuItem.Name = "googleMenuItem";
-			this.googleMenuItem.Size = new System.Drawing.Size(127, 22);
+			this.googleMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.googleMenuItem.Tag = "http://www.google.com/search?site=&q={0}";
 			this.googleMenuItem.Text = "Google";
 			this.googleMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
@@ -597,7 +601,7 @@ namespace Cavebox.Forms
 			// 
 			this.imdbMenuItem.Image = global::Cavebox.Properties.Images.imdb;
 			this.imdbMenuItem.Name = "imdbMenuItem";
-			this.imdbMenuItem.Size = new System.Drawing.Size(127, 22);
+			this.imdbMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.imdbMenuItem.Tag = "http://www.imdb.com/find?s=all&q={0}";
 			this.imdbMenuItem.Text = "Imdb";
 			this.imdbMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
@@ -606,7 +610,7 @@ namespace Cavebox.Forms
 			// 
 			this.lastfmMenuItem.Image = global::Cavebox.Properties.Images.lastFM;
 			this.lastfmMenuItem.Name = "lastfmMenuItem";
-			this.lastfmMenuItem.Size = new System.Drawing.Size(127, 22);
+			this.lastfmMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.lastfmMenuItem.Tag = "http://www.last.fm/music/{0}";
 			this.lastfmMenuItem.Text = "Last.fm";
 			this.lastfmMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
@@ -615,7 +619,7 @@ namespace Cavebox.Forms
 			// 
 			this.metacriticMenuItem.Image = global::Cavebox.Properties.Images.metacritic;
 			this.metacriticMenuItem.Name = "metacriticMenuItem";
-			this.metacriticMenuItem.Size = new System.Drawing.Size(127, 22);
+			this.metacriticMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.metacriticMenuItem.Tag = "http://www.metacritic.com/search/all/{0}/results";
 			this.metacriticMenuItem.Text = "Metacritic";
 			this.metacriticMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
@@ -624,7 +628,7 @@ namespace Cavebox.Forms
 			// 
 			this.tvcomMenuItem.Image = global::Cavebox.Properties.Images.tvcom;
 			this.tvcomMenuItem.Name = "tvcomMenuItem";
-			this.tvcomMenuItem.Size = new System.Drawing.Size(127, 22);
+			this.tvcomMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.tvcomMenuItem.Tag = "http://www.tv.com/search?q={0}";
 			this.tvcomMenuItem.Text = "Tv.com";
 			this.tvcomMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
@@ -633,7 +637,7 @@ namespace Cavebox.Forms
 			// 
 			this.wikipediaMenuItem.Image = global::Cavebox.Properties.Images.wikipedia;
 			this.wikipediaMenuItem.Name = "wikipediaMenuItem";
-			this.wikipediaMenuItem.Size = new System.Drawing.Size(127, 22);
+			this.wikipediaMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.wikipediaMenuItem.Tag = "http://en.wikipedia.org/wiki/Special:Search?search={0}";
 			this.wikipediaMenuItem.Text = "Wikipedia";
 			this.wikipediaMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
@@ -642,7 +646,7 @@ namespace Cavebox.Forms
 			// 
 			this.youtubeMenuItem.Image = global::Cavebox.Properties.Images.youtube;
 			this.youtubeMenuItem.Name = "youtubeMenuItem";
-			this.youtubeMenuItem.Size = new System.Drawing.Size(127, 22);
+			this.youtubeMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.youtubeMenuItem.Tag = "http://www.youtube.com/results?search_query={0}";
 			this.youtubeMenuItem.Text = "Youtube";
 			this.youtubeMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
@@ -1103,6 +1107,24 @@ namespace Cavebox.Forms
 			this.filterTextChangedTimer.Interval = 250;
 			this.filterTextChangedTimer.Tick += new System.EventHandler(this.Filter);
 			// 
+			// bingMenuItem
+			// 
+			this.bingMenuItem.Image = global::Cavebox.Properties.Images.bing;
+			this.bingMenuItem.Name = "bingMenuItem";
+			this.bingMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.bingMenuItem.Tag = "http://www.bing.com/search?q={0}&go=&qs=bs&form=QBRE";
+			this.bingMenuItem.Text = "Bing";
+			this.bingMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
+			// 
+			// yahooMenuItem
+			// 
+			this.yahooMenuItem.Image = global::Cavebox.Properties.Images.yahoo;
+			this.yahooMenuItem.Name = "yahooMenuItem";
+			this.yahooMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.yahooMenuItem.Tag = "http://search.yahoo.com/search?p={0}";
+			this.yahooMenuItem.Text = "Yahoo";
+			this.yahooMenuItem.Click += new System.EventHandler(this.OpenSearchUrl);
+			// 
 			// Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1151,6 +1173,8 @@ namespace Cavebox.Forms
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripMenuItem yahooMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem bingMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem SortCakeboxesDescMenu;
 		private System.Windows.Forms.ToolStripMenuItem SortCakeboxesAscMenu;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;

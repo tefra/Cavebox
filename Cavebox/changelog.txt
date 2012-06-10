@@ -1,7 +1,6 @@
 ﻿v2.1.5
 - Added cakeboxes sort options (id and label)
-- Added discs counter for cakeboxes
-- Added command to rebuild discs counters
+- Added file list search engines bing and yahoo
 - Removed deprecated procedure "Rebuild file counters"
 - Code Cleanup
 -------------------------------------------------------------

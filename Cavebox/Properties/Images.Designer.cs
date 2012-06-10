@@ -74,6 +74,13 @@ namespace Cavebox.Properties {
 			}
 		}
 		
+		internal static System.Drawing.Bitmap bing {
+			get {
+				object obj = ResourceManager.GetObject("bing", resourceCulture);
+				return ((System.Drawing.Bitmap)(obj));
+			}
+		}
+		
 		internal static System.Drawing.Bitmap google {
 			get {
 				object obj = ResourceManager.GetObject("google", resourceCulture);
@@ -203,6 +210,13 @@ namespace Cavebox.Properties {
 		internal static System.Drawing.Bitmap wikipedia {
 			get {
 				object obj = ResourceManager.GetObject("wikipedia", resourceCulture);
+				return ((System.Drawing.Bitmap)(obj));
+			}
+		}
+		
+		internal static System.Drawing.Bitmap yahoo {
+			get {
+				object obj = ResourceManager.GetObject("yahoo", resourceCulture);
 				return ((System.Drawing.Bitmap)(obj));
 			}
 		}
