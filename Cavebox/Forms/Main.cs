@@ -24,8 +24,6 @@ namespace Cavebox.Forms
 		public string _filter;
 		private string _filterLike;
 		private int scanTotalFiles;
-		private int discsOrderBy;
-		private int discsOrderWay;
 		private int ListBoxLastTip;
 		private DateTime stopWatch;
 		
@@ -62,6 +60,8 @@ namespace Cavebox.Forms
 			controlBindings.Add(new ControlBinding(cakeboxDiscSplitContainer, "SplitterDistance", "CakeboxDiscSplitterDistance"));
 			controlBindings.Add(new ControlBinding(tabControl, "SelectedIndex", "SelectedTabIndex"));
 			controlBindings.Add(new ControlBinding(scanPathComboBox, "Text", "LastScanPath"));
+			controlBindings.Add(new ControlBinding(SortDiscsMenu, "Tag", "SortDiscs"));
+			controlBindings.Add(new ControlBinding(SortCakeboxesMenu, "Tag", "SortCakeboxes"));
 			scanPathComboBox.Items.AddRange(DriveInfo.GetDrives());
 			
 			foreach(ControlBinding control in controlBindings)
@@ -70,12 +70,25 @@ namespace Cavebox.Forms
 			}
 			
 			Options.LastBackupDir = (Options.LastBackupDir == String.Empty) ? Path.GetDirectoryName(Application.ExecutablePath) : Options.LastBackupDir;
-			// Apply session storage to the discs sort menus/flags and prevent user mischief in the settings
-			discsOrderBy = (Options.DiscsOrderBy > 2 || Options.DiscsOrderBy < 0) ? 1 : Options.DiscsOrderBy;
-			discsOrderWay = (Options.DiscsOrderWay > 1 || Options.DiscsOrderWay < 0) ? 0 : Options.DiscsOrderWay;
-			((ToolStripMenuItem) DiscsOrderMenu.DropDownItems[discsOrderBy]).Checked = true;
-			((ToolStripMenuItem) DiscsOrderMenu.DropDownItems[discsOrderWay + 4]).Checked = true;
+			CheckSortOptions(SortDiscsMenu);
+			CheckSortOptions(SortCakeboxesMenu);
 			ShowCakeboxes(0, true, true);
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="parent"></param>
+		/// <param name="check"></param>
+		private void CheckSortOptions(ToolStripMenuItem menu)
+		{
+			int sep = menu.DropDownItems.Count - 3;
+			Point check = (Point) menu.Tag;
+			check.X = (check.X < 0 || check.X >= sep) ? 0 : check.X;
+			check.Y = (check.Y < 0 || check.Y > 1) ? 0 : check.Y; 
+			menu.Tag = check;
+			((ToolStripMenuItem) menu.DropDownItems[check.X]).Checked = true;
+			((ToolStripMenuItem) menu.DropDownItems[check.Y + sep + 1]).Checked = true;
 		}
 		
 		/// <summary>
@@ -88,9 +101,6 @@ namespace Cavebox.Forms
 				control.WriteValue();
 			}
 			
-			// Save session storage of the discs sort menus/flags
-			Options.DiscsOrderBy = discsOrderBy;
-			Options.DiscsOrderWay = discsOrderWay;
 			Options.Save();
 			Model.Close();
 			Console.WriteLine(Lang.GetString("_applicationClosing"));
@@ -123,10 +133,11 @@ namespace Cavebox.Forms
 				RefreshStatusBar(true, refreshDiscStats);
 			}
 
-			cakeboxesListBox.SelectedValueChanged -= ShowDiscs;
+			Point sort = (Point) SortCakeboxesMenu.Tag;
 			// Stupid controls sharing datasource behavior fix
 			cakeboxesListBox.BindingContext = new BindingContext();
-			cakeboxesListBox.DataSource = (_filterLike == null) ? (List<Identity>) discCakeboxComboBox.DataSource : Model.FetchCakeboxes(_filterLike);
+			cakeboxesListBox.SelectedValueChanged -= ShowDiscs;
+			cakeboxesListBox.DataSource = Model.FetchCakeboxes(_filterLike, sort.X, sort.Y);
 			cakeboxesListBox.SelectedValueChanged += ShowDiscs;
 			cakeboxesGroupBox.InsertDesc(cakeboxesListBox.Items.Count);
 			
@@ -147,8 +158,9 @@ namespace Cavebox.Forms
 		/// </summary>
 		public void ShowDiscs(object sender, EventArgs e)
 		{
+			Point sort = (Point) SortDiscsMenu.Tag;
 			discsListBox.SelectedValueChanged -= ShowFiles;
-			discsListBox.DataSource = (cakeboxesListBox.SelectedIndex > -1) ? Model.FetchDiscsByCakeboxId(cakeboxesListBox.SelectedValue.ToInt(), _filterLike, discsOrderBy, discsOrderWay) : new List<Identity>();
+			discsListBox.DataSource = (cakeboxesListBox.SelectedIndex > -1) ? Model.FetchDiscsByCakeboxId(cakeboxesListBox.SelectedValue.ToInt(), _filterLike, sort.X, sort.Y) : new List<Identity>();
 			discsListBox.SelectedValue = 0;
 			discsListBox.SelectedValueChanged += ShowFiles;
 			ShowFiles(sender, e);
@@ -196,7 +208,6 @@ namespace Cavebox.Forms
 			}
 		}
 		
-
 		/// <summary>
 		/// Start/Reset filter timer while typing to avoid useless db queries
 		/// </summary>
@@ -537,30 +548,49 @@ namespace Cavebox.Forms
 				RefreshStatusBar(false, true);
 			}
 		}
-
-		/// <summary>
-		/// Update the discs order by field and refresh discs list
-		/// </summary>
-		private void DiscsOrderBy(object sender, EventArgs e)
-		{
-			ToolStripMenuItem source = (ToolStripMenuItem) sender;
-			DiscsOrderByIdMenuItem.Checked = (source == DiscsOrderByIdMenuItem);
-			DiscsOrderByLabelMenuItem.Checked = (source == DiscsOrderByLabelMenuItem);
-			DiscsOrderByFilesNoMenuItem.Checked = (source == DiscsOrderByFilesNoMenuItem);
-			discsOrderBy = source.Tag.ToInt();
-			ShowDiscs(sender, e);
-		}
+		
 		
 		/// <summary>
-		/// Update the discs order way and refresh discs list
+		/// 
 		/// </summary>
-		private void DiscsOrderWay(object sender, EventArgs e)
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void SortMenuChanged(object sender, EventArgs e)
 		{
 			ToolStripMenuItem source = (ToolStripMenuItem) sender;
-			DiscsOrderAscMenuItem.Checked = (source == DiscsOrderAscMenuItem);
-			DiscsOrderDescMenuItem.Checked  = (source == DiscsOrderDescMenuItem);
-			discsOrderWay = source.Tag.ToInt();
-			ShowDiscs(sender, e);
+			ToolStripMenuItem parent = (ToolStripMenuItem) source.OwnerItem;
+			
+			int total = parent.DropDownItems.Count;
+			int separator = total - 3;
+			int index = parent.DropDownItems.IndexOf(source);
+			int start = (index < separator) ? 0 : separator + 1;
+			int end = (index < separator) ? separator : total;
+			
+			for(int i = start; i < end; i++)
+			{
+				ToolStripMenuItem item = (ToolStripMenuItem) parent.DropDownItems[i];
+				item.Checked = (source == item);
+			}
+			
+			Point p = (Point) parent.Tag;
+			if(index < separator)
+			{
+				p.X = source.Tag.ToInt();
+			}
+			else
+			{
+				p.Y = source.Tag.ToInt();
+			}
+			parent.Tag = p;
+			
+			if(parent == SortCakeboxesMenu)
+			{
+				ShowCakeboxes();
+			}
+			else
+			{
+				ShowDiscs(null, EventArgs.Empty);
+			}
 		}
 		
 		/// <summary>
@@ -833,5 +863,15 @@ namespace Cavebox.Forms
 				toolTip.Hide(source);
 			}
 		}
+		
+		private void RebuildDiscCounters(object sender, EventArgs e)
+		{
+			Cursor.Current = Cursors.WaitCursor;
+			stopWatch = DateTime.Now;
+			Model.RebuildDiscCounters();
+			Console.WriteLine(Lang.GetString("_rebuildingFileCountersCompleted", (DateTime.Now - stopWatch).TotalSeconds));
+			Cursor.Current = Cursors.Default;
+		}
+
 	}
 }

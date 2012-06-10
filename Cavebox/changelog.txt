@@ -1,4 +1,10 @@
-﻿v2.1.4
+﻿v2.1.5
+- Added cakeboxes sort options
+- Added discs counter for cakeboxes
+- Added command to rebuild discs counters
+- Code Cleanup
+-------------------------------------------------------------
+v2.1.4
 - Added last import/export path used to session storage
 - Fixed bug in scaning empty path (resulting in the exception)
 - Fixed bug in save new disc (wrong cakebox name on the result msg)

@@ -25,11 +25,12 @@ namespace Cavebox.Lib
 		/// <param name="ctrl">The object instance</param>
 		/// <param name="property">The control's property title</param>
 		/// <param name="key">The settings key</param>
-		public ControlBinding(object obj, string property, string key)
+		public ControlBinding(object obj, string property, string key, bool allowReset = false)
 		{
 			Obj = obj;
 			Property = obj.GetType().GetProperty(property);
 			Key = key;
+			AllowReset = allowReset;
 		}
 		
 		/// <summary>
@@ -46,6 +47,11 @@ namespace Cavebox.Lib
 		/// Magic get set for Property
 		/// </summary>
 		public PropertyInfo Property { get; set; }
+		
+		/// <summary>
+		/// Magic get set for allowReset
+		/// </summary>
+		public bool AllowReset { get; set; }
 		
 		/// <summary>
 		/// Sets the object property value from the application setting
@@ -68,7 +74,10 @@ namespace Cavebox.Lib
 		/// </summary>
 		public void ResetValue()
 		{
-			Property.SetValue(Obj, GetDefaultValue(), null);
+			if(AllowReset)
+			{
+				Property.SetValue(Obj, GetDefaultValue(), null);
+			}
 		}
 
 		/// <summary>

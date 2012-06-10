@@ -10,12 +10,6 @@
     <Setting Name="CakeboxDiscSplitterDistance" Type="System.Int32" Scope="User" Provider="PortableSettingsProvider" Roaming="false">
       <Value Profile="(Default)">258</Value>
     </Setting>
-    <Setting Name="DiscsOrderBy" Type="System.Int32" Scope="User" Provider="PortableSettingsProvider" Roaming="false">
-      <Value Profile="(Default)">1</Value>
-    </Setting>
-    <Setting Name="DiscsOrderWay" Type="System.Int32" Scope="User" Provider="PortableSettingsProvider" Roaming="false">
-      <Value Profile="(Default)">0</Value>
-    </Setting>
     <Setting Name="FileListSplitterDistance" Type="System.Int32" Scope="User" Provider="PortableSettingsProvider" Roaming="false">
       <Value Profile="(Default)">310</Value>
     </Setting>
@@ -27,6 +21,12 @@
     </Setting>
     <Setting Name="SelectedTabIndex" Type="System.Int32" Scope="User" Provider="PortableSettingsProvider" Roaming="false">
       <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="SortCakeboxes" Type="System.Drawing.Point" Scope="User" Provider="PortableSettingsProvider" Roaming="false">
+      <Value Profile="(Default)">1, 0</Value>
+    </Setting>
+    <Setting Name="SortDiscs" Type="System.Drawing.Point" Scope="User" Provider="PortableSettingsProvider" Roaming="false">
+      <Value Profile="(Default)">1, 0</Value>
     </Setting>
     <Setting Name="WindowLocation" Type="System.Drawing.Point" Scope="User" Provider="PortableSettingsProvider" Roaming="false">
       <Value Profile="(Default)">0, 0</Value>

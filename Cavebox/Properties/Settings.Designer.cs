@@ -52,32 +52,6 @@ namespace Cavebox.Properties {
 		[global::System.Configuration.UserScopedSettingAttribute()]
 		[global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
 		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-		[global::System.Configuration.DefaultSettingValueAttribute("1")]
-		public int DiscsOrderBy {
-			get {
-				return ((int)(this["DiscsOrderBy"]));
-			}
-			set {
-				this["DiscsOrderBy"] = value;
-			}
-		}
-		
-		[global::System.Configuration.UserScopedSettingAttribute()]
-		[global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
-		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-		[global::System.Configuration.DefaultSettingValueAttribute("0")]
-		public int DiscsOrderWay {
-			get {
-				return ((int)(this["DiscsOrderWay"]));
-			}
-			set {
-				this["DiscsOrderWay"] = value;
-			}
-		}
-		
-		[global::System.Configuration.UserScopedSettingAttribute()]
-		[global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
-		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
 		[global::System.Configuration.DefaultSettingValueAttribute("310")]
 		public int FileListSplitterDistance {
 			get {
@@ -124,6 +98,32 @@ namespace Cavebox.Properties {
 			}
 			set {
 				this["SelectedTabIndex"] = value;
+			}
+		}
+		
+		[global::System.Configuration.UserScopedSettingAttribute()]
+		[global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+		[global::System.Configuration.DefaultSettingValueAttribute("1, 0")]
+		public global::System.Drawing.Point SortCakeboxes {
+			get {
+				return ((global::System.Drawing.Point)(this["SortCakeboxes"]));
+			}
+			set {
+				this["SortCakeboxes"] = value;
+			}
+		}
+		
+		[global::System.Configuration.UserScopedSettingAttribute()]
+		[global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+		[global::System.Configuration.DefaultSettingValueAttribute("1, 0")]
+		public global::System.Drawing.Point SortDiscs {
+			get {
+				return ((global::System.Drawing.Point)(this["SortDiscs"]));
+			}
+			set {
+				this["SortDiscs"] = value;
 			}
 		}
 		

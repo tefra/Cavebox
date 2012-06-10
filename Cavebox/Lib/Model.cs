@@ -71,7 +71,8 @@ namespace Cavebox.Lib
 			ExecuteNonQuery(
 				"CREATE TABLE IF NOT EXISTS cakebox ("
 				+ " id INTEGER PRIMARY KEY, "
-				+ " label TEXT NOT NULL);"
+				+ " label TEXT NOT NULL, "
+				+ " discsno INTEGER DEFAULT 0); "
 				+ "CREATE TABLE IF NOT EXISTS disc ("
 				+ " id INTEGER PRIMARY KEY, "
 				+ " cid INTEGER DEFAULT 0, "
@@ -124,6 +125,30 @@ namespace Cavebox.Lib
 				Console.WriteLine(e.Message);
 			}
 		}
+
+		/// <summary>
+		/// Rebuild disc counters
+		/// </summary>
+		public static void RebuildDiscCounters()
+		{
+			try
+			{
+				List<string> cases = new List<string>();
+				SQLiteCommand c = CreateCommand("SELECT cid, COUNT(*) FROM disc WHERE 1 GROUP BY cid");
+				SQLiteDataReader r = c.ExecuteReader();
+				while (r.Read())
+				{
+					cases.Add(String.Format("WHEN {0} THEN {1}", r.GetInt32(0), r.GetInt32(1)));
+				}
+				r.Close();
+				c.Dispose();
+				ExecuteNonQuery(string.Format("UPDATE cakebox SET discsno = CASE id {0} ELSE discsno END", string.Join(" ", cases)));
+			}
+			catch(SQLiteException e)
+			{
+				Console.WriteLine(e.Message);
+			}
+		}
 		
 		/// <summary>
 		/// Custom ToLower Sqlite Command for proper search LIKE results
@@ -142,20 +167,41 @@ namespace Cavebox.Lib
 		/// </summary>
 		/// <param name="filter">A prepared string to filter results ex: %criminal%</param>
 		/// <returns>A list of the matched cakeboxes</returns>
-		public static List<Identity> FetchCakeboxes(string filter = null)
+		public static List<Identity> FetchCakeboxes(string filter = null, int orderBy = 1, int orderWay = 0)
 		{
 			List<Identity> list = new List<Identity>();
 			try
 			{
-				string sql = (filter == null) ?
-					"SELECT id, label FROM cakebox ORDER BY label COLLATE NOCASE ASC" :
-					"SELECT c.id, c.label FROM cakebox AS c LEFT JOIN disc AS d on d.cid = c.id WHERE ToLower(d.files) LIKE '" + filter + "' GROUP BY c.id";
+				string orderClause = null;
+				switch(orderBy)
+				{
+						case 0: orderClause = "c.id"; 					break;
+						case 1: orderClause = "c.label COLLATE NOCASE"; 	break;
+						case 2: orderClause = "c.discsno";			 	break;
+				}
+				
+				string sql = "SELECT c.id, c.label, c.discsno FROM cakebox AS c";
+				sql += (filter != null) ? " LEFT JOIN disc AS d on d.cid = c.id WHERE ToLower(d.files) LIKE '" + filter + "' GROUP BY c.id" : "";
+				sql += " ORDER BY " + orderClause + " " + ((orderWay == 0) ? " ASC" : " DESC");
 
 				SQLiteCommand c = CreateCommand(sql);
 				SQLiteDataReader r = c.ExecuteReader();
 				while (r.Read())
 				{
-					list.Add(new Identity(r.GetInt32(0), r.GetString(1)));
+					string label = r.GetString(1);
+					int id = r.GetInt32(0);
+					
+					if(orderBy == 0)
+					{
+						label = "#" + id + " - " + label;
+					}
+					if(orderBy == 2)
+					{
+						label += String.Format(" ({0:n0})", r.GetInt32(2));
+					}
+					
+					
+					list.Add(new Identity(id, label));
 				}
 				r.Close();
 				c.Dispose();
