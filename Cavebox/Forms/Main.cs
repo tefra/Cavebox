@@ -76,16 +76,17 @@ namespace Cavebox.Forms
 		}
 		
 		/// <summary>
-		/// 
+		/// Validate sort options from session storage and initialize values.
+		/// Every sort menu must have a separator between sort fields and the
+		/// two sort ways asc|desc
 		/// </summary>
-		/// <param name="parent"></param>
-		/// <param name="check"></param>
+		/// <param name="menu">Toolstripmenuitem with sort items</param>
 		private void CheckSortOptions(ToolStripMenuItem menu)
 		{
 			int sep = menu.DropDownItems.Count - 3;
 			Point check = (Point) menu.Tag;
 			check.X = (check.X < 0 || check.X >= sep) ? 0 : check.X;
-			check.Y = (check.Y < 0 || check.Y > 1) ? 0 : check.Y; 
+			check.Y = (check.Y < 0 || check.Y > 1) ? 0 : check.Y;
 			menu.Tag = check;
 			((ToolStripMenuItem) menu.DropDownItems[check.X]).Checked = true;
 			((ToolStripMenuItem) menu.DropDownItems[check.Y + sep + 1]).Checked = true;
@@ -163,7 +164,7 @@ namespace Cavebox.Forms
 			discsListBox.DataSource = (cakeboxesListBox.SelectedIndex > -1) ? Model.FetchDiscsByCakeboxId(cakeboxesListBox.SelectedValue.ToInt(), _filterLike, sort.X, sort.Y) : new List<Identity>();
 			discsListBox.SelectedValue = 0;
 			discsListBox.SelectedValueChanged += ShowFiles;
-			ShowFiles(sender, e);
+			ShowFiles(null, EventArgs.Empty);
 			discsGroupBox.InsertDesc(discsListBox.Items.Count);
 		}
 		
@@ -448,33 +449,30 @@ namespace Cavebox.Forms
 				saveDiscButton.Enabled = true;
 			}
 		}
-
+		
 		/// <summary>
-		/// Add new disc with the scan worker results
-		/// New disc label and cakebox are required fields
+		/// Open add new cakebox dialog
 		/// </summary>
-		private void SaveNewDisc(object sender, EventArgs e)
+		private void OpenAddCakebox(object sender, EventArgs e)
 		{
-			string label = discLabelTextBox.Text.Trim();
-			if(discCakeboxComboBox.SelectedIndex == -1)
+			if(new EditCakebox().ShowDialog(this) == DialogResult.OK)
 			{
-				MessageBox.Show(Lang.GetString("_newDiscMissingCakebox"), Lang.GetString("_error"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+				ShowCakeboxes(0, true);
 			}
-			else if(label.Length == 0)
+		}
+		
+		/// <summary>
+		/// Open edit cakebox dialog
+		/// </summary>
+		private void OpenEditCakebox(object sender, EventArgs e)
+		{
+			if(cakeboxesListBox.SelectedIndex > -1)
 			{
-				MessageBox.Show(Lang.GetString("_discLabelMissing"), Lang.GetString("_error"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
-			}
-			else
-			{
-				Cursor.Current = Cursors.WaitCursor;
-				Model.AddDisc(label, scanFilesTextBox.Text.Trim(), scanTotalFiles, discCakeboxComboBox.SelectedValue.ToInt(), DateTime.UtcNow.ToUnix());
-				Cursor.Current = Cursors.Default;
-				ShowCakeboxes();
-				RefreshStatusBar(false, true);
-				discLabelTextBox.Clear();
-				scanFilesTextBox.Clear();
-				scanFilesTextBox.Text = Lang.GetString("_newDiscAdded", label, discCakeboxComboBox.Text);
-				saveDiscButton.Enabled = false;
+				int id = cakeboxesListBox.SelectedValue.ToInt();
+				if(new EditCakebox(id).ShowDialog(this) == DialogResult.OK)
+				{
+					ShowCakeboxes(id, true);
+				}
 			}
 		}
 		
@@ -512,6 +510,35 @@ namespace Cavebox.Forms
 		}
 		
 		/// <summary>
+		/// Add new disc with the scan worker results
+		/// New disc label and cakebox are required fields
+		/// </summary>
+		private void SaveNewDisc(object sender, EventArgs e)
+		{
+			string label = discLabelTextBox.Text.Trim();
+			if(discCakeboxComboBox.SelectedIndex == -1)
+			{
+				MessageBox.Show(Lang.GetString("_newDiscMissingCakebox"), Lang.GetString("_error"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+			}
+			else if(label.Length == 0)
+			{
+				MessageBox.Show(Lang.GetString("_discLabelMissing"), Lang.GetString("_error"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+			}
+			else
+			{
+				Cursor.Current = Cursors.WaitCursor;
+				Model.AddDisc(label, scanFilesTextBox.Text.Trim(), scanTotalFiles, discCakeboxComboBox.SelectedValue.ToInt(), DateTime.UtcNow.ToUnix());
+				Cursor.Current = Cursors.Default;
+				ShowCakeboxes();
+				RefreshStatusBar(false, true);
+				discLabelTextBox.Clear();
+				scanFilesTextBox.Clear();
+				scanFilesTextBox.Text = Lang.GetString("_newDiscAdded", label, discCakeboxComboBox.Text);
+				saveDiscButton.Enabled = false;
+			}
+		}
+		
+		/// <summary>
 		/// Open edit disc dialog
 		/// </summary>
 		private void OpenEditDisc(object sender, EventArgs e)
@@ -529,7 +556,7 @@ namespace Cavebox.Forms
 					}
 					else
 					{
-						ShowDiscs(sender, e);
+						ShowDiscs(null, EventArgs.Empty);
 					}
 				}
 			}
@@ -544,7 +571,7 @@ namespace Cavebox.Forms
 			{
 				Model.DeleteDisc(discsListBox.SelectedValue.ToInt());
 				Console.WriteLine(Lang.GetString("_discDeleted", discsListBox.Text));
-				ShowDiscs(sender, e);
+				ShowDiscs(null, EventArgs.Empty);
 				RefreshStatusBar(false, true);
 			}
 		}
@@ -639,39 +666,13 @@ namespace Cavebox.Forms
 		 ***********************************************************/
 		
 		/// <summary>
-		/// Open add new cakebox dialog
-		/// </summary>
-		private void OpenAddCakeboxForm(object sender, EventArgs e)
-		{
-			if(new EditCakebox().ShowDialog(this) == DialogResult.OK)
-			{
-				ShowCakeboxes(0, true);
-			}
-		}
-		
-		/// <summary>
-		/// Open edit cakebox dialog
-		/// </summary>
-		private void OpenEditCakeboxForm(object sender, EventArgs e)
-		{
-			if(cakeboxesListBox.SelectedIndex > -1)
-			{
-				int id = cakeboxesListBox.SelectedValue.ToInt();
-				if(new EditCakebox(id, cakeboxesListBox.Text).ShowDialog(this) == DialogResult.OK)
-				{
-					ShowCakeboxes(id, true);
-				}
-			}
-		}
-
-		/// <summary>
 		/// Open changelog dialog
 		/// </summary>
 		private void OpenChangelog(object sender, EventArgs e)
 		{
 			new Changelog().ShowDialog(this);
 		}
-						
+		
 		/// <summary>
 		/// Run sqlite vacuum procedure to rebuild database to save database and speed up things
 		/// </summary>

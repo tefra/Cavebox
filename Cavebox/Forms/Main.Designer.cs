@@ -225,7 +225,7 @@ namespace Cavebox.Forms
 			this.cakeboxesListBox.TabIndex = 0;
 			this.cakeboxesListBox.ValueMember = "Key";
 			this.cakeboxesListBox.SelectedValueChanged += new System.EventHandler(this.ShowDiscs);
-			this.cakeboxesListBox.DoubleClick += new System.EventHandler(this.OpenEditCakeboxForm);
+			this.cakeboxesListBox.DoubleClick += new System.EventHandler(this.OpenEditCakebox);
 			this.cakeboxesListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ListBoxMouseDown);
 			this.cakeboxesListBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.IdentityMouseMove);
 			// 
@@ -262,7 +262,7 @@ namespace Cavebox.Forms
 			this.editCakeboxMenuItem.Name = "editCakeboxMenuItem";
 			this.editCakeboxMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.editCakeboxMenuItem.Text = "Edit";
-			this.editCakeboxMenuItem.Click += new System.EventHandler(this.OpenEditCakeboxForm);
+			this.editCakeboxMenuItem.Click += new System.EventHandler(this.OpenEditCakebox);
 			// 
 			// deleteCakeboxMenuItem
 			// 
@@ -684,7 +684,7 @@ namespace Cavebox.Forms
 			this.newCakeboxMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
 			this.newCakeboxMenuItem.Size = new System.Drawing.Size(189, 22);
 			this.newCakeboxMenuItem.Text = "New Cakebox";
-			this.newCakeboxMenuItem.Click += new System.EventHandler(this.OpenAddCakeboxForm);
+			this.newCakeboxMenuItem.Click += new System.EventHandler(this.OpenAddCakebox);
 			// 
 			// importMenuItem
 			// 

@@ -58,7 +58,7 @@ namespace Cavebox.Forms
 					Console.Write(item.Value + "\n");
 				}
 				Model.MoveDiscs(target, discs);
-				closeForm(sender, e);
+				closeForm(null, EventArgs.Empty);
 			}
 		}
 		
@@ -83,7 +83,7 @@ namespace Cavebox.Forms
 			string tmp = checkAll.Text;
 			checkAll.Text = checkAll.Tag.ToString();
 			checkAll.Tag = tmp;
-			enableMoveButton(sender, e);
+			enableMoveButton(null, EventArgs.Empty);
 		}
 	}
 }

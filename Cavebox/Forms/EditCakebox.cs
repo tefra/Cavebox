@@ -25,10 +25,10 @@ namespace Cavebox.Forms
 		public EditCakebox(int id = 0, string label = null)
 		{
 			InitializeComponent();
-			this.Text = (id > 0) ? Lang.GetString("_editCakebox", id) : Lang.GetString("_addNewCakebox");
 			this.id = id;
-			this.label = label;
-			cakeboxLabel.Text = label;
+			this.Text = (id > 0) ? Lang.GetString("_editCakebox", id) : Lang.GetString("_addNewCakebox");
+			this.label = (id > 0) ? Model.FetchCakeboxLabelById(id) : string.Empty;
+			cakeboxLabel.Text = this.label;
 		}
 		
 		/// <summary>
@@ -41,7 +41,7 @@ namespace Cavebox.Forms
 			{
 				Console.WriteLine((id > 0) ? Lang.GetString("_updatedCakebox", id) : Lang.GetString("_addedNewCakebox", newLabel));
 				Model.SaveCakebox(newLabel, id);
-				CloseForm(sender, e);
+				CloseForm(null, EventArgs.Empty);
 			}
 		}
 		

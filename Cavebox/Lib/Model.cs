@@ -152,7 +152,7 @@ namespace Cavebox.Lib
 				string sql = "SELECT c.id, c.label FROM cakebox AS c";
 				sql += (filter != null) ? " LEFT JOIN disc AS d on d.cid = c.id WHERE ToLower(d.files) LIKE '" + filter + "' GROUP BY c.id" : "";
 				sql += " ORDER BY " + ((sortBy == 0) ? "c.id" : "c.label COLLATE NOCASE") + " " + ((sortWay == 0) ? " ASC" : " DESC");
-	
+				
 				SQLiteCommand c = CreateCommand(sql);
 				SQLiteDataReader r = c.ExecuteReader();
 				while (r.Read())
@@ -162,7 +162,7 @@ namespace Cavebox.Lib
 					if(sortBy == 0)
 					{
 						label = "#" + id + " - " + label;
-					}			
+					}
 					list.Add(new Identity(id, label));
 				}
 				r.Close();
@@ -235,6 +235,16 @@ namespace Cavebox.Lib
 		public static string FetchDiscLabelById(int id)
 		{
 			return ExecuteScalar("SELECT label FROM disc WHERE id = " + id);
+		}
+		
+		/// <summary>
+		/// Fetch cakeboxe label by id
+		/// </summary>
+		/// <param name="id">Cakeboxe id number</param>
+		/// <returns>The cakebox label</returns>
+		public static string FetchCakeboxLabelById(int id)
+		{
+			return ExecuteScalar("SELECT label FROM cakebox WHERE id = " + id);
 		}
 		
 		/// <summary>

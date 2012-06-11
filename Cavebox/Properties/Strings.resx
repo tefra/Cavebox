@@ -214,7 +214,7 @@
     <value>Edit Cakebox #{0}</value>
   </data>
   <data name="_addNewCakebox" xml:space="preserve">
-    <value>Add new Cakebox</value>
+    <value>New Cakebox</value>
   </data>
   <data name="_itemX" xml:space="preserve">
     <value>Item #{0}</value>

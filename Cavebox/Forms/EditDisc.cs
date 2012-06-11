@@ -44,7 +44,7 @@ namespace Cavebox.Forms
 			{
 				Model.UpdateDisc(id, newCid, newLabel);
 				Console.WriteLine(Lang.GetString("_updatedDisc", id));
-				CloseForm(sender, e);
+				CloseForm(null, EventArgs.Empty);
 			}
 		}
 		
