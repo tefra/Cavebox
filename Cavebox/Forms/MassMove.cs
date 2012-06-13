@@ -15,7 +15,7 @@ namespace Cavebox.Forms
 	/// </summary>
 	public partial class MassMove : Form
 	{
-		Boolean checkFlag = false;
+		bool checkFlag = false;
 		int source;
 		
 		/// <summary>
