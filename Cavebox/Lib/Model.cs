@@ -92,39 +92,7 @@ namespace Cavebox.Lib
 			ExecuteNonQuery("DROP TABLE cakebox");
 			ExecuteNonQuery("DROP TABLE disc");
 		}
-		
-		/// <summary>
-		/// Rebuild file counters
-		/// </summary>
-		public static void RebuildFileCounters()
-		{
-			try
-			{
-				SQLiteTransaction t = db.BeginTransaction();
-				SQLiteCommand c = CreateCommand("SELECT id, files FROM disc WHERE 1");
-				SQLiteCommand u = CreateCommand("Update disc SET filesno = ? WHERE id = ?");
-				SQLiteParameter id = new SQLiteParameter();
-				SQLiteParameter filesno = new SQLiteParameter();
-				u.Parameters.Add(filesno);
-				u.Parameters.Add(id);
-				SQLiteDataReader r = c.ExecuteReader();
-				while (r.Read())
-				{
-					id.Value = r.GetInt32(0);
-					filesno.Value = r.GetString(1).Split('\n').Length;
-					u.ExecuteNonQuery();
-				}
-				t.Commit();
-				r.Close();
-				c.Dispose();
-				u.Dispose();
-			}
-			catch(SQLiteException e)
-			{
-				Console.WriteLine(e.Message);
-			}
-		}
-		
+				
 		/// <summary>
 		/// Custom ToLower Sqlite Command for proper search LIKE results
 		/// </summary>
@@ -151,7 +119,7 @@ namespace Cavebox.Lib
 			{
 				string sql = "SELECT c.id, c.label FROM cakebox AS c";
 				sql += (filter != null) ? " LEFT JOIN disc AS d on d.cid = c.id WHERE ToLower(d.files) LIKE '" + filter + "' GROUP BY c.id" : "";
-				sql += " ORDER BY " + ((sortBy == 0) ? "c.id" : "c.label COLLATE NOCASE") + " " + ((sortWay == 0) ? " ASC" : " DESC");
+				sql += " ORDER BY " + ((sortBy == 0) ? "c.id" : "c.label COLLATE NOCASE") + " " + ((sortWay == 0) ? "ASC" : "DESC");
 				
 				SQLiteCommand c = CreateCommand(sql);
 				SQLiteDataReader r = c.ExecuteReader();
@@ -191,14 +159,14 @@ namespace Cavebox.Lib
 				string orderClause = null;
 				switch(sortBy)
 				{
-						case 0: orderClause = "id"; 					break;
-						case 1: orderClause = "label COLLATE NOCASE"; 	break;
-						case 2: orderClause = "filesno";			 	break;
+					case 0: orderClause = "id"; 					break;
+					case 1: orderClause = "label COLLATE NOCASE"; 	break;
+					case 2: orderClause = "filesno";			 	break;
 				}
 
 				string sql = "SELECT id, label, filesno FROM disc WHERE cid = " + cid;
 				sql += (filter != null) ? " AND ToLower(files) LIKE '" + filter + "'" : "";
-				sql += " ORDER BY " + orderClause + " " + ((sortWay == 0) ? " ASC" : " DESC");
+				sql += " ORDER BY " + orderClause + " " + ((sortWay == 0) ? "ASC" : "DESC");
 				
 				SQLiteCommand c = CreateCommand(sql);
 				SQLiteDataReader r = c.ExecuteReader();
@@ -352,9 +320,9 @@ namespace Cavebox.Lib
 		}
 		
 		/// <summary>
-		/// Move discs to a new cakeboxe
+		/// Move discs to a new cakebox
 		/// </summary>
-		/// <param name="target">Cakebox id number</param>
+		/// <param name="target">Target cakebox id number</param>
 		/// <param name="discs">List of disc id numbers</param>
 		public static void MoveDiscs(int target, List<int> discs)
 		{

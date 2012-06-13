@@ -15,8 +15,8 @@ namespace Cavebox.Lib
 		/// <summary>
 		/// Construct my lazy gibberish
 		/// </summary>
-		/// <param name="id"></param>
-		/// <param name="value"></param>
+		/// <param name="id">Integer key</param>
+		/// <param name="value">String value</param>
 		public Identity(int key, string value)
 		{
 			Value = value;
@@ -26,12 +26,12 @@ namespace Cavebox.Lib
 		/// <summary>
 		/// Magic get set Value
 		/// </summary>
-		public string Value {get; set;}
+		public string Value { get; set; }
 		
 		/// <summary>
 		/// Magic get set Key
 		/// </summary>
-		public int Key {get; set;}
+		public int Key { get; set; }
 		
 		/// <summary>
 		/// We don't really need this but that stupid checklistbox doesn't support databinding so
