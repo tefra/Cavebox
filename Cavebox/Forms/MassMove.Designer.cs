@@ -65,7 +65,7 @@ namespace Cavebox.Forms
 			this.selectDiscs.Name = "selectDiscs";
 			this.selectDiscs.Size = new System.Drawing.Size(284, 247);
 			this.selectDiscs.TabIndex = 0;
-			this.selectDiscs.SelectedIndexChanged += new System.EventHandler(this.enableMoveButton);
+			this.selectDiscs.SelectedIndexChanged += new System.EventHandler(this.EnableMoveButton);
 			// 
 			// selectCakebox
 			// 
@@ -80,7 +80,7 @@ namespace Cavebox.Forms
 			this.selectCakebox.Size = new System.Drawing.Size(290, 21);
 			this.selectCakebox.TabIndex = 1;
 			this.selectCakebox.ValueMember = "Key";
-			this.selectCakebox.SelectedIndexChanged += new System.EventHandler(this.enableMoveButton);
+			this.selectCakebox.SelectedIndexChanged += new System.EventHandler(this.EnableMoveButton);
 			// 
 			// moveButton
 			// 
@@ -102,7 +102,6 @@ namespace Cavebox.Forms
 			this.cancelButton.Size = new System.Drawing.Size(75, 23);
 			this.cancelButton.TabIndex = 4;
 			this.cancelButton.Text = "Cancel";
-			this.cancelButton.Click += new System.EventHandler(this.closeForm);
 			// 
 			// checkAll
 			// 

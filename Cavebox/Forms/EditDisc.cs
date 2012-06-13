@@ -44,22 +44,13 @@ namespace Cavebox.Forms
 			{
 				Model.UpdateDisc(id, newCid, newLabel);
 				Console.WriteLine(Lang.GetString("_updatedDisc", id));
-				CloseForm(null, EventArgs.Empty);
 			}
 		}
-		
-		/// <summary>
-		/// Dispose the form
-		/// </summary>
-		private void CloseForm(object sender, EventArgs e)
-		{
-			Dispose();
-		}
-		
+
 		/// <summary>
 		/// Enable the save button when real changes were made
 		/// </summary>
-		private void enableSaveButton(object sender, EventArgs e)
+		private void EnableSaveButton(object sender, EventArgs e)
 		{
 			string newLabel = discLabel.Text.Trim();
 			saveButton.Enabled = ((label != newLabel && newLabel.Length > 0) || selectCakebox.SelectedValue.ToInt() != cid);

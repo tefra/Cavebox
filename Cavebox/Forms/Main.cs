@@ -796,10 +796,7 @@ namespace Cavebox.Forms
 		/// </summary>
 		private void FilesListMenuOpening(object sender, CancelEventArgs e)
 		{
-			if(filesTextBox.SelectedText.Trim().Length == 0)
-			{
-				e.Cancel = true;
-			}
+			e.Cancel = (filesTextBox.SelectedText.Trim().Length == 0);
 		}
 		
 		/// <summary>
@@ -807,10 +804,7 @@ namespace Cavebox.Forms
 		/// </summary>
 		private void DiscsMenuOpening(object sender, CancelEventArgs e)
 		{
-			if(discsListBox.SelectedIndex == -1)
-			{
-				e.Cancel = true;
-			}
+			e.Cancel = (discsListBox.SelectedIndex == -1);
 		}
 		
 		/// <summary>

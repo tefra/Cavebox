@@ -33,14 +33,6 @@ namespace Cavebox.Forms
 		}
 		
 		/// <summary>
-		/// Displose form
-		/// </summary>
-		private void closeForm(object sender, EventArgs e)
-		{
-			Dispose();
-		}
-		
-		/// <summary>
 		/// Move selected discs to selected cakebox
 		/// </summary>
 		private void MoveButtonClick(object sender, EventArgs e)
@@ -58,14 +50,13 @@ namespace Cavebox.Forms
 					Console.Write(item.Value + "\n");
 				}
 				Model.MoveDiscs(target, discs);
-				closeForm(null, EventArgs.Empty);
 			}
 		}
 		
 		/// <summary>
 		/// Enable the move button when we have something to move
 		/// </summary>
-		private void enableMoveButton(object sender, EventArgs e)
+		private void EnableMoveButton(object sender, EventArgs e)
 		{
 			moveButton.Enabled = (selectDiscs.CheckedItems.Count > 0 && selectCakebox.SelectedValue.ToInt() != source);
 		}
@@ -83,7 +74,7 @@ namespace Cavebox.Forms
 			string tmp = checkAll.Text;
 			checkAll.Text = checkAll.Tag.ToString();
 			checkAll.Tag = tmp;
-			enableMoveButton(null, EventArgs.Empty);
+			EnableMoveButton(null, EventArgs.Empty);
 		}
 	}
 }

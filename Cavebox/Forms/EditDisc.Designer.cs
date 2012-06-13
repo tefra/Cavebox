@@ -63,7 +63,7 @@ namespace Cavebox.Forms
 			this.discLabel.Name = "discLabel";
 			this.discLabel.Size = new System.Drawing.Size(302, 20);
 			this.discLabel.TabIndex = 2;
-			this.discLabel.TextChanged += new System.EventHandler(this.enableSaveButton);
+			this.discLabel.TextChanged += new System.EventHandler(this.EnableSaveButton);
 			// 
 			// selectCakebox
 			// 
@@ -76,7 +76,7 @@ namespace Cavebox.Forms
 			this.selectCakebox.Size = new System.Drawing.Size(302, 21);
 			this.selectCakebox.TabIndex = 3;
 			this.selectCakebox.ValueMember = "Key";
-			this.selectCakebox.SelectedValueChanged += new System.EventHandler(this.enableSaveButton);
+			this.selectCakebox.SelectedValueChanged += new System.EventHandler(this.EnableSaveButton);
 			// 
 			// saveButton
 			// 
@@ -97,7 +97,6 @@ namespace Cavebox.Forms
 			this.cancelButton.Size = new System.Drawing.Size(75, 23);
 			this.cancelButton.TabIndex = 5;
 			this.cancelButton.Text = "Cancel";
-			this.cancelButton.Click += new System.EventHandler(this.CloseForm);
 			// 
 			// EditDisc
 			// 

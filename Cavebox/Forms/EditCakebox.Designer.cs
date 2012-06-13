@@ -66,7 +66,6 @@ namespace Cavebox.Forms
 			this.Cancel.Size = new System.Drawing.Size(75, 23);
 			this.Cancel.TabIndex = 3;
 			this.Cancel.Text = "Cancel";
-			this.Cancel.Click += new System.EventHandler(this.CloseForm);
 			// 
 			// cakeboxLabelLabel
 			// 

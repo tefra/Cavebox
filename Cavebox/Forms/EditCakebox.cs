@@ -41,16 +41,7 @@ namespace Cavebox.Forms
 			{
 				Console.WriteLine((id > 0) ? Lang.GetString("_updatedCakebox", id) : Lang.GetString("_addedNewCakebox", newLabel));
 				Model.SaveCakebox(newLabel, id);
-				CloseForm(null, EventArgs.Empty);
 			}
-		}
-		
-		/// <summary>
-		/// Displose form
-		/// </summary>
-		private void CloseForm(object sender, EventArgs e)
-		{
-			Dispose();
 		}
 		
 		/// <summary>
