@@ -53,7 +53,7 @@ namespace Cavebox.Forms
 		private void MainFormLoad(object sender, EventArgs e)
 		{
 			controlBindings.Add(new ControlBinding(this, "Size", "WindowSize"));
-			controlBindings.Add(new ControlBinding(this, "Location", "WindowLocation"));
+			controlBindings.Add(new ControlBinding(this, "Location", "WindowLocation", false));
 			controlBindings.Add(new ControlBinding(this, "TopMost", "AlwaysOnTop"));
 			controlBindings.Add(new ControlBinding(alwaysOnTopMenuItem, "Checked", "AlwaysOnTop"));
 			controlBindings.Add(new ControlBinding(FileListSplitContainer, "SplitterDistance", "FileListSplitterDistance"));
@@ -72,7 +72,7 @@ namespace Cavebox.Forms
 			Options.LastBackupDir = (Options.LastBackupDir == String.Empty) ? Path.GetDirectoryName(Application.ExecutablePath) : Options.LastBackupDir;
 			CheckSortOptions(SortDiscsMenu);
 			CheckSortOptions(SortCakeboxesMenu);
-			ShowCakeboxes(0, true, true);
+			ShowCakeboxes(true, true);
 		}
 		
 		/// <summary>
@@ -126,14 +126,15 @@ namespace Cavebox.Forms
 		/// <param name="selectValue">Cakebox id to auto select</param>
 		/// <param name="refreshCakeboxesCache">Whether or not to refresh cakeboxes cache</param>
 		/// <param name="refreshDiscStats">Refresh or not the discs/files stats</param>
-		public void ShowCakeboxes(int selectValue = 0, Boolean refreshCakeboxesCache = false, Boolean refreshDiscStats = false)
+		public void ShowCakeboxes(Boolean refreshCakeboxesCache = false, Boolean refreshDiscStats = false)
 		{
 			if(refreshCakeboxesCache)
 			{
 				discCakeboxComboBox.DataSource = Model.FetchCakeboxes();
 				RefreshStatusBar(true, refreshDiscStats);
 			}
-
+			
+			int selectedValue = cakeboxesListBox.SelectedValue.ToInt();	
 			Point sort = (Point) SortCakeboxesMenu.Tag;
 			// Stupid controls sharing datasource behavior fix
 			cakeboxesListBox.BindingContext = new BindingContext();
@@ -148,7 +149,7 @@ namespace Cavebox.Forms
 			}
 			else
 			{
-				cakeboxesListBox.SelectedValue = selectValue;
+				cakeboxesListBox.SelectedValue = selectedValue;
 			}
 		}
 
@@ -457,7 +458,7 @@ namespace Cavebox.Forms
 		{
 			if(new EditCakebox().ShowDialog(this) == DialogResult.OK)
 			{
-				ShowCakeboxes(0, true);
+				ShowCakeboxes(true);
 			}
 		}
 		
@@ -471,7 +472,7 @@ namespace Cavebox.Forms
 				int id = cakeboxesListBox.SelectedValue.ToInt();
 				if(new EditCakebox(id).ShowDialog(this) == DialogResult.OK)
 				{
-					ShowCakeboxes(id, true);
+					ShowCakeboxes(true);
 				}
 			}
 		}
@@ -489,7 +490,7 @@ namespace Cavebox.Forms
 			{
 				Model.DeleteCakebox(cakeboxesListBox.SelectedValue.ToInt());
 				Console.WriteLine(Lang.GetString("_cakeboxDeleted", cakeboxesListBox.Text));
-				ShowCakeboxes(0, true);
+				ShowCakeboxes(true);
 				RefreshStatusBar(true, false);
 			}
 		}
@@ -696,7 +697,7 @@ namespace Cavebox.Forms
 				stopWatch = DateTime.Now;
 				Model.DropTables();
 				Model.Install();
-				ShowCakeboxes(0, true, true);
+				ShowCakeboxes(true, true);
 				Cursor.Current = Cursors.Default;
 				Console.WriteLine(Lang.GetString("_dropData", (DateTime.Now - stopWatch).TotalSeconds));
 			}
@@ -735,7 +736,7 @@ namespace Cavebox.Forms
 				Cursor.Current = Cursors.WaitCursor;
 				stopWatch = DateTime.Now;
 				int records = SQLiteXmlFile.Load(openFileDialog.FileName);
-				ShowCakeboxes(0, true, true);
+				ShowCakeboxes(true, true);
 				Options.LastBackupDir = Path.GetDirectoryName(openFileDialog.FileName);
 				Cursor.Current = Cursors.Default;
 				Console.WriteLine(Lang.GetString("_importCompleted", records, (DateTime.Now - stopWatch).TotalSeconds));
