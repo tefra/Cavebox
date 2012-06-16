@@ -3,6 +3,8 @@
 - Added file list search engines bing and yahoo
 - Removed deprecated procedure "Rebuild file counters"
 - Removed position from the reset window procedure
+- Removed duplicate status bar stats update after cakebox delete
+- Always select if possible the last selected cakebox after a list refresh
 - Code Cleanup
 -------------------------------------------------------------
 v2.1.4

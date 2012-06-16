@@ -116,22 +116,18 @@ namespace Cavebox.Forms
 		}
 
 		/// <summary>
-		/// On startup or if cakeboxes changed update the datasource of the newDiscCakebox
-		/// and the status bar stats labels. If filter is off cakeboxesListBox and newDiscCakebox
-		/// share the same datasource, if it's on a new list of filtered cakeboxes is generated.
-		/// To fix the way c# handles empty datasource and listbox selected value changed event
-		/// we have to also call manually the showdiscs event. Optionaly if the selected value is > 0
-		/// a cakebox is autoselected by the id number.
+		/// Populate cakebox listbox with filter and sort options. If cakeboxes changed or
+		/// the app just started also populate the discCakeboxComboBox with all entries from 
+		/// db ignoring the filter and using the default sort option.
 		/// </summary>
-		/// <param name="selectValue">Cakebox id to auto select</param>
-		/// <param name="refreshCakeboxesCache">Whether or not to refresh cakeboxes cache</param>
-		/// <param name="refreshDiscStats">Refresh or not the discs/files stats</param>
-		public void ShowCakeboxes(Boolean refreshCakeboxesCache = false, Boolean refreshDiscStats = false)
+		/// <param name="refresh">Refresh or not the cakeboxes cache</param>
+		/// <param name="discStats">Refresh or not the discs stats</param>
+		public void ShowCakeboxes(Boolean refresh = false, Boolean discStats = false)
 		{
-			if(refreshCakeboxesCache)
+			if(refresh)
 			{
 				discCakeboxComboBox.DataSource = Model.FetchCakeboxes();
-				RefreshStatusBar(true, refreshDiscStats);
+				RefreshStatusBar(true, discStats);
 			}
 			
 			int selectedValue = cakeboxesListBox.SelectedValue.ToInt();	
@@ -491,7 +487,6 @@ namespace Cavebox.Forms
 				Model.DeleteCakebox(cakeboxesListBox.SelectedValue.ToInt());
 				Console.WriteLine(Lang.GetString("_cakeboxDeleted", cakeboxesListBox.Text));
 				ShowCakeboxes(true);
-				RefreshStatusBar(true, false);
 			}
 		}
 		
@@ -502,8 +497,7 @@ namespace Cavebox.Forms
 		{
 			if(cakeboxesListBox.SelectedIndex > -1)
 			{
-				int source = cakeboxesListBox.SelectedValue.ToInt();
-				if(new MassMove(source, discsListBox.DataSource, discCakeboxComboBox.DataSource).ShowDialog(this) == DialogResult.OK)
+				if(new MassMove(cakeboxesListBox.SelectedValue.ToInt(), discsListBox.DataSource, discCakeboxComboBox.DataSource).ShowDialog(this) == DialogResult.OK)
 				{
 					ShowCakeboxes();
 				}
@@ -681,8 +675,11 @@ namespace Cavebox.Forms
 		{
 			Cursor.Current = Cursors.WaitCursor;
 			stopWatch = DateTime.Now;
+			FileInfo f = new FileInfo("data.db");
+			long before = f.Length;
 			Model.Vacuum();
-			Console.WriteLine(Lang.GetString("_vacuumTables", (DateTime.Now - stopWatch).TotalSeconds));
+			f.Refresh();
+			Console.WriteLine(Lang.GetString("_vacuumTables", (before - f.Length) / 1024, (DateTime.Now - stopWatch).TotalSeconds));
 			Cursor.Current = Cursors.Default;
 		}
 		

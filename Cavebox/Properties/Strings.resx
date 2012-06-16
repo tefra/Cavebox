@@ -196,7 +196,7 @@
     <value>∞</value>
   </data>
   <data name="_vacuumTables" xml:space="preserve">
-    <value>Vacuum database took {0:0.000} seconds</value>
+    <value>Vacuum database saved {0:n0} bytes in {1:0.000} seconds</value>
   </data>
   <data name="_dropData" xml:space="preserve">
     <value>Database reset took {0:0.000} seconds</value>
