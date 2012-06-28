@@ -45,6 +45,8 @@ namespace Cavebox.Forms
 				MessageBox.Show(Lang.GetString("_dbConnectionFailed"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
 				this.Dispose();
 			}
+			
+			
 		}
 		
 		/// <summary>

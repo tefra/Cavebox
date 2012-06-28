@@ -1,8 +1,9 @@
 ﻿v2.1.5
 - Added cakeboxes sort options (id and label)
 - Added file list search engines bing and yahoo
+- Fixed single instance feature to work with multiple installations
 - Removed deprecated procedure "Rebuild file counters"
-- Removed position from the reset window procedure
+- Removed window position from the reset window procedure
 - Removed duplicate status bar update after cakebox delete
 - Always select if possible the last selected cakebox after a list refresh
 - Code Cleanup
