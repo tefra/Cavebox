@@ -45,8 +45,6 @@ namespace Cavebox.Forms
 				MessageBox.Show(Lang.GetString("_dbConnectionFailed"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
 				this.Dispose();
 			}
-			
-			
 		}
 		
 		/// <summary>
@@ -79,8 +77,7 @@ namespace Cavebox.Forms
 		
 		/// <summary>
 		/// Validate sort options from session storage and initialize values.
-		/// Every sort menu must have a separator between sort fields and the
-		/// two sort ways asc|desc
+		/// Every sort menu must have a separator between sort fields and sort directions
 		/// </summary>
 		/// <param name="menu">Toolstripmenuitem with sort items</param>
 		private void CheckSortOptions(ToolStripMenuItem menu)

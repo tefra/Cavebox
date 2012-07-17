@@ -39,7 +39,6 @@ namespace Cavebox.Lib
 		/// <returns>True if the application is already running False otherwise</returns>
 		public static bool IsAlreadyRunning()
 		{
-			
 			string loc = GetMD5Hash(Application.ExecutablePath);
 			try
 			{
