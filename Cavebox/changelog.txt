@@ -1,5 +1,5 @@
 ﻿v2.1.6
-- Updated to SQLite 3.7.14
+- Updated to SQLite 3.7.15.2
 - Fixed bug not updating disks list when using the file list filter menu
 -------------------------------------------------------------
 v2.1.5
