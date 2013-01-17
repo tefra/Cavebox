@@ -1,4 +1,8 @@
-﻿v2.1.5
+﻿v2.1.6
+- Updated to SQLite 3.7.14
+- Fixed bug not updating disks list when using the file list filter menu
+-------------------------------------------------------------
+v2.1.5
 - Added cakeboxes sort options (id and label)
 - Added file list search engines bing and yahoo
 - Fixed single instance feature to work with multiple installations

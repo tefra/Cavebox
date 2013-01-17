@@ -770,7 +770,7 @@ namespace Cavebox.Forms
 			// vacuumDataMenuItem
 			// 
 			this.vacuumDataMenuItem.Name = "vacuumDataMenuItem";
-			this.vacuumDataMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.vacuumDataMenuItem.Size = new System.Drawing.Size(145, 22);
 			this.vacuumDataMenuItem.Text = "Vacuum Data";
 			this.vacuumDataMenuItem.ToolTipText = "Rebuild database";
 			this.vacuumDataMenuItem.Click += new System.EventHandler(this.VacuumTables);
@@ -778,7 +778,7 @@ namespace Cavebox.Forms
 			// dropDataMenuItem
 			// 
 			this.dropDataMenuItem.Name = "dropDataMenuItem";
-			this.dropDataMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.dropDataMenuItem.Size = new System.Drawing.Size(145, 22);
 			this.dropDataMenuItem.Text = "Drop Data";
 			this.dropDataMenuItem.Click += new System.EventHandler(this.DropData);
 			// 
@@ -1136,7 +1136,7 @@ namespace Cavebox.Forms
 			this.Icon = global::Cavebox.Properties.Images.app;
 			this.MainMenuStrip = this.menuStrip;
 			this.Name = "Main";
-			this.Text = "Cavebox 2.1.5";
+			this.Text = "Cavebox 2.1.6";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainFormClosing);
 			this.Load += new System.EventHandler(this.MainFormLoad);
 			this.FileListSplitContainer.Panel1.ResumeLayout(false);

@@ -135,6 +135,7 @@ namespace Cavebox.Forms
 			cakeboxesListBox.BindingContext = new BindingContext();
 			cakeboxesListBox.SelectedValueChanged -= ShowDiscs;
 			cakeboxesListBox.DataSource = Model.FetchCakeboxes(_filterLike, sort.X, sort.Y);
+			cakeboxesListBox.SelectedValue = -1;
 			cakeboxesListBox.SelectedValueChanged += ShowDiscs;
 			cakeboxesGroupBox.InsertDesc(cakeboxesListBox.Items.Count);
 			
